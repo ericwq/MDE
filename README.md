@@ -1,6 +1,6 @@
 ## MDSD 模型驱动软件开发：中文版（非盈利，非官方）
 <!-- ![cover](img/cover.png) -->
-<img src="img/cover.png" height="40%">
+<img src="img/cover.png" width="40%">
 
 [序言](ch0/0.md)
 
@@ -56,3 +56,9 @@
   * [6.10 元模型与行为](ch6/10.md)
   * [6.11 更复杂的示例](ch6/11.md)
   * [6.12 元建模中的陷阱](ch6/12.md)
+- [7 支持 MDSD 的目标架构](ch7/0.md)
+  * [7.1 MDSD背景下的软件架构](ch7/1.md)
+  * [7.2 什么是合理的架构？](ch7/2.md)
+  * [7.3 如何建立好的架构？](ch7/3.md)
+
+[参考](ref.md)
