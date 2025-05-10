@@ -64,5 +64,7 @@
   * [7.5 架构参考模型](ch7/5.md)
   * [7.6 平衡 MDSD 平台](ch7/6.md)
   * [7.7 架构一致性](ch7/7.md)
+  * [7.8 MDSD 和 CBD](ch7/8.md)
+  * [7.9 SOA、BPM 和 MDSD](ch7/9.md)
 
 [参考](ref.md)
