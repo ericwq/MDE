@@ -66,5 +66,7 @@
   * [7.7 架构一致性](ch7/7.md)
   * [7.8 MDSD 和 CBD](ch7/8.md)
   * [7.9 SOA、BPM 和 MDSD](ch7/9.md)
+- [8 构建领域架构](ch8/0.md)
+  * [8.1 DSL 构建](ch8/1.md)
 
 [参考](ref.md)
