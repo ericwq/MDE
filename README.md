@@ -3,7 +3,7 @@
 <img src="img/cover.png" width="40%">
 
 * [序言](ch0/0.md)
-* [第一部分 引言](part1.md)
+* [第一部分 简介](part1.md)
   - [1 引言](ch1/0.md)
     * [1.1 本书的主题](ch1/1.md)
     * [1.2 目标受众](ch1/2.md)
