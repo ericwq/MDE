@@ -37,7 +37,7 @@
     * [5.1 MDSD 与 CASE、4GL 和向导的比较](ch5/1.md)
     * [5.2 MDSD vs. 往返工程](ch5/2.md)
     * [5.3 MDSD 与模式](ch5/3.md)
-    * [5.4 MDSD 和领域驱动设计（DDD）](ch5/4.md)
+    * [5.4 MDSD 和领域驱动设计](ch5/4.md)
     * [5.5 MDSD、数据驱动的开发和解释器](ch5/5.md)
     * [5.6 MDSD与敏捷软件开发](ch5/6.md)
 * [第二部分 领域架构](part2.md)
