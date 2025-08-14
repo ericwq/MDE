@@ -28,7 +28,7 @@ L. Bass, P. Clements, R. Kazman, Software Architecture in Practice, Addison-Wesl
 K. Beck, Extreme Programming Explained – Embrace Change, Addison-Wesley, 2000
 ### Bec02
 K. Beck, Test-Driven Development: by Example, Addison-Wesley, 2002 
-### Bet02 
+### Bet02
 J. Bettin, Model-Driven Architecture – Implementation & Metrics, 2002,
 http://www.softmetaware.com/mda-implementationandmetrics.pdf
 ### Bet04c
