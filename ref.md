@@ -27,7 +27,9 @@ L. Bass, P. Clements, R. Kazman, Software Architecture in Practice, Addison-Wesl
 ### Bec00
 K. Beck, Extreme Programming Explained – Embrace Change, Addison-Wesley, 2000
 ### Bec02
-K. Beck, Test-Driven Development: by Example, Addison-Wesley, 2002 Bet02 J. Bettin, Model-Driven Architecture – Implementation & Metrics, 2002,
+K. Beck, Test-Driven Development: by Example, Addison-Wesley, 2002 
+### Bet02 
+J. Bettin, Model-Driven Architecture – Implementation & Metrics, 2002,
 http://www.softmetaware.com/mda-implementationandmetrics.pdf
 ### Bet04c
 J. Bettin, Prozessauswirkungen von MDSD – Model-Driven Development, special edition of OBJEKTspektrum 2004,
@@ -138,18 +140,15 @@ S. Mellor, Executable UML: A Foundation for Model-Driven Architecture, Addison-W
 ### MPS
 JetBrains, Meta Programming System, http://www.jetbrains.com/mps/ 
 ### OASIS
-Organization for the Advancement of Structured Information Standards,
-http://www.oasis-open.org
+Organization for the Advancement of Structured Information Standards, http://www.oasis-open.org
 ### OAW
 openArchitectureWare Group, openArchitectureWare Generator, http://www.openarchitectureware.org
 ### OC++
 S. Chiba, OpenC++, http://www.csg.is.titech.ac.jp/~chiba/openc++.html
 ### OCL
-OMG, Object Constraint Language 2.0 Specification, OMG document
-number ptc/05-06-06, June 2005, http://www.omg.org/docs/ptc/05-06-06.pdf
+OMG, Object Constraint Language 2.0 Specification, OMG document number ptc/05-06-06, June 2005, http://www.omg.org/docs/ptc/05-06-06.pdf
 ### Oes01
-B. Oestereich et al., Erfolgreich mit Objektorientierung, Second Edition,
-Oldenbourg Wissenschaftsverlag, 2001
+B. Oestereich et al., Erfolgreich mit Objektorientierung, Second Edition, Oldenbourg Wissenschaftsverlag, 2001
 ### OMG
 Object Management Group, http://www.omg.org
 ### OMGM
@@ -160,8 +159,7 @@ Object Management Group, MDA Committed Companies and their Products, http://www.
 ### OWS+03
 B. Oestereich et al., Objektorientierte Geschäftsprozessmodellierung mit der UML, Dpunkt Verlag, 2003
 ### Par76
-D. L. Parnas, On the Design and Development of Program Families, IEEE Transactions on Software Engineering, Vol. SE-2, No. 1, March 1976,
-pp. 1–9.
+D. L. Parnas, On the Design and Development of Program Families, IEEE Transactions on Software Engineering, Vol. SE-2, No. 1, March 1976, pp. 1–9.
 ### PBG04
 T. Posch, K. Birken, M. Gerdom, Basiswissen Softwarearchitektur, Dpunkt Verlag, 2004
 ### PLP
@@ -197,7 +195,8 @@ Apache Software Foundation, The Apache Struts Application Framework, http://stru
 ### TOMC
 Apache Software Foundation, Apache Tomcat, http://tomcat.apache.org/
 ### UMLX
-E. D. Willink, UMLX: A Graphical Transformation Language for MDA, http://www.softmetaware.com/oopsla2003/willink.ppt
+E. D. Willink, UMLX: A Graphical Transformation Language for MDA,
+http://www.softmetaware.com/oopsla2003/willink.ppt
 ### VELO
 The Apache Jakarta Project, Velocity, http://jakarta.apache.org/velocity/
 ### VKZ04
@@ -210,8 +209,7 @@ M. Völter, Program Generation – A Survey of Techniques and Tools, http://www.
 M. Völter, Models and Aspects – Patterns for Handling Cross-Cutting Concerns in Model-Driver Software Development,
 http://www.voelter.de/data/pub/ModelsAndAspects.pdf
 ### VSW02
-M. Völter, A. Schmid, E. Wolff, Server Component Patterns, John Wiley &
-Sons, 2002
+M. Völter, A. Schmid, E. Wolff, Server Component Patterns, John Wiley & Sons, 2002
 ### WfMC
 The Workflow Management Coalition, http://www.wfmc.org
 ### WL99
