@@ -62,7 +62,7 @@ RhoArchitecture 的基石是 RhoEngine，这是一个 JavaScript 组件，可以
 
 最后，WebIDERho 使用 RhoModel 作为编程模型，并使用 RhoEngine 作为执行环境。WebIDERho 使我们能够在服务器端和客户端定义项目、可视化类图、自动生成文档，并部署基于 NodeJS 的服务器端和客户端 Web 应用程序。
 
-### 3.2 Rho架构
+### 3.2 RhoArchitecture
 为了更好地理解，[Figure 1](#figure-1) 展示了软件架构，该架构在概念层面上定义了我们处理 JSON-DSL 的方法中所涉及的组件，即 RhoArchitecture。该架构的主要目标是促进以下两个步骤：
 
 1. *指定 JSON-DSL* ：在此步骤中，使用 RhoModel（位于 [Figure 1](#figure-1) 的中下部分）将 JSON-DSL 定义为 RhoLanguage。为此，首先我们必须定义 JSON-DSL 语法，然后实现与语法元素（终端符号和非终端符号）相关的功能。在 RhoModel 中，必须通过从 RhoLanguage 基类继承来将此功能作为一组 JavaScript 类提供，以减轻程序员的任务。与语法的每个元素相关的功能在我们称之为组件（位于 [Figure 1](#figure-1) 的底部）的部分中实现。在提供语法和相关功能之后，RhoModel 可以在评估相应的 JSON-DSL 代码时生成 JavaScript 代码。
@@ -85,6 +85,25 @@ RhoArchitecture 的基石是 RhoEngine，这是一个 JavaScript 组件，可以
 
 总而言之，使用 RhoArchitecture，为 RhoEngine 实现的任何 JSON-DSL 都能够连接到异构数据源（XML、JSON、文本等），使用模板引擎，与 Web 组件协同工作，以增加语言的多功能性和功能性 (functionality)，并且如果应用安全策略和良好的编程实践，则可以获得相当可靠和强大的执行。
 
+### 3.3 RhoEngine
+在 RhoArchitecture 中，RhoEngine 是 JSON-DSL 的评估引擎。正式来说，RhoEngine 管理一组 RhoLanguage，其定义如下： P = {p<sub>1</sub>,...,p<sub>k</sub>,...,p<sub>m</sub>} 也就是说，它可以处理多个 JSON-DSL，并以此方式联合解释和评估用 JSON 编写的多个程序，以创建 Web 应用程序的组件。
+
+每个 RhoLanguage p<sub>k</sub> ∈ P 使用别名注册。因此，当执行 RhoCode S<sub>j</sub> 时，对应的别名 p<sub>k</sub> 已加载。RhoEngine 获取 S<sub>j</sub> 以及 p<sub>k</sub> 的别名 ，创建一个 RhoProgram R<sub>j</sub> ，并将其添加到正在运行的程序列表中 R = {R<sub>1</sub>,...,R<sub>j</sub>,...,R<sub>n</sub>} 。然后，每个 R<sub>j</sub> 将 S<sub>j</sub> 转换成一个 RhoObject O<sub>j</sub> 。这就是我们所说的 JSON-DSL 评估，其结果是使用语言 p<sub>k</sub> 执行 S<sub>j</sub> 。
+
+要执行 S<sub>j</sub> ，RhoEngine 获取语言 p<sub>k</sub> 的语法，并在 S<sub>j</sub> 中从语法的根元素开始，验证并评估该元素的功能。然后，它会深入到 S<sub>j</sub> 的嵌套元素并根据 p<sub>k</sub> 的语法结构对其进行分析，以便针对每个嵌套元素验证并评估相关功能。当 RhoEngine 完成遍历所有 S<sub>j</sub> 的嵌套元素后，执行结束。作为执行的结果，RhoProgram R<sub>j</sub> 返回对 O<sub>j</sub> 对象的引用
+，它解决了 Web 应用程序中的特定问题（或其中的一部分），既可以是 Web 服务器端也可以是 Web 客户端问题。
+
+正式来说，针对 Web 应用程序 W<sub>app</sub> 的特定问题的解决方案，可以看作是一组要执行的 RhoLanguages 程序：
+
+W<sub>app</sub> = { S<sub>jk</sub>|1≦j≦n, S<sub>jk</sub> coded in p<sub>k</sub> ∈ P ,1≦k≦m }
+
+而且执行 Web 应用程序 W<sub>app</sub> ，无论是在客户端还是服务器端，都可以表示为以下执行集：
+
+Exec( W<sub>app</sub>) = { O<sub>jk</sub>|1≦j≦r, O<sub>jk</sub> object reference of R<sub>jk</sub>  ∈ R,1≦k≦m }
+
+一个应用程序 W<sub>app</sub> 的执行 可以与其他 W<sub>app</sub> 的执行共存，其他  W<sub>app</sub> 以不同的 p<sub>k</sub>  ∈ P 书写，例如，不同的 JSON-DSL。
+
+由于 RhoEngine 直接评估 JSON-DSL 代码，并且由于 JSON 的动态特性，源程序（RhoCode S<sub>j</sub>) 可以在执行过程中通过修改 RhoObject O<sub>j</sub> 进行更改。为了允许重用修改后的代码，RhoEngine 可以序列化更改并创建一个新的 S<sub>j</sub>。同样的 JSON 特性也使我们能够组合 RhoCode 片段来构建动态程序，从而获得多功能性、灵活性以及对 Web 应用程序变化的适应性。此外，与其他 JSON-DSL 不同，RhoLanguages 可以关联外部资源（XML、JSON 或文本），以便在运行时使用和修改信息。此外，它们还能够使用 JavaScript Web 组件和模板引擎。RhoEngine 基类内置了对所有这些特性的支持，可以直接集成到 JSON-DSL 规范中。
 
 ----
 #### 1
