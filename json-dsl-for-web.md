@@ -136,7 +136,7 @@ m 是嵌套对象的数量，并且 Δ<sub>ij</sub> 是嵌套对象的定义（�
 
 其中 RhoGrammar G 是语言 ρ<sub>k</sub> 的语法，如（1）中定义，K 是实现语言 ρ<sub>k</sub> 功能的可重用 JavaScript 组件。C 是定义语法功能 G 的类的子集，最后，E ↔ C 是 E<sub>i</sub> 和 C<sub>i</sub> 之间的关联，对于每个 E<sub>i</sub> ∈ E 和 C<sub>i</sub> ∈ C，分别相对应。注意一个类 C<sub>i</sub> ∈ C 可以与语法 G 的多个元素相关联，并且对于一个对象 E<sub>i</sub> ∈ E ，仅定义了一个 C<sub>i</sub> 类。
 
-[TEMPLATE 1](#template-1) 和 [TEMPLATE 2](#template-2) 展示了 RhoLanguage ρ<sub>k</sub> 的 JavaScript 组件的可能实现，以及它在 RhoEngine 中执行的语法定义。[TEMPLATE 1](#template-1) 定义了 [Figure 2](#figure-2) 中的组件 K，包含： ( i ) 语法类集 C （其中每个类继承 RHO.JSONDSL.Base，参见第 [3.7](#3.7) 节），（ii）组件 K 的附加类以及（iii）组件 K 的公共接口。*TODO 3.7*
+[TEMPLATE 1](#template-1) 和 [TEMPLATE 2](#template-2) 展示了 RhoLanguage ρ<sub>k</sub> 的 JavaScript 组件的可能实现，以及它在 RhoEngine 中执行的语法定义。[TEMPLATE 1](#template-1) 定义了 [Figure 2](#figure-2) 中的组件 K，包含： ( i ) 语法类集 C （其中每个类继承 RHO.JSONDSL.Base，参见第 [3.7](#37-实施总结) 节），（ii）组件 K 的附加类以及（iii）组件 K 的公共接口。
 
 
 #### TEMPLATE 1
@@ -150,6 +150,53 @@ m 是嵌套对象的数量，并且 Δ<sub>ij</sub> 是嵌套对象的定义（�
 ![TEMPLATE 2](pic/1-s2.0-S2590118423000138-fx2.jpg)
 
 [TEMPLATE 2 高清图](pic/1-s2.0-S2590118423000138-fx2_lrg.jpg)
+
+### 3.5 RhoModel
+自动代码生成是软件工程的基石之一，它可以节省时间、提高效率、提高质量，并实现信息系统构建的标准化 <sup>[63](#63)</sup>、<sup>[67](#67)</sup>。在此背景下，如上一节所述，RhoModel（Rho 编程模型）允许 RhoLanguages、模板引擎、Web 组件和 JavaScript 组件的规范和实现。基于我们之前对 PsiModel <sup>[9](#9)</sup> 的研究并使用代码隐藏 (code-behind) 技术，RhoModel 将规范与实现分开。RhoModel 允许指定和实现以下内容：
+- （i）基本编程元素（Const、Var、Object、Enum 和 Function 标签），
+- （ii）类（Class 标签，使用 <sup>[64](#64)</sup>、<sup>[67](#67)</sup> 中给出的定义），
+- （iii）对外部类的引用（ExternalClass 标签），
+- （iv）JavaScript 组件（Component 标签，使用 <sup>[67](67)</sup>、<sup>[68](#68)</sup> 中给出的组件或模块的定义），以及
+- （v）DSL 的定义（DSL 标签）。
+
+有关 RhoEngine、RhoLanguages 和 RhoModel 的更多详细信息，请参阅 http://www.devrho.com 中的 “Rho API” 子菜单。该网站包含 RhoModel 代码、自动文档、生成的代码和交互式图表，以及在其轻量级开发环境 WebIDERho 中使用 RhoModel（ “Doc” 子菜单）生成的所有库和项目。
+
+### 3.6 WebIDERho
+WebIDERho Web 集成开发环境旨在帮助开发人员在 Web 服务端和 Web 客户端创建项目、可视化类图、自动创建文档以及部署基于 NodeJS 的 Web 服务端和客户端应用。WebIDERho 管理一组称为项目列表的项目。[Figure 3](#figure-3) (a) 显示了项目列表 “_core”（RhoArchitecture 核心项目），每个项目都显示其名称、描述、文件数量以及编辑和删除按钮。在 WebIDERho 中，我们可以创建三种类型的项目：Empty、RhoLanguage（JSON-DSL 规范）和 Component（创建 JavaScript 组件），所有这些项目均基于 RhoModel。
+
+另一方面，[Figure 3](#figure-3)（b）展示了 WebIDERho 项目的编辑器。以下总结了项目菜单选项：
+1. *Open Project List* ：在Web 浏览器中使用 www.devrho.com?projects=﹤list﹥ 打开项目列表，其中 ﹤list﹥ 是项目列表的名称。默认情况下，显示RhoModel 样例项目 (﹤list﹥= _sample），其中包含本文详述的案例研究项目。
+2. *Compile & Execute* 会编译规范文件（MRho 文件）和实现文件（MIRho 文件）以生成 JavaScript 代码。另一方面，WebIDERho 为组件的执行提供了一个简单的环境。
+3. *Diagram* ：构建并显示项目的类图（见 [Figure 5](#figure-5) ）。您可以根据需要创建任意数量的图表。
+4. *Server & Application* ：部署基于 NodeJS 的 Web 服务和应用程序。
+5. *Option Project* ：管理 Rho 项目（保存全部、编辑和删除）。它允许创建多种文件类型，因为它使用 CodeMirror <sup>[69](#69)</sup> 作为编辑器。
+6. *Documents* ：在此子菜单中，我们可以访问所有可用的 RhoEngine 组件和示例的自动文档实用工具。
+
+具体来说，[Figure 3](#figure-3) (a) 显示了项目设置 “\<name\>_core”，其中包括我们的 RhoEngine 引擎的实现（Rho 项目，组件类型）、RhoModel 编程模型（MRho 项目，组件类型）以及此开发环境（WebIDERho 项目，组件类型）。
+
+#### Figure 3
+![Figure 3](pic/1-s2.0-S2590118423000138-gr3.jpg "Figure 3: 集成Web 开发环境 WebIDERho")
+
+[Figure 3 高清图](pic/1-s2.0-S2590118423000138-gr3_lrg.jpg)
+
+### 3.7 实施总结
+基于 [Figure 1](#figure-1) 的 RhoArchitecture 块图 (block diagram) ，[Figure 4](#figure-4) 显示了 RhoArchitecture 组件图，[Figure 5](#figure-5) 详细显示了 RhoArchitecture 类图，其中 RHO 是主要组件的名称，组成它的子组件总结如下：
+- Engine 是实现我们的执行引擎 RhoEngine 的组件。
+- JSONDSL 是 JavaScript 组件，用于创建 RhoLanguage 的实现基础，即构建和实现 JSON-DSL 的基础。
+- DS, Templates & Factory 是实现管理 Data Source、Template Engine 和 Factory Web Component 的组件。
+- MRho 是实现我们的编程模型 RhoModel 的外部组件。
+
+WebIDERho 的图表基于 Diagram Programming Generate DPG <sup>[70](#70)</sup>，这是一种 JSON-DSL，允许基于 PsiDiagram <sup>[71](#71)</sup> 为 Web 应用指定可编程图表 (programmable diagrams) 。该图表可以有多个视图，并可以查看每个 RhoModel 编程元素的源代码。未来，WebIDERho 将能够支持文本和可视化编程 DSL。[Figure 5](#figure-5) 中的类图是一个 DPG 图，WebIDERho 生成的详细帮助可以在 www.devrho.com?doc=rho 找到。
+
+#### Figure 4
+![Figure 4](pic/1-s2.0-S2590118423000138-gr4.jpg "Figure 4: RhoArchitecture 组件图")
+
+[Figure 4 高清图](pic/1-s2.0-S2590118423000138-gr4_lrg.jpg)
+
+#### Figure 5
+![Figure 5](pic/1-s2.0-S2590118423000138-gr5.jpg "Figure 5: RhoArchitecture 类图。基于 DPG 的 RhoModel 可视化语言")
+
+[Figure 5 高清图](pic/1-s2.0-S2590118423000138-gr5_lrg.jpg)
 
 ----
 #### 1
@@ -494,3 +541,30 @@ Get programming with Node. js. Simon and Schuster</br>
 Griggs B.</br>
 Node Cookbook: Discover Solutions, Techniques, and Best Practices for Server-Side Web Development with Node.js 14</br>
 Packt Publishing Ltd (2020)
+
+#### 67
+Flanagan D.</br>
+JavaScript: The Definitive Guide: Master the World’s Most-Used Programming Language</br>
+(seventh ed.) (2020)
+
+#### 68
+Ferguson R.</br>
+JavaScript and Development Tools. Begin. JavaScript Ultim. Guid. to Mod. JavaScript Dev</br>
+A Press, Berkeley, CA (2019), pp. 11-24, 10.1007/978-1-4842-4395-4_2
+
+#### 69
+Haverbeke M.</br>
+CodeMirror</br>
+(2017)</br>
+https://codemirror.net/
+
+#### 70
+Rani F., Diez P., Chavarriaga E., Guerra E., de Lara J.</br>
+Automated migration of eugenia graphical editors to the web</br>
+Proc. 23rd ACM/IEEE Int. Conf. Model Driven Eng. Lang. Syst. Companion Proc. (2020), pp. 1-7
+
+#### 71
+Chavarriaga E.</br>
+Modelo Programable Para la Serialización y Evaluación de Modelos Heterogéneos en Clientes Web</br>
+(Doctoral Thesis)</br>
+Repository Autonomous University of Madrid (2017)
