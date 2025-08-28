@@ -86,24 +86,70 @@ RhoArchitecture 的基石是 RhoEngine，这是一个 JavaScript 组件，可以
 总而言之，使用 RhoArchitecture，为 RhoEngine 实现的任何 JSON-DSL 都能够连接到异构数据源（XML、JSON、文本等），使用模板引擎，与 Web 组件协同工作，以增加语言的多功能性和功能性 (functionality)，并且如果应用安全策略和良好的编程实践，则可以获得相当可靠和强大的执行。
 
 ### 3.3 RhoEngine
-在 RhoArchitecture 中，RhoEngine 是 JSON-DSL 的评估引擎。正式来说，RhoEngine 管理一组 RhoLanguage，其定义如下： P = {p<sub>1</sub>,...,p<sub>k</sub>,...,p<sub>m</sub>} 也就是说，它可以处理多个 JSON-DSL，并以此方式联合解释和评估用 JSON 编写的多个程序，以创建 Web 应用程序的组件。
+在 RhoArchitecture 中，RhoEngine 是 JSON-DSL 的评估引擎。正式来说，RhoEngine 管理一组 RhoLanguage，其定义如下： P = {ρ<sub>1</sub>,...,ρ<sub>k</sub>,...,ρ<sub>m</sub>} 也就是说，它可以处理多个 JSON-DSL，并以此方式联合解释和评估用 JSON 编写的多个程序，以创建 Web 应用程序的组件。
 
-每个 RhoLanguage p<sub>k</sub> ∈ P 使用别名注册。因此，当执行 RhoCode S<sub>j</sub> 时，对应的别名 p<sub>k</sub> 已加载。RhoEngine 获取 S<sub>j</sub> 以及 p<sub>k</sub> 的别名 ，创建一个 RhoProgram R<sub>j</sub> ，并将其添加到正在运行的程序列表中 R = {R<sub>1</sub>,...,R<sub>j</sub>,...,R<sub>n</sub>} 。然后，每个 R<sub>j</sub> 将 S<sub>j</sub> 转换成一个 RhoObject O<sub>j</sub> 。这就是我们所说的 JSON-DSL 评估，其结果是使用语言 p<sub>k</sub> 执行 S<sub>j</sub> 。
+每个 RhoLanguage ρ<sub>k</sub> ∈ P 使用别名注册。因此，当执行 RhoCode S<sub>j</sub> 时，对应的别名 ρ<sub>k</sub> 已加载。RhoEngine 获取 S<sub>j</sub> 以及 ρ<sub>k</sub> 的别名 ，创建一个 RhoProgram R<sub>j</sub> ，并将其添加到正在运行的程序列表中 R = {R<sub>1</sub>,...,R<sub>j</sub>,...,R<sub>n</sub>} 。然后，每个 R<sub>j</sub> 将 S<sub>j</sub> 转换成一个 RhoObject O<sub>j</sub> 。这就是我们所说的 JSON-DSL 评估，其结果是使用语言 ρ<sub>k</sub> 执行 S<sub>j</sub> 。
 
-要执行 S<sub>j</sub> ，RhoEngine 获取语言 p<sub>k</sub> 的语法，并在 S<sub>j</sub> 中从语法的根元素开始，验证并评估该元素的功能。然后，它会深入到 S<sub>j</sub> 的嵌套元素并根据 p<sub>k</sub> 的语法结构对其进行分析，以便针对每个嵌套元素验证并评估相关功能。当 RhoEngine 完成遍历所有 S<sub>j</sub> 的嵌套元素后，执行结束。作为执行的结果，RhoProgram R<sub>j</sub> 返回对 O<sub>j</sub> 对象的引用
+要执行 S<sub>j</sub> ，RhoEngine 获取语言 ρ<sub>k</sub> 的语法，并在 S<sub>j</sub> 中从语法的根元素开始，验证并评估该元素的功能。然后，它会深入到 S<sub>j</sub> 的嵌套元素并根据 ρ<sub>k</sub> 的语法结构对其进行分析，以便针对每个嵌套元素验证并评估相关功能。当 RhoEngine 完成遍历所有 S<sub>j</sub> 的嵌套元素后，执行结束。作为执行的结果，RhoProgram R<sub>j</sub> 返回对 O<sub>j</sub> 对象的引用
 ，它解决了 Web 应用程序中的特定问题（或其中的一部分），既可以是 Web 服务器端也可以是 Web 客户端问题。
 
 正式来说，针对 Web 应用程序 W<sub>app</sub> 的特定问题的解决方案，可以看作是一组要执行的 RhoLanguages 程序：
 
-W<sub>app</sub> = { S<sub>jk</sub>|1≦j≦n, S<sub>jk</sub> coded in p<sub>k</sub> ∈ P ,1≦k≦m }
+W<sub>app</sub> = { S<sub>jk</sub>|1≦j≦n, S<sub>jk</sub> coded in ρ<sub>k</sub> ∈ P ,1≦k≦m }
 
 而且执行 Web 应用程序 W<sub>app</sub> ，无论是在客户端还是服务器端，都可以表示为以下执行集：
 
 Exec( W<sub>app</sub>) = { O<sub>jk</sub>|1≦j≦r, O<sub>jk</sub> object reference of R<sub>jk</sub>  ∈ R,1≦k≦m }
 
-一个应用程序 W<sub>app</sub> 的执行 可以与其他 W<sub>app</sub> 的执行共存，其他  W<sub>app</sub> 以不同的 p<sub>k</sub>  ∈ P 书写，例如，不同的 JSON-DSL。
+一个应用程序 W<sub>app</sub> 的执行 可以与其他 W<sub>app</sub> 的执行共存，其他  W<sub>app</sub> 以不同的 ρ<sub>k</sub>  ∈ P 书写，例如，不同的 JSON-DSL。
 
 由于 RhoEngine 直接评估 JSON-DSL 代码，并且由于 JSON 的动态特性，源程序（RhoCode S<sub>j</sub>) 可以在执行过程中通过修改 RhoObject O<sub>j</sub> 进行更改。为了允许重用修改后的代码，RhoEngine 可以序列化更改并创建一个新的 S<sub>j</sub>。同样的 JSON 特性也使我们能够组合 RhoCode 片段来构建动态程序，从而获得多功能性、灵活性以及对 Web 应用程序变化的适应性。此外，与其他 JSON-DSL 不同，RhoLanguages 可以关联外部资源（XML、JSON 或文本），以便在运行时使用和修改信息。此外，它们还能够使用 JavaScript Web 组件和模板引擎。RhoEngine 基类内置了对所有这些特性的支持，可以直接集成到 JSON-DSL 规范中。
+
+### 3.4 RhoLanguage
+如上所述，JSON-DSL 是一种使用 JSON 语法编写的编程语言，相关功能用 JavaScript 编程实现，包括客户端和基于 NodeJS 的服务器端 <sup>[64](#64)</sup>、<sup>[65](#65)</sup>、<sup>[66](#66)</sup>。
+
+根据此断言，这些 JSON-DSL 可以在 RhoModel 中作为 JavaScript 组件指定和构建（参见 [Figure 2](#figure-2) ）。我们将这些 JSON-DSL 标记为 RhoLanguages。对于特定的 RhoLanguage ρ<sub>k</sub>
+，一个 RhoGrammar G 由 duple 定义：
+
+(1) G = ＜E | E<sub>Φ</sub>＞
+
+此处 E = {E<sub>1</sub>,E<sub>2</sub>,...,E<sub>n</sub>} 是语法的可用对象或元素的集合，即通过实例对象 E<sub>i</sub> 定义的与语言元素相关的功能。对象 E<sub>Φ</sub> 是语法的根对象（对于任何 E<sub>Φ</sub> ∈ E, 1 ≦ Φ ≦ n ）。 每个 E<sub>i</sub> ∈ E 具有以下结构：
+
+(2) E<sub>i</sub> = {CLASS: N<sub>i</sub>, PROPERTIES: P<sub>i</sub>, CHILDREN: H<sub>i</sub>}
+
+这里 N<sub>i</sub> 是相关类的名称，P<sub>i</sub> 是对象 E<sub>i</sub> 的属性或特性，H<sub>i</sub> 定义子对象或嵌套对象（见 [Figure 2](#figure-2)），其中：
+
+(3) H<sub>i</sub> = {Δ<sub>ij</sub> | 1 ≦ j ≦ m, Δ<sub>ij</sub> = {KEY: k<sub>ij</sub>, KEY_REF: r<sub>ij</sub>, TYPE: t<sub>ij</sub>} }
+
+m 是嵌套对象的数量，并且 Δ<sub>ij</sub> 是嵌套对象的定义（其中 K<sub>ij</sub> 是对依赖于属性 r<sub>ij</sub> 的语法元素的引用，t<sub>ij</sub> 是嵌套对象的类型，可以是 “Object”，“Array” 或 “Map”）。
+
+一旦定义了 RhoGrammar G，我们必须实现它的语义，即对语法 G 的每个对象（即相应元素的实例）相关的功能进行编码，语法 G 在 E 中 被引用（见 [Figure 2](#figure-2)）。这些功能在语法的类集 C = {C<sub>1</sub>,C<sub>2</sub>,...,C<sub>n</sub>} 中实现。 C 类被存储在包 K 中，是用 JavaScript <sup>[8](#8)</sup>, <sup>[58](#58)</sup> 编写的可重用组件，实现了整个 RhoLanguage ρ<sub>k</sub> 。程序 S<sub>j</sub>  用 ρ<sub>k</sub> 语法编写，S<sub>j</sub> 的执行是对 S<sub>j</sub> 中所有嵌套对象的评估。
+
+#### Figure 2
+![Figure 2](pic/1-s2.0-S2590118423000138-gr1.jpg "Figure 2: RhoGrammer G 和组件 K 之间的关联图")
+
+[Figure 2 高清图](pic/1-s2.0-S2590118423000138-gr2_lrg.jpg)
+
+正式来说，RhoLanguage ρ<sub>k</sub> 由以下元组定义：
+
+(4) ρ<sub>k</sub> = ＜G | K | E ↔ C＞
+
+其中 RhoGrammar G 是语言 ρ<sub>k</sub> 的语法，如（1）中定义，K 是实现语言 ρ<sub>k</sub> 功能的可重用 JavaScript 组件。C 是定义语法功能 G 的类的子集，最后，E ↔ C 是 E<sub>i</sub> 和 C<sub>i</sub> 之间的关联，对于每个 E<sub>i</sub> ∈ E 和 C<sub>i</sub> ∈ C，分别相对应。注意一个类 C<sub>i</sub> ∈ C 可以与语法 G 的多个元素相关联，并且对于一个对象 E<sub>i</sub> ∈ E ，仅定义了一个 C<sub>i</sub> 类。
+
+[TEMPLATE 1](#template-1) 和 [TEMPLATE 2](#template-2) 展示了 RhoLanguage ρ<sub>k</sub> 的 JavaScript 组件的可能实现，以及它在 RhoEngine 中执行的语法定义。[TEMPLATE 1](#template-1) 定义了 [Figure 2](#figure-2) 中的组件 K，包含： ( i ) 语法类集 C （其中每个类继承 RHO.JSONDSL.Base，参见第 [3.7](#3.7) 节），（ii）组件 K 的附加类以及（iii）组件 K 的公共接口。*TODO 3.7*
+
+
+#### TEMPLATE 1
+![TEMPLATE 1](pic/1-s2.0-S2590118423000138-fx1.jpg)
+
+[TEMPLATE 1 高清图](pic/1-s2.0-S2590118423000138-fx1_lrg.jpg)
+
+[TEMPLATE 2](#template-2) 显示：（i）[Figure 2](#figure-2) 中根据（1）定义的语法 G 、（ii） 在 RhoEngine 中注册语言 ρ<sub>k</sub> ，最后，（iii）在 RhoEngine 中执行用语言 ρ<sub>k</sub> （编写）的程序 S<sub>j</sub> 执行的示例。
+
+#### TEMPLATE 2
+![TEMPLATE 2](pic/1-s2.0-S2590118423000138-fx2.jpg)
+
+[TEMPLATE 2 高清图](pic/1-s2.0-S2590118423000138-fx2_lrg.jpg)
 
 ----
 #### 1
@@ -433,3 +479,18 @@ Prout A., Atlee J.M., Day N.A., Shaker P.</br>
 Code generation for a family of executable modelling notations</br>
 Softw. Syst. Model. (2012), p. 11, 10.1007/s10270-010-0176-6
 
+#### 64
+Fundation O.</br>
+Node.js: JavaScript runtime built on Chrome’s V8 JavaScript engine</br>
+(2021)</br>
+https://nodejs.org/ (accessed October 30, 2021)
+
+#### 65
+Wexler J.</br>
+Get programming with Node. js. Simon and Schuster</br>
+(2019)
+
+#### 66
+Griggs B.</br>
+Node Cookbook: Discover Solutions, Techniques, and Best Practices for Server-Side Web Development with Node.js 14</br>
+Packt Publishing Ltd (2020)
