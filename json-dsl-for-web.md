@@ -1,12 +1,15 @@
 # 一种为 Web 应用构建基于 JSON 的 DSL 解决方案的方法
 Enrique Chavarriaga, Francisco Jurado, Francy D. Rodríguez
 
+----
 ## 摘要
 由于其抽象程度，领域特定语言 (DSL) 能够构建简化软件实现的应用。在 Web 应用领域，我们可以找到许多用于服务器端应用的技术和编程语言，它们提供快速、稳健且灵活的解决方案，而用于客户端应用的技术和编程语言则有限，并且大多仅限于直接使用 JavaScript、HTML5、CSS3、JSON 和 XML。本文介绍了一种使用 JSON 语法 (JSON-DSL) 在服务器端和客户端创建基于 DSL 的 Web 应用的新方法。该方法包括一个评估引擎、一个编程模型和一个支持它的集成 Web 开发环境。评估引擎允许执行使用编程模型创建的元素。编程模型则允许定义和规范 JSON-DSL、实现 JavaScript 组件、使用引擎提供的JavaScript模板、使用链接连接器连接到异构信息源，以及与其他小部件、Web 组件和 JavaScript 框架的集成。为了验证我们方法的优势和能力，我们开发了四个案例研究，使用集成的 Web 开发环境来应用编程模型并检查评估引擎中的结果。
 
+----
 ## 关键词
 领域特定语言；JavaScript；JSON；JSON-DSL；Web 应用；模板引擎
 
+----
 ## 1. 引言
 领域特定语言 (DSL) 提供高级别的抽象，用于建模、指定和定义解决领域特定问题的结构、规范和功能。DSL 的目标是简化系统或部分系统的实现过程，使领域专家能够参与可靠、健壮和高质量系统的 开发过程，从而为特定问题提供解决方案 <sup>[1](#1)</sup>、<sup>[2](#2)</sup>。
 
@@ -37,6 +40,7 @@ DSL 部署意味着使用解析器、分析器和代码生成器来评估和执�
 
 本文的其余部分结构如下：第 2 节重点介绍相关工作；第 3 节概述了 RhoArchitecture 和我们方法的相关特性；第 4 节展示了四个案例研究；第 5 节详细介绍了我们获得的结果；最后，第 6 节以一些结论和未来工作结束本文。
 
+----
 ## 2. 概述及相关工作
 领域特定语言 (DSL) 一词在文献中没有严格的定义。Fowler  <sup>[2](#2)</sup> 将其定义为“一种专注于特定领域的、表达能力有限的计算机编程语言”。在 <sup>[21](#22)</sup>、<sup>[22](#22)</sup>、<sup>[23](#23)</sup> 中，<ins>作者们一致认为 DSL 是一种针对特定问题的编程语言，它的语法和语义包含与问题域相同的抽象级别，它的目标是促进信息系统的设计、定义和实现，为问题域提供解决方案</ins>。此外，根据 <sup>[2](#2)</sup>、<sup>[23](#23)</sup>， DSL 提供了合适的语法，以便领域专家可以更有效地执行这些任务，并生成更高质量和更可靠的系统。另一方面，<sup>[24](#24)</sup> 中的成果展示研究了语言的语法组成，并通过如下的考虑因素对 DSL 进行分类：语言扩展、语言限制、语言统一、自扩展和扩展组合来。
 
@@ -52,6 +56,7 @@ DSL 的实现涉及使用解析器、分析器和代码生成工具来获得运�
 
 由于存在这两个缺点 —— 需要提供用于构建 JSON-DSL 的工具；以及需要一个执行引擎来在 Web 应用程序的服务器端和客户端运行用 JSON-DSL 编写的程序 —— 我们的工作重点是满足这些需求并创建案例研究来验证我们的提案。
 
+----
 ## 3. 构建基于 JSON 的领域特定语言的方法
 本节详细介绍了基于 JSON 的领域特定语言 (JSON-DSL) 解决方案的规范和实现方法，适用于服务器端和客户端的 Web 应用程序。本节将介绍 RhoArchitecture 及其三个部分（RhoEngine、RhoModel 和 WebIDERho）的核心思想。因此，我们将首先简要概述该方法，然后再进行分解。
 
@@ -76,9 +81,9 @@ RhoArchitecture 的基石是 RhoEngine，这是一个 JavaScript 组件，可以
 在 [Figure 1](#figure-1) 的底部，我们可以看到 Web 组件 [56]、[57]、[58]、[59] ，它们是用 HTML、 DOM 、JavaScript 和 CSS构建的小部件或可重用组件，部署在 Web 应用程序中。RhoArchitecture 使用模板引擎自动生成 Web 组件的代码。为了将这些编程组件和工具整合到我们的编程模型中，我们实现了工厂 Web 组件 (Factory Web Components) 和插件模板引擎 (Plugins Templates Engine)（参见 [Figure 1](#figure-1) RhoModel 框左侧）。
 
 #### Figure 1
-![Figure 1](pic/1-s2.0-S2590118423000138-gr1.jpg "Figure 1: RhoArchitecture 的功能块图")
+![Figure 1](pic/1-s2.0-S2590118423000138-gr1.jpg)
 
-[Figure 1 高清图](pic/1-s2.0-S2590118423000138-gr1_lrg.jpg)
+*Figure 1: RhoArchitecture 的功能块图 [Figure 1 高清图](pic/1-s2.0-S2590118423000138-gr1_lrg.jpg)*
 
 到目前为止可以推断，我们方法背后的主要思想是高度重视代码生成，这是软件工程中一个成熟的领域，尤其注重模型驱动工程 <sup>[60](#60)</sup>、<sup>[61](#61)</sup>。代码生成在构建信息系统时可以节省时间、提高效率、提高质量和标准化 <sup>[62](#62)</sup>、<sup>[63](#63)</sup>。因此，在这种情况下，为了简化 RhoLanguages 的规范（我们将在后面的第 3.4 节中详细介绍），我们需要 RhoModel（见 [Figure 1](#figure-1) ）。这允许定义 RhoGrammars
 以及基于 RhoEngine 的模板引擎、Web 组件和 JavaScript 组件的实现。RhoModel 将规范与实现分离，这源于我们之前对 PsiModel <sup>[9](#9)</sup> 和自动代码生成的研究成果。
@@ -126,9 +131,9 @@ m 是嵌套对象的数量，并且 Δ<sub>ij</sub> 是嵌套对象的定义（�
 一旦定义了 RhoGrammar G，我们必须实现它的语义，即对语法 G 的每个对象（即相应元素的实例）相关的功能进行编码，语法 G 在 E 中 被引用（见 [Figure 2](#figure-2)）。这些功能在语法的类集 C = {C<sub>1</sub>,C<sub>2</sub>,...,C<sub>n</sub>} 中实现。 C 类被存储在包 K 中，是用 JavaScript <sup>[8](#8)</sup>, <sup>[58](#58)</sup> 编写的可重用组件，实现了整个 RhoLanguage ρ<sub>k</sub> 。程序 S<sub>j</sub>  用 ρ<sub>k</sub> 语法编写，S<sub>j</sub> 的执行是对 S<sub>j</sub> 中所有嵌套对象的评估。
 
 #### Figure 2
-![Figure 2](pic/1-s2.0-S2590118423000138-gr1.jpg "Figure 2: RhoGrammer G 和组件 K 之间的关联图")
+![Figure 2](pic/1-s2.0-S2590118423000138-gr1.jpg)
 
-[Figure 2 高清图](pic/1-s2.0-S2590118423000138-gr2_lrg.jpg)
+*Figure 2: RhoGrammer G 和组件 K 之间的关联图 [Figure 2 高清图](pic/1-s2.0-S2590118423000138-gr2_lrg.jpg)*
 
 正式来说，RhoLanguage ρ<sub>k</sub> 由以下元组定义：
 
@@ -142,14 +147,14 @@ m 是嵌套对象的数量，并且 Δ<sub>ij</sub> 是嵌套对象的定义（�
 #### TEMPLATE 1
 ![TEMPLATE 1](pic/1-s2.0-S2590118423000138-fx1.jpg)
 
-[TEMPLATE 1 高清图](pic/1-s2.0-S2590118423000138-fx1_lrg.jpg)
+*[TEMPLATE 1 高清图](pic/1-s2.0-S2590118423000138-fx1_lrg.jpg)*
 
 [TEMPLATE 2](#template-2) 显示：（i）[Figure 2](#figure-2) 中根据（1）定义的语法 G 、（ii） 在 RhoEngine 中注册语言 ρ<sub>k</sub> ，最后，（iii）在 RhoEngine 中执行用语言 ρ<sub>k</sub> （编写）的程序 S<sub>j</sub> 执行的示例。
 
 #### TEMPLATE 2
 ![TEMPLATE 2](pic/1-s2.0-S2590118423000138-fx2.jpg)
 
-[TEMPLATE 2 高清图](pic/1-s2.0-S2590118423000138-fx2_lrg.jpg)
+*[TEMPLATE 2 高清图](pic/1-s2.0-S2590118423000138-fx2_lrg.jpg)*
 
 ### 3.5 RhoModel
 自动代码生成是软件工程的基石之一，它可以节省时间、提高效率、提高质量，并实现信息系统构建的标准化 <sup>[63](#63)</sup>、<sup>[67](#67)</sup>。在此背景下，如上一节所述，RhoModel（Rho 编程模型）允许 RhoLanguages、模板引擎、Web 组件和 JavaScript 组件的规范和实现。基于我们之前对 PsiModel <sup>[9](#9)</sup> 的研究并使用代码隐藏 (code-behind) 技术，RhoModel 将规范与实现分开。RhoModel 允许指定和实现以下内容：
@@ -175,9 +180,9 @@ WebIDERho Web 集成开发环境旨在帮助开发人员在 Web 服务端和 Web
 具体来说，[Figure 3](#figure-3) (a) 显示了项目设置 “\<name\>_core”，其中包括我们的 RhoEngine 引擎的实现（Rho 项目，组件类型）、RhoModel 编程模型（MRho 项目，组件类型）以及此开发环境（WebIDERho 项目，组件类型）。
 
 #### Figure 3
-![Figure 3](pic/1-s2.0-S2590118423000138-gr3.jpg "Figure 3: 集成Web 开发环境 WebIDERho")
+![Figure 3](pic/1-s2.0-S2590118423000138-gr3.jpg)
 
-[Figure 3 高清图](pic/1-s2.0-S2590118423000138-gr3_lrg.jpg)
+*Figure 3: 集成Web 开发环境 WebIDERho [Figure 3 高清图](pic/1-s2.0-S2590118423000138-gr3_lrg.jpg)*
 
 ### 3.7 实施总结
 基于 [Figure 1](#figure-1) 的 RhoArchitecture 块图 (block diagram) ，[Figure 4](#figure-4) 显示了 RhoArchitecture 组件图，[Figure 5](#figure-5) 详细显示了 RhoArchitecture 类图，其中 RHO 是主要组件的名称，组成它的子组件总结如下：
@@ -189,16 +194,41 @@ WebIDERho Web 集成开发环境旨在帮助开发人员在 Web 服务端和 Web
 WebIDERho 的图表基于 Diagram Programming Generate DPG <sup>[70](#70)</sup>，这是一种 JSON-DSL，允许基于 PsiDiagram <sup>[71](#71)</sup> 为 Web 应用指定可编程图表 (programmable diagrams) 。该图表可以有多个视图，并可以查看每个 RhoModel 编程元素的源代码。未来，WebIDERho 将能够支持文本和可视化编程 DSL。[Figure 5](#figure-5) 中的类图是一个 DPG 图，WebIDERho 生成的详细帮助可以在 www.devrho.com?doc=rho 找到。
 
 #### Figure 4
-![Figure 4](pic/1-s2.0-S2590118423000138-gr4.jpg "Figure 4: RhoArchitecture 组件图")
+![Figure 4](pic/1-s2.0-S2590118423000138-gr4.jpg)
 
-[Figure 4 高清图](pic/1-s2.0-S2590118423000138-gr4_lrg.jpg)
+*Figure 4: RhoArchitecture 组件图 [Figure 4 高清图](pic/1-s2.0-S2590118423000138-gr4_lrg.jpg)*
 
 #### Figure 5
-![Figure 5](pic/1-s2.0-S2590118423000138-gr5.jpg "Figure 5: RhoArchitecture 类图。基于 DPG 的 RhoModel 可视化语言")
+![Figure 5](pic/1-s2.0-S2590118423000138-gr5.jpg)
 
-[Figure 5 高清图](pic/1-s2.0-S2590118423000138-gr5_lrg.jpg)
+*Figure 5: RhoArchitecture 类图。基于 DPG 的 RhoModel 可视化语言 [Figure 5 高清图](pic/1-s2.0-S2590118423000138-gr5_lrg.jpg)*
+
+### 3.8 最后评论
+在本节中，我们介绍了 RhoArchitecture，它定义了如何指定和实现 JSON-DSL，以及 RhoEngine 如何对其进行评估。总而言之，JSON-DSL 是一种使用 JSON 语法编写的编程语言。该语言的语法及其功能（用 RhoLanguage 表示）可以使用 Rho 编程模型（名为 RhoModel）来指定和构建。最后，集成的 Web 开发环境 WebIDERho 支持使用 RhoModel，并允许定义 Web 服务端和 Web 客户端项目、可视化类图、创建自动化文档、部署服务器以及基于 NodeJS 的 Web 应用。
+
+下一节重点介绍如何开发案例研究来验证整个方法。
 
 ----
+## 4. 研究案例
+在本节中，我们将详细介绍如何应用和验证我们的整个方法。因此，案例研究的目的是演示 RhoArchitecture 和 RhoEngine 的用法。第一个案例是经典的 “Hello World”，其中我们创建了一个非常简单的 JSON-DSL，以直观的方式展示如何指定和部署 RhoLanguage。第二个案例研究重点介绍了在单个类中实现多个异构数据源（XML、JSON 和文本）的使用。第三个案例研究涉及验证 RhoEngine 对服务端应用的能力，使用 RhoLanguage 为后端实现 REST 服务，创建模板引擎，以及使用 Material Design 为前端设计网页（例如，通过使用 MDBootstrap <sup>[72](#72)</sup> ）。最后一个案例研究充分验证了 RhoArchitecture 的最相关特性，即：RhoLanguage 的规范、组件和 Web 组件的实现、模板引擎的使用、异构信息的交换以及与其他框架的集成。
+
+### 4.1 实现 HelloRho JSON-DSL
+HelloRho 是一个 JSON-DSL，旨在展示 RhoLanguage 的简单规范。在 [Figure 6](#figure-6) (a) 中，我们可以看到 HelloRho 如何在单个类 C = O = {Hello} 中实现语法功能。此外，RhoModel 使用 [TEMPLATE 1](#template-1)（参见第 [3.4](#34-rholanguage) 节）作为代码生成的指南，并在 “HelloRho.js” 中实现可重用的 JavaScript 组件 K。此外，我们可以观察到该语法的功能（在 [Figure 6](#figure-6) （a）的底部）包括在具有标识符（属性 *this.dentifier* ）的容器中添加一个 DIV 元素，然后修改文本内容（属性 *this.message* ）和样式（属性 *this.style* ）。
+
+[Figure 6](#figure-6) (b) 展示了该语法的定义。我们可以看到，该语法名为 “HelloRho”，它只有一个根元素，其中包含两个属性：message（强制属性，附加 {VALID: true} ）和 style。此外，还有一个实现其功能（ “Hello” ）的 JavaScript 类，并且没有子元素作为嵌套元素。也就是说，我们得到了 根据（1）指定的 HelloRho G = ＜O | ο<sub>root</sub>＞的语法。
+，其中 HelloRho 语言被定义为：
+
+HelloRho = ＜G | K | O ↔ C＞
+
+#### Figure 6
+![Figure 6](pic/1-s2.0-S2590118423000138-gr6.jpg)
+
+*Figure 6: HelloRho 程序 “hello.json” 及其在 RhoEngine 中的执行 [Figure 6 高清图](pic/1-s2.0-S2590118423000138-gr6_lrg.jpg)*
+
+最后，在 [Figure 6](#figure-6) (c) 中，我们可以看到用 RhoCode（在 [Figure 6](#figure-6) (c) 底部的 S<sub>j</sub> = “hello.json” ） 编写的程序的执行结果。该程序可以根据需要进行修改和执行。此示例可在 devrho.com 的菜单选项 “Samples > Hello world!!” 中找到。
+
+----
+## 参考文献
 #### 1
 Voelter M.</br>
 DSL Engineering: Designing, Implementing and using Domain-Specific Languages</br>
@@ -568,3 +598,9 @@ Chavarriaga E.</br>
 Modelo Programable Para la Serialización y Evaluación de Modelos Heterogéneos en Clientes Web</br>
 (Doctoral Thesis)</br>
 Repository Autonomous University of Madrid (2017)
+
+### 72
+MDBootstrap</br>
+Material Design for Bootstrap V5 & V4</br>
+(2022)</br>
+https://mdbootstrap.com/ (accessed June 28, 2021)
