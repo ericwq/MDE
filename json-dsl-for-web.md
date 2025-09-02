@@ -227,6 +227,39 @@ HelloRho = ＜G | K | O ↔ C＞
 
 最后，在 [Figure 6](#figure-6) (c) 中，我们可以看到用 RhoCode（在 [Figure 6](#figure-6) (c) 底部的 S<sub>j</sub> = “hello.json” ） 编写的程序的执行结果。该程序可以根据需要进行修改和执行。此示例可在 devrho.com 的菜单选项 “Samples > Hello world!!” 中找到。
 
+### 4.2 关联异构数据源信息
+TestSources 案例研究旨在验证将 XML、JSON 和 Text 格式的异构数据源关联到 RhoArchitecture 中定义的对象和类的能力。此示例组合并显示来自不同数据源的角色 (character) 信息（见 [Figure 7](#figure-7) (a)） ，如下所述：
+- (i) 名字和姓氏来自 JSON 文件 “actors.json”；
+- (ii) 年龄、电子邮件和图像信息来自 XML 文件 “details.xml” ；
+- (iii) 描述信息源自文本文件 “descriptions.txt” 中的标签。
+
+可以通过 *Key* 标识符访问来自不同数据源的信息，如 [Figure 7](#figure-7) (a) 所示。
+
+[Figure 7](#figure-7) (b) 展示了 RhoModel 如何在对象或类中定义属性，其源链接到 *Data Source*（XML、JSON 和 Text）。例如，属性 *Name*，源自 "{{info:First}}" 的信息；变量 *info* 连接到源 ACTORS, ACTORS 注册在 RHO.DS 组件中。另一个值得注意的细节是标签如何配置的：在 *desc* 属性中（使用 JavaScript 正则表达式）获取 Actor 的枚举值。
+
+最后，[Figure 7](#figure-7) (c) 展示了通过标识符显示 Actor 信息的执行过程。需要注意的是，模板设计使用了 RhoModel 的 Plain 模板引擎和 MDBootstrap <sup>[72](#72)</sup> 。
+
+在本案例研究中，值得注意的是，Actor 类将三个可用的数据源整合在一起。从长远看，如果数据源链接到 SOAP 服务 <sup>[73](#73)</sup>、REST 服务 <sup>[74](#74)</sup> 或非关系型数据库，Actor 类可通过这些服务直接更新信息，且对该类保持透明。 如果我们添加模板引擎的使用，并结合 Material Design 的网页设计，那么 RhoArchitecture 将成为在客户端和服务端实现和部署 Web 应用的一个有趣的替代方案。本案例研究可在 devrho.com 的菜单选项 “Samples＞Star Wars Actors” 中找到。
+
+#### Figure 7
+![Figure 7](pic/1-s2.0-S2590118423000138-gr7.jpg)
+
+*Figure 7: 链接不同的异构数据源 [Figure 7 高清图](pic/1-s2.0-S2590118423000138-gr7_lrg.jpg)*
+
+### 4.3 创建一个简单的“Web 服务”
+ComicSpeech 是一个 RhoModel 项目，旨在从以下方面验证 RhoEngine 的服务端编程：（i）Web 服务的规范，（ii）服务端 RhoLanguage 的创建，以及（iii）为 Bootstrap <sup>[72](#72)</sup> 使用不同的模板引擎和 material design。
+
+[Figure 8](#figure-8) (a) 展示了一个用于管理演讲列表及其搜索的 RhoCode 。此外，[Figure 8](#figure-8) (a) 还概述了 Web 服务 “/comicspeech” 上可用的方法。因此：
+- 方法 “/list”（显示可用的演讲列表），以及
+- 方法 “/speech”（搜索以逗号分隔的演讲的列表）。
+
+[Figure 8](#figure-8) (b) 显示了该方法执行的输出：Ouch、Hey 和 ZZZ “/speech?search=Ouch,Hey,ZZZ”。此案例研究可在 devrho.com 的菜单选项 “Samples＞Comic Speech” 下找到。
+
+#### Figure 8
+![Figure 8](pic/1-s2.0-S2590118423000138-gr8.jpg)
+
+*Figure 8: 使用 JSON-DSL 和模板引擎的 Web 服务示例 [Figure 8 高清图](pic/1-s2.0-S2590118423000138-gr8_lrg.jpg)*
+
 ----
 ## 参考文献
 #### 1
@@ -599,8 +632,18 @@ Modelo Programable Para la Serialización y Evaluación de Modelos Heterogéneos
 (Doctoral Thesis)</br>
 Repository Autonomous University of Madrid (2017)
 
-### 72
+#### 72
 MDBootstrap</br>
 Material Design for Bootstrap V5 & V4</br>
 (2022)</br>
 https://mdbootstrap.com/ (accessed June 28, 2021)
+
+#### 73
+W.J. Wang, Y.W. Luo, X.L. Wang, X.P. Liu, Z.Q. Xu,</br>
+Web services based framework for spatial information and services integration,</br>
+28 (2005) 1213–1222.
+
+#### 74
+Rademacher F., Peters M., Sachweh S.</br>
+Design of a Domain-Specific Language Based on a Technology-Independent Web Service Framework. Vol. 9278</br>
+Springer Verlag (2015), pp. 357-371,
