@@ -260,6 +260,34 @@ ComicSpeech 是一个 RhoModel 项目，旨在从以下方面验证 RhoEngine �
 
 *Figure 8: 使用 JSON-DSL 和模板引擎的 Web 服务示例 [Figure 8 高清图](pic/1-s2.0-S2590118423000138-gr8_lrg.jpg)*
 
+### 4.4 创建 SVG 图表 JSON-DSL
+DrawRho 是一种 RhoLanguage，旨在基于 SVG 库绘制可重用的图形元素。DrawRho 基于 Web 组件的创建，借助 SVGJS 框架 <sup>[75](#75)</sup>、Handlebars 模板 <sup>[54](#54)</sup> 以及 Draggable 插件 <sup>[76](#76)</sup> 来移动图形元素。因此，DrawRho 实现了以下图形元素：
+
+- 图层 (layer ) ：定义图形图层的概念，其中包含形状、线条和容器的列表。图形图层指的是图层中元素集的深度，即它位于最底层（定义为第一层）还是最顶层（定义为最后一层）。它使用 SVG 元素分组标签（g 标签）进行定义。
+
+- 形状：是图形、对象或实体的图形表示。它由 SVG 元素（g 标签）分组定义，例如：矩形、圆形、椭圆形、图像、直线、折线、多边形、文本、路径等（即所有可用的 SVG 元素）。
+
+- 线：是对具有起点和终点的路径的描述，在边缘处定义标记来表示箭头、关节、连接器等。可以使用 SVG 线、折线或路径元素定义线，并可以使用 SVG 文本标签添加文本。
+
+- 容器：表示图形元素（例如形状、线条或其他容器）的分组。如果移动容器，其所有元素都会随之移动。它也使用 SVG 元素分组标签（g 标签）进行定义。
+
+如前所述，本节中的案例研究全面验证了我们的 RhoArchitecture 最相关的功能，例如：创建 JSON-DSL（具有多个执行）、创建组件和 Web 组件、使用模板引擎和数据源信息交换连接（JSON 格式）。
+
+[Figure 9](#figure-9) (a) 展示了几个使用 DrawRho 语法的 RhoCode 程序。第一个程序（文件 “StarWars.json” ）绘制包含《星球大战》中角色的容器。第二个程序（文件 “Speechs.json” ）使用来自 speech 的图像绘制节点。此外，[Figure 9](#figure-9) (a) 展示了文件 “templates.xml” 中定义的 SVG 图形元素库，文件 “sources.json” 包含两个 JSON 格式的数据源：Actors（演员列表）和 ComicSpeech（speeches 列表）。[Figure 9](#figure-9) (b) 展示了执行的输出。
+
+它对每个图形元素的工作方式如下：（1）确定元素的类型（attribute *type=“layer|shape|line|container”* ）；（2）在图形库中搜索相应的模板（使用 *lib* 属性）；（3）针对每个 SVG 元素（属性 *key* ），通过修改其属性，将图形元素模版中的（属性 *key，x，y* ）的信息变更生效，并将相应的信息（属性 *source* ）链接到 Actors 的数据源；然后，（4）将 SVG 画布添加到模板中；最后，（5）关联必要的事件。
+
+具体来说，[Figure 9](#figure-9) 展示了 “StarWars.json” 的运行效果。简而言之，它会搜索带有 *Node* 标识符的形状（该标识符指定为圆形）并包含文本（Actor 的全名），随后将其放置在坐标 (150,60) 的位置。需要指出的是，图表的创建可以通过一组独立程序实现，从而在创建图表时提供多功能性，并允许特定领域的专家相互协作。这类语言可用于创建协作图表。此案例研究可在 devrho.com 的菜单选项 “Samples＞Draw Rho” 下找到。
+
+#### Figure 9
+![Figure 9](pic/1-s2.0-S2590118423000138-gr9.jpg)
+
+*Figure 9: 用于显示图表的 DrawRho 程序示例 [Figure 9 高清图](pic/1-s2.0-S2590118423000138-gr9_lrg.jpg)*
+
+### 4.5 其他例子
+devrho.com 上的菜单选项 “Samples” 下还有其他有趣的案例研究（BPM Tester、MDB Tester），这些案例研究未包含在验证研究结果中。BPM Tester 项目包含一种名为 BPMERho 的 RhoLanguage 的实现，用于执行在 BPMEPsi 可视化工具 <sup>[71](#71)</sup> 中设计的 BPMN 2.0 <sup>[77](#77)</sup> 。MDB Tester 项目还包含一种名为 MDBRho 的 RhoLanguage 的实现，旨在创建 Material Design Bootstrap MDB 组件、表单、导航、对话框、块设计等 <sup>[72](#72)</sup>。
+
+
 ----
 ## 参考文献
 #### 1
@@ -647,3 +675,21 @@ Web services based framework for spatial information and services integration,</
 Rademacher F., Peters M., Sachweh S.</br>
 Design of a Domain-Specific Language Based on a Technology-Independent Web Service Framework. Vol. 9278</br>
 Springer Verlag (2015), pp. 357-371,
+
+#### 75
+Schäfer U.-M.</br>
+SVG.js</br>
+(2012)</br>
+https://svgjs.dev/ (accessed February 28, 2021)
+
+#### 76
+Doyle J.</br>
+GreenSock: Engaging the internet</br>
+(2021)</br>
+https://greensock.com/ (accessed February 10, 2021)
+
+#### 77
+OMG</br>
+Business Process Model and Notation (BPMN), Version 2.0.4</br>
+(2014)</br>
+https://www.omg.org/spec/BPMN (accessed February 20, 2023)
