@@ -141,7 +141,7 @@ m 是嵌套对象的数量，并且 Δ<sub>ij</sub> 是嵌套对象的定义（�
 
 其中 RhoGrammar G 是语言 ρ<sub>k</sub> 的语法，如（1）中定义，K 是实现语言 ρ<sub>k</sub> 功能的可重用 JavaScript 组件。C 是定义语法功能 G 的类的子集，最后，E ↔ C 是 E<sub>i</sub> 和 C<sub>i</sub> 之间的关联，对于每个 E<sub>i</sub> ∈ E 和 C<sub>i</sub> ∈ C，分别相对应。注意一个类 C<sub>i</sub> ∈ C 可以与语法 G 的多个元素相关联，并且对于一个对象 E<sub>i</sub> ∈ E ，仅定义了一个 C<sub>i</sub> 类。
 
-[TEMPLATE 1](#template-1) 和 [TEMPLATE 2](#template-2) 展示了 RhoLanguage ρ<sub>k</sub> 的 JavaScript 组件的可能实现，以及它在 RhoEngine 中执行的语法定义。[TEMPLATE 1](#template-1) 定义了 [Figure 2](#figure-2) 中的组件 K，包含： ( i ) 语法类集 C （其中每个类继承 RHO.JSONDSL.Base，参见第 [3.7](#37-实施总结) 节），（ii）组件 K 的附加类以及（iii）组件 K 的公共接口。
+[TEMPLATE 1](#template-1) 和 [TEMPLATE 2](#template-2) 展示了 RhoLanguage ρ<sub>k</sub> 的 JavaScript 组件的可能实现，以及它在 RhoEngine 中执行的语法定义。[TEMPLATE 1](#template-1) 定义了 [Figure 2](#figure-2) 中的组件 K，包含： ( i ) 语法类集 C （其中每个类继承 RHO.JSONDSL.Base，参见第 [3.7](#37-实现总结) 节），（ii）组件 K 的附加类以及（iii）组件 K 的公共接口。
 
 
 #### TEMPLATE 1
@@ -184,7 +184,7 @@ WebIDERho Web 集成开发环境旨在帮助开发人员在 Web 服务端和 Web
 
 *Figure 3: 集成Web 开发环境 WebIDERho [Figure 3 高清图](pic/1-s2.0-S2590118423000138-gr3_lrg.jpg)*
 
-### 3.7 实施总结
+### 3.7 实现总结
 基于 [Figure 1](#figure-1) 的 RhoArchitecture 块图 (block diagram) ，[Figure 4](#figure-4) 显示了 RhoArchitecture 组件图，[Figure 5](#figure-5) 详细显示了 RhoArchitecture 类图，其中 RHO 是主要组件的名称，组成它的子组件总结如下：
 - Engine 是实现我们的执行引擎 RhoEngine 的组件。
 - JSONDSL 是 JavaScript 组件，用于创建 RhoLanguage 的实现基础，即构建和实现 JSON-DSL 的基础。
@@ -287,6 +287,35 @@ DrawRho 是一种 RhoLanguage，旨在基于 SVG 库绘制可重用的图形元�
 ### 4.5 其他例子
 devrho.com 上的菜单选项 “Samples” 下还有其他有趣的案例研究（BPM Tester、MDB Tester），这些案例研究未包含在验证研究结果中。BPM Tester 项目包含一种名为 BPMERho 的 RhoLanguage 的实现，用于执行在 BPMEPsi 可视化工具 <sup>[71](#71)</sup> 中设计的 BPMN 2.0 <sup>[77](#77)</sup> 。MDB Tester 项目还包含一种名为 MDBRho 的 RhoLanguage 的实现，旨在创建 Material Design Bootstrap MDB 组件、表单、导航、对话框、块设计等 <sup>[72](#72)</sup>。
 
+----
+## 5. 结果与验证
+本研究依据 <sup>[19](#19)</sup> 建议的定性案例研究方法 (qualitative case study methodology) 进行，并根据 <sup>[20](#20)</sup> 进行了软件工程方面的调整。因此，RhoArchitecture 的案例研究必须验证最相关的特征或问题，即：JSON-DSL 的创建和执行、组件和 Web 组件的创建、模板引擎的使用以及异构信息的交换。简而言之，案例研究必须能够验证 RhoEngine 和 RhoModel 的整体性。WebIDERho 作为 RhoModel 的实现包含在内，用于验证。
+
+在 <sup>[19](#19)</sup> 中描述的方法论，对应于多案例类型。在这种情况下，多案例类型可以表示为待验证的特征和/或功能的集合。每个研究案例涵盖该集合的一部分，并且所有案例必须涵盖整个特征集。一个特性可以通过多个案例研究来验证。一般而言，尽管多案例类型在时间和执行上可能极其昂贵 <sup>[20](#20)</sup> ，但其所创建的证据被认为是稳健可靠的。
+
+### 5.1 定义 RhoArchitecture 的相关特性
+下面列出了 RhoArchitecture 最相关的特性和/或功能：
+
+- C1. 将 RhoEngine 作为可重用的 JavaScript 组件实现和执行，并在 Web 服务端 (W) 和 Web 客户端 (C) 级别运行。
+- C2. 为 WebIDERho 实现并使用 RhoModel 的 MRho、MIRho 和 EditorRho 语言（基于 CodeMirror <sup>[69](#69)</sup> 的代码编辑器）。
+- C3. 案例研究的实现：HelloRho、Start Wars、ComicSpeechRho、DrawRho。
+- C4. 创建 RhoLanguages 和执行 RhoPrograms 的能力：
+  - （S）简单 – 简单（一种RhoLanguage的程序）；
+  - （P）多种 – 简单（一种RhoLanguage的多个程序）；
+  - （M）多种 – 多种（用多种RhoLanguages编写的多个程序）。
+- C5. 接受异构数据源的能力：（X）XML；（J）JSON；（T）Text。
+- C6. （C）组件 y（W）Web 组件的创建和使用。
+- C7. 模板引擎的定义和使用：（P）Plain；（E）EJS；（H）Handlebars；和（O）Hogan。
+
+值得强调的是，RhoEngine、MRho、MIRho、WebIDERho 和 EditorRho 组件也是使用 RhoModel 实现的，因此它们也可以作为验证的案例研究。因此，我们将结合这些组件以及之前介绍的四个案例研究，介绍 RhoArchitecture 最相关的特性和/或功能。
+
+一方面，我们将使用多种软件度量指标 (software metric) 来验证 RhoEngine、RhoModel 和案例研究的实现质量，从而评估特性 C1–C3。另一方面，特性和/或功能 C4–C7 使我们能够验证 RhoModel 编程模型和 RhoEngine 功能。
+
+### 5.2 验证 RhoArchitecture 的实现和案例研究
+在软件工程领域，软件度量指标 (software metric) 代表一种客观衡量标准，用于了解或评估信息系统的特定特征。尽管文献中存在大量软件度量方法，但 <sup>[78](#78)</sup>、<sup>[79](#79)</sup>、<sup>[80](#80)</sup> 等文献提供了系统性综述，重点关注软件质量、可靠性、文档化及复杂性等维度。
+
+#### 5.2.1 用于验证 JavaScript 模块的软件度量指标
+在我们的提案中，软件度量指标应该侧重于 JavaScript 的分析。依据 <sup>[81](#81)</sup> 中，我们针对基于原型的语言（例如 JavaScript）重新设计了软件度量指标。具体来说，我们将对使用 RhoModel 生成的JavaScript 代码进行分析，并将其与已识别的 JavaScript 组件或模块进行比较，例如：Bootstrap (bootstrap.com)、CodeMirror <sup>[69](#69)</sup>、jQuery (jquery.com)、Material Design Bootstrap <sup>[72](#72)</sup> 等。
 
 ----
 ## 参考文献
@@ -693,3 +722,23 @@ OMG</br>
 Business Process Model and Notation (BPMN), Version 2.0.4</br>
 (2014)</br>
 https://www.omg.org/spec/BPMN (accessed February 20, 2023)
+
+#### 78
+Tahir A., Mac Donell S.G.</br>
+A systematic mapping study on dynamic metrics and software quality</br>
+IEEE Int. Conf. Softw. Maintenance, ICSM (2012), 10.1109/ICSM.2012.6405289</br>
+
+#### 79
+Riaz M., Mendes E., Tempero E.</br>
+A systematic review of software maintainability prediction and metrics</br>
+2009 3rd Int. Symp. Empir. Softw. Eng. Meas. (2009), pp. 367-377
+
+#### 80
+Jatain A., Mehta Y.</br>
+Metrics and models for software reliability: A systematic review</br>
+2014 Int. Conf. Issues Challenges Intell. Comput. Tech. (2014), pp. 210-214
+
+#### 81
+Ahsan S., Hayat F., Afzal M., Ahmad T., Asif K.H., Asif H.M.S., et al.</br>
+Object oriented metrics for prototype based languages</br>
+Life Sci. J., 9 (2012), pp. 63-66
