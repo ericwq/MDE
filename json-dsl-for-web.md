@@ -317,6 +317,91 @@ devrho.com 上的菜单选项 “Samples” 下还有其他有趣的案例研究
 #### 5.2.1 用于验证 JavaScript 模块的软件度量指标
 在我们的提案中，软件度量指标应该侧重于 JavaScript 的分析。依据 <sup>[81](#81)</sup> 中，我们针对基于原型的语言（例如 JavaScript）重新设计了软件度量指标。具体来说，我们将对使用 RhoModel 生成的JavaScript 代码进行分析，并将其与已识别的 JavaScript 组件或模块进行比较，例如：Bootstrap (bootstrap.com)、CodeMirror <sup>[69](#69)</sup>、jQuery (jquery.com)、Material Design Bootstrap <sup>[72](#72)</sup> 等。
 
+我们在分析中选择使用的软件度量指标是：
+
+- 代码行 <sup>[82](#82)</sup>（LOC、物理代码行 SLOC、逻辑代码行 LLOC、注释代码行 CLOC 和空代码行 BLOC）；
+- 圈复杂度 <sup>[83](#83)</sup>（每个函数的平均圈复杂度 CNN，以及模块 CND 的圈复杂度密度 <sup>[84](#84)</sup> ）；
+- Halstead 指标 <sup>[85](#85)</sup>（Halstead 每个模块的词汇量 HS、Halstead 每个模块的难度 HD、Halstead 每个模块的工作量 HV、Halstead 每个模块的工作量 HE、Halstead 每个模块的错误数 HB、Halstead 每个模块的时间 HT 以及 Halstead 每个功能的平均工作量 HEF）；
+- 可维护性指数 MI <sup>[86](#86)</sup>。
+
+我们使用以下两个工具来计算上述指标：在 NodeJS 上实现的 Excomplex <sup>[87](#87)</sup> ，提供对 JavaScript 抽象语法树（AST）的软件复杂度的分析；以及用于 JavaScript 的 FrontEndART SourceMeter <sup>[88](#88)</sup>、<sup>[89](#89)</sup> ，这是一个源代码分析工具，可以对复杂的 JavaScript 源代码进行深度静态分析（sourcemeter.com）。
+
+### 5.2.2 分析使用 RhoModel 生成的 JavaScript 代码
+[Table 1](#table-1) 总结了 RhoArchitecture 组件（ CRA 标示，黄色部分）代码生成的 JavaScript 指标：RhoEngine、RhoModel、WebIDERho 和 EditorRho。这四个组件是作为依靠 RhoModel 的项目开发的。共创建了 20 个文件，其中 20%（4 个文件）用于 MRho 规范，其余 80%（16 个文件）用于 MIRho 实现文件。在这些文件中，我们发现总共 4422 行 RhoModel 源代码，共生成 7808 行 JavaScript 代码。这意味着简洁率为 1.77。值得注意的是，RhoEngine 的简洁率为 2.19，是最高的，因为该编程模型支持在 Web 客户端和 Web 服务端生成代码。另一方面，CLOC 注释行占 27% （四个项目的平均值），这是一个非常高的文档容量比率（
+根据 <sup>[40](#40)</sup> 的数据，大于 25% ），而 RhoEngine 的平均水平为 31%。这凸显了现有 RhoArchitecture 文档的质量。
+
+本文档详细呈现了案例研究（CAS 标示，蓝色）的代码生成摘要。共编写了 10 个文件（40% 为 MRho 文件，60% 为 MIRho 文件）。平均简洁率 1.68 尚可接受，平均简洁率 29%，这意味着案例研究的文档品质良好。（ *译注：这部分内容和下面一段内容重复了。* ）
+
+----
+#### Table 1
+Table 1. [CRA] RhoArchitecture 的组件：JavaScript 生成代码摘要。
+
+![Table 1](pic/1-s2.0-S2590118423000138-fx3.jpg)
+
+注意：X（Y）MRho / MIRho；X：Rho 行数，Y：Psi 文件数；RHOLOC：Rho 代码行总数；LOC：JavaScript 生成的行数；SLOC ：物理可执行代码行数；LLOC：逻辑可执行代码行数；CLOC：注释代码行数；BLOC：空白代码行数。
+
+----
+
+[Table 2](#table-2) 详细列出了本文档中案例研究（CAS 标示，蓝色）的代码生成摘要。共编写了 10 个文件（40% 为 MRho 文件，60% 为 MIRho 文件）。平均简洁率 1.68 尚可接受，平均简洁率（ *译注：怀疑原文有误，此处应为文档容量比率* ）29%，这意味着案例研究也得到了充分的记录。
+
+[Table 3](#table-3) 显示了 WebIDERho 中使用的框架（FUW 标示 紫色）的最相关指标。我们检索了所示版本中每个框架的源代码。如果分析 SLOC，MDB PRO 占总代码行数 41,541 行中的 53%，jQuery 占 17%，即占总代码行数的 70%。另一方面，RhoEngine（CLOC = 22%）和 jQuery（CLOC = 17%）的框架有 “中等文档”，其余框架则 “文档匮乏”。一个有趣的发现是，JQuery 中 36% 的代码行是 CBLOC 和 BLOC，而它的物理代码行占比最低，SLOC = 64%。
+
+----
+#### Table 2
+Table 2. [CAS] 组件案例研究：JavaScript 生成代码摘要。
+
+![Table 2](pic/1-s2.0-S2590118423000138-fx4.jpg)
+
+注意：X（Y）MRho / MIRho；X：Rho 行数，Y：Psi 文件数；RHOLOC：Rho 代码行总数；LOC：JavaScript 生成的行数；SLOC ：物理可执行代码行数；LLOC：逻辑可执行代码行数；CLOC：注释代码行数；BLOC：空白代码行数。
+
+----
+
+[Figure 10](#figure-10) 展示了本文分析的所有组件/框架中，SLOC、LLOC、CLOC 和 BLOC 占 LOC 行总数的百分比。在总共 58,926 行代码中，85% 为 FUW，14% 为 CRA，1% 为 CAS。此外，FUW 的 CRA 和 CAS “文档良好” 已得到认可。在大多数组件/框架中，BLOC 占 10% 到 20% 之间，而 SLOC 占 50% 到 80% 之间。值得注意的是，WebIDERho 的 LLOC 占比最高，达到 72%。
+
+----
+#### Table 3
+Table 3.  [FUW] WebIDERho 中使用的组件/框架：JavaScript 代码摘要
+
+![Table 3](pic/1-s2.0-S2590118423000138-fx5.jpg)
+
+注意：LOC：JavaScript 生成的行数；SLOC：物理可执行代码行数；LLOC：逻辑可执行代码行数；CLOC：注释代码行数；BLOC：空白代码行数。
+
+----
+
+[Table 4](#table-4) 提供了分布在 CRA、FUW 和 CAS 三组的软件指标（圈复杂度、Halstead 指标和可维护性指数）的摘要。
+
+#### Figure 10
+![Figure 10](pic/1-s2.0-S2590118423000138-gr10.jpg)
+
+*Figure 10: 组件 RhoArchitecture CRA、所用框架 WebIDERho FUW，和案例研究 CAS 之间的 SLOC、LLOC、CLOC 和 BLOC 指标比较 [Figure 10 高清图](pic/1-s2.0-S2590118423000138-gr10_lrg.jpg)*
+
+*TODO*
+
+----
+#### Table 4
+Table 4. 软件指标摘要（圈复杂度、Halstead 指标和可维护性指数），来源：RhoArchitecture、案例研究和使用的框架
+
+![Table 4](pic/1-s2.0-S2590118423000138-fx6.jpg)
+
+注意：：CNN：每个函数的平均循环复杂度；CND：每个模块的循环复杂度；HS：每个模块的 Halstead 词汇量；HD：每个模块的 Halstead 难度；HV：每个模块的 Halstead 数量（\*千）；HE：每个模块的 Halstead 工作量（+百万）；HEF：每个功能的平均 Halstead 工作量；HB：每个模块的 Halstead 错误数；HT：每个模块的 Halstead 时间（\*千）；MI：可维护性指数。
+
+----
+
+#### Figure 11
+![Figure 11](pic/1-s2.0-S2590118423000138-gr11.jpg)
+
+*Figure 11: 组件 RhoArchitecture CRA 和所用框架 WebIDERho FUW 的圈复杂度图 [Figure 11 高清图](pic/1-s2.0-S2590118423000138-gr11_lrg.jpg)*
+
+#### Figure 12
+![Figure 12](pic/1-s2.0-S2590118423000138-gr12.jpg)
+
+*Figure 12: 组件 RhoArchitecture CRA 和所用框架 WebIDERho FUW 的 Halstead 指标 HS、HV、HD、HT、HB 和 HEF 图表 [Figure 12 高清图](pic/1-s2.0-S2590118423000138-gr12_lrg.jpg)*
+
+#### Figure 13
+![Figure 13](pic/1-s2.0-S2590118423000138-gr13.jpg)
+
+*Figure 13: RhoArchitecture CRA、所用框架 WebIDERho FUW 和案例研究 CAS 的可维护性指数 MI [Figure 13 高清图](pic/1-s2.0-S2590118423000138-gr13_lrg.jpg)*
+
 ----
 ## 参考文献
 #### 1
@@ -742,3 +827,44 @@ Metrics and models for software reliability: A systematic review</br>
 Ahsan S., Hayat F., Afzal M., Ahmad T., Asif K.H., Asif H.M.S., et al.</br>
 Object oriented metrics for prototype based languages</br>
 Life Sci. J., 9 (2012), pp. 63-66
+
+#### 82
+Nguyen V., Deeds-Rubin S., Tan T., Boehm B.</br>
+A SLOC Counting Standard</br>
+Univ South California, Cent Syst Softw Eng (2007)
+
+#### 83
+McCabe T.</br>
+A complexity measure</br>
+IEEE Trans. Softw. Eng., SE-2 (1976), pp. 308-320, 10.1109/TSE.1976.233837
+
+#### 84
+Gill G.K., Kemerer C.F.</br>
+Cyclomatic complexity density and software maintenance productivity</br>
+IEEE Trans. Softw. Eng., 17 (1991), p. 1284
+
+#### 85
+Halstead M.</br>
+Elements of Software Science</br>
+Comput Sci Libr (1977)
+
+#### 86
+Oman P.W., Hagemeister J., Ash D.</br>
+A Definition and Taxonomy for Software Maintainability</br>
+Univ. Idaho, Softw. Eng. Test Lab (1991)
+
+#### 87
+Stilwell J.</br>
+Escomplex Version 2.0.0-alpha</br>
+(2021)</br>
+https://www.npmjs.com/package/escomplex (accessed November 2, 2021)
+
+#### 88
+SourceMeter: Version 9.2</br>
+Front Softw Ltd (2021)</br>
+https://www.sourcemeter.com/ (accessed October 15, 2021)
+
+#### 89
+Ferenc R., Langó L., Siket I., Gyimóthy T., Bakota T.</br>
+Source meter sonar qube plug-in</br>
+2014 IEEE 14th Int. Work. Conf. Source Code Anal. Manip. (2014), pp. 77-82
