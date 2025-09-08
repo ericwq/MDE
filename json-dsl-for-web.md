@@ -375,7 +375,11 @@ Table 3.  [FUW] WebIDERho 中使用的组件/框架：JavaScript 代码摘要
 
 *Figure 10: 组件 RhoArchitecture CRA、所用框架 WebIDERho FUW，和案例研究 CAS 之间的 SLOC、LLOC、CLOC 和 BLOC 指标比较 [Figure 10 高清图](pic/1-s2.0-S2590118423000138-gr10_lrg.jpg)*
 
-*TODO*
+总体而言，根据 [Table 4](#table-4)，CAS 获得的软件指标非常好。一方面，圈复杂度反映了“功能简单，风险不大”（ CNN < 5 根据 <sup>[83](#83)</sup> ）。另一方面，根据 <sup>[81](#81)</sup>、<sup>[85](#85)</sup>，CAS 的平均值具有以下特点：低复杂度和较低相关功能性（ HS = 120.5，HV = 5922 ），较低难度级别（ HD = 31 ），较少实施时间（ HT = 15,970 ），最小误差估计（ HB = 2.0 ）和低理解努力（ HEF = 66 ）。
+
+接下来，我们将重点分析和比较 CRA 和 FUW 获得的软件指标。此分析将有助于我们确定提案的质量、可靠性和复杂性。
+
+[Figure 11](#figure-11) 展示了 CRA 和 FUW 的软件圈复杂度度量图。对于所有组件，它反映出函数/方法具有 “功能简单，风险不大” 的特性（ CNN < 5（根据 <sup>[83](#83)</sup> ）。另一方面， <sup>[84](#84)</sup> 表明，CND 值越低，生产力和软件维护就越简单，值得注意的是，CRA 的 CND 值比 FUW 的低 50%。此外，我们强调，我们的 RhoEngine 引擎比任何 FUW 组件都具有更高的生产力、更好的可维护性和更低的风险。
 
 ----
 #### Table 4
@@ -387,22 +391,60 @@ Table 4. 软件指标摘要（圈复杂度、Halstead 指标和可维护性指�
 
 ----
 
+[Figure 12](#figure-12) 展示了 CRA 和 FUW 组件的 Halstead 指标 HS、HV、HD、HT、HB 和 HEF 的图表。每个指标都定义了一个解释说明、每组的平均值及其相应的解释。
+
 #### Figure 11
 ![Figure 11](pic/1-s2.0-S2590118423000138-gr11.jpg)
 
 *Figure 11: 组件 RhoArchitecture CRA 和所用框架 WebIDERho FUW 的圈复杂度图 [Figure 11 高清图](pic/1-s2.0-S2590118423000138-gr11_lrg.jpg)*
+
+平均 AHS = 494 意味着所有 CRA 组件的复杂程度都低于 FUW，并且平均 AHV = 55，这意味着CRA 的相关功能很少。此外，41.3% 的 HV 来自 MDB PRO，也就是说，它是一个相当复杂的框架，具有很多相关功能，而且难度也很高 ( HD = 526 ），实施时间较长（ HT = 53,444,000 ）且估计误差较大（ HB = 838.3 )。
+
+相比之下，AHD 的难度级别仅为 CRA  组件的 31%，FUW 组件的 69%，即约三分之一。RhoEngine 的难度级别属于最低（ HD = 140，HD = 154 ），需要注意的是，它是一个 JSON-DSL 执行引擎。执行和理解时间（ AHT = 451 ) 对于 CRA 来说较低，并且比 FUW 组件低约 41 倍。同样，CRA 的估计误差 ( AHB = 18 ) 比 FUW 的估计误差低约 14 倍。 *译注：原文第二句中出现两个并列的 HD 值，疑为笔误*
+
+最后，HEF 值（即 RhoEngine、EditorRho 和 WebIDERho 的理解工作量）均小于 3000，所需的理解工作量低于 FUW 组件（介于 3000 到 8000 之间）。理解 RhoModel 的工作量最高（ HEF = 11,073 ），这是有道理的，因为我们正在建立一个新的编程模型。
+
+总体来说，CRA 组件的复杂度较低，降低复杂度的相关功能较少，难度较低，实现和理解难度较低，估计误差较低。
+
+最后，[Figure 13](#figure-13) 绘制了 CRA、CAS 和 FUW 的可维护性指数 (MI)。可以看出，所有组件和框架都具有 “良好的可维护性”（> 85（根据 <sup>[86](#86)</sup> ）。基于 RhoModel 开发的组件（例如 CRA 和 CAS）的可维护性高于平均 FUW。值得一提的是，我们提案的基石 RhoEngine 和 WebIDERho 比 MDB PRO、jQuery、CodeMirror 和 Bootstrap 等公认的框架具有更好的可维护性。这有助于验证 RhoModel 的设计和代码生成的质量。
 
 #### Figure 12
 ![Figure 12](pic/1-s2.0-S2590118423000138-gr12.jpg)
 
 *Figure 12: 组件 RhoArchitecture CRA 和所用框架 WebIDERho FUW 的 Halstead 指标 HS、HV、HD、HT、HB 和 HEF 图表 [Figure 12 高清图](pic/1-s2.0-S2590118423000138-gr12_lrg.jpg)*
 
+综上所述，RhoArchitecture 组件的 CRA 和 CAS 案例研究成功获得了文献中规定的软件度量的推荐值。通过此软件度量指标分析，我们验证了 C1~C3 的相关特性。
+
 #### Figure 13
 ![Figure 13](pic/1-s2.0-S2590118423000138-gr13.jpg)
 
 *Figure 13: RhoArchitecture CRA、所用框架 WebIDERho FUW 和案例研究 CAS 的可维护性指数 MI [Figure 13 高清图](pic/1-s2.0-S2590118423000138-gr13_lrg.jpg)*
 
-----
+### 5.3 RhoArchitecture 案例研究和组件的结果
+本节旨在验证 RhoArchitecture 的相关 C4–C7 特性和/或功能，并结合案例研究（ HelloRho、Start Wars、ComicSpeechRho、DrawRho ）以及 RhoArchitecture 组件（ RhoEngine、RhoModel、WebIDERho 和 EditorRho ）。针对每个特性，我们将总结其目标的实现方式。
+
+- C4 特性：创建 RhoLanguages 和执行 RhoPrograms 的能力：
+  - (S) *simple-simple*（一种 RhoLanguage 的一个程序）：HelloRho 是一种 RhoLanguage，其程序 “hello.json” 在其中编写和执行。ComicSpeechRho 是一种 RhoLanguage，其程序 “code.json” 在服务端级别执行。最后，ProjectRho 是一种专用于 WebIDERho 项目管理的 RhoLanguage，它在项目编辑时执行相应的程序。
+  - (P) *multiple-simple* （ 一种 RhoLanguage 的多个程序）：DrawRho 是一种 RhoLanguage，可以在同一个 SVG 画布上编写和运行多个程序（例如 StarWars.json、Speechs.json ），并有机会生成无尽的图形。
+  - (M) *multiple-multiple* （用多种 RhoLanguages 编写的多个程序）：MRho 和 MIRho 是 RhoModel 的 RhoLanguages，当您在 WebIDERho 中运行项目的编译和代码生成时，在内部您正在运行一个 MRho 程序和多个 MIRho 程序。
+
+- C5 特性：接受异构 XML、JSON 和 Text 数据源的能力：
+  - (X) XML：在 RhoModel 中，用于代码生成的模板存储在 XML 文件中。同样，在 ComicSpeech 中，用于页面生成的模板存储在 “templates.xml” 文件中。
+  - (J) JSON：在 WebIDERho 中，按用户分组的所有项目的信息都存储在 JSON 文件中。
+  - (XJ) XML/JSON：在 DrawRho 中，图表中使用的 Actors 和 ComicSpeech 信息存储在文件 “sources.json” 中，图形库 “templates.xml” 的模板存储在 XML 文件中。
+  (XJT) XML/JSON/Text：Star Wars 案例研究说明了 RhoModel 的灵活性，可以关联存储在 XML（ “details.xml” 文件）、JSON（ “actors.json” 文件）和文本（ “descriptions.txt” 文件）中的相同类 (Class) 的信息。
+
+- C6 特性： 组件和 Web 组件的创建和使用：
+  - (C) 组件：已为本分析中研究的所有项目创建了基于 RhoModel 的组件。
+  - (W) Web 组件：DrawRho 使用 XML 文件 “templates.xml” 中指定的 SVG 模板来生成图形元素，并使用 Handlebars 模板引擎在 SVG 画布上生成图形元素。另一方面，在 RhoEngine 中，您可以找到创建 Web 组件的基类。
+
+- C7 特性：模板引擎的定义和使用：
+  - (P) Plain：在 RhoModel 中，该引擎用于生成项目的 JavaScript 代码。而在 Star Wars 中，该引擎用于显示 Star Wars 演员的信息。
+  - (H) Handlebars：在 WebIDERho 中，该引擎用于生成 Rho 项目的开发环境，这种新颖的方法未来可能支持多种项目类型。另一方面，在 DrawRho 中，该引擎用于创建 SVG 图形元素。
+  - (PEHO) 所有引擎：ComicSpeechRho 案例研究重点是使用所有可用的引擎进行验证。
+
+基于以上发现，我们定性验证了C4–C7的相关特征。
+
 ## 参考文献
 #### 1
 Voelter M.</br>
