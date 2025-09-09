@@ -326,7 +326,7 @@ devrho.com 上的菜单选项 “Samples” 下还有其他有趣的案例研究
 
 我们使用以下两个工具来计算上述指标：在 NodeJS 上实现的 Excomplex <sup>[87](#87)</sup> ，提供对 JavaScript 抽象语法树（AST）的软件复杂度的分析；以及用于 JavaScript 的 FrontEndART SourceMeter <sup>[88](#88)</sup>、<sup>[89](#89)</sup> ，这是一个源代码分析工具，可以对复杂的 JavaScript 源代码进行深度静态分析（sourcemeter.com）。
 
-### 5.2.2 分析使用 RhoModel 生成的 JavaScript 代码
+#### 5.2.2 分析使用 RhoModel 生成的 JavaScript 代码
 [Table 1](#table-1) 总结了 RhoArchitecture 组件（ CRA 标示，黄色部分）代码生成的 JavaScript 指标：RhoEngine、RhoModel、WebIDERho 和 EditorRho。这四个组件是作为依靠 RhoModel 的项目开发的。共创建了 20 个文件，其中 20%（4 个文件）用于 MRho 规范，其余 80%（16 个文件）用于 MIRho 实现文件。在这些文件中，我们发现总共 4422 行 RhoModel 源代码，共生成 7808 行 JavaScript 代码。这意味着简洁率为 1.77。值得注意的是，RhoEngine 的简洁率为 2.19，是最高的，因为该编程模型支持在 Web 客户端和 Web 服务端生成代码。另一方面，CLOC 注释行占 27% （四个项目的平均值），这是一个非常高的文档容量比率（
 根据 <sup>[40](#40)</sup> 的数据，大于 25% ），而 RhoEngine 的平均水平为 31%。这凸显了现有 RhoArchitecture 文档的质量。
 
@@ -444,6 +444,58 @@ Table 4. 软件指标摘要（圈复杂度、Halstead 指标和可维护性指�
   - (PEHO) 所有引擎：ComicSpeechRho 案例研究重点是使用所有可用的引擎进行验证。
 
 基于以上发现，我们定性验证了C4–C7的相关特征。
+
+### 5.4 .验证摘要
+[Table 5](#table-5) 总结了 RhoArchitecture 相关特性列表的验证结果。一方面，通过对 RhoArchitecture 组件和案例研究的软件度量分析，验证了相关特性 C1、C6–C7。另一方面，通过案例研究验证了相关特性 C2–C5。
+
+总而言之，按照 <sup>[19](#19)</sup> 建议并经 <sup>[20](#20)</sup> 调整的定性案例研究方法，并使用 [Table5](#table-5) 所示的相关特征的验证摘要，我们对 RhoArchitecture 最相关的特性或方面提供了验证，例如：RhoModel 编程模型、JSON-DSL 的创建和执行、组件和 Web 组件的创建、模板引擎的使用以及异构 XML、JSON 和 Text 信息的交换。
+
+----
+#### Table 5
+Table 5. RhoArchitecture 相关特性列表和验证摘要
+
+![Table 5](pic/1-s2.0-S2590118423000138-fx8.jpg)
+
+----
+
+### 5.5 有效性威胁
+本节总结了在基于 JSON 的 DSL 规范与实现过程中，对研究工作内部有效性与外部有效性构成的威胁。因此，我们将探讨四个已识别的内部有效性威胁。
+
+前两个威胁与在不同场景中使用多案例类型的评估，以及结果的一致性和精度有关。虽然案例研究使我们能够全面评估 RhoArchitecture 解决特定领域问题的功能，需要更多案例研究来确定 JSON-DSL 在以下方面的效率、精度和可靠性：
+- （i）用多种 RhoLanguages 编写的 RhoCode 程序的并发执行；
+- （ii）运行时内存要求；
+- （iii）不同 RhoLanguages 之间的交互；
+- （iv）处理大量数据的能力；以及
+- （v）负载测试。
+
+一方面，这些威胁可以通过与 JSON-DSL 相关的 JavaScript 组件的质量来缓解，并通过不同的软件指标进行评估。另一方面，性能和可靠性由浏览器和 NodeJS 服务器保证。
+
+已识别的另外两个内部威胁与错误和异常评估以及语义验证有关。第 [4](#4-研究案例) 节中的案例研究有助于我们控制这些威胁，但同样，这取决于 JavaScript 组件的质量。
+
+关于本研究的外部有效性，我们想讨论两个威胁。第一个威胁与 JSON-DSL 的泛化相对于文本 DSL 有关。对于领域专家来说，与任何其他文本语言相比，用 JSON 格式编写解决方案可能会更加困难或令人困惑。完善的文档和 JSON-DSL 的演示性示例可以缓解这一威胁。第二个相关威胁与使用 WebIDERho 创建 JSON-DSL 的可用性有关。目前，WebIDERho 基于 PsiModel  <sup>[9](#9)</sup> 实现模型，该模型使用代码隐藏技术将规范与实现分离。为了缓解这一威胁，我们未来的工作包括基于 DPG（ Diagram Programming Generate <sup>[70](#70)</sup>，<sup>[71](#71)</sup> ）扩展类图的功能，以便能够以可视化的方式创建 JSON-DSL，也就是说，我们将使用领域特定的可视化语言来规范和创建 JSON-DSL。此外，它还应包含文档的自动生成以及调试和执行区域。我们知道 WebIDERho 有局限性，但它为我们的目的（基于 JSON 的 DSL 的构建和执行）提供了必要的工具和功能。
+
+## 6 结论
+领域特定语言凭借其提供的抽象层次，能够提高软件工程师和领域专家的生产力，从而实现软件应用的高速构建。构建 DSL 解决方案需要使用工具来实现解释器和编译器。然而，正如我们所展示的，很少有方法能够在 Web 服务端和 Web 客户端层面为 Web 应用程序创建使用 JSON 语法的 DSL 替代方案。
+
+为了实现这一目标，我们在本文中正式化并验证了一种架构，称为 RhoArchitecture，该架构允许我们使用基于 JSON 的 DSL (JSON-DSL) 解决方案来解决 Web 服务端和 Web 客户端层面的特定领域问题。RhoArchitecture 包含一个 RhoEngine 评估引擎、一个 RhoModel 编程模型和一个 WebIDERho 轻量级 Web 开发环境。我们的方法支持创建和评估 JSON-DSL、JavaScript 组件和 Web 组件、模板引擎，并使用连接器连接异构信息源（JSON、XML、Text 格式），以封装功能并将其与其他 Web 小部件、组件和/或框架集成，从而为 Web 应用程序创建快速、稳健且灵活的解决方案。在此背景下，我们正式定义了 RhoLanguages 及其语法 RhoGrammar 来实现 JSON-DSL，这些 JSON-DSL 可以通过 RhoModel 实现，并通过 RhoEngine 执行。
+
+为了展示我们方法的能力和潜力，我们提供了四个案例研究来验证最相关的特性或方面，例如 JSON-DSL 的创建和执行、组件和 Web 组件的创建、模板引擎的使用以及异构信息的交换。在第一个案例中，HelloRho 使我们能够创建和执行 RhoLanguage。第二个案例研究 Start Wars 重点介绍了在单个类中实现的多个异构信息源（XML、JSON 和 Text）的使用。第三个案例研究 ComicSpeechRho 验证了 Web 服务端级别的编程，包括创建 RhoLanguage、Web 服务、使用模板引擎以及使用 material design 进行网页设计。最后一个案例研究 DrawRho 全面验证了 RhoArchitecture 最相关的方面。
+
+在软件工程领域，软件度量代表着理解或评估信息系统特征的客观指标。本文的分析使我们能够确认，RhoArchitecture 组件（RhoEngine、RhoModel、WebIDERho 和 EditorRho）并非十分复杂：它们几乎没有关联功能，从而降低了其复杂性；它们的难度、实现和理解程度较低；错误估计也很低；并且具有良好的可维护性。值得注意的是，这些值是与 MDB PRO、jQuery、CodeMirror 和 Bootstrap 等公认的框架进行比较的，并且在许多情况下，RhoArchitecture 组件在这些软件度量中获得了更好的推荐值。
+
+作为我们未来工作的一部分，我们的目标是将领域特定可视化语言 (Domain Specific Visual Languages) 的功能融入基于图表编程生成 (DPG) 的方法中。此外，我们还计划开发新的 Rho 语言，例如 BPMERho，允许执行 BPMN 2.0，MDBRho 用于 创建组件、表单、导航、对话框、区块设计等，利用 Material Design Bootstrap，以及 RESTRho 用于通过 JSON-DSL 指定和执行 REST API。
+
+## CRediT 作者贡献声明
+Enrique Chavarriaga：概念化、方法论、软件、验证、数据管理。Francisco Jurado：概念化、撰写初稿、撰写审阅及编辑。Francy D. Rodríguez：调查、撰写审阅及编辑。
+
+## 利益竞争声明
+作者声明，他们没有任何已知的竞争性经济利益或个人关系可能会影响本文所报告的工作。
+
+## 致谢
+此项验证是与 UGround Global SL ( http://www.uground.com/ ) 的研究部门 (I＋D＋i) 合作进行的。
+
+## 数据可用性
+文章中描述的研究未使用任何数据
 
 ## 参考文献
 #### 1
