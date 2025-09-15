@@ -48,14 +48,14 @@ DSL 的实现涉及使用解析器、分析器和代码生成工具来获得运�
 
 ----
 ## 3. 构建基于 JSON 的领域特定语言的方法
-本节详细介绍了基于 JSON 的领域特定语言 (JSON-DSL) 解决方案的规范和实现方法，适用于服务器端和客户端的 Web 应用程序。本节将介绍 RhoArchitecture 及其三个部分（RhoEngine、RhoModel 和 WebIDERho）的核心思想。因此，我们将首先简要概述该方法，然后再进行分解。
+本节详细介绍了基于 JSON 的领域特定语言 (JSON-DSL) 解决方案的规范和实现方法，适用于服务端和客户端的 Web 应用。本节将介绍 RhoArchitecture 及其三个部分（RhoEngine、RhoModel 和 WebIDERho）的核心思想。因此，我们将首先简要概述该方法，然后再进行分解。
 
 ### 3.1 简要概述
-RhoArchitecture 的基石是 RhoEngine，这是一个 JavaScript 组件，可以运行用不同 JSON-DSL 编写的多个程序。JSON-DSL 是一种遵循 JSON 语法的编程语言，而 RhoLanguage 则是 JSON-DSL 加上实现语法元素功能的 JavaScript 类。JSON-DSL 程序的运行会评估嵌套语法符号的功能，从根开始，并根据语法定义向下钻取。在 RhoEngine 中运行的 JSON-DSL 可以连接和交换异构信息、使用模板引擎、使用组件和 Web 组件、应用安全策略，并遵循良好的编程实践 <sup>[50](#50)</sup>、<sup>[51](#50)</sup>，从而使其代码更加实用、可靠和健壮。
+<ins>RhoArchitecture 的基石是 RhoEngine，这是一个 JavaScript 组件，可以运行用不同 JSON-DSL 编写的多个程序。JSON-DSL 是一种遵循 JSON 语法的编程语言，而 RhoLanguage 则是 JSON-DSL 加上实现语法元素功能的 JavaScript 类。JSON-DSL 程序的运行会评估嵌套语法符号的功能，从根开始，并根据语法定义向下钻取。</ins>在 RhoEngine 中运行的 JSON-DSL 可以连接和交换异构信息、使用模板引擎、使用组件和 Web 组件、应用安全策略，并遵循良好的编程实践 <sup>[50](#50)</sup>、<sup>[51](#50)</sup>，从而使其代码更加实用、可靠和健壮。
 
-为了使 JSON-DSL 与 RhoEngine 兼容，我们必须遵循 RhoModel，它建立了一个用于生成JavaScript 代码和文档的编程模型。正如我们将要详细介绍的，RhoModel 专注于指定 JSON-DSL，并在服务器端和客户端实现 JavaScript 组件和其他必要的可重用 Web 组件。RhoModel 基于我们之前的 PsiModel <sup>[9](#9)</sup>。
+<ins>为了使 JSON-DSL 能与 RhoEngine 协同工作，我们必须遵循 RhoModel，它建立了一个用于生成 JavaScript 代码和文档的编程模型。正如我们将要详细介绍的，RhoModel 专注于定义 JSON-DSL，并在服务端和客户端两侧实现 JavaScript 组件和其他必要的可复用 Web 组件</ins>。RhoModel 基于我们之前的 PsiModel <sup>[9](#9)</sup>。
 
-最后，WebIDERho 使用 RhoModel 作为编程模型，并使用 RhoEngine 作为执行环境。WebIDERho 使我们能够在服务器端和客户端定义项目、可视化类图、自动生成文档，并部署基于 NodeJS 的服务器端和客户端 Web 应用程序。
+<ins>最后，WebIDERho 使用 RhoModel 作为编程模型，并使用 RhoEngine 作为执行环境。WebIDERho 使我们能够在服务端和客户端定义项目、可视化类图、自动生成文档，并部署基于 NodeJS 的服务端和客户端 Web 应用。</ins>
 
 ### 3.2 RhoArchitecture
 为了更好地理解，[Figure 1](#figure-1) 展示了软件架构，该架构在概念层面上定义了我们处理 JSON-DSL 的方法中所涉及的组件，即 RhoArchitecture。该架构的主要目标是促进以下两个步骤：
