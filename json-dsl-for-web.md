@@ -60,25 +60,24 @@ DSL 的实现涉及使用解析器、分析器和代码生成工具来获得运�
 ### 3.2 RhoArchitecture
 为了更好地理解，[Figure 1](#figure-1) 展示了软件架构，该架构在概念层面上定义了我们处理 JSON-DSL 的方法中所涉及的组件，即 RhoArchitecture。该架构的主要目标是促进以下两个步骤：
 
-1. *指定 JSON-DSL* ：在此步骤中，使用 RhoModel（位于 [Figure 1](#figure-1) 的中下部分）将 JSON-DSL 定义为 RhoLanguage。为此，首先我们必须定义 JSON-DSL 语法，然后实现与语法元素（终端符号和非终端符号）相关的功能。在 RhoModel 中，必须通过从 RhoLanguage 基类继承来将此功能作为一组 JavaScript 类提供，以减轻程序员的任务。与语法的每个元素相关的功能在我们称之为组件（位于 [Figure 1](#figure-1) 的底部）的部分中实现。在提供语法和相关功能之后，RhoModel 可以在评估相应的 JSON-DSL 代码时生成 JavaScript 代码。
+1. *定义 JSON-DSL* ：在此步骤中，JSON-DSL 被定义为使用 RhoModel（位于 [Figure 1](#figure-1) 的中下部分）的 RhoLanguage 。为此，首先我们必须定义 JSON-DSL 语法，然后实现与语法元素（终端符号和非终端符号）相关的功能。在 RhoModel 中，这些功能必须作为一组 JavaScript 类提供，并且这些类需要从 RhoLanguage 基类继承，以方便程序员的工作。语法中每个元素对应的功能都通过我们所称的组件实现（位于 [Figure 1](#figure-1) 的底部）。在提供语法和相关功能之后，在执行（evaluate）相应的 JSON-DSL 代码时，RhoModel 可以生成 JavaScript 代码。
 
-2. *评估 JSON-DSL* ：此步骤的主要目标是获取用 RhoLanguage 编写的 RhoCode 程序（ [Figure 1](#figure-1) 左侧）以及必要的资源（即 HTML 片段、图像、视频、css、svg 等），然后使用 RhoEngine 运行 RhoCode。为此，RhoEngine 通过将 RhoCode 转换为 JavaScript 对象（ [Figure 1](#figure-1) 右侧的 RhoObject ）来生成 RhoProgram。此 RhoObject 是通过执行语法的每个嵌套元素的功能生成的，从根元素开始，并根据其语法定义向下钻取。获得的 RhoObject 解决了特定问题，可以在服务器端或客户端的 Web 应用程序中运行。执行此步骤时，将报告编译和执行错误以供处理。
+2. *执行 JSON-DSL* ：此步骤的主要目标是获取用 RhoLanguage 编写的 RhoCode 程序（ [Figure 1](#figure-1) 左侧）以及必要的资源（即 HTML 片段、图像、视频、css、svg 等），然后使用 RhoEngine 运行 RhoCode。为此，RhoEngine 通过将 RhoCode 转换为 JavaScript 对象（ [Figure 1](#figure-1) 右侧的 RhoObject ）来生成 RhoProgram。此 RhoObject 是通过执行语法的每个嵌套元素的功能生成的，从根元素开始，并根据其语法定义向下钻取。得到的 RhoObject 解决了特定问题，并可在服务端或客户端的 Web 应用中运行。执行此步骤时，将报告编译和执行错误以供处理。
 
-[Figure 1](#figure-1) 顶部的数据源组件封装了管理 JSON、XML 和文本格式信息的功能。因此，RhoArchitecture 中定义的任何对象或类都可以使用这些数据源组件获取外部信息，并在运行时链接其一个或多个属性。因此，该提案允许我们引入异构信息，并通过适当的参数化将其分配给类。因此，该方法可以将数据源与 JSON-DSL 解耦，从而在 Web 应用程序中实现针对特定问题的解决方案时增强其多功能性 (versatility) 和 能力（power)。
+[Figure 1](#figure-1) 顶部的数据源组件封装了管理 JSON、XML 和 Text 格式信息的功能。因此，RhoArchitecture 中定义的任何对象或类都可以使用这些数据源组件获取外部信息，并在运行时链接其一个或多个属性。因此，该提案允许我们引入异构信息，并通过适当的参数化将其分配给类。因此，该方法可以将数据源与 JSON-DSL 解耦，从而在 Web 应用中实现针对特定问题的解决方案时，增强其多功能性 (versatility) 和能力（power)。
 
-在 [Figure 1](#figure-1) 的底部，我们可以看到模板。它们是预先设计的文本，包含变量标签，可以动态调整以生成自定义文本输出。这些模板可用于生成 HTML、SVG、JSON、XML 和 JavaScript 代码，从而加快 Web 应用程序的开发速度。为了自定义管理模板的使用，在 [Figure 1](#figure-1) 的左侧，我们可以看到模板引擎。模板引擎是一个 JavaScript 组件，它允许使用不同的特定语法（通常在内存中预编译）创建自定义模板，以快速高效地生成字符串。市场上有各种各样的模板引擎，特别是 EJS <sup>[52](#52)</sup>、Handlebars <sup>[53](#53)</sup>、<sup>[54](#54)</sup> 和 Hogan  <sup>[55](#55)</sup> 引擎。这些引擎作为插件添加到 RhoArchitecture 中，可由 RhoEngine 轻松使用。此外，RhoArchitecture 实现了一个简单的本机模板引擎，我们称之为 Plain，其功能有限。在创建 JSON-DSL 时使用这些模板引擎，结合数据源绑定，可以成倍地提高这些语言的能力和多功能性。
+在 [Figure 1](#figure-1) 的底部，我们可以看到模板。它们是预先设计的文本，包含变量标签 (variable labels)，可通过动态调整生成定制化的文本输出。这些模板可用于生成 HTML、SVG、JSON、XML 和 JavaScript 代码，从而加快 Web 应用的开发速度。为实现模板使用的自定义管理，在 [Figure 1](#figure-1) 的左侧，我们可以看到模板引擎。模板引擎是一个 JavaScript 组件，它允许使用不同的特定语法（通常在内存中预编译）创建自定义模板，从而快速高效地生成字符串。市场上有各种各样的模板引擎，其中尤为值得关注的是 EJS <sup>[52](#52)</sup>、Handlebars <sup>[53](#53)</sup>、<sup>[54](#54)</sup> 和 Hogan  <sup>[55](#55)</sup> 引擎。这些引擎作为插件被添加到 RhoArchitecture 中，可由 RhoEngine 轻松使用。此外，RhoArchitecture 实现了一个简单的原生 (native) 模板引擎，我们称之为 Plain，其功能有限。在创建 JSON-DSL 时使用这些模板引擎，结合数据源绑定，可以指数级地提高这些语言的能力和多功能性。
 
-在 [Figure 1](#figure-1) 的底部，我们可以看到 Web 组件 [56]、[57]、[58]、[59] ，它们是用 HTML、 DOM 、JavaScript 和 CSS构建的小部件或可重用组件，部署在 Web 应用程序中。RhoArchitecture 使用模板引擎自动生成 Web 组件的代码。为了将这些编程组件和工具整合到我们的编程模型中，我们实现了工厂 Web 组件 (Factory Web Components) 和插件模板引擎 (Plugins Templates Engine)（参见 [Figure 1](#figure-1) RhoModel 框左侧）。
+在 [Figure 1](#figure-1) 的底部，我们可以看到 Web 组件 <sup>[56](#56)</sup>、<sup>[57](#57)</sup>、<sup>[58](#58)</sup>、<sup>[59](#59)</sup> ，它们是用 HTML、 DOM 、JavaScript 和 CSS构建的小部件或可重用组件，部署在 Web 应用程序中。RhoArchitecture 使用模板引擎自动生成 Web 组件的代码。为了将这些编程组件和工具整合到我们的编程模型中，我们实现了工厂 Web 组件 (Factory Web Components) 和插件化模板引擎 (Plugins Templates Engine)（参见 [Figure 1](#figure-1) RhoModel 框左侧）。
 
 #### Figure 1
 ![Figure 1](pic/1-s2.0-S2590118423000138-gr1.jpg)
 
 *Figure 1: RhoArchitecture 的功能块图 [Figure 1 高清图](pic/1-s2.0-S2590118423000138-gr1_lrg.jpg)*
 
-到目前为止可以推断，我们方法背后的主要思想是高度重视代码生成，这是软件工程中一个成熟的领域，尤其注重模型驱动工程 <sup>[60](#60)</sup>、<sup>[61](#61)</sup>。代码生成在构建信息系统时可以节省时间、提高效率、提高质量和标准化 <sup>[62](#62)</sup>、<sup>[63](#63)</sup>。因此，在这种情况下，为了简化 RhoLanguages 的规范（我们将在后面的第 3.4 节中详细介绍），我们需要 RhoModel（见 [Figure 1](#figure-1) ）。这允许定义 RhoGrammars
-以及基于 RhoEngine 的模板引擎、Web 组件和 JavaScript 组件的实现。RhoModel 将规范与实现分离，这源于我们之前对 PsiModel <sup>[9](#9)</sup> 和自动代码生成的研究成果。
+到目前为止可以推断，我们方法背后的主要思想是高度重视代码生成，这是软件工程中一个成熟的领域，尤其注重模型驱动工程 (MDE) <sup>[60](#60)</sup>、<sup>[61](#61)</sup>。代码生成在构建信息系统时可以节省时间、提高效率、提高质量和标准化 <sup>[62](#62)</sup>、<sup>[63](#63)</sup>。因此，在这种情况下，为了简化 RhoLanguages 的规范（我们将在后面的第 [3.4](#34-rholanguage) 节中详细介绍），我们需要 RhoModel（见 [Figure 1](#figure-1) ）。这允许定义 RhoGrammars G 以及基于 RhoEngine 的模板引擎、Web 组件和 JavaScript 组件的实现。RhoModel 将规范与实现分离，这源于我们之前对 PsiModel <sup>[9](#9)</sup> 和自动代码生成的研究成果。
 
-总而言之，使用 RhoArchitecture，为 RhoEngine 实现的任何 JSON-DSL 都能够连接到异构数据源（XML、JSON、文本等），使用模板引擎，与 Web 组件协同工作，以增加语言的多功能性和功能性 (functionality)，并且如果应用安全策略和良好的编程实践，则可以获得相当可靠和强大的执行。
+总而言之，使用 RhoArchitecture，用于 RhoEngine 实现的任何 JSON-DSL 都能够连接到异构数据源（XML、JSON、Text 等），使用模板引擎，与 Web 组件协同工作，以增加语言的多功能性和功能性 (functionality)。若能遵循安全策略和良好的编程实践，则可以获得相当可靠 (reliable) 和稳健 (robust)的执行效果。
 
 ### 3.3 RhoEngine
 在 RhoArchitecture 中，RhoEngine 是 JSON-DSL 的评估引擎。正式来说，RhoEngine 管理一组 RhoLanguage，其定义如下： P = {ρ<sub>1</sub>,...,ρ<sub>k</sub>,...,ρ<sub>m</sub>} 也就是说，它可以处理多个 JSON-DSL，并以此方式联合解释和评估用 JSON 编写的多个程序，以创建 Web 应用程序的组件。
