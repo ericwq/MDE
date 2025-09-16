@@ -1,6 +1,8 @@
 # 一种为 Web 应用构建基于 JSON 的 DSL 解决方案的方法
 Enrique Chavarriaga, Francisco Jurado, Francy D. Rodríguez
 
+2023/06 [original english](https://www.sciencedirect.com/science/article/pii/S2590118423000138)
+
 ----
 ## 摘要
 由于其抽象程度，领域特定语言 (DSL) 能够构建应用，简化软件实现。在 Web 应用领域，我们可以找到许多用于服务器端应用的技术和编程语言，它们提供快速、稳健且灵活的解决方案，而用于客户端应用的技术和编程语言则有限，并且大多仅限于直接使用 JavaScript、HTML5、CSS3、JSON 和 XML。本文介绍了一种新方法，使用 JSON 语法 (JSON-DSL) 在服务器端和客户端创建基于 DSL 的 Web 应用。该方法包括一个评估引擎 (evaluation engine)、一个编程模型和一个支持它的集成 Web 开发环境。评估引擎允许执行使用编程模型创建的元素。编程模型则允许定义和规范 JSON-DSL、实现 JavaScript 组件、使用引擎提供的 JavaScript 模板、使用链接连接器 (link connector) 连接到异构信息源，以及与其他小部件、Web 组件和 JavaScript 框架的集成。为了验证我们方法的优势和能力，我们开发了四个案例研究，使用集成的 Web 开发环境来应用编程模型，并检查评估引擎中的结果。
@@ -75,9 +77,9 @@ DSL 的实现涉及使用解析器、分析器和代码生成工具来获得运�
 
 *Figure 1: RhoArchitecture 的功能块图 [Figure 1 高清图](pic/1-s2.0-S2590118423000138-gr1_lrg.jpg)*
 
-到目前为止可以推断，我们方法背后的主要思想是高度重视代码生成，这是软件工程中一个成熟的领域，尤其注重模型驱动工程 (MDE) <sup>[60](#60)</sup>、<sup>[61](#61)</sup>。代码生成在构建信息系统时可以节省时间、提高效率、提高质量和标准化 <sup>[62](#62)</sup>、<sup>[63](#63)</sup>。因此，在这种情况下，为了简化 RhoLanguages 的规范（我们将在后面的第 [3.4](#34-rholanguage) 节中详细介绍），我们需要 RhoModel（见 [Figure 1](#figure-1) ）。这允许定义 RhoGrammars G 以及基于 RhoEngine 的模板引擎、Web 组件和 JavaScript 组件的实现。RhoModel 将规范与实现分离，这源于我们之前对 PsiModel <sup>[9](#9)</sup> 和自动代码生成的研究成果。
+到目前为止可以推断，我们方法背后的主要思想是高度重视代码生成，这是软件工程中一个成熟的领域，尤其注重模型驱动工程 (MDE) <sup>[60](#60)</sup>、<sup>[61](#61)</sup>。代码生成在构建信息系统时可以节省时间、提高效率、提高质量和标准化 <sup>[62](#62)</sup>、<sup>[63](#63)</sup>。<ins>因此，在这种情况下，为了简化 RhoLanguages 的规范（我们将在后面的第 [3.4](#34-rholanguage) 节中详细介绍），我们需要 RhoModel（见 [Figure 1](#figure-1) ）。这允许定义 RhoGrammars G 以及基于 RhoEngine 的模板引擎、Web 组件和 JavaScript 组件的实现。RhoModel 将规范与实现分离，这源于我们之前对 PsiModel <sup>[9](#9)</sup> 和自动代码生成的研究成果。</ins>
 
-总而言之，使用 RhoArchitecture，用于 RhoEngine 实现的任何 JSON-DSL 都能够连接到异构数据源（XML、JSON、Text 等），使用模板引擎，与 Web 组件协同工作，以增加语言的多功能性和功能性 (functionality)。若能遵循安全策略和良好的编程实践，则可以获得相当可靠 (reliable) 和稳健 (robust)的执行效果。
+总而言之，使用 RhoArchitecture，用于 RhoEngine 的任何 JSON-DSL 实现都能够连接到异构数据源（XML、JSON、Text 等），使用模板引擎，与 Web 组件协同工作，以增加语言的多功能性和功能性 (functionality)。若能遵循安全策略和良好的编程实践，则可以获得相当可靠 (reliable) 和稳健 (robust) 的执行效果。
 
 ### 3.3 RhoEngine
 在 RhoArchitecture 中，RhoEngine 是 JSON-DSL 的评估引擎。正式来说，RhoEngine 管理一组 RhoLanguage，其定义如下： P = {ρ<sub>1</sub>,...,ρ<sub>k</sub>,...,ρ<sub>m</sub>} 也就是说，它可以处理多个 JSON-DSL，并以此方式联合解释和评估用 JSON 编写的多个程序，以创建 Web 应用程序的组件。
