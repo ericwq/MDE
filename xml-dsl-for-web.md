@@ -49,6 +49,80 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 ----
 ## 3 为客户端 Web 应用构建 XML-DSL 的方法
+在本节中，我们将详细介绍如何管理可在 CSWA 中直接解释和评估的 XML-DSL 解决方案。据此，本文将阐述与 *PsiEngine* （Programmable Solutions Interpreter Engine）相关的核心理念，以及如何在 Web 客户端中实现、评估该引擎，同时解释和执行代码。通过可运行示例，我们将阐述该方法涉及的若干核心概念：*PsiGrammar* 、*PsiLanguage* 以及 *PsiComponent* 。最后，我们将详细说明该方法所构建的编程模型，命名为 *PsiModel* ，以及为运用和测试该模型而开发的环境。
+
+### 3.1 PsiEngine
+[Fig 1](#fig-1) 展示了我们的方法框架。核心思路是获取 *PsiCode*，其用最合适 XML-DSL 编写，连同必要的 *Resources* 一同传入 *PsiEngine* 进行评估与解析。当 *PsiCode* 和 *Resources* 就绪后，*PsiEngine* 将其解析并转换为 JavaScript，这是通过解释其 DOM 并执行和 DOM 元素关联的 JavaScript 完成的。由此，我们获得解决 CSWA 特定问题的 *PsiObject* ，同时系统会报告相应的错误与警告信息以便后续处理。
+
+[Fig 1](#fig-1) 展示了该方法的核心组件：*PsiEngine* 。它完全基于 Web 客户端技术开发，融合了 HTML5、CSS3、JavaScript 和 DOM 技术，并结合了 Web 2.0 的技术、服务和工具。由此我们获得了一个完全在 Web 客户端运行的引擎，通过定义特定的 XML-DSL，该引擎能够构建 Web 组件、Web 控件及/或动态网页，为 CSW A 中提出的特定问题提供解决方案。
+
+#### Fig 1
+![Fig 1](pic/xml-f1.png)
+
+*Fig 1: PsiEngine（Programmable Solutions Interpreter Engine）在 Web 客户端中执行 PsiCode*
+
+*PsiEngine* 的核心是 *PsiXML Interpreter* ，其主要目标是评估和解释 *PsiCode* ，生成 JavaScript 代码并最终执行它。此外，它还拥有一个名为 *PsiData* 的公共共享区域，该区域允许运行中的 *PsiPrograms* 之间交换信息、功能和对象。
+
+在 [Fig 1](#fig-1) 中，我们还能看到 *PsiXML* 如何管理多个 *PsiLanguage* Ψ = { 𝕃<sub>1</sub>, 𝕃<sub>2</sub>, ..., 𝕃<sub>m</sub> }，即它能够评估、解释和执行这些 XML-DSL。为此， *PsiXML* 会注册一组 *PsiLanguage Definitions* 。对于用 *PsiLanguage*  𝕃𝑗 编写的每个不同的 *PsiCode* 𝑆<sub>k</sub> ，*Programs Manager* 都会创建并管理对应的 *PsiProgram* 𝑃<sub>k</sub>。 *PsiProgram* 𝑃<sub>k</sub> 负责通过基于  *PsiLanguage*  𝕃𝑗 语法的句语和语义分析，将  *PsiCode* S<sub>k</sub> 转换为 *PsiObject* 𝑂<sub>k</sub> （该转换由 *PsiXML* 的 *Translaor* 组件执行）。该转换包括处理 *PsiCode* 的 DOM 结构、验证每个 DOM 元素并执行对应功能（由 *Evaluator* 完成）。此外，*Programs Manager* 负责管理 *PsiXML* 能够评估的所有 *PsiPrograms* P = { 𝑃<sub>1</sub> , 𝑃<sub>2</sub> , ... , 𝑃<sub>n</sub> }。
+
+*PsiLanguage* 与其他基于 XML 的语言存在相似性。在 Web 客户端中，定义和使用各类 XML-DSL 时，我们遵循与其他基于 XML 语言相同的方法，例如：XSL、SVG、MathML 等。简言之，这些语言均通过定义 XML 语法来丰富网页内容，每个 XML 元素都承载着特定语义，由对应功能模块在 Web 客户端解释后实现其目标。然而，尽管当前浏览器通过原生代码或插件实现解释器，我们的方案直接利用 *PsiEngine* 进行全部分析工作，该引擎使用基于服务器端动态更新的语言规范。由此，*PsiEngine* 能轻松管理新型 XML-DSL ，关联其语义对应的功能模块，并提供便于评估的运行环境。
+
+另一方面，与其他基于 XML 的语言不同，*PsiLanguage* 能够将 *PsiCode* 与外部资源（包括 XML 和 JSON ）关联，以便在运行时使用和修改信息。关联信息意味着包含数据的 XML 以 DOM（XML-data DOM）形式存在，
+因此 *PsiCode* 𝑆<sub>k</sub> 的任意元素均可引用 XML-data DOM 中的元素。同样地，
+也可将 JSON 信息关联至 *PsiCode* 𝑆<sub>k</sub> 的元素。
+
+#### 3.1.1 定义Psi语言
+
+为了定义 *PsiLanguage* 以便 *PsiEngine* 能够管理，我们需要定义其对应的语法。*PsiLanguage* 的 *PsiGrammar* 𝔾 将通过元组定义：
+
+(1) 𝔾 = ＜𝕋 | Root | Δ ＞
+
+其中 𝕋 = { Tag<sub>1</sub>, Tag<sub>2</sub>, ..., Tag<sub>n</sub> } 是标签集合，Root（对于某个 Tag<sub>j</sub> ∈ 𝕋, 1 ≦ j ≦ n ）是语法的根元素，Δ 是语言结构定义的对象：
+
+(2) Δ = { Tag<sub>i</sub> ： Δ<sub>i</sub> | Tag<sub>i</sub> ∈ 𝕋 }
+
+其中 Δ<sub>i</sub> ∈ Δ 是由下面定义的对象：
+
+(3) Δ<sub>i</sub> = { TAG: v<sub>T</sub> , CLASS: v<sub>C</sub> , CHILDREN:v<sub>H</sub> , MULTIPLICITY:v<sub>M</sub> , STRICT:v<sub>S</sub> , VALIDATOR:v<sub>V</sub> }
+
+其中 v<sub>T</sub> 是标签名称，v<sub>C</sub> 是关联的类名称，v<sub>H</sub> 是子标签节点（默认为 null），v<sub>M</sub> 是子标签的多重性 （可能值：“0..1”，“1..1”，“0..n” 或 “1..n” ），v<sub>S</sub> 是子标签的严格验证（默认为 true），v<sub>V</sub> 指定验证标签属性（默认为 null）。
+
+普遍认为，使用 DTD 和 XML Schema 能轻松描述 XML 文档的结构、语法约束及数据类型。在开发 *PsiEngine* 时，我们分析了这些工具在验证 *PsiCode* 中的应用。如前所述，我们的方法可实现数据与程序的分离。尽管 *PsiCode* 采用 XML 编写，因此可通过 DTD 或 XML Schema 进行验证，但 XML 和 JSON 数据是在运行时加载并关联的。因此需要一种替代方案来验证代码和数据。由 *PsiLanguage Structure Diagram（PsiLSD）* 与 *PsiGrammar Validator Attributes（PsiGVA）* 构成的组合方案解决了这一问题。
+
+[Fig 2](#fig-2) (a) 中的 *PsiLSD* 展示了与 *PsiGrammer* 相关的语言结构的图形化表示。[Fig 2](#fig-2) (b) 则展示了 *PsiGVA* 及其用于验证标签属性 v<sub>V</sub> 的特定语法。*PsiLSD* 和 *PsiGVA* 极大地简化了 *PsiXML* 语法的设计与开发。
+
+#### Fig 2
+![Fig 2](pic/xml-f2.png)
+
+*Fig 2: (a) PsiLanguage Structure Diagram；(b) PsiGrammar Validator Attributes*
+
+定义 *PsiGrammar* 后，需实现其语义功能，即编码与 *PsiLanguage* 中每个标签 𝕋 = { Tag<sub>1</sub>, Tag<sub>2</sub>, ..., Tag<sub>n</sub> } 中的功能。这些功能由一组类实现，类源自可复用的 JavaScript 组件（参见 <sup>[8](#8)</sup>、<sup>[58](#58)</sup> ）实现为，随后与对应标签进行匹配。所有功能的评估与执行共同解决 CSWA 中的特定领域问题。
+
+因此，*PsiLanguage* 𝕃 定义为元组：
+
+(4) 𝕃𝕃 = ⟨ 𝔾 | 𝕂 | 𝕋 ↔ C ⟩
+
+其中 𝔾 是 *PsiLanguage* 的 *PsiGrammar* 定义（如 (1) 所定义），𝕂 是可复用的 JavaScript 软件组件（称为 *PsiComponent* ），C = { Class<sub>1</sub> , ... , Class<sub>n</sub> } 是 𝕂 中实现的类子集，最后， 𝕋 ↔ C 是 Tag<sub>K</sub> 与 Class<sub>K</sub> 之间的关联关系， 对于每个 Tag<sub>k</sub> ∈ 𝕋 以及 Class<sub>k</sub> ∈ C，分别对应。
+
+[Fig 3](#fig-3) 展示了语法 𝔾 中的标签与其在 C 中的相应类关联。由于 *PsiLanguage* 中的标签可能定义语法结构的多个部分，因此可关联不同功能。同样地，一个类可以关联到不同标签。在 [Fig 3](#fig-3) (a) 中，我们看到 *PsiLSD* 如何将对应的 JavaScript 类名（即 (3) 中的 v<sub>c</sub> ∈ 𝛥<sub>i</sub> ）与其在 XML 语法中的相关标签名关联起来。*(译注：Fig 3 中没有看到（a)，笔误？)*
+
+#### Fig 3
+![Fig 3](pic/xml-f3.png)
+
+*Fig 3: 定义 PsiLanguage 的标签集与类集关联图*
+
+[Template 1](#template-1) 展示了如何开发 *PsiComponent* 𝕂，其中实现了管理所需功能的类及其在 *PsiGrammar* 中的关联标签。
+
+#### Template 1
+![Template 1](pic/xml-t1.png)
+
+需要注意的是，那些将 C 与 *PsiLanguage* 关联的类都继承自一个抽象类（来自 *PsiLanguage Definitions* 的 *PsiElement* ）。该抽象类实现了每个元素的抽象行为。具体而言，它与 XML 源代码中的每个 DOM 元素（即每个标签）绑定起来，管理语法结构，并执行属性与子元素的验证。此外，该抽象类能通过事件集（调用对应 JavaScript 函数）执行各组件的专属功能。同时，*PsiElement* 抽象类还原生管理两种语言：
+1. *PsiLanguage to Link Information（PsiLI）*，负责将 *Context* 或 *PsiData* 中存储的 XML/JSON 格式信息关联至对应类；
+2. *PsiLanguage Code Attribute（PsiCA）*，用于评估标签属性中的 “inline” 代码。此类内联代码旨在通过关联信息设置属性值。
+
+由于这些语言已在 *PsiElement* 抽象类中实现，*PsiLI* 和 *PsiCA* 语言的使用可融入 *PsiLanguage* 的每个元素。这种方法能够原生关联外部 XML/JSON 信息资源与每个 *PsiLanguage* 的实现。通过将外部资源存储与 *PsiPrograms* 分离，资源可在组件、框架和 Web 应用间复用。一方面，*PsiLI* 允许 *PsiLanguage* 定义其与外部数据资源的关联；另一方面，*PsiCA* 提供了访问、使用和修改这些资源所需的语义。这在创建 XML-DSL 时具有创新性，因为它能为任何 XML-DSL 提供异构的 XML/JSON 信息，而其他方法，如 XLink（XML Linking Language）则通过在文档、图像和文件之间建立链接来添加 XML 元素和资源。
+
+有关 *PsiEngine* 的更多细节详见 http://hilas.ii.uam.es/api 。该网站包含 *PsiXML* 的交互式类图、详细的 *PsiLanguages* 定义及其他编程元素。
 
 ----
 ## 参考文献
