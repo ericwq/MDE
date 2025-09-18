@@ -274,7 +274,21 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 此外，可通过 *PanelNews* 类管理（添加、删除或验证）分类（ *Category* 类）和当前显示的新闻（ *MainNews* 类）。*MainNews* 类已实现用于可视化展示从 RSS 源或不同分类中选取的新闻。同时，*News* 类定义具有唯一 ID 的新闻条目，并负责新闻的显示。*UserInterface* 类负责处理并呈现 *FeedPsi* 应用程序的用户界面。
 
 ### 4.3 运行 FeedPsi Web 应用程序
+为展示 *Feed Component* 如何与 *FeedPsi* 语言协同运行以实现 *FeedPsi* Web 应用程序（ http://hilas.ii.uam.es/FeedPsi ），我们将演示其如何处理以下期刊 (periodicals) 的 RSS 源：*Bild、Mirror、AS、La Gazzeta、L’Equipe和El Tiempo*（ 见 [Fig 10](#fig-10) ）。
 
+因此，[Frag 7](#frag-7) 展示了实现 *FeedPsi* Web 应用程序（新闻聚合器）的 *FeedPsi* 源代码。
+
+#### Frag 7
+![Frag 7](pic/xml-frag7.png)
+
+[Fig 10](#fig10) 展示了 *PsiXML* 处理源代码后生成的 Web 应用程序。在 http://hilas.ii.uam.es/FeedPsi/index.html?list=〈name〉 中，可评估其他 *FeedPsi* 程序，其中〈name〉可选取 *science、spain、sport-es、technology* 和 *journal* 等类别。
+
+最后需说明，本案例研究的目的并非部署完全调试完毕的 Web 应用程序，而是更清晰地展示如何运用 *PsiComponent、PsiLanguage* 及 *PsiXML* 概念构建 Web 应用程序。
+
+#### Fig 10
+![Fig 10](pic/xml-f10.png)
+
+*Fig 10: FeedPsi Web 应用程序*
 
 ----
 ## 致谢
