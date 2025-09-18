@@ -71,7 +71,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 因此 *PsiCode* 𝑆<sub>k</sub> 的任意元素均可引用 XML-data DOM 中的元素。同样地，
 也可将 JSON 信息关联至 *PsiCode* 𝑆<sub>k</sub> 的元素。
 
-#### 3.1.1 定义Psi语言
+#### 3.1.1 定义 PsiLanguage
 
 为了定义 *PsiLanguage* 以便 *PsiEngine* 能够管理，我们需要定义其对应的语法。*PsiLanguage* 的 *PsiGrammar* 𝔾 将通过元组定义：
 
@@ -79,7 +79,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 其中 𝕋 = { Tag<sub>1</sub>, Tag<sub>2</sub>, ..., Tag<sub>n</sub> } 是标签集合，Root（对于某个 Tag<sub>j</sub> ∈ 𝕋, 1 ≦ j ≦ n ）是语法的根元素，Δ 是语言结构定义的对象：
 
-(2) Δ = { Tag<sub>i</sub> ： Δ<sub>i</sub> | Tag<sub>i</sub> ∈ 𝕋 }
+(2) Δ = { Tag<sub>i</sub> ：Δ<sub>i</sub> | Tag<sub>i</sub> ∈ 𝕋 }
 
 其中 Δ<sub>i</sub> ∈ Δ 是由下面定义的对象：
 
@@ -87,29 +87,29 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 其中 v<sub>T</sub> 是标签名称，v<sub>C</sub> 是关联的类名称，v<sub>H</sub> 是子标签节点（默认为 null），v<sub>M</sub> 是子标签的多重性 （可能值：“0..1”，“1..1”，“0..n” 或 “1..n” ），v<sub>S</sub> 是子标签的严格验证（默认为 true），v<sub>V</sub> 指定验证标签属性（默认为 null）。
 
-普遍认为，使用 DTD 和 XML Schema 能轻松描述 XML 文档的结构、语法约束及数据类型。在开发 *PsiEngine* 时，我们分析了这些工具在验证 *PsiCode* 中的应用。如前所述，我们的方法可实现数据与程序的分离。尽管 *PsiCode* 采用 XML 编写，因此可通过 DTD 或 XML Schema 进行验证，但 XML 和 JSON 数据是在运行时加载并关联的。因此需要一种替代方案来验证代码和数据。由 *PsiLanguage Structure Diagram（PsiLSD）* 与 *PsiGrammar Validator Attributes（PsiGVA）* 构成的组合方案解决了这一问题。
+普遍认为，使用 DTD 和 XML Schema 能轻松描述 XML 文档的结构、语法约束及数据类型。在开发 *PsiEngine* 时，我们分析了这些工具在验证 *PsiCode* 中的应用。如前所述，我们的方法可实现数据与程序的分离。尽管 *PsiCode* 是用 XML 编写的，因此可通过 DTD 或 XML Schema 进行验证，但 XML 和 JSON 数据是在运行时加载并关联的。因此，从这个角度来看，需要一种替代方案来验证代码和数据。由 *PsiLanguage Structure Diagram（PsiLSD）* 与 *PsiGrammar Validator Attributes（PsiGVA）* 构成的组合方案解决了这一问题。
 
-[Fig 2](#fig-2) (a) 中的 *PsiLSD* 展示了与 *PsiGrammer* 相关的语言结构的图形化表示。[Fig 2](#fig-2) (b) 则展示了 *PsiGVA* 及其用于验证标签属性 v<sub>V</sub> 的特定语法。*PsiLSD* 和 *PsiGVA* 极大地简化了 *PsiXML* 语法的设计与开发。
+[Fig 2](#fig-2) (a) 中的 *PsiLSD* 展示了与 *PsiGrammer* 相关的语言结构的图形化表示。就其本身而言，[Fig 2](#fig-2) (b) 则展示了 *PsiGVA* 及其用于验证标签属性 v<sub>V</sub> 的特定语法。*PsiLSD* 和 *PsiGVA* 极大地简化了 *PsiXML* 语法的设计与开发。
 
 #### Fig 2
 ![Fig 2](pic/xml-f2.png)
 
 *Fig 2: (a) PsiLanguage Structure Diagram；(b) PsiGrammar Validator Attributes*
 
-定义 *PsiGrammar* 后，需实现其语义功能，即编码与 *PsiLanguage* 中每个标签 𝕋 = { Tag<sub>1</sub>, Tag<sub>2</sub>, ..., Tag<sub>n</sub> } 中的功能。这些功能由一组类实现，类源自可复用的 JavaScript 组件（参见 <sup>[8](#8)</sup>、<sup>[58](#58)</sup> ）实现为，随后与对应标签进行匹配。所有功能的评估与执行共同解决 CSWA 中的特定领域问题。
+定义 *PsiGrammar* 后，需实现其语义功能，即编码功能，其与 *PsiLanguage* 中每个标签 𝕋 = { Tag<sub>1</sub>, Tag<sub>2</sub>, ..., Tag<sub>n</sub> } 相关联。这些功能由一组类实现，类源自可复用的 JavaScript 组件（参见 <sup>[8](#8)</sup>、<sup>[58](#58)</sup> ）实现，随后与对应标签进行匹配。所有功能的评估与执行共同解决 CSWA 中的特定领域问题。
 
-因此，*PsiLanguage* 𝕃 定义为元组：
+因此，*PsiLanguage* 𝕃 被定义为元组：
 
-(4) 𝕃𝕃 = ⟨ 𝔾 | 𝕂 | 𝕋 ↔ C ⟩
+(4) 𝕃 = ⟨ 𝔾 | 𝕂 | 𝕋 ↔ C ⟩
 
-其中 𝔾 是 *PsiLanguage* 的 *PsiGrammar* 定义（如 (1) 所定义），𝕂 是可复用的 JavaScript 软件组件（称为 *PsiComponent* ），C = { Class<sub>1</sub> , ... , Class<sub>n</sub> } 是 𝕂 中实现的类子集，最后， 𝕋 ↔ C 是 Tag<sub>K</sub> 与 Class<sub>K</sub> 之间的关联关系， 对于每个 Tag<sub>k</sub> ∈ 𝕋 以及 Class<sub>k</sub> ∈ C，分别对应。
+其中 𝔾 是 *PsiLanguage* 的 *PsiGrammar* 定义（由 (1) 定义），𝕂 是可复用的 JavaScript 软件组件（称为 *PsiComponent* ），C = { Class<sub>1</sub> , ... , Class<sub>n</sub> } 是在 𝕂 中实现的类的子集，最后， 𝕋 ↔ C 是 Tag<sub>K</sub> 与 Class<sub>K</sub> 之间的关联关系， 对于每个 Tag<sub>k</sub> ∈ 𝕋 以及 Class<sub>k</sub> ∈ C，分别对应。
 
-[Fig 3](#fig-3) 展示了语法 𝔾 中的标签与其在 C 中的相应类关联。由于 *PsiLanguage* 中的标签可能定义语法结构的多个部分，因此可关联不同功能。同样地，一个类可以关联到不同标签。在 [Fig 3](#fig-3) (a) 中，我们看到 *PsiLSD* 如何将对应的 JavaScript 类名（即 (3) 中的 v<sub>c</sub> ∈ 𝛥<sub>i</sub> ）与其在 XML 语法中的相关标签名关联起来。*(译注：Fig 3 中没有看到（a)，笔误？)*
+[Fig 3](#fig-3) 展示了语法 𝔾 中的标签与其在 C 中的相应类关联。由于 *PsiLanguage* 中的一个标签可能用于定义语法结构的多个部分，因此可关联不同功能。同样地，一个类可以关联到不同标签。在 [Fig 3](#fig-3) (a) 中，我们看到 *PsiLSD* 如何将对应的 JavaScript 类名（即 (3) 中的 v<sub>c</sub> ∈ 𝛥<sub>i</sub> ）与其在 XML 语法中的相关标签名关联起来。*(译注：Fig 3 中没有看到（a)，笔误？)*
 
 #### Fig 3
 ![Fig 3](pic/xml-f3.png)
 
-*Fig 3: 定义 PsiLanguage 的标签集与类集关联图*
+*Fig 3: 定义 PsiLanguage 的标签集与类集之间的关联图*
 
 [Template 1](#template-1) 展示了如何开发 *PsiComponent* 𝕂，其中实现了管理所需功能的类及其在 *PsiGrammar* 中的关联标签。
 
@@ -118,11 +118,66 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 需要注意的是，那些将 C 与 *PsiLanguage* 关联的类都继承自一个抽象类（来自 *PsiLanguage Definitions* 的 *PsiElement* ）。该抽象类实现了每个元素的抽象行为。具体而言，它与 XML 源代码中的每个 DOM 元素（即每个标签）绑定起来，管理语法结构，并执行属性与子元素的验证。此外，该抽象类能通过事件集（调用对应 JavaScript 函数）执行各组件的专属功能。同时，*PsiElement* 抽象类还原生管理两种语言：
 1. *PsiLanguage to Link Information（PsiLI）*，负责将 *Context* 或 *PsiData* 中存储的 XML/JSON 格式信息关联至对应类；
-2. *PsiLanguage Code Attribute（PsiCA）*，用于评估标签属性中的 “inline” 代码。此类内联代码旨在通过关联信息设置属性值。
+2. *PsiLanguage Code Attribute（PsiCA）*，用于评估标签属性中的 “inline” 代码。此内联 (inline) 代码旨在通过关联信息设置属性值。
 
-由于这些语言已在 *PsiElement* 抽象类中实现，*PsiLI* 和 *PsiCA* 语言的使用可融入 *PsiLanguage* 的每个元素。这种方法能够原生关联外部 XML/JSON 信息资源与每个 *PsiLanguage* 的实现。通过将外部资源存储与 *PsiPrograms* 分离，资源可在组件、框架和 Web 应用间复用。一方面，*PsiLI* 允许 *PsiLanguage* 定义其与外部数据资源的关联；另一方面，*PsiCA* 提供了访问、使用和修改这些资源所需的语义。这在创建 XML-DSL 时具有创新性，因为它能为任何 XML-DSL 提供异构的 XML/JSON 信息，而其他方法，如 XLink（XML Linking Language）则通过在文档、图像和文件之间建立链接来添加 XML 元素和资源。
+由于这些语言已在 *PsiElement* 抽象类中实现，*PsiLI* 和 *PsiCA* 语言的使用可融入 *PsiLanguage* 的每个元素。这种方法能够原生地关联，外部 XML/JSON 信息资源与每个 *PsiLanguage* 的实现。通过将外部资源存储与 *PsiPrograms* 分离，资源可在组件、框架和 Web 应用间复用。一方面，*PsiLI* 允许 *PsiLanguage* 定义其与外部数据资源的关联；另一方面，*PsiCA* 提供了所需的语义，用于访问、使用和修改这些资源。这在创建 XML-DSL 时具有创新性，因为它能为任何 XML-DSL 提供异构的 XML/JSON 信息，而其他方法，如 XLink（XML Linking Language）则通过链接文档、图像和文件之至网络 (through to the web) ，来添加 XML 元素和资源。
 
 有关 *PsiEngine* 的更多细节详见 http://hilas.ii.uam.es/api 。该网站包含 *PsiXML* 的交互式类图、详细的 *PsiLanguages* 定义及其他编程元素。
+
+#### 3.1.2 运行示例：Anisha 案例研究
+为展示该方法在系统化定义的开发流程中的运作机制，我们将首先定义语法，随后详述相关功能如何与各语法元素关联，最后演示解释器如何执行每种语言的源代码。为此，我们将采用名为 *Anisha* 的运行示例。*Anisha* 融合了两种 *PsiLanguages*：*ShapesPsi* 与 *AnimaPsi*。*ShapesPsi* 支持创建基于 SVG 的圆形与矩形，而 *AnimaPsi* 则能操控 *ShapesPsi* 定义的图形元素进行移动与停驻。
+
+***ShapesPsi 语言***
+
+[Frag 1](#frag-1) 展示了用 *ShapesPsi* 语言编写的示例代码。在此代码中，我们可看到如何创建一个以点 (100, 100) 为中心、标记为 “Circle”、半径为 30（所有单位均为像素）的红色圆形，以及一个以点 (250, 100) 为中心、标记为 “Rectangle”、宽度为 20、高度为 10 的蓝色矩形。运行效果可访问 http://hilas.ii.uam.es/Anisha/basic 查看。
+
+#### Frag 1
+![Frag 1](pic/xml-frag1.png)
+
+如前所述，*ShapesPsi* 是一种遵循基于 XML 语法的 DSL，用于创建圆形和矩形。[Fig 4](#fig-4) (a) 展示了 *ShapesPsi* 语言的 *PsiLSD* ，其中根标签 *Shapes* 标志着程序的起始点。随后可定义必要的语法元素：圆形（多个 *Circle* 标签）和矩形（多个 *Rectangle* 标签）。
+
+#### Fig 4
+![Fig 4](pic/xml-f4.png)
+
+*Fig 4: (a) ShapesPsi 语言的 PsiLSD (b) Shapes 组件的类图*
+
+[Fig 4](#fig-4) (b) 展示了 **Shapes** 组件的 UML 类图。**Shapes** 类定义了一组圆形和矩形。基类 *Base* 定义了通用图形，而 *Circle* 类在 SVG 画布上绘制带中心文本的圆形，*Rectangle* 类则绘制带中心文本的矩形。所有编码的圆形与矩形均存储于 *PSI Data* 中，以便其他程序和语言使用。建议读者访问 http://hilas.ii.uam.es/Anisha/api 查阅 **Shapes** 组件的详细实现。
+
+因此，我们可以将 *ShapesPsi* 语法定义如下：
+
+𝔾<sub>ShapesPsi</sub> = ⟨ 𝕋<sub>ShapesPsi</sub> │ Shapes │ 𝛥<sub>ShapesPsi</sub> ⟩
+
+作为标签集
+
+𝕋<sub>ShapesPsi</sub> = { Shapes, Circle, Rectangle }
+
+标签根节点为 Shapes, 且 Δ<sub>ShapesPsi</sub> = { t<sub>i</sub> : 𝛥<sub>i</sub> │ t<sub>i</sub> ∈ 𝕋<sub>ShapesPsi</sub> }
+
+其实现遵循 [Frag 2](#frag-2) 中预先定义的模板。Shapes 标签包含一个名为 *name* 的必填属性，并包含 *Circle*和 *Rectangle* 标签。*Circle* 标签通过属性指定 id、圆心位置、半径（默认 10px）、标签及 CSS 样式。*Rectangle* 标签通过属性指定 id、起始点、宽高（默认均为 10px ）、标签及 CSS 样式。 [Frag 2](#frag-2) 展示了 𝕋 ↔ C 关联（如 (4) 所定义），即使用 [Template 1](#template-1)，将 *ShapesPsi* 语法中的标签与 *ShapesPsi* 语言的 *PsiComponent* 类建立关联。完整 JavaScript 代码可访问 http://hilas.ii.uam.es/js/psi/Anisha.js 查看。此外，*Anisha* 案例研究的源代码将请参看 http://github.com/echavarriaga/Anisha 。
+
+#### Frag 2
+![Frag 2](pic/xml-frag2.png)
+
+在展示如何为 *Shapes* 组件实现 JavaScript 功能后，我们将演示如何使用 *PsiLI* 和 *PsiCA* 语言。为此，我们将详细说明如何为 *ShapesPsi* 指定两个新的可编程标签（Circle 和 Rectangle）。我们将利用两个信息源：XML 文档和 JavaScript 对象。
+
+以下是一个基于两个角色的简单游戏。首先，[Frag 3](#frag-3) 展示了如何从 XML 文件中提取角色信息。其次，[Frag 4](#frag-4) 呈现了角色的特征如何定义 *Context* 对象，以及如何通过 *PsiData* 加载并注册 XML 文件（[Frag 3](#frag-3) ）。
+
+#### Frag 3
+![Frag 3](pic/xml-frag3.png)
+
+#### Frag 4
+![Frag 4](pic/xml-frag4.png)
+
+[Frag 5](#frag-5)  展示了一个基于 *PsiLI* 和 *PsiCA* 语言的 *ShapesPsi* 程序。Circle 标签定义了 *data-document* 属性，其值采用 *PsiLI* 语言编写并由 *PsiXML* 解析。因此 *PsiData* 对象会查找 id 值等于 **p1** 的角色（jQuery 选择器 **Character[id=p1]** ），并将结果赋值给变量 *info*，该变量被添加至 *Circle* 类的实例中。此外，*data-context* 属性从标识为 **p1** 的 *Context* 对象中获取 *features* 属性值，并将该值赋给类实例的 *qt* 变量。值得注意的是，*data-context*（ *Context* 对象信息）和 *data-document*（*PsiData* 信息）属性均被记录，且在任何 *PsiLanguage* 中所有标签都原生支持这两种属性。
+
+此外，[Frag 5](#frag-5) 展示了*Circle* 标签的 *label* 属性，如何运用 *PsiCA* 语言从 *info* 获取信息。同理，*center* 和 *style* 属性也通过 *PsiCA* 语言从 *qt* 获取信息。
+
+#### Frag 5
+![Frag 5](pic/xml-frag5.png)
+
+在此，我们再次强调其原生关联异构信息源（XML 或 JSON）与程序元素的能力，包括 *PsiLI* 和 *PsiCA*。绑定至该元素的类接收信息并根据需求进行处理。这丰富了编程体验，因为元素的属性可被转换为 Object 或 DOM 元素。
+
+***AnimePsi 语言***
 
 ----
 ## 参考文献
