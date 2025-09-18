@@ -198,6 +198,35 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 *Anisha* 案例研究的主要目标在于展示 *PsiEngine* 的若干特性。首先，该示例验证了异构源信息（XML与JSON）的绑定能力，这一特性赋予 *PsiEngine* 中的 XML-DSL 高度灵活性。其次，*Anisha* 测试了多个 *PsiLanguage* 的共存能力，以及在快速信息交换与跨功能协作情况下运行多个 *PsiProgram* 的能力。总体而言，*PsiEngine* 支持创建高度抽象化的简洁 XML-DSL，这些语言兼具可扩展性与可组合性。
 
 ### 3.2 Psi 编程模型及其轻量级环境
+目前，代码生成已成为软件工程的核心活动，尤其是 MDE <sup>[49](#49)</sup> 备受关注。在构建信息系统时，代码生成能显著节省时间、提升效率、提高质量并增强标准化程度 <sup>[44](#44)</sup>、<sup>[49](#49)</sup>。在此背景下，为简化 *PsiLanguage* 𝕃 的创建，我们采用前述方法提出 *PsiModel*。*PsiModel* 支持定义 *PsiGrammar* 𝔾 、支持 *PsiComponent* 𝕂 的实现，及其他 JavaScript 组件。
+
+*PsiModel* 通过代码后置 (code-behind) 技术将 *PsiLanguage* 规范与 *PsiComponent* 实现及其关联分离。为此，*PsiModel* 涉及如 [Fig 6](#fig-6) 所示的两种 *PsiLanguage* ：
+- *MPsi Specification Language*：一种 *PsiLanguage*，用于指定编程元素，即可编程标签。
+- *MIPsi Implementation Language*：一种 *PsiLanguage*，用于实现通过 *MPsi* 语言指定的编程元素。
+
+#### Fig 6
+![Fig 6](pic/xml-f6.png)
+
+*Fig 6: 用于生成 JavaScript 代码和文档的 PsiModel Schema*
+
+通过此方法，*MPsi* 与 *MIPsi* 分别实现了编程元素的定义与实现，包括：*Var*、*Object*、*Enum*、*Script*、*Class*（采用 <sup>[8](#8)</sup>、<sup>[58](#58)</sup> 中给出的类定义）、*Component*（采用 <sup>[8](#8)</sup>、<sup>[58](#58)</sup> 中给出的组件或模块定义）以及 *ComponentPsi*（定义并实现 *PsiGrammar* 与 *PsiComponent* 以生成 *PsiLanguage* ）。有关 *MPsi* 与 *MIPsi* 语言规范及实现的更多细节，请参阅 http://hilas.ii.uam.es/psimodel 。
+
+为在构建 *PsiLanguage* 时使用包含 *MPsi* 和 *MIPsi* 的 *PsiModel* ，我们实现了名为 *PsiEnvironment* 的轻量级开发环境。[Fig 7](#fig-7) 展示了通过 URL 访问的 *PsiEnvironment* 快照：
+
+(5) http://hilas.ii.uam.es/PsiXML/viewer.html?psifile=\<name\>
+
+其中 *\<name\>* 代表项目或组件名称。此外，每个项目或组件的源代码均可在 http://github.com/echavarriaga/PsiSource/ 获取。
+
+例如，[Fig 7](#fig-7) 展示了 *Anisha* 案例研究（ psifile=*Anisha* ）。“Specification” 选项卡包含 *MPsi* 定义，而 “Implementation” 选项卡则包含 *MIPsi* 实现。
+
+#### Fig 7
+![Fig 7](pic/xml-f7.png)
+
+*Fig 7: 应用 PsiModel 的轻量级开发环境*
+
+*PsiEnvironment* 实现了多项功能，包括为 *MPsi*、*MIPsi*、JavaScript、XML、HTML 和 CSS 语言提供代码自动完成。它还具备可视化组件，用于在线显示 *PsiLSD* 图、UML 类图以及源代码。一旦定义并实现 *PsiLanguage*，*PsiEnvironment* 即可自动生成 JavaScript 代码。
+
+*PsiEnvironment* 的另一项功能是为生成的 JavaScript 代码以及 *PsiModel* 语言，计算一套所对应的软件度量指标。这些指标包括：代码行数 <sup>[40](#40)</sup>（ SLOC、LLOC 和 CLOC ）、圈复杂度 <sup>[35](#35)</sup>、Halstead 度量 <sup>[20](#20)</sup> 及可维护性指数 <sup>[41](#41)</sup> 。为执行这些计算，我们采用了基于 NodeJS（ nodejs.org ）实现的 Excomplex <sup>[48](#48)</sup> 工具包。
 
 ----
 ## 参考文献
