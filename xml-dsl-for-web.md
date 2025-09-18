@@ -179,6 +179,26 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 ***AnimePsi 语言***
 
+继续 *Anisha* 的运行示例，[Fig 5](#fig-5)  展示了 *AnimePsi* 语言的实现，该语言可移动 *ShapesPsi* 定义的图形。此语言包含两个标签：*Animates* 和 *Move*。[Fig 5](#fig-5) (a) 呈现了 *AnimePsi* 语言的 *PsiLSD*，[Fig 5](#fig-5) (b) 则展示了其 *PsiGVA*。
+
+根据 [Fig 5](#fig-5) (a)，*Animates* 根标签定义了一组图形运动，即多个 *Move* 标签。*Move* 标签定义了对图形的引用（ *key* 属性）、运动路径（ *path* 属性）、路径步数（ *steps* 属性）、运动时长（ *seconds* 属性）、初始等待时间（ *wait* 属性，默认值为 0 ）以及是否重复运动（ *repeat* 属性，默认值为 “no” ）。
+
+#### Fig 5
+![Fig 5](pic/xml-f5.png)
+
+*Fig 5:  (a) AnimePsi 语言的 PsiLSD。(b) AnimePsi 语言的 PsiGVA。(c) Anime 组件的类图。*
+
+**Anime** 组件实现了与 *AnimePsi* 语言相关的功能，如 [Fig 5](#fig05) (c) 的类图所示。该组件包含两个类：*Animates* 和 *Move*，分别绑定至 *Animates* 和 *Move* 标签。*Animates* 类负责启动动画程序，而 *Move* 类则根据 SVG *path*标签的定义，实现与 *Move* 标签绑定的移动功能。建议读者查阅 http://hilas.ii.uam.es/Anisha/api 中 *Shapes* 组件的详细实现方案。
+
+在 [Frag 6](#frag-6) 中，我们可以看到角色移动在前一个片段中定义。在评估这个 *AnimePsi* 程序时，“Luke” 接近 “Obi-Wan”，后者随即逃离。评估过程可见于 http://hilas.ii.uam.es/Anisha/runs。
+
+#### Frag 6
+![Frag 6](pic/xml-frag6.png)
+
+*Anisha* 案例研究的主要目标在于展示 *PsiEngine* 的若干特性。首先，该示例验证了异构源信息（XML与JSON）的绑定能力，这一特性赋予 *PsiEngine* 中的 XML-DSL 高度灵活性。其次，*Anisha* 测试了多个 *PsiLanguage* 的共存能力，以及在快速信息交换与跨功能协作情况下运行多个 *PsiProgram* 的能力。总体而言，*PsiEngine* 支持创建高度抽象化的简洁 XML-DSL，这些语言兼具可扩展性与可组合性。
+
+### 3.2 Psi 编程模型及其轻量级环境
+
 ----
 ## 参考文献
 #### 1
