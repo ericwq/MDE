@@ -228,6 +228,20 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 *PsiEnvironment* 的另一项功能是为生成的 JavaScript 代码以及 *PsiModel* 语言，计算一套所对应的软件度量指标。这些指标包括：代码行数 <sup>[40](#40)</sup>（ SLOC、LLOC 和 CLOC ）、圈复杂度 <sup>[35](#35)</sup>、Halstead 度量 <sup>[20](#20)</sup> 及可维护性指数 <sup>[41](#41)</sup> 。为执行这些计算，我们采用了基于 NodeJS（ nodejs.org ）实现的 Excomplex <sup>[48](#48)</sup> 工具包。
 
+### 3.3 最后总结
+在本节中，我们介绍了使用 *PsiEngine* 创建 XML-DSL 的方法，并将其命名为 *PsiLanguage*。通过 *Anisha* 运行示例，我们演示了 *PsiLanguage* 的创建过程及其与 *PsiEngine* 相关功能的结合。此外，我们还提出了 *PsiModel* ，一种编程模型及其对应的轻量级编程环境，旨在简化语言规范制定与 *PsiComponent* 的实现过程。*PsiComponent* 的设计与实现可概括为以下步骤：
+
+1. 创建 *PsiLSD* 并指定 *PsiGVA*。
+2. 为 *PsiComponent* 创建 UML 类图。
+3. 基于 *PsiLSD* 和 *PsiGVA* ，使用 *PsiEnvironment* 实现 *PsiComponent* 功能。
+4. 对 *PsiComponent* 执行功能测试。
+
+以下章节将重点介绍 *FeedPsi*，一款完全采用所提方法开发的 Web 应用程序。最后一节则致力于通过定性案例研究方法对 *PsiEngine* 进行验证。
+
+----
+## 致谢
+本研究由 B2T-Concept 公司（ http://www.b2tconcept.com/ ）的 DSVL-B2T 研发部门提供部分支持。
+
 ----
 ## 参考文献
 #### 1
