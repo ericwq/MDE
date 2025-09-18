@@ -238,6 +238,44 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 以下章节将重点介绍 *FeedPsi*，一款完全采用所提方法开发的 Web 应用程序。最后一节则致力于通过定性案例研究方法对 *PsiEngine* 进行验证。
 
+## 4 FeedPsi Web 应用案例研究
+为验证我们的方法，本案例研究旨在展示如何运用 *PsiEngine* 对名为 *FeedPsi* 的 Web 应用进行规格定义与实现。简而言之，该 Web 应用旨在创建并部署动态网页，通过聚合多个网络源的内容构建一个新闻门户。这些内容源可采用两种最常见的格式：RSS <sup>[57](#57)</sup>、<sup>[22](#22)</sup> 与 Atom <sup>[56](#56)</sup>、<sup>[24](#24)</sup>，二者均基于 XML 编写。
+
+在本节中，我们将完整呈现从问题分析到实现的整个流程，并全程运用 *PsiEngine* 引擎。该流程始于如何构建 *FeedPsi Language* 并将其封装为 *PsiComponent* 组件，继而评估 *PsiProgram*，最终生成动态网站。
+
+### 4.1 分析与设计
+[Fig 8](#fig-8) 展示了 *FeedPsi* Web 应用程序的设计。该系统管理 RSS 订阅源，支持用户选择、显示、按类别存储及/或处理新闻内容。此外，图中呈现的 *FeedPsi* 语言，通过 *Feed Component* 实现，并在所示的 *PsiXML Interpreter* 上进行评估。*FeedPsi* 需管理：RSS 订阅源列表（含多个 RSS 标签）、分类列表（含多个 Category 标签）以及用户当前选定新闻列表（含单个 *MainNews* 标签）。读取 RSS 订阅源时，新闻标题将显示于悬浮子菜单（见 [Fig 8](#fig-8) ）。经标记后，新闻可显示或存储于任意分类以便后续阅读。
+
+所设计的 Web 应用程序无需服务器端编程，使得整个应用程序的部署能够直接在网页客户端完成，从而最大限度地降低服务器端的计算成本。
+
+为更清晰地阐释本方案的应用场景，下文将展示另一个采用该方法的案例研究 *FeedPsi*。该动态 Web 应用程序完全基于本方案开发而成。*(译注：这段文字有些突兀，估计是修改造成的)*
+
+#### Fig 8
+![Fig 8](pic/xml-f8.png)
+
+*Fig 8: 基于 PsiLanguage 的通过 RSS 订阅聚合新闻的 Web 应用程序设计*
+
+### 4.2 订阅源组件规范
+基于我们 DSL 方法实现的用于管理和显示 RSS 订阅源的 Web 应用程序，首先需按前述说明制定对应的 *Feed Component* 规范。接下来我们将详细说明具体步骤。
+
+[Fig 9](#fig-9) 展示了 *FeedPsi* 语言的 *PsiLSD*，[Fig 9](#fig-9) (b) 则展示了其 *PsiGVA*。*SetOfNews* 标签是 *FeedPsi* 程序评估中的根元素，包含 RSS 源列表（ *RSS* 标签）、分类列表（ *Category* 标签）以及当前显示的新闻（ *MainNews* 标签）。
+
+*RSS* 标签包含标识符、名称及 RSS 源的 URL。它能通过 AJAX 连接从 RSS 新闻服务获取数据。*Category* 标签按类别存储新闻列表，包含标识符和分类标题。*MainNews* 标签则包含当前呈现给用户的新闻列表。最后，*News* 标签包含从 RSS 源获取的新闻，具有唯一标识符，当其属于 *MainNews* 标签时将被显示。
+
+#### Fig 9
+![Fig 9](pic/xml-f9.png)
+
+*Fig 9: (a) FeedPsi 语言的 PsiLSD 表示。(b) FeedPsi 语言的 PsiGVA 表示。(c) Feed 组件的类图。*
+
+[Fig 9](#fig-9) (c) 展示了 Feed Component 的类图。Feed Component 的详细实现可通过以下网址查看： http://hilas.ii.uam.es/FeedPsi/api ，其中包含类图和文档页签。Feed Component 的完整 JavaScript 代码可通过 http://hilas.ii.uam.es/js/psi/FeedPsi.js 访问。此外，源代码将在 http://github.com/echavarriaga/FeedPsi 中提供。
+
+在类图 [Fig 9](#fig-9) (c) 中，我们可以看到与新闻集合（ *SetOfNews* 类）相关联的功能，该集合支持添加和移除 RSS 源及分类。每个 RSS 源（ *RSS* 类）均具备通过关联 URL 发起 AJAX 调用以更新内容的能力，可创建新闻条目，并借助 *SetOfNews* 类生成新闻标题的子分类。
+
+此外，可通过 *PanelNews* 类管理（添加、删除或验证）分类（ *Category* 类）和当前显示的新闻（ *MainNews* 类）。*MainNews* 类已实现用于可视化展示从 RSS 源或不同分类中选取的新闻。同时，*News* 类定义具有唯一 ID 的新闻条目，并负责新闻的显示。*UserInterface* 类负责处理并呈现 *FeedPsi* 应用程序的用户界面。
+
+### 4.3 运行 FeedPsi Web 应用程序
+
+
 ----
 ## 致谢
 本研究由 B2T-Concept 公司（ http://www.b2tconcept.com/ ）的 DSVL-B2T 研发部门提供部分支持。
