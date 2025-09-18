@@ -290,6 +290,50 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 *Fig 10: FeedPsi Web 应用程序*
 
+## 5 结果与验证
+为验证 *PsiEngine*，我们遵循了 <sup>[59](#59)</sup> 中提出的定性案例研究方法论，并适配于软件工程领域 <sup>[2](#2)</sup>。根据该方法论，将一个 Web 客户端的案例研究，转换为一种或多种 *PsiLanguage* ，进而创建采用这些语言编写的程序集，这些语言具备必要的资源去解决特定问题。成果可能包括：新型组件、控件或 Web 应用程序等。
+
+文献 <sup>[59](#59)</sup> 中描述的多案例方法可验证研究目标的相关方面。这些目标被表述为待验证的一组标准，通过覆盖整体标准不同部分的案例研究实现验证。所有案例应涵盖全部标准，且单一标准可通过多个案例研究进行验证。总体而言，多案例方法论产生的证据具有稳健可靠性，但其实施过程可能耗费较大量时间且执行要求极高 <sup>[2](#2)</sup>。本案例旨在验证 *PsiEngine* 与 *PsiModel* ，故验证标准清单如下：
+
+- F1. 实现 *PsiEngine* 及其 *PsiXML*。
+- F2. 支持 *PsiPrograms* 执行模式：
+  - (S) 单一简单模式（单个 *PsiLanguage* 程序）；
+  - (P) 多重简单模式（一种 *PsiLanguage* 编写的多个程序）；
+  - (M) 多重多重模式（使用不同 *PsiLanguage* 言编写的多个程序）。
+- F3. 将 *PsiProgram* 关联至异构数据源：(X) XML；(J) JSON。
+- F4. 提供对象与信息共享：
+  - (S) 同一 *PsiLanguage* 编写的不同程序间共享；
+  - (M) 不同 *PsiLanguage* 编写的程序间共享。
+- F5. 使用 *PsiPrograms* 实现动态 CSWA。
+- F6. 实现 *PsiModel* 的 *MPsi* 和 *MIPsi* 语言。
+- F7. 在 *PsiEnvironment* 中定义并实现 *PsiModel*：(C) JavaScript 组件；(P) *PsiComponent*（XML-DSL开发）。
+
+标准 F1-F5 用于验证 *PsiEngine*，而标准 F6 和 F7 则用于验证 *PsiModel*。
+
+下一节将总结并分析 *PsiEngine* 及其解释器获得的若干软件度量指标。*PsiXML* 结合 *Anisha* 案例研究与 *PsiModel* 将共同验证上述标准体系。由于 *PsiEnvironment* 基于 *PsiLanguages* 构建，故将其作为额外案例进行深入探讨。
+
+### 5.1 PsiEngine：实现验证
+*PsiEngine* 本身及其核心组件，*PsiXML*，同样使用 *PsiEnvironment* 进行定义与实现（具体项目细节请参见使用示例：(5) 中的 “psifile=PsiEngine” ）。[Table 1](#table-1) 汇总了 *PsiEngine* 项目文件。其中包含 7 个用 *PsiModel* 语言编写的文件，*PsiLanguage* 代码最多达 1,498 行，最终在 *PsiEngine.js* 文件中生成总计 2,027 行的 JavaScript 代码。这意味着其简洁度比率 (conciseness ratio) 为 1.4。
+
+#### Table 1
+![Table 1](pic/xml-tab1.png)
+
+*Table 1:  PsiEngine项目组件汇总*
+
+[Fig 11](#fig-11) 展示了 *PsiEnvironment* 自动生成的 *PsiEngine* 指标快照。需要补充说明的是：项目中函数/方法的平均圈复杂度 CNN 处于 “简单功能” 区间（ CNN<10，依据 <sup>[35](#35)</sup> 标准 ），可维护性指数 MI 达标（ MI>85，依据 <sup>[41](#41)</sup> 标准 ），注释行数 CLOC 处于中等水平（ 16.1% ）。此外，实现或理解程序所需的时间约为 40 天（ 根据 Halstead 时间 <sup>[20](#20)</sup> 为 319.5 小时 ）。
+
+#### Fig 11
+![Fig 11](pic/xml-f11.png)
+
+*Fig 11: PsiEnvironment 提供的 PsiEngine 指标摘要*
+
+[Fig 12](#fig-12) 展示了使用 *PsiEnvironment* 生成的 *PsiEngine* 部分编程元素的软件度量快照。深入分析结果可知，*PsiXML* 中的抽象类 *PsiElement* 是 *PsiEngine* 编程元素中最复杂的。这一结果在意料之中，因为它是 *PsiLanguages* 的基石，具备同时处理 *PsiLI* 和 *PsiCA* 语言的能力。CNN 的功能性处于平均水平。尽管其 MI 表现良好，但该值却是最低的。*PsiElement* 是实现难度最大的类，其误差估计 (error estimate) 值已超出建议上限，表明需要对该类进行修订。总体而言，*PsiEngine* 在圈复杂度和误差估计方面均呈现平均数值，两项指标均在可接受范围内，这验证了 F1 实现效果的有效性。
+
+#### Fig 12
+![Fig 12](pic/xml-f12.png)
+
+*Fig 12: PsiEnvironment 生成的 PsiEngine 编程元素的软件度量快照*
+
 ----
 ## 致谢
 本研究由 B2T-Concept 公司（ http://www.b2tconcept.com/ ）的 DSVL-B2T 研发部门提供部分支持。
