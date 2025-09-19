@@ -5,7 +5,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 ----
 ## 摘要
-特定语言（DSL）凭借其提供的抽象层次，在构建应用时，能够减轻软件工程师与领域专家的工作负担。当领域限定于 Client-Side Applications（CSWA）时，通常会结合基于 XML 的语言、框架和组件，以提供快速、稳健且灵活的解决方案。本文提出一种设计方法，可用于为 CSWA 创建基于 XML 的 DSL 解决方案，包含评估引擎、编程模型及轻量级开发环境。该方法可同时运行（evaluate）多个基于 XML 的 DSL 程序，为 CSWA 领域的特定问题提供解决方案。为充分展示此创新方法的能力与潜力，我们将通过 *Anisha* 和 *FeedPsi* 两个案例进行阐释。 *(译注：关于 CSWA 没有定义)*
+特定语言（DSL）凭借其提供的抽象层次，在构建应用时，能够减轻软件工程师与领域专家的工作负担。当领域限定于 Client-Side Applications（CSWA）时，通常会结合基于 XML 的语言、框架和组件，以提供快速、稳健且灵活的解决方案。本文提出一种设计方法，可用于为 CSWA 创建基于 XML 的 DSL 解决方案，包含评估引擎、编程模型及轻量级开发环境。该方法可同时评估（evaluate）多个基于 XML 的 DSL 程序，为 CSWA 领域的特定问题提供解决方案。为充分展示此创新方法的能力与潜力，我们将通过 *Anisha* 和 *FeedPsi* 两个案例进行阐释。 *(译注：关于 CSWA 没有定义，从上下文来看，CSWA 就是仅限于客户端的浏览器应用程序)*
 
 ----
 ## 关键词
@@ -17,23 +17,23 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 领域特定语言（DSL）的开发需要借助扫描器 (scanner)、解析器和代码生成工具来评估领域特定模型，从而实现相关功能。然而，当基于 XML 标准进行开发时，XML 领域特定语言（XML-DSL）可利用通用解析器，如 XML 简单应用程序接口（SAX）和文档对象模型（DOM）<sup>[53](#53)</sup>。这些 API 已集成于多数编程语言中，使程序员能够访问并修改跨 XML 语言的结构与内容。由此，XML 既能以最契合建模需求的语言存储和交换自动文档化的结构化信息 <sup>[13](#13)</sup>、<sup>[55](#55)</sup>，又能通过标准 API 轻松实现语法规范与功能扩展。因此，XML-DSL 提供了可扩展且易于组合的直观DSL规范，其关联功能可借助目标编程语言现有的 API 快速实现。
 
-过去十年的技术变革彻底改变了可交付的基于网络的信息系统的功能与类型。这些变革要求我们在为客户端网络应用程序（CSWA）提供解决方案时采取全新视角。当前，此类解决方案的设计与实现仍处于探索阶段 <sup>[46](#46)</sup>，主要基于动态网页构建及其相关技术 <sup>[36](#36)</sup>、<sup>[54](#54)</sup>。此外，Web 2.0 <sup>[1](#1)</sup> 提供了构建功能完善、体验愉悦且易于使用的网页所需的技术、服务和工具，其附加价值在于能够实现跨平台部署。
+过去十年的技术变革彻底改变了可交付的基于网络的信息系统的功能与类型。这些变革要求我们在为客户端 Web 应用程序（CSWA）提供解决方案时采取全新视角。当前，此类解决方案的设计与实现仍处于探索阶段 <sup>[46](#46)</sup>，主要基于动态网页构建及其相关技术 <sup>[36](#36)</sup>、<sup>[54](#54)</sup>。此外，Web 2.0 <sup>[1](#1)</sup> 提供了构建功能完善、体验愉悦且易于使用的网页所需的技术、服务和工具，其附加价值在于能够实现跨平台部署。
 
-然而，尽管 CSWA 日益重要，且科学界与工业界对 DSL 表现出浓厚兴趣，据我们所知，能为 CSWA 创建 DSL 解决方案的研究仍寥寥无几。因此，本文旨在探讨为 CSWA 创建并实现 XML-DSL 的方法，这正是现有解决方案未能覆盖的领域。为此，本文提出  *Programmable Solutions Interpreter* （Psi），一种构建 CSWA 解决方案的方法，包含评估引擎、编程模型及轻量级开发环境，我们分别将其命名为 *PsiEngine* 、*PsiModel* 和 *PsiEnvironment* 。该方法支持创建并评估面向 CSWA 的 XML-DSL，通过封装功能模块并与其他 Web 组件及框架集成，从而构建快速、稳健且灵活的解决方案。
+然而，尽管 CSWA 日益重要，且科学界与工业界对 DSL 表现出浓厚兴趣，据我们所知，能为 CSWA 创建 DSL 解决方案的研究仍寥寥无几。因此，本文旨在探讨为 CSWA 创建并实现 XML-DSL 的方法，这正是现有解决方案未能覆盖的领域。<ins>为此，本文提出  *Programmable Solutions Interpreter* （Psi），一种构建 CSWA 解决方案的方法，包含评估引擎、编程模型及轻量级开发环境，我们分别将其命名为 *PsiEngine* 、*PsiModel* 和 *PsiEnvironment* </ins>。该方法支持创建并评估面向 CSWA 的 XML-DSL，并通过封装功能并与其他 Web 组件及框架集成，从而构建快速、稳健且灵活的解决方案。
 
-*PsiEngine* 的核心组件是 *PsiXML Interpreter*（简称 *PsiXML* ），这是一个能够评估 XML-DSL 程序的 JavaScript XML 解释器。 *PsiXML* 能够注册多种 XML-DSL，并能评估用注册的 XML-DSL 编写的多个程序。XML-DSL 程序是一组可编程标签，每组标签都关联着特定的功能。执行 XML-DSL 程序时，其核心在于评估每个 XML 标签的功能。此外，在 *PsiEngine* 中定义并实现的 XML-DSL，能够链接和交换异构信息（支持 XML 与 JSON 格式），同时应用最新的安全策略和良好的编程实践 <sup>[26](#26)</sup>、<sup>[60](#60)</sup>，从而能够为 CSWA 开发灵活的 XML-DSL。
+<ins>*PsiEngine* 的核心组件是 *PsiXML Interpreter*（简称 *PsiXML* ），这是一个能够评估 XML-DSL 程序的 JavaScript XML 解释器。 *PsiXML* 能够注册多种 XML-DSL，并能评估使用注册的 XML-DSL 编写的若干程序。</ins>XML-DSL 程序是一组可编程标签，每组标签都关联着特定的功能。执行 XML-DSL 程序时，其核心在于评估每个 XML 标签的功能。此外，在 *PsiEngine* 中定义并实现的 XML-DSL，能够链接和交换异构信息（支持 XML 与 JSON 格式），同时应用最新的安全策略和良好的编程实践 <sup>[26](#26)</sup>、<sup>[60](#60)</sup>，从而能够为 CSWA 开发灵活的 XML-DSL。
 
-*PsiModel* 为首席程序员们 (lead programmers) 建立了一个编程模型，用于生成 JavaScript 代码及配套文档，主要面向 XML-DSL 和可复用 JavaScript 组件的创建。最后， *PsiEnvironment* 作为轻量级环境，既利用 *PsiModel* 又使用 *PsiEngine* 。
+<ins>*PsiModel* 为首席程序员们 (lead programmers) 建立了一个编程模型，用于生成 JavaScript 代码及配套文档，主要面向创建 XML-DSL 和可复用 JavaScript 组件</ins>。最后，<ins>*PsiEnvironment* 作为轻量级环境，既利用 *PsiModel* 又使用 *PsiEngine* </ins>。
 
-通过这三个要素（ *PsiEngine* 、 *PsiModel* 和 *PsiEnvironment* ），本文目标是，在构建 CSWA 时， 使用 Model Driven Engineering（MDE）奠定基础。MDE 是一种以定义模型为核心的软件方法论，旨在简化信息系统的创建过程 <sup>[49](#49)</sup>。该方法融合了 DSL、XML-DSL 及 Domain-Specific Visual Language（DSVL）<sup>[28](#28)</sup> 等概念，并结合转换引擎与代码生成器。在此背景下，本文详述的 *PsiEngine* 与 *PsiModel* 正是实现前述目标的基石。
+<ins>通过这三个要素（ *PsiEngine* 、 *PsiModel* 和 *PsiEnvironment* ），本文目标是，在构建 CSWA 时为使用 Model Driven Engineering（MDE）奠定基础</ins>。MDE 是一种以定义模型为核心的软件方法论，旨在简化信息系统的创建过程 <sup>[49](#49)</sup>。该方法融合了 DSL、XML-DSL 及 Domain-Specific Visual Language（DSVL）<sup>[28](#28)</sup> 等概念，并结合转换引擎与代码生成器。在此背景下，本文详述的 *PsiEngine* 与 *PsiModel* 正是实现前述目标的基石。
 
-为展示 *PsiEngine* 的实现及其功能，同时操作 *PsiModel* 及其关联的 *PsiEnvironment*，我们将提供两个案例研究： *Anisha* 与 *FeedPsi* 。 *Anisha* 旨在构建两种 XML-DSL 以实现基础帧动画，该运行示例详细展示了多程序的解释与执行机制，以及信息绑定过程。与此同时，*FeedPsi* 作为新闻聚合 CSWA，旨在评估与其他网页组件、RSS 服务及框架的集成能力。两项案例均遵循文献 <sup>[59](#59)</sup> 提出的定性案例研究方法论，并将其调整以适应软件工程领域 <sup>[2](#2)</sup>。通过这两项案例研究，我们将涵盖采用本方法编程 XML-DSL 解决方案的核心特性。
+为展示 *PsiEngine* 的实现及其功能，同时操作 *PsiModel* 及其关联的 *PsiEnvironment*，我们将提供两个案例研究： *Anisha* 与 *FeedPsi* 。 *Anisha* 旨在构建两种 XML-DSL 以实现基础帧动画，该运行示例详细展示了多程序的解释与执行机制，以及信息绑定过程。与此同时，*FeedPsi* 作为新闻聚合 CSWA，旨在评估与其他网页组件、RSS 服务及框架的集成能力。两项案例均遵循文献 <sup>[59](#59)</sup> 提出的定性案例研究方法论，并将其适配于软件工程 <sup>[2](#2)</sup>。通过这两项案例研究，我们将涵盖采用本方法编写 XML-DSL 解决方案的核心特性。
 
 本文其余部分结构如下：第 [2](#2-概述与相关工作) 节将重点介绍相关前沿研究；第 [3](#3-为客户端-web-应用构建-xml-dsl-的方法) 节将概述本方法的总体框架及核心特征，并包含 *Anisha* 运行实例；第 [4](#4-feedpsi-web-应用案例研究) 节将阐述 *FeedPsi* 案例研究，总结 *PsiEngine* 的验证细节；第 [5](#5-结果与验证) 节将详细呈现研究成果；最后第 [6](#6-结论) 节将通过总结性评论与未来工作展望结束本文。
 
 ----
 ## 2. 概述与相关工作
-领域特定语言（DSL）在文献中尚未获得严格定义。如前所述，Fowler <sup>[16](#16)</sup> 将其定义为 “一种表达能力有限、专注于特定领域的计算机编程语言”。在 <sup>[51](#51)</sup> 中，Spinellis 指出 “DSL是为特定应用领域量身定制的编程语言：它并非通用语言，而是精确捕捉该领域的语义特征”。与此同时，Mernik 等人 <sup>[38](#38)</sup> 指出：“领域特定语言（DSL）是为特定应用领域量身定制的语言。相较于通用编程语言，它们在其应用领域内能显著提升表达能力和易用性。”
+领域特定语言（DSL）在文献中尚未获得严格定义。如前所述，Fowler <sup>[16](#16)</sup> 将其定义为 “一种表达能力有限、专注于特定领域的计算机编程语言”。在 <sup>[51](#51)</sup> 中，Spinellis 指出 “DSL 是为特定应用领域量身定制的编程语言：它并非通用语言，而是精确捕捉该领域的语义特征”。与此同时，Mernik 等人 <sup>[38](#38)</sup> 指出：“领域特定语言（DSL）是为特定应用领域量身定制的语言。相较于通用编程语言，它们在其应用领域内能显著提升表达能力和易用性。”
 
 文献 <sup>[12](#12)</sup> 研究了语言的构成要素，并在考虑语言扩展、语言限制、语言统一、自我扩展及扩展组合等因素的基础上，协助对 DSL 进行分类。据此，我们的工作重点在于为 Web 客户端构建自我扩展语言及扩展组合方案。
 
@@ -43,68 +43,68 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 迄今为止，我们可以看到目前存在大量用于实现 DSL 的 IDE 和工具。然而，当我们专注于为 Web 客户端构建 DSL（尤其是 XML-DSL）时，哪种方案更值得推荐？前述的 SMS 并未明确提及为 Web 客户端创建 DSL 解决方案。但在为 Web 客户端构建解决方案的少数工具案例中，值得一提的是 JavaScript 解析器生成器 Jison <sup>[6](#6)</sup> ——它曾被用于实现 CoffeeScript 语言 <sup>[33](#33)</sup>。不过 CoffeeScript 并非 DSL，而是借助 Jison 编译为 JavaScript 的小型编程语言。
 
-在为 Web 客户端寻求 DSL 解决方案时，可选方案寥寥无几，它们均仅专注于构建用户界面。例如：<sup>[21](#21)</sup>、<sup>[15](#15)</sup> 和 <sup>[50](#50)</sup> 等文献中，作者虽为 Web 客户端定义了特定的 XML-DSL，却未透露构建过程中所使用的工具。在 <sup>[21](#21)</sup> 中，我们看到一项针对临床应用的 XML-DSL 研究，用于定义和描述用户界面，不同的用户需要在这个界面上进行交互。在 <sup>[15](#15)</sup> 中，作者提出了 DUI 语言（Distributed Language Interface）来描述用户界面、任务组合和 Web 增强器。最后，在 <sup>[50](#50)</sup> 中描述了一种 XML-DSL，用于在 Web 客户端中定义不同的 3D 动画。
+<ins>在为 Web 客户端寻求 DSL 解决方案时，可选方案寥寥无几，它们均仅专注于构建用户界面</ins>。例如：<sup>[21](#21)</sup>、<sup>[15](#15)</sup> 和 <sup>[50](#50)</sup> 等文献中，作者虽为 Web 客户端定义了特定的 XML-DSL，却未透露构建过程中所使用的工具。在 <sup>[21](#21)</sup> 中，我们看到一项针对临床应用的 XML-DSL 研究，用于定义和描述用户界面，不同的用户需要在这个界面上进行交互。在 <sup>[15](#15)</sup> 中，作者提出了 DUI 语言（Distributed Language Interface）来描述用户界面、任务组合和 Web 增强器。最后，在 <sup>[50](#50)</sup> 中描述了一种 XML-DSL，用于在 Web 客户端中定义不同的 3D 动画。
 
-鉴于上述两项缺陷 -- 即需要为 Web 客户端研究构建新型 DSL 工具，以及 Web 客户端解决方案需支持 DSL，我们的研究重点在于为 CSWA 实现并执行 XML-DSL 解决方案。
+鉴于上述两项缺陷 -- 即需要为 Web 客户端研究构建新型 DSL 工具，以及 Web 客户端解决方案需支持 DSL，<ins>我们的研究重点在于为 CSWA 实现并执行 XML-DSL 解决方案</ins>。
 
 ----
 ## 3 为客户端 Web 应用构建 XML-DSL 的方法
 在本节中，我们将详细介绍如何管理可在 CSWA 中直接解释和评估的 XML-DSL 解决方案。据此，本文将阐述与 *PsiEngine* （Programmable Solutions Interpreter Engine）相关的核心理念，以及如何在 Web 客户端中实现、评估该引擎，同时解释和执行代码。通过可运行示例，我们将阐述该方法涉及的若干核心概念：*PsiGrammar* 、*PsiLanguage* 以及 *PsiComponent* 。最后，我们将详细说明该方法所构建的编程模型，命名为 *PsiModel* ，以及为运用和测试该模型而开发的环境。
 
 ### 3.1 PsiEngine
-[Fig 1](#fig-1) 展示了我们的方法框架。核心思路是获取 *PsiCode*，其用最合适 XML-DSL 编写，连同必要的 *Resources* 一同传入 *PsiEngine* 进行评估与解析。当 *PsiCode* 和 *Resources* 就绪后，*PsiEngine* 将其解析并转换为 JavaScript，这是通过解释其 DOM 并执行和 DOM 元素关联的 JavaScript 完成的。由此，我们获得解决 CSWA 特定问题的 *PsiObject* ，同时系统会报告相应的错误与警告信息以便后续处理。
+[Fig 1](#fig-1) 展示了我们的方法框架。<ins>核心思路是获取 *PsiCode*，其用最合适的 XML-DSL 编写，连同必要的 *Resources* 一同传入 *PsiEngine* 进行评估与解析。当 *PsiCode* 和 *Resources* 就绪后，*PsiEngine* 将其解析并转换为 JavaScript，这是通过解释其 DOM 并执行和 DOM 元素关联的 JavaScript 完成的</ins>。由此，我们获得解决 CSWA 特定问题的 *PsiObject* ，同时系统会报告相应的错误与警告信息以便后续处理。
 
-[Fig 1](#fig-1) 展示了该方法的核心组件：*PsiEngine* 。它完全基于 Web 客户端技术开发，融合了 HTML5、CSS3、JavaScript 和 DOM 技术，并结合了 Web 2.0 的技术、服务和工具。由此我们获得了一个完全在 Web 客户端运行的引擎，通过定义特定的 XML-DSL，该引擎能够构建 Web 组件、Web 控件及/或动态网页，为 CSW A 中提出的特定问题提供解决方案。
+<ins>[Fig 1](#fig-1) 展示了该方法的核心组件：*PsiEngine* 。它完全基于 Web 客户端技术开发，融合了 HTML5、CSS3、JavaScript 和 DOM 技术，并结合了 Web 2.0 的技术、服务和工具。由此我们获得了一个完全在 Web 客户端运行的引擎，通过定义特定的 XML-DSL，该引擎能够构建 Web 组件、Web 控件及/或动态网页，为 CSW A 中提出的特定问题提供解决方案。</ins>
 
 #### Fig 1
 ![Fig 1](pic/xml-f1.png)
 
 *Fig 1: PsiEngine（Programmable Solutions Interpreter Engine）在 Web 客户端中执行 PsiCode*
 
-*PsiEngine* 的核心是 *PsiXML Interpreter* ，其主要目标是评估和解释 *PsiCode* ，生成 JavaScript 代码并最终执行它。此外，它还拥有一个名为 *PsiData* 的公共共享区域，该区域允许运行中的 *PsiPrograms* 之间交换信息、功能和对象。
+<ins>*PsiEngine* 的核心是 *PsiXML Interpreter* ，其主要目标是评估和解释 *PsiCode* ，生成 JavaScript 代码并最终执行它</ins>。此外，它还拥有一个名为 *PsiData* 的公共共享区域，该区域允许运行中的 *PsiPrograms* 之间交换信息、功能和对象。
 
-在 [Fig 1](#fig-1) 中，我们还能看到 *PsiXML* 如何管理多个 *PsiLanguage* Ψ = { 𝕃<sub>1</sub>, 𝕃<sub>2</sub>, ..., 𝕃<sub>m</sub> }，即它能够评估、解释和执行这些 XML-DSL。为此， *PsiXML* 会注册一组 *PsiLanguage Definitions* 。对于用 *PsiLanguage*  𝕃𝑗 编写的每个不同的 *PsiCode* 𝑆<sub>k</sub> ，*Programs Manager* 都会创建并管理对应的 *PsiProgram* 𝑃<sub>k</sub>。 *PsiProgram* 𝑃<sub>k</sub> 负责通过基于  *PsiLanguage*  𝕃𝑗 语法的句语和语义分析，将  *PsiCode* S<sub>k</sub> 转换为 *PsiObject* 𝑂<sub>k</sub> （该转换由 *PsiXML* 的 *Translaor* 组件执行）。该转换包括处理 *PsiCode* 的 DOM 结构、验证每个 DOM 元素并执行对应功能（由 *Evaluator* 完成）。此外，*Programs Manager* 负责管理 *PsiXML* 能够评估的所有 *PsiPrograms* P = { 𝑃<sub>1</sub> , 𝑃<sub>2</sub> , ... , 𝑃<sub>n</sub> }。
+在 [Fig 1](#fig-1) 中，我们还能看到 *PsiXML* 如何管理多个 *PsiLanguage* Ψ = { 𝕃<sub>1</sub>, 𝕃<sub>2</sub>, ..., 𝕃<sub>m</sub> }，即它能够评估、解释和执行这些 XML-DSL。为此， *PsiXML* 会注册一组 *PsiLanguage Definitions* 。对于用 *PsiLanguage*  𝕃𝑗 编写的每个不同的 *PsiCode* 𝑆<sub>k</sub> ，*Programs Manager* 都会创建并管理一个 *PsiProgram* 𝑃<sub>k</sub>。 *PsiProgram* 𝑃<sub>k</sub> 负责通过基于  *PsiLanguage*  𝕃𝑗 语法的句语和语义分析，将  *PsiCode* S<sub>k</sub> 转换为 *PsiObject* 𝑂<sub>k</sub> （该转换由 *PsiXML* 的 *Translaor* 组件执行）。该转换包括处理 *PsiCode* 的 DOM、验证每个 DOM 元素并执行相应功能（由 *Evaluator* 完成）。此外，*Programs Manager* 负责管理 *PsiXML* 能够评估的所有 *PsiPrograms* P = { 𝑃<sub>1</sub> , 𝑃<sub>2</sub> , ... , 𝑃<sub>n</sub> }。
 
-*PsiLanguage* 与其他基于 XML 的语言存在相似性。在 Web 客户端中，定义和使用各类 XML-DSL 时，我们遵循与其他基于 XML 语言相同的方法，例如：XSL、SVG、MathML 等。简言之，这些语言均通过定义 XML 语法来丰富网页内容，每个 XML 元素都承载着特定语义，由对应功能模块在 Web 客户端解释后实现其目标。然而，尽管当前浏览器通过原生代码或插件实现解释器，我们的方案直接利用 *PsiEngine* 进行全部分析工作，该引擎使用基于服务器端动态更新的语言规范。由此，*PsiEngine* 能轻松管理新型 XML-DSL ，关联其语义对应的功能模块，并提供便于评估的运行环境。
+*PsiLanguage* 与其他基于 XML 的语言存在相似性。在 Web 客户端中，要定义和使用不同的 XML-DSL，我们遵循其他基于 XML 语言相同的方法，例如：XSL、SVG、MathML 等。简言之，这些语言均通过定义 XML 语法来丰富网页内容，每个 XML 元素都其自己的语义，由对应关联的功能在 Web 客户端解释后，实现其目标。<ins>然而，尽管当前浏览器通过原生代码或插件实现解释器，我们的方案直接利用 *PsiEngine* 进行全部分析工作</ins>，该引擎使用基于服务器端动态更新的语言规范。由此，*PsiEngine* 能轻松管理新型 XML-DSL ，关联其语义对应的功能，并提供便于评估的运行环境。*（译注：这里提到语言规范来自服务端，结合上下文，可能是笔误？）*
 
-另一方面，与其他基于 XML 的语言不同，*PsiLanguage* 能够将 *PsiCode* 与外部资源（包括 XML 和 JSON ）关联，以便在运行时使用和修改信息。关联信息意味着包含数据的 XML 以 DOM（XML-data DOM）形式存在，
+另一方面，与其他基于 XML 的语言不同，*PsiLanguage* 能够将 *PsiCode* 与外部资源（包括 XML 和 JSON ）关联，以便在运行时使用和修改信息。关联信息意味着 XML 包含的数据以 DOM（XML-data DOM）形式存在，
 因此 *PsiCode* 𝑆<sub>k</sub> 的任意元素均可引用 XML-data DOM 中的元素。同样地，
 也可将 JSON 信息关联至 *PsiCode* 𝑆<sub>k</sub> 的元素。
 
 #### 3.1.1 定义 PsiLanguage
 
-为了定义 *PsiLanguage* 以便 *PsiEngine* 能够管理，我们需要定义其对应的语法。*PsiLanguage* 的 *PsiGrammar* 𝔾 将通过元组定义：
+为了定义 *PsiLanguage* 以便 *PsiEngine* 能够管理，我们需要定义其对应的语法。*PsiLanguage* 的 <ins>*PsiGrammar* 𝔾 将通过元组定义：</ins>
 
-(1) 𝔾 = ＜𝕋 | Root | Δ ＞
+(1) 𝔾 = ⟨ 𝕋 | Root | Δ ⟩
 
 其中 𝕋 = { Tag<sub>1</sub>, Tag<sub>2</sub>, ..., Tag<sub>n</sub> } 是标签集合，Root（对于某个 Tag<sub>j</sub> ∈ 𝕋, 1 ≦ j ≦ n ）是语法的根元素，Δ 是语言结构定义的对象：
 
 (2) Δ = { Tag<sub>i</sub> ：Δ<sub>i</sub> | Tag<sub>i</sub> ∈ 𝕋 }
 
-其中 Δ<sub>i</sub> ∈ Δ 是由下面定义的对象：
+其中 Δ<sub>i</sub> ∈ Δ 是一个对象，定义如下：
 
 (3) Δ<sub>i</sub> = { TAG: v<sub>T</sub> , CLASS: v<sub>C</sub> , CHILDREN:v<sub>H</sub> , MULTIPLICITY:v<sub>M</sub> , STRICT:v<sub>S</sub> , VALIDATOR:v<sub>V</sub> }
 
 其中 v<sub>T</sub> 是标签名称，v<sub>C</sub> 是关联的类名称，v<sub>H</sub> 是子标签节点（默认为 null），v<sub>M</sub> 是子标签的多重性 （可能值：“0..1”，“1..1”，“0..n” 或 “1..n” ），v<sub>S</sub> 是子标签的严格验证（默认为 true），v<sub>V</sub> 指定验证标签属性（默认为 null）。
 
-普遍认为，使用 DTD 和 XML Schema 能轻松描述 XML 文档的结构、语法约束及数据类型。在开发 *PsiEngine* 时，我们分析了这些工具在验证 *PsiCode* 中的应用。如前所述，我们的方法可实现数据与程序的分离。尽管 *PsiCode* 是用 XML 编写的，因此可通过 DTD 或 XML Schema 进行验证，但 XML 和 JSON 数据是在运行时加载并关联的。因此，从这个角度来看，需要一种替代方案来验证代码和数据。由 *PsiLanguage Structure Diagram（PsiLSD）* 与 *PsiGrammar Validator Attributes（PsiGVA）* 构成的组合方案解决了这一问题。
+普遍认为，使用 DTD 和 XML Schema 能轻松描述 XML 文档的结构、语法约束及数据类型。在开发 *PsiEngine* 时，我们分析了这些工具在验证 *PsiCode* 中的应用。如前所述，我们的方法可实现数据与程序的分离。尽管 *PsiCode* 是用 XML 编写的，因此可通过 DTD 或 XML Schema 进行验证，但 XML 和 JSON 数据是在运行时加载并关联的。<ins>因此，从这个角度来看，需要一种替代方案来验证代码和数据。由 *PsiLanguage Structure Diagram（PsiLSD）* 与 *PsiGrammar Validator Attributes（PsiGVA）* 构成的组合解决了这一问题</ins>。*（译注：不使用 DTD 或 Schema 验证 XML-DSL，使用替代方案）*
 
-[Fig 2](#fig-2) (a) 中的 *PsiLSD* 展示了与 *PsiGrammer* 相关的语言结构的图形化表示。就其本身而言，[Fig 2](#fig-2) (b) 则展示了 *PsiGVA* 及其用于验证标签属性 v<sub>V</sub> 的特定语法。*PsiLSD* 和 *PsiGVA* 极大地简化了 *PsiXML* 语法的设计与开发。
+[Fig 2](#fig-2) (a) 中的 *PsiLSD* 展示了与 *PsiGrammer* 相关的语言结构的图形化表示。[Fig 2](#fig-2) (b) 则展示了 *PsiGVA* 及其用于验证标签属性 v<sub>V</sub> 的特定语法。*PsiLSD* 和 *PsiGVA* 极大地简化了 *PsiXML* 语法的设计与开发。
 
 #### Fig 2
 ![Fig 2](pic/xml-f2.png)
 
 *Fig 2: (a) PsiLanguage Structure Diagram；(b) PsiGrammar Validator Attributes*
 
-定义 *PsiGrammar* 后，需实现其语义功能，即编码功能，其与 *PsiLanguage* 中每个标签 𝕋 = { Tag<sub>1</sub>, Tag<sub>2</sub>, ..., Tag<sub>n</sub> } 相关联。这些功能由一组类实现，类源自可复用的 JavaScript 组件（参见 <sup>[8](#8)</sup>、<sup>[58](#58)</sup> ）实现，随后与对应标签进行匹配。所有功能的评估与执行共同解决 CSWA 中的特定领域问题。
+定义 *PsiGrammar* 后，需实现其语义功能，即编码功能，功能与 *PsiLanguage* 中每个标签 𝕋 = { Tag<sub>1</sub>, Tag<sub>2</sub>, ..., Tag<sub>n</sub> } 相关联。这些功能由一组类实现，类源自可复用的 JavaScript 组件（参见 <sup>[8](#8)</sup>、<sup>[58](#58)</sup> ）实现，随后与对应标签进行匹配。所有功能的评估与执行（共同）解决 CSWA 中的特定领域问题。
 
-因此，*PsiLanguage* 𝕃 被定义为元组：
+因此，<ins>*PsiLanguage* 𝕃 被定义为元组：</ins>
 
 (4) 𝕃 = ⟨ 𝔾 | 𝕂 | 𝕋 ↔ C ⟩
 
 其中 𝔾 是 *PsiLanguage* 的 *PsiGrammar* 定义（由 (1) 定义），𝕂 是可复用的 JavaScript 软件组件（称为 *PsiComponent* ），C = { Class<sub>1</sub> , ... , Class<sub>n</sub> } 是在 𝕂 中实现的类的子集，最后， 𝕋 ↔ C 是 Tag<sub>K</sub> 与 Class<sub>K</sub> 之间的关联关系， 对于每个 Tag<sub>k</sub> ∈ 𝕋 以及 Class<sub>k</sub> ∈ C，分别对应。
 
-[Fig 3](#fig-3) 展示了语法 𝔾 中的标签与其在 C 中的相应类关联。由于 *PsiLanguage* 中的一个标签可能用于定义语法结构的多个部分，因此可关联不同功能。同样地，一个类可以关联到不同标签。在 [Fig 3](#fig-3) (a) 中，我们看到 *PsiLSD* 如何将对应的 JavaScript 类名（即 (3) 中的 v<sub>c</sub> ∈ 𝛥<sub>i</sub> ）与其在 XML 语法中的相关标签名关联起来。*(译注：Fig 3 中没有看到（a)，笔误？)*
+[Fig 3](#fig-3) 展示了语法 𝔾 中的标签与其在 C 中的相应类的关联。由于 *PsiLanguage* 中的一个标签可能用于定义语法结构的多个部分，因此可关联不同功能。同样地，一个类可以关联到不同标签。在 [Fig 3](#fig-3) (a) 中，我们看到 *PsiLSD* 如何将对应的 JavaScript 类名（ 即 (3) 中的 v<sub>C</sub> ∈ 𝛥<sub>i</sub> ）与其在 XML 语法中的相关标签名关联起来。*(译注：Fig 3 中没有看到 (a)，笔误？)*
 
 #### Fig 3
 ![Fig 3](pic/xml-f3.png)
