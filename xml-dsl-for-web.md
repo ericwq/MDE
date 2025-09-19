@@ -318,7 +318,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 #### Table 1
 ![Table 1](pic/xml-tab1.png)
 
-*Table 1:  PsiEngine项目组件汇总*
+*Table 1:  PsiEngine 项目组件汇总*
 
 [Fig 11](#fig-11) 展示了 *PsiEnvironment* 自动生成的 *PsiEngine* 指标快照。需要补充说明的是：项目中函数/方法的平均圈复杂度 CNN 处于 “简单功能” 区间（ CNN<10，依据 <sup>[35](#35)</sup> 标准 ），可维护性指数 MI 达标（ MI>85，依据 <sup>[41](#41)</sup> 标准 ），注释行数 CLOC 处于中等水平（ 16.1% ）。此外，实现或理解程序所需的时间约为 40 天（ 根据 Halstead 时间 <sup>[20](#20)</sup> 为 319.5 小时 ）。
 
@@ -333,6 +333,32 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 ![Fig 12](pic/xml-f12.png)
 
 *Fig 12: PsiEnvironment 生成的 PsiEngine 编程元素的软件度量快照*
+
+### 5.2 案例研究结果
+[Table 2](#table-2) 详细列出了 *PsiEnvironment* 针对 *Anisha*、*FeedPsi* 和 *PsiModel* 案例研究，计算的数据。该表可分为两个明显部分：*PsiModel* 及其对应生成的 JavaScript 代码。通过使用 URL（5）并将\<name\>替换为案例研究名称，可查看 *PsiModel* 代码、UML 类图和 *PsiLSD* 图，甚至能生成用于分析对应软件度量指标的 JavaScript 代码。值得强调的是，*PsiModel* 本身即作为案例研究存在，其自动生成是为了在 *PsiEnvironment* 中被使用。
+
+#### Table 2
+![Table 2](pic/xml-tab2.png)
+
+*Table 2: PsiEngine 案例研究列表*
+
+总结 *PsiComponents* 分析的三个项目，我们共开发了 11 个 *PsiModel* 文件。其中 27%（ 3 个文件）为 Psi 规范文件，其余 73%（ 8 个文件）为 Psi 实现文件。我们共编写了 1,597 行 *PsiModel* 源代码，最终生成 3,354 行 JavaScript 代码。这意味着其简洁度比率为 2.1 ，而 *Anisha* 和 *FeedPsi* 的简洁度比率为 2.4。注释行数占比 19.1%（三项案例研究的平均值），属于中等水平。
+
+[Fig 13](#fig-13) 总结了针对 *Anisha*、*FeedPsi* 案例研究及 *PsiModel* 组件计算的指标结果。三者平均圈复杂度 CNN 均较低（ CNN<10 ），表明其功能较为简单。由于复杂度和功能性差异，实现或理解 *PsiModel* 所需的 Halstead Time HT 显著高于其他案例。其程序时长（ 11,703 HN ）与词汇量（ 594 Hn）均是 *Anisha* 和 *FeedPsi* 案例研究平均长度合词汇量的六倍。平均估计误差 HB 值低于推荐限值（ <2 ），仅 *PsiModel* 的 *StructureElement* 类超出该限值（ 2.1 HB ）。
+
+#### Fig 13
+![Fig 13](pic/xml-f13.png)
+
+*Fig 13: Anisha 与 FeedPsi 案例研究及 PsiModel 组件的指标汇总*
+
+最后，[Fig 14](#fig-14) 展示了 *Anisha*、*FeedPsi* 和 *PsiModel* 案例研究的可维护性指数 MI，以及这些案例所用组件和框架的 MI 值。可以看出，所有组件和框架均具有良好的可维护性（ >85 ）。基于 *PsiModel* 开发的组件，如 *PsiEngine* 和 *FeedPsi* ，与 CKEditor、Codemirror、Highcharts 等知名框架处于同等水平。不同框架（CKEditor、Codemirror、Highcharts 和 jQuery）的 MI 指标计算均采用 JSComplexity 工具（ http://jscomplexity.org ）完成。
+
+#### Fig 14
+![Fig 14](pic/xml-f14.png)
+
+*Fig 14: Anisha、FeedPsi 与 PsiModel 案例研究，以及所用组件与框架的 MI*
+
+综上所述，案例研究与 *PsiModel* 均达到了文献中规定的软件度量指标推荐值。此外，通过这些案例研究和 *PsiModel*，我们验证了功能 F6 和 F7。
 
 ----
 ## 致谢
