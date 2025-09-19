@@ -29,7 +29,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 为展示 *PsiEngine* 的实现及其功能，同时操作 *PsiModel* 及其关联的 *PsiEnvironment*，我们将提供两个案例研究： *Anisha* 与 *FeedPsi* 。 *Anisha* 旨在构建两种 XML-DSL 以实现基础帧动画，该运行示例详细展示了多程序的解释与执行机制，以及信息绑定过程。与此同时，*FeedPsi* 作为新闻聚合 CSWA，旨在评估与其他网页组件、RSS 服务及框架的集成能力。两项案例均遵循文献 <sup>[59](#59)</sup> 提出的定性案例研究方法论，并将其调整以适应软件工程领域 <sup>[2](#2)</sup>。通过这两项案例研究，我们将涵盖采用本方法编程 XML-DSL 解决方案的核心特性。
 
-本文其余部分结构如下：第 [2](#2-概述与相关工作) 节将重点介绍相关前沿研究；第 [3](#3-为客户端-web-应用构建-xml-dsl-的方法) 节将概述本方法的总体框架及核心特征，并包含 *Anisha* 运行实例；第 [4]() 节将阐述 *FeedPsi* 案例研究，总结 *PsiEngine* 的验证细节；第 [5]() 节将详细呈现研究成果；最后第 [6]() 节将通过总结性评论与未来工作展望结束本文。
+本文其余部分结构如下：第 [2](#2-概述与相关工作) 节将重点介绍相关前沿研究；第 [3](#3-为客户端-web-应用构建-xml-dsl-的方法) 节将概述本方法的总体框架及核心特征，并包含 *Anisha* 运行实例；第 [4](#4-feedpsi-web-应用案例研究) 节将阐述 *FeedPsi* 案例研究，总结 *PsiEngine* 的验证细节；第 [5](#5-结果与验证) 节将详细呈现研究成果；最后第 [6](#6-结论) 节将通过总结性评论与未来工作展望结束本文。
 
 ----
 ## 2. 概述与相关工作
@@ -359,6 +359,22 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 *Fig 14: Anisha、FeedPsi 与 PsiModel 案例研究，以及所用组件与框架的 MI*
 
 综上所述，案例研究与 *PsiModel* 均达到了文献中规定的软件度量指标推荐值。此外，通过这些案例研究和 *PsiModel*，我们验证了功能 F6 和 F7。
+
+### 5.3 结果分析
+*Anisha* 案例研究从两个维度验证了 *PsiPrograms* 的执行（ F2 ）：(P) 多重-简单（一种 PsiLanguage 编写的多个程序）；(M)多重-多重（使用不同 PsiLanguage 言编写的多个程序）。针对 (P) 场景，我们编写了四个 *ShapesPsi* 程序，每个程序分别绘制圆形或方形（ http://hilas.ii.uam.es/Anisha/ms ）。针对 (M) 场景，我们使用前述四个程序并结合四个新增的 *AnimePsi* 程序。最终在网页客户端呈现图形竞速 (figures race) 效果（ http://hilas.ii.uam.es/Anisha/mm ）。此外，*Anisha* 还通过 *PsiLI* 语言验证了 *异构信息关联* XML 与 JSON（ F3 ），详见第 [3.3](#33-最后总结) 节。由于 *ShapesPsi* 与 *AnimePsi* 程序间实现了对象与信息共享，（ F4 ）亦得到验证。
+
+其他方面，通过 *Feeds* 网站，案例研究 *FeedPsi* 验证了：简单-简单（单个 PsiLanguage 程序）*PsiProgram* 的执行（ F2，类型 S ）以及基于 *PsiProgram* 的 Web 应用程序动态生成（ F5 ）。此外，它允许将动态信息与 RSS（ F3，类型 X ）关联，该应用程序完全独立于服务器运行。[Table 3](#table-3) 汇总了 *FeedPsi* 应用所需的代码行数。总计 1,151 行代码包含静态代码（ 66% ）HTML、CSS、XSL、XML及 JS 源代码（不含 *PsiEngine* 和 jQuery 代码行），以及 44% 由 *PsiModel* 生成的代码。需特别强调的是，*FeedPsi* 程序的简洁度比率约为 52。这意味着 FeedPsi 程序更接近配置文件而非传统程序。作为创新案例研究，*FeedPsi* 代表了通过高级 XML-DSL 构建网站应用程序的新范式。
+
+#### Table 3
+![Table 3](pic/xml-tab3.png)
+
+*Table 3: FeedPsi 源代码行数汇总*
+
+最后，*PsiModel* 组件持续验证 *PsiEngine* 和解释器，（验证）标准集合（ F1、F2、F3、F4 和F5 ）。
+
+### 5.4 验证总结
+
+## 6 结论
 
 ----
 ## 致谢
