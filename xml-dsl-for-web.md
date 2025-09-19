@@ -387,6 +387,19 @@ F6 与 F7 验证需借助 *PsiModel* 及其关联的 *PsiEnvironment* 。为此�
 *Table 4: PsiEngine 与 PsiModel 标准清单及验证总结*
 
 ## 6 结论
+领域特定语言（DSL）通过提供抽象层，能够同时提升软件工程师与领域专家的生产力，从而加速软件应用的开发进程。构建 DSL 解决方案需要借助工具来实现解释器和编译器。然而正如我们所展示的，目前鲜有方法能够构建 Web 客户端 DSL 替代方案。
+
+为解决此问题，除本文外，我们还正式提出并验证了 *Programmable Solutions Interpreter*（Psi），这是我们为 CSWA 开发的基于 XML-DSL 解决方案的方法，包含评估引擎、编程模型及轻量级开发环境。因此，我们详细阐述了 *PsiEngine* 并描述了其核心组件：*PsiXML*。*PsiEngine* 融合了 HTML5、CSS3、JavaScript 与 DOM 语言，结合 Web 2.0技术、服务及工具，并定义了一种名为 *PsiLanguages* 的 XML-DSL 。这种组合使 *PsiEngine* 能够构建 Web 组件、Web 控件和/或动态网页，为 Web 应用中的特定问题提供解决方案。而 *PsiXML* 作为解释器，能够评估用 XML-DSL 编写的程序，为 CSWA 中的特定领域问题提供解决方案。
+
+为便于采用我们的方法并使用 *PsiEngine* 实现 *PsiLanguages*，我们基于两种 *PsiLanguages* 创建了 *PsiModel*：*MPsi*（规范语言）和 *MIPsi*（实现语言）。此外，为更精准地应用 *PsiModel*，我们实现了 *PsiEnvironment*，一个轻量级开发环境，包含代码自动补全、软件度量计算、图表展示等实用功能。
+
+为更充分展示本方法论的能力与潜力，我们通过两个案例研究，详细阐述了基于 DSL 视角开发 Web 应用的全流程（分析、设计与实现），涵盖可复用组件创建、语言规范与组合、框架应用等环节。首个案例研究 *Anisha* 实现了两种语言，并作为运行示例在阐述过程中贯穿始终，用于探索与本方法相关的不同概念。第二个案例研究 *FeedPsi* 是一款 RSS 聚合 Web 应用，它证明了通过本方法能够动态开发客户端 Web 应用。此外，作为最终验证，我们运用 *PsiModel* 实现了 *PsiEngine* 本身以验证其有效性。
+
+因此，我们通过使用 *PsiLanguages* 规范，验证了本方法：如何为 CSWA 打造基于 XML 的 DSL 解决方案。此外，当 *PsiEngine* 运行时，*PsiLI* 和 *PsiCA* 语言使按需定义和部署新型 DSL 解决方案成为可能。
+
+借助 *PsiEngine* 与 *PsiModel*，我们旨在为应用 MDE 范式构建 CSWA 奠定基础，使每位工程师都能从中获益。
+
+未来工作方向包括：构建一套 *PsiLanguages*，用于从 CSWA 序列化的 DSVL 构建图形化模型。该工具集具备以下能力：基于异构 XML/JSON 数据源自动生成图表，并在图表与数据源间实现信息同步。
 
 ----
 ## 致谢
