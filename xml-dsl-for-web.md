@@ -373,6 +373,18 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 最后，*PsiModel* 组件持续验证 *PsiEngine* 和解释器，（验证）标准集合（ F1、F2、F3、F4 和F5 ）。
 
 ### 5.4 验证总结
+[Table 4](#table-4) 总结了 *PsiEngine* 标准集的验证情况。F1 标准已通过三重验证：软件度量指标验证、*Anisha* 验证，以及通过*FeedPsi* 案例研究和 *PsiModel* 组件对其行为验证。
+
+F6 与 F7 验证需借助 *PsiModel* 及其关联的 *PsiEnvironment* 。为此我们开发了 JavaScript 组件（ C=3 ）和 *PsiComponents* 组件（ P=5 ）。
+
+三个案例研究验证了执行 *PsiProgram* 的三种可行方式，包括在 *PsiEngine* 上运行（ F2 ）、异构信息关联（ F3 ）以及信息共享（ F4 ）。此外，我们创建了 *FeedPsi* 案例研究，以验证 Web 应用的动态生成能力，该应用全部通过 *PsiProgram* 部署。
+
+综上所述，借助文献 <sup>[59](#59)</sup> 提出的定性多案例研究方法（经文献 <sup>[2](#2)</sup>  适配）及 [Table 4](#table-4) 所示的标准验证总结，我们成功验证了 *PsiEngine* 与 *PsiModel* 的核心目标。
+
+#### Table 4
+![Table 4](pic/xml-tab4.png)
+
+*Table 4: PsiEngine 与 PsiModel 标准清单及验证总结*
 
 ## 6 结论
 
