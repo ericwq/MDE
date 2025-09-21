@@ -1,4 +1,10 @@
+## 两篇相关论文
+----
+- [一种为客户端 Web 应用构建基于 XML 的 DSL 解决方案的方法](xml-dsl-for-web.md)
+- [一种为 Web 应用构建基于 JSON 的 DSL 解决方案的方法](json-dsl-for-web.md)
+
 ## MDSD 模型驱动软件开发：中文版（非盈利，非官方）
+----
 <!-- ![cover](img/cover.png) -->
 <img src="img/cover.png" width="40%">
 
@@ -145,7 +151,3 @@
   - [A.1 完整的 QVT 关系 alma2db 示例](a/1.md)
   - [A.2 完整的 QVT 运算映射 alma2db 示例](a/2.md)
 * [参考](ref.md)
-
-## 两篇相关论文
-- [一种为客户端 Web 应用构建基于 XML 的 DSL 解决方案的方法](xml-dsl-for-web.md)
-- [一种为 Web 应用构建基于 JSON 的 DSL 解决方案的方法](json-dsl-for-web.md)
