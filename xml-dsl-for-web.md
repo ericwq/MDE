@@ -125,7 +125,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 有关 *PsiEngine* 的更多细节详见 http://hilas.ii.uam.es/api 。该网站包含 *PsiXML* 的交互式类图、详细的 *PsiLanguages* 定义及其他编程元素。
 
 #### 3.1.2 运行示例：Anisha 案例研究
-为展示该方法在系统化定义的开发流程中的运作机制，我们将首先定义语法，随后详述相关功能如何与各语法元素关联，最后演示解释器如何执行每种语言的源代码。为此，我们将采用名为 *Anisha* 的运行示例。*Anisha* 融合了两种 *PsiLanguages*：*ShapesPsi* 与 *AnimaPsi*。*ShapesPsi* 支持创建基于 SVG 的圆形与矩形，而 *AnimaPsi* 则能操控 *ShapesPsi* 定义的图形元素进行移动与停驻。
+为展示该方法在系统化定义的开发流程中的运作机制，首先我们将定义语法，随后详述相关功能如何与各语法元素关联，最后展示解释器如何执行每种语言的源代码。为此，我们将使用名为 *Anisha* 的运行示例。*Anisha* 融合了两种 *PsiLanguages*：*ShapesPsi* 与 *AnimaPsi*。*ShapesPsi* 支持创建基于 SVG 的圆形与矩形，而 *AnimaPsi* 则能操控 *ShapesPsi* 定义的图形元素进行移动与停止。
 
 ***ShapesPsi 语言***
 
