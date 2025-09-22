@@ -215,9 +215,9 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 为在构建 *PsiLanguage* 时使用包含 *MPsi* 和 *MIPsi* 的 *PsiModel* ，我们实现了名为 *PsiEnvironment* 的轻量级开发环境。[Fig 7](#fig-7) 展示了通过 URL 访问的 *PsiEnvironment* 快照：
 
-(5) http://hilas.ii.uam.es/PsiXML/viewer.html?psifile=<name\>
+(5) http://hilas.ii.uam.es/PsiXML/viewer.html?psifile=〈name〉
 
-其中 *\<name\>* 代表项目或组件名称。此外，每个项目或组件的源代码均可在 http://github.com/echavarriaga/PsiSource/ 获取。
+其中 *〈name〉* 代表项目或组件名称。此外，每个项目或组件的源代码均可在 http://github.com/echavarriaga/PsiSource/ 获取。
 
 例如，[Fig 7](#fig-7) 展示了 *Anisha* 案例研究（ psifile=*Anisha* ）。“Specification” 选项卡包含 *MPsi* 定义，而 “Implementation” 选项卡则包含 *MIPsi* 实现。
 
@@ -243,24 +243,24 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 ## 4 FeedPsi Web 应用案例研究
 为验证我们的方法，本案例研究旨在展示如何运用 *PsiEngine* 对名为 *FeedPsi* 的 Web 应用进行规格定义与实现。简而言之，该 Web 应用旨在创建并部署动态网页，通过聚合多个网络源的内容构建一个新闻门户。这些内容源可采用两种最常见的格式：RSS <sup>[57](#57)</sup>、<sup>[22](#22)</sup> 与 Atom <sup>[56](#56)</sup>、<sup>[24](#24)</sup>，二者均基于 XML 编写。
 
-在本节中，我们将完整呈现从问题分析到实现的整个流程，并全程运用 *PsiEngine* 引擎。该流程始于如何构建 *FeedPsi Language* 并将其封装为 *PsiComponent* 组件，继而评估 *PsiProgram*，最终生成动态网站。
+在本节中，我们将完整呈现从问题分析到实现的整个流程，并全程运用 *PsiEngine* 引擎。该流程始于如何构建 *FeedPsi Language* 并将其封装为 *PsiComponent* 组件，接下来评估 *PsiProgram*，最终生成动态网站。
 
 ### 4.1 分析与设计
-[Fig 8](#fig-8) 展示了 *FeedPsi* Web 应用程序的设计。该系统管理 RSS 订阅源，支持用户选择、显示、按类别存储及/或处理新闻内容。此外，图中呈现的 *FeedPsi* 语言，通过 *Feed Component* 实现，并在所示的 *PsiXML Interpreter* 上进行评估。*FeedPsi* 需管理：RSS 订阅源列表（含多个 RSS 标签）、分类列表（含多个 Category 标签）以及用户当前选定新闻列表（含单个 *MainNews* 标签）。读取 RSS 订阅源时，新闻标题将显示于悬浮子菜单（见 [Fig 8](#fig-8) ）。经标记后，新闻可显示或存储于任意分类以便后续阅读。
+[Fig 8](#fig-8) 展示了 *FeedPsi* Web 应用程序的设计。该系统管理 RSS 订阅源，支持用户选择、显示、按类别存储及/或处理新闻内容。此外，图中呈现的 *FeedPsi* 语言，通过 *Feed Component* 实现，并在所示的 *PsiXML Interpreter* 上进行评估。*FeedPsi* 需管理：RSS 订阅源列表（含多个 RSS 标签）、分类列表（含多个 Category 标签）以及用户当前选定新闻列表（含单个 *MainNews* 标签）。读取 RSS 订阅源时，新闻标题将显示于悬浮子菜单（见 [Fig 8](#fig-8) ）。经标记后，新闻可显示或存储于任意分类以便后续阅读。*（译注：图中没有展现 PsiXML Interpreter ！）*
 
 所设计的 Web 应用程序无需服务器端编程，使得整个应用程序的部署能够直接在网页客户端完成，从而最大限度地降低服务器端的计算成本。
 
-为更清晰地阐释本方案的应用场景，下文将展示另一个采用该方法的案例研究 *FeedPsi*。该动态 Web 应用程序完全基于本方案开发而成。*(译注：这段文字有些突兀，估计是修改造成的)*
+为更清晰地阐释本方案的应用场景，下文将展示另一个采用该方法的案例研究 *FeedPsi*。该动态 Web 应用程序完全基于本方案开发而成。*(译注：这段文字有些突兀，估计是修改造成的）*
 
 #### Fig 8
 ![Fig 8](pic/xml-f8.png)
 
-*Fig 8: 基于 PsiLanguage 的通过 RSS 订阅聚合新闻的 Web 应用程序设计*
+*Fig 8: 基于 PsiLanguage ，通过 RSS 订阅聚合新闻的 Web 应用程序设计*
 
 ### 4.2 订阅源组件规范
-基于我们 DSL 方法实现的用于管理和显示 RSS 订阅源的 Web 应用程序，首先需按前述说明制定对应的 *Feed Component* 规范。接下来我们将详细说明具体步骤。
+基于我们 DSL 方法实现的，用于管理和显示 RSS 订阅源的 Web 应用程序，首先需按前述说明制定对应的 *Feed Component* 规范。接下来我们将详细说明具体步骤。
 
-[Fig 9](#fig-9) 展示了 *FeedPsi* 语言的 *PsiLSD*，[Fig 9](#fig-9) (b) 则展示了其 *PsiGVA*。*SetOfNews* 标签是 *FeedPsi* 程序评估中的根元素，包含 RSS 源列表（ *RSS* 标签）、分类列表（ *Category* 标签）以及当前显示的新闻（ *MainNews* 标签）。
+[Fig 9](#fig-9) 展示了 *FeedPsi* 语言的 *PsiLSD*，[Fig 9](#fig-9) (b) 则展示了其 *PsiGVA*。*SetOfNews* 标签是 *FeedPsi Program* （评估时）的根元素，包含 RSS 源列表（ *RSS* 标签）、分类列表（ *Category* 标签）以及当前显示的新闻（ *MainNews* 标签）。
 
 *RSS* 标签包含标识符、名称及 RSS 源的 URL。它能通过 AJAX 连接从 RSS 新闻服务获取数据。*Category* 标签按类别存储新闻列表，包含标识符和分类标题。*MainNews* 标签则包含当前呈现给用户的新闻列表。最后，*News* 标签包含从 RSS 源获取的新闻，具有唯一标识符，当其属于 *MainNews* 标签时将被显示。
 
@@ -276,7 +276,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 此外，可通过 *PanelNews* 类管理（添加、删除或验证）分类（ *Category* 类）和当前显示的新闻（ *MainNews* 类）。*MainNews* 类已实现用于可视化展示从 RSS 源或不同分类中选取的新闻。同时，*News* 类定义具有唯一 ID 的新闻条目，并负责新闻的显示。*UserInterface* 类负责处理并呈现 *FeedPsi* 应用程序的用户界面。
 
 ### 4.3 运行 FeedPsi Web 应用程序
-为展示 *Feed Component* 如何与 *FeedPsi* 语言协同运行以实现 *FeedPsi* Web 应用程序（ http://hilas.ii.uam.es/FeedPsi ），我们将演示其如何处理以下期刊 (periodicals) 的 RSS 源：*Bild、Mirror、AS、La Gazzeta、L’Equipe和El Tiempo*（ 见 [Fig 10](#fig-10) ）。
+为展示 *Feed Component* 如何与 *FeedPsi* 语言协同运行以实现 *FeedPsi* Web 应用程序（ http://hilas.ii.uam.es/FeedPsi ），我们将演示其如何处理以下期刊 (periodicals) 的 RSS 源：*Bild、Mirror、AS、La Gazzeta、L’Equipe y El Tiempo*（ 见 [Fig 10](#fig-10) ）。
 
 因此，[Frag 7](#frag-7) 展示了实现 *FeedPsi* Web 应用程序（新闻聚合器）的 *FeedPsi* 源代码。
 
