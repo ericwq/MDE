@@ -129,7 +129,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 ***ShapesPsi 语言***
 
-[Frag 1](#frag-1) 展示了用 *ShapesPsi* 语言编写的示例代码。在此代码中，我们可看到如何创建一个以点 (100, 100) 为中心、标记为 “Circle”、半径为 30（所有单位均为像素）的红色圆形，以及一个以点 (250, 100) 为中心、标记为 “Rectangle”、宽度为 20、高度为 10 的蓝色矩形。运行效果可访问 http://hilas.ii.uam.es/Anisha/basic 查看。
+[Frag 1](#frag-1) 展示了用 *ShapesPsi* 语言编写的示例代码。在此代码中，我们可看到如何创建一个以点 (100, 100) 为圆心、标记为 “Circle”、半径为 30（所有单位均为像素）的红色圆形，以及一个以点 (250, 100) 为中心、标记为 “Rectangle”、宽度为 20、高度为 10 的蓝色矩形。运行效果可访问 http://hilas.ii.uam.es/Anisha/basic 查看。*(译注：下面的例子中，矩形的宽和高分别是 70 和 50，笔误？)*
 
 #### Frag 1
 ![Frag 1](pic/xml-frag1.png)
@@ -153,14 +153,14 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 标签根节点为 Shapes, 且 Δ<sub>ShapesPsi</sub> = { t<sub>i</sub> : 𝛥<sub>i</sub> │ t<sub>i</sub> ∈ 𝕋<sub>ShapesPsi</sub> }
 
-其实现遵循 [Frag 2](#frag-2) 中预先定义的模板。Shapes 标签包含一个名为 *name* 的必填属性，并包含 *Circle*和 *Rectangle* 标签。*Circle* 标签通过属性指定 id、圆心位置、半径（默认 10px）、标签及 CSS 样式。*Rectangle* 标签通过属性指定 id、起始点、宽高（默认均为 10px ）、标签及 CSS 样式。 [Frag 2](#frag-2) 展示了 𝕋 ↔ C 关联（如 (4) 所定义），即使用 [Template 1](#template-1)，将 *ShapesPsi* 语法中的标签与 *ShapesPsi* 语言的 *PsiComponent* 类建立关联。完整 JavaScript 代码可访问 http://hilas.ii.uam.es/js/psi/Anisha.js 查看。此外，*Anisha* 案例研究的源代码将请参看 http://github.com/echavarriaga/Anisha 。
+其实现遵循 [Frag 2](#frag-2) 中预先定义的模板。Shapes 标签包含一个名为 *name* 的必填属性，并包含 *Circle*和 *Rectangle* 标签。*Circle* 标签通过属性指定 *id*、圆心位置 *center* 、半径 *radius*（默认 10px）、标签 *lable* 及 CSS 样式 *style*。*Rectangle* 标签通过属性指定 *id*、起始点 *point* 、宽 *width* 和高 *height*（默认均为 10px ）、标签 *label* 及 CSS 样式 *style*。 [Frag 2](#frag-2) 展示了 𝕋 ↔ C 关联（如 (4) 所定义），即使用 [Template 1](#template-1)，将 *ShapesPsi* 语法中的标签与 *ShapesPsi* 语言的 *PsiComponent* 类建立关联。完整 JavaScript 代码可访问 http://hilas.ii.uam.es/js/psi/Anisha.js 查看。此外，*Anisha* 案例研究的源代码将请参看 http://github.com/echavarriaga/Anisha 。
 
 #### Frag 2
 ![Frag 2](pic/xml-frag2.png)
 
 在展示如何为 *Shapes* 组件实现 JavaScript 功能后，我们将演示如何使用 *PsiLI* 和 *PsiCA* 语言。为此，我们将详细说明如何为 *ShapesPsi* 指定两个新的可编程标签（Circle 和 Rectangle）。我们将利用两个信息源：XML 文档和 JavaScript 对象。
 
-以下是一个基于两个角色的简单游戏。首先，[Frag 3](#frag-3) 展示了如何从 XML 文件中提取角色信息。其次，[Frag 4](#frag-4) 呈现了角色的特征如何定义 *Context* 对象，以及如何通过 *PsiData* 加载并注册 XML 文件（[Frag 3](#frag-3) ）。
+以下是一个基于两个角色的简单游戏。首先，[Frag 3](#frag-3) 展示了如何从 XML 文件中提取角色 (character) 信息。其次，[Frag 4](#frag-4) 呈现了角色 (character) 的特征 (feature) 如何定义 *Context* 对象，以及 *PsiData* 如何加载并注册 XML 文件（[Frag 3](#frag-3) ）。
 
 #### Frag 3
 ![Frag 3](pic/xml-frag3.png)
@@ -168,7 +168,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 #### Frag 4
 ![Frag 4](pic/xml-frag4.png)
 
-[Frag 5](#frag-5)  展示了一个基于 *PsiLI* 和 *PsiCA* 语言的 *ShapesPsi* 程序。Circle 标签定义了 *data-document* 属性，其值采用 *PsiLI* 语言编写并由 *PsiXML* 解析。因此 *PsiData* 对象会查找 id 值等于 **p1** 的角色（jQuery 选择器 **Character[id=p1]** ），并将结果赋值给变量 *info*，该变量被添加至 *Circle* 类的实例中。此外，*data-context* 属性从标识为 **p1** 的 *Context* 对象中获取 *features* 属性值，并将该值赋给类实例的 *qt* 变量。值得注意的是，*data-context*（ *Context* 对象信息）和 *data-document*（*PsiData* 信息）属性均被记录，且在任何 *PsiLanguage* 中所有标签都原生支持这两种属性。
+[Frag 5](#frag-5)  展示了一个基于 *PsiLI* 和 *PsiCA* 语言的 *ShapesPsi* 程序。*Circle* 标签定义了 *data-document* 属性，其值采用 *PsiLI* 语言编写并由 *PsiXML* 解析。因此 *PsiData* 对象会查找 *id* 值等于 **p1** 的角色（jQuery 选择器 **Character[id=p1]** ），并将结果赋值给变量 *info*，该变量被添加至 *Circle* 类的实例中。此外，*data-context* 属性从标识为 **p1** 的 *Context* 对象中获取 *features* 属性值，并将该值赋给类实例的 *qt* 变量。值得注意的是，*data-context*（ *Context* 对象信息）和 *data-document*（*PsiData* 信息）属性均被记录 (recorded)，且在任何 *PsiLanguage* 中所有标签都原生支持这两种属性。
 
 此外，[Frag 5](#frag-5) 展示了*Circle* 标签的 *label* 属性，如何运用 *PsiCA* 语言从 *info* 获取信息。同理，*center* 和 *style* 属性也通过 *PsiCA* 语言从 *qt* 获取信息。
 
@@ -181,26 +181,28 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 继续 *Anisha* 的运行示例，[Fig 5](#fig-5)  展示了 *AnimePsi* 语言的实现，该语言可移动 *ShapesPsi* 定义的图形。此语言包含两个标签：*Animates* 和 *Move*。[Fig 5](#fig-5) (a) 呈现了 *AnimePsi* 语言的 *PsiLSD*，[Fig 5](#fig-5) (b) 则展示了其 *PsiGVA*。
 
-根据 [Fig 5](#fig-5) (a)，*Animates* 根标签定义了一组图形运动，即多个 *Move* 标签。*Move* 标签定义了对图形的引用（ *key* 属性）、运动路径（ *path* 属性）、路径步数（ *steps* 属性）、运动时长（ *seconds* 属性）、初始等待时间（ *wait* 属性，默认值为 0 ）以及是否重复运动（ *repeat* 属性，默认值为 “no” ）。
+根据 [Fig 5](#fig-5) (a)，*Animates* 根标签定义了一组图形运动，即多个 *Move* 标签。*Move* 标签定义了对图形的引用（ *key* 属性）、运动路径（ *path* 属性）、*path* 中的步数（ *steps* 属性）、运动时长（ *seconds* 属性）、初始等待时间（ *wait* 属性，默认值为 0 ）以及是否重复运动（ *repeat* 属性，默认值为 “no” ）。
 
 #### Fig 5
 ![Fig 5](pic/xml-f5.png)
 
 *Fig 5:  (a) AnimePsi 语言的 PsiLSD。(b) AnimePsi 语言的 PsiGVA。(c) Anime 组件的类图。*
 
-**Anime** 组件实现了与 *AnimePsi* 语言相关的功能，如 [Fig 5](#fig05) (c) 的类图所示。该组件包含两个类：*Animates* 和 *Move*，分别绑定至 *Animates* 和 *Move* 标签。*Animates* 类负责启动动画程序，而 *Move* 类则根据 SVG *path*标签的定义，实现与 *Move* 标签绑定的移动功能。建议读者查阅 http://hilas.ii.uam.es/Anisha/api 中 *Shapes* 组件的详细实现方案。
+**Anime** 组件实现了与 *AnimePsi* 语言相关的功能，如 [Fig 5](#fig05) (c) 的类图所示。该组件包含两个类：*Animates* 和 *Move*，分别绑定至 *Animates* 和 *Move* 标签。*Animates* 类负责启动动画程序，而 *Move* 类则基于 SVG *path* 标签的定义，实现与 *Move* 标签绑定的运动。建议读者查阅 http://hilas.ii.uam.es/Anisha/api 中 *Shapes* 组件的详细实现方案。
 
-在 [Frag 6](#frag-6) 中，我们可以看到角色移动在前一个片段中定义。在评估这个 *AnimePsi* 程序时，“Luke” 接近 “Obi-Wan”，后者随即逃离。评估过程可见于 http://hilas.ii.uam.es/Anisha/runs。
+在 [Frag 6](#frag-6) 中，我们可以看到角色的移动，角色在前一个片段中定义。在评估这个 *AnimePsi* 程序时，“Luke” 接近 “Obi-Wan”，后者随即逃离。评估过程可见于 http://hilas.ii.uam.es/Anisha/runs。
 
 #### Frag 6
 ![Frag 6](pic/xml-frag6.png)
 
-*Anisha* 案例研究的主要目标在于展示 *PsiEngine* 的若干特性。首先，该示例验证了异构源信息（XML与JSON）的绑定能力，这一特性赋予 *PsiEngine* 中的 XML-DSL 高度灵活性。其次，*Anisha* 测试了多个 *PsiLanguage* 的共存能力，以及在快速信息交换与跨功能协作情况下运行多个 *PsiProgram* 的能力。总体而言，*PsiEngine* 支持创建高度抽象化的简洁 XML-DSL，这些语言兼具可扩展性与可组合性。
+*（译注：截图中第二个 Move 标签中，key 属性有错误，正确内容请考 http://github.com/echavarriaga/Anisha ）*
+
+*Anisha* 案例研究的主要目标在于展示 *PsiEngine* 的若干特性。首先，该示例验证了异构源信息（XML与JSON）的绑定能力，这一特性赋予 *PsiEngine* 中的 XML-DSL 高度灵活性。其次，*Anisha* 测试了多个 *PsiLanguage* 的共存能力，以及在快速信息交换与跨功能协作情况下，运行多个 *PsiProgram* 的能力。总体而言，*PsiEngine* 支持创建高度抽象化的简洁 XML-DSL，这些语言兼具可扩展性与可组合性。
 
 ### 3.2 Psi 编程模型及其轻量级环境
-目前，代码生成已成为软件工程的核心活动，尤其是 MDE <sup>[49](#49)</sup> 备受关注。在构建信息系统时，代码生成能显著节省时间、提升效率、提高质量并增强标准化程度 <sup>[44](#44)</sup>、<sup>[49](#49)</sup>。在此背景下，为简化 *PsiLanguage* 𝕃 的创建，我们采用前述方法提出 *PsiModel*。*PsiModel* 支持定义 *PsiGrammar* 𝔾 、支持 *PsiComponent* 𝕂 的实现，及其他 JavaScript 组件。
+目前，代码生成已成为软件工程的核心活动，尤其是模型驱动工程（MDE）<sup>[49](#49)</sup> 备受关注。在构建信息系统时，代码生成能显著节省时间、提升效率、提高质量并增强标准化程度 <sup>[44](#44)</sup>、<sup>[49](#49)</sup>。<ins>在此背景下，采用前述方法，为简化 *PsiLanguage* 𝕃 的创建，我们提出 *PsiModel*。*PsiModel* 支持定义 *PsiGrammar* 𝔾 、支持 *PsiComponent* 𝕂 的实现，及其他 JavaScript 组件（的实现）。</ins>
 
-*PsiModel* 通过代码后置 (code-behind) 技术将 *PsiLanguage* 规范与 *PsiComponent* 实现及其关联分离。为此，*PsiModel* 涉及如 [Fig 6](#fig-6) 所示的两种 *PsiLanguage* ：
+*PsiModel* 通过代码后置 (code-behind) 技术将 *PsiLanguage* 规范与 *PsiComponent* 实现及其关联分离。为此，*PsiModel* 涉及如 [Fig 6](#fig-6) 所示的两种 *PsiLanguage* ，分别称做：
 - *MPsi Specification Language*：一种 *PsiLanguage*，用于指定编程元素，即可编程标签。
 - *MIPsi Implementation Language*：一种 *PsiLanguage*，用于实现通过 *MPsi* 语言指定的编程元素。
 
@@ -213,7 +215,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 为在构建 *PsiLanguage* 时使用包含 *MPsi* 和 *MIPsi* 的 *PsiModel* ，我们实现了名为 *PsiEnvironment* 的轻量级开发环境。[Fig 7](#fig-7) 展示了通过 URL 访问的 *PsiEnvironment* 快照：
 
-(5) http://hilas.ii.uam.es/PsiXML/viewer.html?psifile=\<name\>
+(5) http://hilas.ii.uam.es/PsiXML/viewer.html?psifile=<name\>
 
 其中 *\<name\>* 代表项目或组件名称。此外，每个项目或组件的源代码均可在 http://github.com/echavarriaga/PsiSource/ 获取。
 
