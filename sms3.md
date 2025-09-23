@@ -29,7 +29,25 @@ Model driven engineering · DSL-supporting tools · Systematic mapping study · 
 
 本文采用系统性映射研究（Systematic Mapping Study, SMS ）方法（[Kitchenham et al. 2011](#kitchenham-ba-budgen-d-brereton-op-2011)），全面梳理了支持 DSL 开发的工具。我们不仅阐明了 DSL 在不同领域的应用场景，更呈现了 DSL 开发工具研究领域的现状综述，同时指明了未来研究机遇与空白领域。该综述包含对跨应用领域的分析，即 DSL 被提出的领域，以及构建 DSL 所采用的实践方法。据我们所知，本 SMS 首次系统性地阐述了构建 DSL 的技术特性，涵盖结构特征及商业要素，如许可类型和适用性。因此，本研究为该领域做出了重要贡献。
 
-本文结构如下：第 [2]() 节介绍全文使用的术语与概念；第 [3]() 节阐述 SMS 规划；第 [4]() 节报告对 DSL 开发工具的 SMS 如何执行；第 [5]() 节呈现为解答研究问题所收集的数据；第 [6]() 节探讨研究空白；第 [7]() 节阐述有效性面临的威胁（threats to validity）；最后第 [8]() 节总结全文。
+本文结构如下：第 [2](#2-背景) 节介绍全文使用的术语与概念；第 [3]() 节阐述 SMS 规划；第 [4]() 节报告对 DSL 开发工具的 SMS 如何执行；第 [5]() 节呈现为解答研究问题所收集的数据；第 [6]() 节探讨研究空白；第 [7]() 节阐述有效性面临的威胁（threats to validity）；最后第 [8]() 节总结全文。
+
+----
+## 2 背景
+SMS 作为二次研究，旨在勾勒研究领域框架，并从原始研究中筛选出最具相关性的成果。开展 SMS 时，研究者可采用与系统性文献综述（Systematic Literature Review, SLR）相似的检索与数据提取方法。但不同于 SLR，SMS 涵盖更广阔的研究领域与主题（[Kitchenham et al.，2011](#kitchenham-ba-budgen-d-brereton-op-2011)）。此外，SMS 结果更侧重于简明分类与统计分析，侧重于浅层评估。基于此，下文将介绍支撑本 SMS 的核心技术术语。
+
+### 2.1 领域特定语言（DSL）
+DSL，亦称小语言、小型语言、专用语言或领域特定建模语言（Domain-Specific Modeling Languages, DSML），被定义为 “具有有限表达能力、专注于特定领域的计算机编程语言”（[Mernik et al. 2005](#mernik-m-heering-j-sloane-am-2005)）。
+
+开发 DSL，会使用名为语言工作台（Language Workbenches, LW）的工具。据 [Wachsmuth et al. 2014](#wachsmuth-gh-konat-gdp-visser-e-2014) 所述，LW 提供了 “实现编程语言的高级机制，并使新语言的开发变得经济可行”。LW 不仅能简化语义与语法分析器的定义，还支持创建语言专属的编辑环境，以及开发基于语言的其他工具，例如模型调试器（[Wu et al. 2008](#wu-h-gray-j-mernik-m-2008)）、模型编译器（[Henriques et al. 2002](#henriques-pr-pereira-mjv-mernik-m-lenicˇ-m-avdicˇausˇevic-́-e-zˇumer-v-2002)）和模型测试引擎。
+
+LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1997](#johnson-re-1997) 的定义，“框架是应用程序的骨架，开发人员能够对其进行定制”。根据元对象设施（Meta-Object Facility, MOF）规范（[OMG 2019](#omg-2019)），“元模型是由关于模型的描述构成 (consists of statements) 的模型，它本身也是模型，但其论域 (universe of discourse) 是一组模型”。元模型包含关于系统构造的陈述，是模型的抽象化表达（[Jeusfeld 2009](#jeusfeld-ma-2009)）。此外，元模型还用于为图形化与文本化语言定义 DSL（[Schmidt 2006](#schmidt-dc-2006)）。
+
+### 2.2 领域特定语言开发工具特性
+
+#### Fig 1
+![Fig 1](pic/sms-f1.png)
+
+*Fig 1: 基于 [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015) 研究改编的 DSL 语言工作台的特征模型*
 
 ----
 ## 原文注释
