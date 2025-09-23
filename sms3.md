@@ -25,6 +25,12 @@ Model driven engineering · DSL-supporting tools · Systematic mapping study · 
 
 尽管该领域文献中充斥着关于 DSL 开发工具的参考文献，却缺乏对其质量属性的最新图谱。在此背景下，一项关于这些工具的映射研究，调研有助于技术决策的功能与信息，将会帮助软件工程师在特定开发场景中选择最优方案。欢迎提交关于工具链决策的论文（[Liebel et al. 2014](#liebel-g-marko-n-tichy-m-leitner-a-hansson-jo-̈rgen-2014)），因为缺乏此类映射会，阻碍选择合适的元生成器，这是构建特定领域专用工具，以支持某种软件工程任务的的关键环节（[Jakumeit et al. 2014](#jakumeitebuchwaldswagelaarddanlhegedusa-́herrmannsdorfermhorntkalninaekrause-c-lano-k-lepper-m-rensink-a-rose-l-watzoldt-s-mazanek-s-2014)）。当前，该选择过程需要耗费时间，研究诸多影响决策的关键要素，包括技术层面，如哪些工具满足需求和描述性数据（用于理解其运作机制）。例如：类似 MetaEdit+（[Kelly et al. 1996](#kelly-s-lyytinen-k-rossi-m-1996)）这类工具虽在技术层面支持完整的 DSL 开发流程且应用广泛，但 MetaEdit+ 的商业许可模式可能与某些业务场景存在冲突。因此，在特定情境下，开发者可能需要寻找免费和/或非商业化的替代方案。
 
+为进一步决策而对这些工具进行特征描述时，探讨 DSL 开发过程及其应用的研究至关重要。当前的特征化研究（[Pérez et al. 2013](#pe-́rez-f-valderas-p-fons-j-2013)；[Arkin and Tekinerdogan 2014](#arkin-e-tekinerdogan-b-2014)）虽提及了 DSL 创建中使用的工具，却未提供技术特征等足够细节。其他研究则聚焦于 DSL 领域的系统性映射（[do Nascimento et al. 2012](#do-nascimento-lm-viana-dl-neto-pas-martins-da-garcia-vc-meira-sr-2012)；[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)； [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015); [Kosar et al. 2016](#kosar-t-bohra-s-mernik-m-2016); [Méndez-Acuna et al. 2016](#me-́ndez-acuna-d-galindo-j-degueule-t-combemale-b-baudry-b-2016)），但这些综述并未梳理，支持特定 DSL 与 DSML 开发生命周期阶段的，工具及其功能特性。如高亮显示与错误标记。受限于此，DSL 构建的技术决策仍面临巨大挑战。
+
+本文采用系统性映射研究（Systematic Mapping Study, SMS ）方法（[Kitchenham et al. 2011](#kitchenham-ba-budgen-d-brereton-op-2011)），全面梳理了支持 DSL 开发的工具。我们不仅阐明了 DSL 在不同领域的应用场景，更呈现了 DSL 开发工具研究领域的现状综述，同时指明了未来研究机遇与空白领域。该综述包含对跨应用领域的分析，即 DSL 被提出的领域，以及构建 DSL 所采用的实践方法。据我们所知，本 SMS 首次系统性地阐述了构建 DSL 的技术特性，涵盖结构特征及商业要素，如许可类型和适用性。因此，本研究为该领域做出了重要贡献。
+
+本文结构如下：第 [2]() 节介绍全文使用的术语与概念；第 [3]() 节阐述 SMS 规划；第 [4]() 节报告对 DSL 开发工具的 SMS 如何执行；第 [5]() 节呈现为解答研究问题所收集的数据；第 [6]() 节探讨研究空白；第 [7]() 节阐述有效性面临的威胁（threats to validity）；最后第 [8]() 节总结全文。
+
 ----
 ## 原文注释
 #### 1
