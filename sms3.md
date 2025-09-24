@@ -64,6 +64,21 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 
 **组合性（Composability）** ：LW 提供的一项特性，允许使用多种语言处理系统的不同方面，例如支持增量扩展和语言对齐。例如，由其他元模型构成的元模型，或包含其他元模型结构特征的元模型。与组合性相关的特性包括：语法/视图、组合性验证、组合性语义以及编辑器服务。
 
+### 2.3 相关研究
+我们的工作受到（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）研究的启发，这些研究构成了我们 SMS 中数据整理与提取的基础。换言之，这些研究着重突出了适用于工具框架分析的特征。然而，由于其研究范围仅限于 Language Workbench Challenge (LWC'13) 中展示的工具，因此不被视为系统性研究。
+
+如 [Table 1](#table-1) 所示，目前仅有两篇 SMS 文献描述了支持 DSL 开发的工具（[do Nascimento et al. 2012](#do-nascimento-lm-viana-dl-neto-pas-martins-da-garcia-vc-meira-sr-2012); [Kosar et al. 2016](#kosar-t-bohra-s-mernik-m-2016)）。下文将重点对比本研究与这两项工作的差异。
+
+[do Nascimento et al. 2012](#do-nascimento-lm-viana-dl-neto-pas-martins-da-garcia-vc-meira-sr-2012) 对 2011 年前发表的研究进行了系统性映射，因此被认为是过时的技术，包括：1) 支持 DSL 开发的工具，以及 2) 应用领域。尽管该研究列举了六种工具和十五个领域，但未能映射工具特性，导致缺乏技术决策依据。而我们的 SMS 识别出 59 种工具，并详细记录了它们的特性及在超过 7 个领域的应用情况。
+
+[Kosar et al. 2016](#kosar-t-bohra-s-mernik-m-2016) 进行了一次 SMS，考察了 2006 至 2012 年间发表的成果。其核心目标在于理解 DSL 研究领域，识别研究趋势，及该领域可能存在的待解决问题。因此，该研究缺乏对工具支持的分析。此外，作者参照 2005 年发表的另一项调研中提出的研究问题，并得出结论：在检索到的研究中，论文数量在数年间保持稳定。另一重要发现是：DSL 研究社群更侧重新技术开发，而非探索 DSL 与软件流程（工具链）的集成。基于此，本文 SMS 提供了大量 DSL 构造器 (constructors) 其多样性给工具链的配置带来了困难，从而在该领域引发了兼容性特征方面的担忧。
+
+[Table 1](#table-1) 基于上述特征进行了比较分析。我们的 SMS 涵盖更广泛研究，聚焦于 DSL、DSL 开发工具及研究领域；同时，文献（[do Nascimento et al. 2012](#do-nascimento-lm-viana-dl-neto-pas-martins-da-garcia-vc-meira-sr-2012)）与（[Kosar et al. 2016](#kosar-t-bohra-s-mernik-m-2016)）的研究仅限于 DSL 领域。尽管（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)）呈现的最新研究与本研究关注点相似，但其仅限于 LWC'13 会议参与者，故被归类为调研。不同的是，我们考察了 2012 至 2019 年间六大科学数据库收录的所有研究，而其他研究仅涵盖 2013 年前的成果。
+
+
+#### Table 1
+![Table 1](pic/sms-t1.png)
+
 ----
 ## 原文注释
 #### 1
