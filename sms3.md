@@ -29,7 +29,7 @@ Model driven engineering · DSL-supporting tools · Systematic mapping study · 
 
 本文采用系统性映射研究（Systematic Mapping Study, SMS ）方法（[Kitchenham et al. 2011](#kitchenham-ba-budgen-d-brereton-op-2011)），全面梳理了支持 DSL 开发的工具。我们不仅阐明了 DSL 在不同领域的应用场景，更呈现了 DSL 开发工具研究领域的现状综述，同时指明了未来研究机遇与空白领域。该综述包含对跨应用领域的分析，即 DSL 被提出的领域，以及构建 DSL 所采用的实践方法。据我们所知，本 SMS 首次系统性地阐述了构建 DSL 的技术特性，涵盖结构特征及商业要素，如许可类型和适用性。因此，本研究为该领域做出了重要贡献。
 
-本文结构如下：第 [2](#2-背景) 节介绍全文使用的术语与概念；第 [3]() 节阐述 SMS 规划；第 [4]() 节报告对 DSL 开发工具的 SMS 如何执行；第 [5]() 节呈现为解答研究问题所收集的数据；第 [6]() 节探讨研究空白；第 [7]() 节阐述有效性面临的威胁（threats to validity）；最后第 [8]() 节总结全文。
+本文结构如下：第 [2](#2-背景) 节介绍全文使用的术语与概念；第 [3](#3-sms-流程) 节阐述 SMS 规划；第 [4](#4-执行) 节报告对 DSL 开发工具的 SMS 如何执行；第 [5](#5-报告) 节呈现为解答研究问题所收集的数据；第 [6](#6-讨论) 节探讨研究空白；第 [7](#7-对有效性的威胁) 节阐述有效性面临的威胁（threats to validity）；最后第 [8](#8-结论) 节总结全文。
 
 ----
 ## 2 背景
@@ -75,9 +75,70 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 
 [Table 1](#table-1) 基于上述特征进行了比较分析。我们的 SMS 涵盖更广泛研究，聚焦于 DSL、DSL 开发工具及研究领域；同时，文献（[do Nascimento et al. 2012](#do-nascimento-lm-viana-dl-neto-pas-martins-da-garcia-vc-meira-sr-2012)）与（[Kosar et al. 2016](#kosar-t-bohra-s-mernik-m-2016)）的研究仅限于 DSL 领域。尽管（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)）呈现的最新研究与本研究关注点相似，但其仅限于 LWC'13 会议参与者，故被归类为调研。不同的是，我们考察了 2012 至 2019 年间六大科学数据库收录的所有研究，而其他研究仅涵盖 2013 年前的成果。
 
-
 #### Table 1
 ![Table 1](pic/sms-t1.png)
+
+## 3 SMS 流程
+本 SMS 遵循了（[Petersen et al. 2008](#petersen-k-feldt-r-mujtaba-s-mattsson-m-2008)）提出的结构化的成熟评审流程。[Fig 2](#fig-2) 展示了该流程的三个阶段：Planning、Conduction 和 Reporting。本节将详细阐述第一阶段（规划）及其活动，第二阶段（实施）将在第 [4](#4-执行) 节呈现。最后，第 [5](#5-报告) 节将展示并讨论从 SMS 数据提取活动中获得的研究成果。
+
+### 3.1 范围
+针对文本和图形 DSL 的创建，我们的研究目标是梳理 2012 至 2019 年间发表的文献中涉及的支持工具、LW 及框架。同时，通过概述工具特性与许可协议，为 DSL 开发者提供指引，我们旨在协助 MDE （Model-Driven Engineering）从业者，基于四个研究问题与四个质量评估问题，选择最契合其研究与实践需求的工具。除上述用于跨应用领域 DSL 分类的问题外，我们还纳入更广泛的分析，探讨调研工具的异质性 (heterogeneity) 研究缺口、资产演化问题（模型、转换、元模型及工具链）以及可用性问题。
+
+### 3.2 研究问题
+基于此目标，我们提出了以下研究问题（Research Questions, RQ）：
+- **RQ1.** DSL 开发采用哪些技术？我们的目标是描述这些工具的特征，从而评估其在研究与实践中的成熟度。
+- **RQ2.** 工具采用哪些许可类型？由于工具获取与培训依赖于商业模式决策（如基于非商业或商业许可），我们的目标是按许可类型对工具进行分类。
+- **RQ3.** 研究聚焦哪些应用领域？我们的目标是识别 DSL 在跨领域软件开发中的作用，涵盖 Web 应用、移动应用、嵌入式系统等领域。
+- **RQ4.** 这些工具支持 DSL 创建过程的哪些特征？鉴于 DSL 开发工具种类繁多且覆盖开发全周期，我们旨在通过技术特征对这些方案进行分类。
+
+#### Fig 2
+![Fig 2](pic/sms-f2.png)
+
+*Fig 2: 采用 BPMN 符号创建的系统性映射研究流程（[Petersen et al. 2008](#petersen-k-feldt-r-mujtaba-s-mattsson-m-2008)）*
+
+### 3.3 纳入与排除标准
+纳入与排除动作标准的定义基于 SMS 范围、研究目标及研究问题。本研究聚焦于 SMS 背景下最具相关性的文献，排除无关文章。此步骤至关重要，因其决定了后续 SMS 阶段可纳入分类与资格的研究对象。纳入的原始研究须满足全部纳入标准（Inclusion Criteria, IC），方可进入后续分析与分类。同样地，若研究符合至少一项排除标准（Exclusion Criteria, EC），则将从待分析的原始研究中剔除。
+
+#### 纳入标准（IC）
+- **IC1.** 原始研究必须提出一种用于操作 DSL 或 DSML 的方法、技术、流程、工具、框架或 LW。
+
+  提出支持 DSL 或 DSML 开发的新技术的研究将被纳入，例如：展示 Xtext 框架的研究。
+- **IC2.** 原始研究必须提及支持 DSL 的工具、框架或 LW。
+
+  提及支持 DSL 或 DSML 开发的技术的研究将被纳入，例如：聚焦地理空间领域，但提及 DSL 使用及其开发所用技术的研究。
+
+  聚焦展示新 DSL 或 DSML 并提及开发所用技术的研究将被纳入，例如：专注于展示 DSL 且提及开发所用技术的研究。
+
+#### 排除标准（EC）
+- **EC1.** 2012 年前发表的研究。
+- **EC2.** 非英文的研究。
+- **EC3.** 重复和/或不完整的研究。
+- **EC4.** 仅以摘要、幻灯片演示、海报或短文形式发表的研究。
+
+
+#### Table 2
+![Table 2](pic/sms-t2.png)
+
+### 3.4 检索过程
+在检索过程中，我们仅考虑使用计算机科学数据库，其能通过关键词提供基于 Web 的搜索引擎。所使用的计算领域科学数据库/数字图书馆包括：Compendex（Engineering Village）<sup>[3](#3)</sup>、IEEE Xplore <sup>[4](#4)</sup>、ScienceDirect <sup>[5](#5)</sup>、计算机协会（ACM）数字图书馆 <sup>[6](#6)</sup>、Scopus <sup>[7](#7)</sup> 以及 SpringerLink <sup>[8](#8)</sup>。
+
+#### 3.4.1 检索字符串
+为定义检索字符串 <sup>[9](#9)</sup>，我们采用了 [Table 2](#table-2) 所列术语及其同义词。如 [Fig 3](#fig-3) 所示，通过 “OR” 运算符将同义词纳入字符串。同时使用 “AND” 运算符添加更多术语以缩小检索范围。在某些科学数据库中，我们需采用特定策略创建类似 [Fig3](#fig-3) 所示的不同版本字符串。为评估检索字符串的质量与全面性，我们参照三项对照研究（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015); [Bernardino et al. 2017](#bernardino-m-rodrigues-e-zorzo-a-marchezan-l-2017)）的定义开展探索性研究。通过在数字图书馆执行检索字符串，验证了对照研究均被检索到在所获文献中。
+
+#### Fig 3
+![Fig 3](pic/sms-f3.png)
+
+*Fig 3: 搜索字符串*
+
+## 4 执行
+
+## 5 报告
+
+## 6 讨论
+
+## 7 对有效性的威胁
+
+## 8 结论
 
 ----
 ## 原文注释
@@ -89,6 +150,27 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 
 #### 2
 基于（[Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）的特征模型改进方案，用于消除重复特征名称。
+
+#### 3
+Compendex: www.engineeringvillage.com
+
+#### 4
+IEEE: www.ieeexplore.ieee.org
+
+#### 5
+ScienceDirect: www.sciencedirect.com
+
+#### 6
+ACM: https://dl.acm.org
+
+#### 7
+Scopus: www.scopus.com
+
+#### 8
+SpringerLink: www.link.springer.com
+
+#### 9
+检索字符串可于我们的在线资料库获取（[Iung et al. 2020](#iung-ab-carbonell-j-marchezan-l-rodrigues-e-bernardino-m-basso-f-medeiros-b-2020)）
 
 ----
 ## 参考文献
@@ -501,8 +583,8 @@ SafeCap domain language for reasoning about safety and capacity.</br>
 Proceedings - 2012 Workshop on Dependable Transportation Systems/Recent Advances in Software Dependability, (WDTS-RASD’12), pp 1–10
 
 #### Iung A?B, Carbonell J, Marchezan L, Rodrigues E, Bernardino M, Basso F, Medeiros B (2020)
-Systematic Mapping Study on Domain-Specific Language Development Tools - Data Repository, Zenodo.
-https:// doi.org/10.5281/zenodo.3963379
+Systematic Mapping Study on Domain-Specific Language Development Tools - Data Repository, Zenodo.</br>
+https://doi.org/10.5281/zenodo.3963379
 
 #### Jacob F, Wynne A, Liu Y, Gray J (2014)
 Domain-specific languages for developing and deploying signature discovery workflows.</br>
