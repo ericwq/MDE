@@ -1,5 +1,5 @@
 # 领域专用语言开发工具的系统性映射研究
-An ́ıbal Iung<sup>[1](#1)</sup> · Joa ̃ o Carbonell<sup>[1](#1)</sup> · Luciano Marchezan<sup>[1](#1)</sup> · Elder Rodrigues<sup>[1](#1)</sup> · Maicon Bernardino<sup>[1](#1)</sup> · Fabio Paulo Basso<sup>[1](#1)</sup> · Bruno Medeiros<sup>[1](#1)</sup>
+An ́ıbal Iung<sup>[0](#0)</sup> · Joa ̃ o Carbonell<sup>[0](#0)</sup> · Luciano Marchezan<sup>[0](#0)</sup> · Elder Rodrigues<sup>[0](#0)</sup> · Maicon Bernardino<sup>[0](#0)</sup> · Fabio Paulo Basso<sup>[0](#0)</sup> · Bruno Medeiros<sup>[0](#0)</sup>
 
 
 2020/08 [original english](origin/iung2020.pdf)
@@ -43,7 +43,7 @@ DSL，亦称小语言、小型语言、专用语言或领域特定建模语言�
 LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1997](#johnson-re-1997) 的定义，“框架是应用程序的骨架，开发人员能够对其进行定制”。根据元对象设施（Meta-Object Facility, MOF）规范（[OMG 2019](#omg-2019)），“元模型是由关于模型的描述构成 (consists of statements) 的模型，它本身也是模型，但其论域 (universe of discourse) 是一组模型”。元模型包含关于系统构造的陈述，是模型的抽象化表达（[Jeusfeld 2009](#jeusfeld-ma-2009)）。此外，元模型还用于为图形化与文本化语言定义 DSL（[Schmidt 2006](#schmidt-dc-2006)）。
 
 ### 2.2 DSL 开发工具特性
-本节介绍本 SMS 所选主要研究中，作为 LW 信息收集模型的特性。我们认为 “特性” 一词指代被分析的 DSL 开发支持工具所提供的功能。因此，依据 [Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013) 及 [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015) 的研究，所有表格化特征及子特征被划分为六大类别（符号、语义、编辑器、验证、测试及组合能力），如图 [Fig 1](#fig-1) <sup>[2](#2)</sup> 所示。下文将详细阐述这六大类别：
+本节介绍本 SMS 所选主要研究中，作为 LW 信息收集模型的特性。我们认为 “特性” 一词指代被分析的 DSL 开发支持工具所提供的功能。因此，依据 [Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013) 及 [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015) 的研究，所有表格化特征及子特征被划分为六大类别（符号、语义、编辑器、验证、测试及组合能力），如图 [Fig 1](#fig-1) <sup>[1](#1)</sup> 所示。下文将详细阐述这六大类别：
 
 #### Fig 1
 ![Fig 1](pic/sms-f1.png)
@@ -69,17 +69,22 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 
 如 [Table 1](#table-1) 所示，目前仅有两篇 SMS 文献描述了支持 DSL 开发的工具（[do Nascimento et al. 2012](#do-nascimento-lm-viana-dl-neto-pas-martins-da-garcia-vc-meira-sr-2012); [Kosar et al. 2016](#kosar-t-bohra-s-mernik-m-2016)）。下文将重点对比本研究与这两项工作的差异。
 
+#### Table 1
+![Table 1](pic/sms-t1.png)
+
 [do Nascimento et al. 2012](#do-nascimento-lm-viana-dl-neto-pas-martins-da-garcia-vc-meira-sr-2012) 对 2011 年前发表的研究进行了系统性映射，因此被认为是过时的技术，包括：1) 支持 DSL 开发的工具，以及 2) 应用领域。尽管该研究列举了六种工具和十五个领域，但未能映射工具特性，导致缺乏技术决策依据。而我们的 SMS 识别出 59 种工具，并详细记录了它们的特性及在超过 7 个领域的应用情况。
 
 [Kosar et al. 2016](#kosar-t-bohra-s-mernik-m-2016) 进行了一次 SMS，考察了 2006 至 2012 年间发表的成果。其核心目标在于理解 DSL 研究领域，识别研究趋势，及该领域可能存在的待解决问题。因此，该研究缺乏对工具支持的分析。此外，作者参照 2005 年发表的另一项调研中提出的研究问题，并得出结论：在检索到的研究中，论文数量在数年间保持稳定。另一重要发现是：DSL 研究社群更侧重新技术开发，而非探索 DSL 与软件流程（工具链）的集成。基于此，本文 SMS 提供了大量 DSL 构造器 (constructors) 其多样性给工具链的配置带来了困难，从而在该领域引发了兼容性特征方面的担忧。
 
 [Table 1](#table-1) 基于上述特征进行了比较分析。我们的 SMS 涵盖更广泛研究，聚焦于 DSL、DSL 开发工具及研究领域；同时，文献（[do Nascimento et al. 2012](#do-nascimento-lm-viana-dl-neto-pas-martins-da-garcia-vc-meira-sr-2012)）与（[Kosar et al. 2016](#kosar-t-bohra-s-mernik-m-2016)）的研究仅限于 DSL 领域。尽管（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)）呈现的最新研究与本研究关注点相似，但其仅限于 LWC'13 会议参与者，故被归类为调研。不同的是，我们考察了 2012 至 2019 年间六大科学数据库收录的所有研究，而其他研究仅涵盖 2013 年前的成果。
 
-#### Table 1
-![Table 1](pic/sms-t1.png)
-
 ## 3 SMS 流程
 本 SMS 遵循了（[Petersen et al. 2008](#petersen-k-feldt-r-mujtaba-s-mattsson-m-2008)）提出的结构化的成熟评审流程。[Fig 2](#fig-2) 展示了该流程的三个阶段：Planning、Conduction 和 Reporting。本节将详细阐述第一阶段（规划）及其活动，第二阶段（实施）将在第 [4](#4-执行) 节呈现。最后，第 [5](#5-报告) 节将展示并讨论从 SMS 数据提取活动中获得的研究成果。
+
+#### Fig 2
+![Fig 2](pic/sms-f2.png)
+
+*Fig 2: 采用 BPMN 符号创建的系统性映射研究流程（[Petersen et al. 2008](#petersen-k-feldt-r-mujtaba-s-mattsson-m-2008)）*
 
 ### 3.1 范围
 针对文本和图形 DSL 的创建，我们的研究目标是梳理 2012 至 2019 年间发表的文献中涉及的支持工具、LW 及框架。同时，通过概述工具特性与许可协议，为 DSL 开发者提供指引，我们旨在协助 MDE （Model-Driven Engineering）从业者，基于四个研究问题与四个质量评估问题，选择最契合其研究与实践需求的工具。除上述用于跨应用领域 DSL 分类的问题外，我们还纳入更广泛的分析，探讨调研工具的异质性 (heterogeneity) 研究缺口、资产演化问题（模型、转换、元模型及工具链）以及可用性问题。
@@ -98,11 +103,6 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 - **RQ4.** 这些工具支持 DSL 创建过程的哪些特征？
 
   鉴于 DSL 开发工具种类繁多且覆盖开发全周期，我们旨在通过技术特征对这些方案进行分类。
-
-#### Fig 2
-![Fig 2](pic/sms-f2.png)
-
-*Fig 2: 采用 BPMN 符号创建的系统性映射研究流程（[Petersen et al. 2008](#petersen-k-feldt-r-mujtaba-s-mattsson-m-2008)）*
 
 ### 3.3 纳入与排除标准
 纳入与排除动作标准的定义基于 SMS 范围、研究目标及研究问题。本研究聚焦于 SMS 背景下最具相关性的文献，排除无关文章。此步骤至关重要，因其决定了后续 SMS 阶段可纳入分类与资格的研究对象。纳入的原始研究须满足全部纳入标准（Inclusion Criteria, IC），方可进入后续分析与分类。同样地，若研究符合至少一项排除标准（Exclusion Criteria, EC），则将从待分析的原始研究中剔除。
@@ -123,15 +123,14 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 - **EC3.** 重复和/或不完整的研究。
 - **EC4.** 仅以摘要、幻灯片演示、海报或短文形式发表的研究。
 
+### 3.4 检索过程
+在检索过程中，我们仅考虑使用计算机科学数据库，其能通过关键词提供基于 Web 的搜索引擎。所使用的计算领域科学数据库/数字图书馆包括：Compendex（Engineering Village）<sup>[2](#2)</sup>、IEEE Xplore <sup>[3](#3)</sup>、ScienceDirect <sup>[4](#4)</sup>、计算机协会（ACM）数字图书馆 <sup>[5](#5)</sup>、Scopus <sup>[6](#6)</sup> 以及 SpringerLink <sup>[7](#7)</sup>。
+
+#### 3.4.1 检索字符串
+为定义检索字符串 <sup>[8](#8)</sup>，我们采用了 [Table 2](#table-2) 所列术语及其同义词。如 [Fig 3](#fig-3) 所示，通过 “OR” 运算符将同义词纳入字符串。同时使用 “AND” 运算符添加更多术语以缩小检索范围。在某些科学数据库中，我们需采用特定策略创建类似 [Fig3](#fig-3) 所示的不同版本字符串。为评估检索字符串的质量与全面性，我们参照三项对照研究（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015); [Bernardino et al. 2017](#bernardino-m-rodrigues-e-zorzo-a-marchezan-l-2017)）的定义开展探索性研究。通过在数字图书馆执行检索字符串，验证了对照研究均被检索到在所获文献中。
 
 #### Table 2
 ![Table 2](pic/sms-t2.png)
-
-### 3.4 检索过程
-在检索过程中，我们仅考虑使用计算机科学数据库，其能通过关键词提供基于 Web 的搜索引擎。所使用的计算领域科学数据库/数字图书馆包括：Compendex（Engineering Village）<sup>[3](#3)</sup>、IEEE Xplore <sup>[4](#4)</sup>、ScienceDirect <sup>[5](#5)</sup>、计算机协会（ACM）数字图书馆 <sup>[6](#6)</sup>、Scopus <sup>[7](#7)</sup> 以及 SpringerLink <sup>[8](#8)</sup>。
-
-#### 3.4.1 检索字符串
-为定义检索字符串 <sup>[9](#9)</sup>，我们采用了 [Table 2](#table-2) 所列术语及其同义词。如 [Fig 3](#fig-3) 所示，通过 “OR” 运算符将同义词纳入字符串。同时使用 “AND” 运算符添加更多术语以缩小检索范围。在某些科学数据库中，我们需采用特定策略创建类似 [Fig3](#fig-3) 所示的不同版本字符串。为评估检索字符串的质量与全面性，我们参照三项对照研究（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015); [Bernardino et al. 2017](#bernardino-m-rodrigues-e-zorzo-a-marchezan-l-2017)）的定义开展探索性研究。通过在数字图书馆执行检索字符串，验证了对照研究均被检索到在所获文献中。
 
 #### Fig 3
 ![Fig 3](pic/sms-f3.png)
@@ -173,28 +172,21 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 我们对收集的数据进行分析以：识别支持 DSL 开发过程的 DSL 技术（工具 / 框架 / language workbench ）（**RQ1**）；识别 DSL 工具的许可类型（商业或非商业），并按符号表示类型展示其许可类型的 DSL 技术（**RQ2**）；按发表年份和研究类别识别并梳理应用领域（**RQ3**）； 基于原始研究，梳理支持某个 DSL 开发阶段的 DSL 技术（**RQ4**）。
 
 ## 4 执行
-本研究的执行 <sup>[10](#10)</sup> 工作于 2019 年 7 月完成，遵循 [Fig2](#fig-2) 所示 “Conduction” 阶段的研究方案。为支持 SMS 的规划与实施阶段，我们采用了 Thoth 工具（[Marchezan et al. 2019](#marchezan-l-bolfe-g-rodrigues-e-bernardino-m-basso-fp-2019)）。采用两组字符串检索 IEEE Xplore 数字图书馆。采用这种组合搜索策略，是由于 IEEE 搜索引擎限制搜索的每组字符串最多包含 15 个检索词。故而，在每个复合检索中，保留其他常用术语，检索字符串被拆分为两个复合术语：DSL 与 DSML。
+本研究的执行 <sup>[9](#9)</sup> 工作于 2019 年 7 月完成，遵循 [Fig2](#fig-2) 所示 “Conduction” 阶段的研究方案。为支持 SMS 的规划与实施阶段，我们采用了 Thoth 工具（[Marchezan et al. 2019](#marchezan-l-bolfe-g-rodrigues-e-bernardino-m-basso-fp-2019)）。采用两组字符串检索 IEEE Xplore 数字图书馆。采用这种组合搜索策略，是由于 IEEE 搜索引擎限制搜索的每组字符串最多包含 15 个检索词。故而，在每个复合检索中，保留其他常用术语，检索字符串被拆分为两个复合术语：DSL 与 DSML。
 
 对于所有科学数据库，检索仅限于 “摘要”、“标题” 和 “关键词” 字段。此外，在检索引擎中，我们直接将年份范围限定为 2012 至 2019 年间发表的论文。
 
 如 [Fig 4](#fig-4) 所示，在去除重复文献后，共筛选出 1,862 项研究。随后剔除与研究主题无关的文献，例如：包含 DSL 或 DSML 术语但研究内容不符的论文。此步骤后，剩余 1,780 项研究进入纳入与排除标准评估阶段。
-
-如 [Fig 2](#fig-2) 所示流程所示，执行了 “Application of Exclusion Criteria” 和 “Application of Inclusion Criteria” 两项活动后。在 “Qualifying and Classifying Papers” 活动中，共读取 1,780 项研究。应用 EC 后，剩余 1,430 项研究。随后因不符合任何 IC 而排除部分研究。最终共有 390 项研究进入筛选与分类阶段。*（译注：本段文字的描述和 [Fig 2](#fig-2) 不一致，但和 [Fig 4](#fig-4) 一致）*
 
 #### Fig 4
 ![Fig 4](pic/sms-f4.png)
 
 *Fig 4: 系统性映射研究执行结果*
 
+如 [Fig 2](#fig-2) 所示流程所示，执行了 “Application of Exclusion Criteria” 和 “Application of Inclusion Criteria” 两项活动后。在 “Qualifying and Classifying Papers” 活动中，共读取 1,780 项研究。应用 EC 后，剩余 1,430 项研究。随后因不符合任何 IC 而排除部分研究。最终共有 390 项研究进入筛选与分类阶段。*（译注：本段文字的描述和 [Fig 2](#fig-2) 不一致，但和 [Fig 4](#fig-4) 一致）*
+
 ### 4.1 研究质量评估
-质量评分结果见 [Table 3](#table-3) ，每项研究均可通过列 **ID** 进行识别。参考文献及出版年份列于 **References** 列。基于 QA 的评分分别显示于第 **1、2、3、4** 列，最终 QA 总分呈现于 **QS** 列。两名研究者依据第 [3.3](#33-纳入与排除标准) 节所述的四项 QA 标准，分别对全部 230 项研究进行了独立评估。
-
-该评估方法用于分析名义量表数据，其结果通过应用 [Landis and Koch (1977)](#landis-jr-koch-gg-1977) 提出的评分表进行解读，该评分表可从数据集包中获取。
-
-卡帕系数 (Kappa’s coefficient) 用于分析两位观察者间的评分一致性 (inter-rater agreement)。在本 SMS 中，两位研究者均对每项研究进行分析并应用 QA 标准。结果基于一致性评分数量计算，评分范围为 0 至 1，其中 1 代表完全一致，0 代表完全不一致或随机一致。
-
-对我们 SMS 系统中每位评委评分进行的卡帕分析得出系数为 0.64。该结果表明研究者间存在较高程度的一致性。为解决研究分类中可能出现的评判差异，我们咨询了 DSL 领域的专家。
-
+质量评分结果见 [Table 3](#table-3) ，每项研究均可通过列 **ID** 进行识别。参考文献及出版年份列于 **References** 列。基于 QA 的评分分别显示于第 **1、2、3、4** 列，最终 QA 总分呈现于 **QS** 列。两名研究者依据第 [3.5](#35-研究质量评估) 节所述的四项 QA 标准，分别对全部 230 项研究进行了独立评估。*（译注：原文中对于 QA 标准的引用章节有笔误，应该为 [3.5](#35-研究质量评估) ，原文中指向了 [3.3](#33-纳入与排除标准) 节）*
 
 #### Table 3
 ![Table 3-1](pic/sms-t3-1.png)
@@ -203,18 +195,95 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 ![Table 3-4](pic/sms-t3-4.png)
 ![Table 3-5](pic/sms-t3-5.png)
 
+该评估方法用于分析名义量表数据，其结果通过应用 [Landis and Koch (1977)](#landis-jr-koch-gg-1977) 提出的评分表进行解读，该评分表可从数据集包中获取。
+
+卡帕系数（Kappa’s coefficient）用于分析两位观察者间的评分一致性 (inter-rater agreement)。在本 SMS 中，两位研究者均对每项研究进行分析并应用 QA 标准。结果基于一致性评分数量计算，评分范围为 0 至 1，其中 1 代表完全一致，0 代表完全不一致或随机一致。
+
+对我们 SMS 系统中每位评委评分进行的卡帕分析得出系数为 0.64。该结果表明研究者间存在较高程度的一致性。为解决研究分类中可能出现的评判差异，我们咨询了 DSL 领域的专家。
+
 ### 4.2 分类体系
 该分类体系基于 “Data Interpretation” 活动生成。为从选定研究中获取抽象层面的理解，我们合并了其关键词。本步骤所得结果，用于支持定义和归类代表选定主要研究群体的维度。如 [Table 4](#table-4) 所示，三大维度分别为：(i) DSL 开发机制类型：工具、Language Workbench 或框架；(ii) 功能特性：记法、语义、编辑模式、语法服务、语义服务、验证、测试、组合性；(iii) 发表贡献：方法论、研究成果、实践报告；
 
-“Feature” 维度的分类体系基于（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）的研究成果，[Table 5](#table-5) 揭示了 DSL 支持工具的功能特征。这些特征涵盖工具使用的表示类型（如图形化与文本化）到工具辅助机制（如 Quick Fix 与 Refactoring）。
-
 #### Table 4
 ![Table 4](pic/sms-t4.png)
+
+“Feature” 维度的分类体系基于（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）的研究成果，[Table 5](#table-5) 揭示了 DSL 支持工具的功能特征。这些特征涵盖工具使用的表示类型（如图形化与文本化）到工具辅助机制（如 Quick Fix 与 Refactoring）。
 
 #### Table 5
 ![Table 5](pic/sms-t5.png)
 
 ## 5 报告
+本节呈现我们对研究问题的解答结果如下：
+
+### RQ1. DSL 开发采用哪些技术？
+
+通过分析 230 篇选定论文，我们识别出 59 种 DSL 开发工具，详见 [Table 6](#table-6)。我们注意到部分技术被不同作者多次引用。
+
+值得强调的是 Xtext framework（102）获得大量引用，同时基于 Eclipse Modeling Framework （EMF）（114）和 Graphical Modeling Framework（GMF）（30）的衍生工具也广受关注，例如： Papyrus 工具（18）和 Sirius framework（42）。其他 LW 获得相当数量的引用，例如：MetaCase 公司的 MetaEdit+（27）、JetBrains 开发的 Meta Programming System（MPS）（48）以及 MetaBorg 的 Spoofax（21）。
+
+#### Table 6
+![Table 6-1](pic/sms-t6-1.png)
+![Table 6-2](pic/sms-t6-2.png)
+![Table 6-3](pic/sms-t6-3.png)
+![Table 6-4](pic/sms-t6-4.png)
+
+[Fig 5](#fig-5) 展示了工具支持的符号表示法的维恩图 (Venn diagram)：字母 A 代表图形符号；字母 B 代表文本符号； 字母 C 代表图形与文本两种记法；字母 D 代表图形、表格与符号三种记法；字母 E 代表图形、文本与表格三种记法；字母 F 代表图形、文本、表格与符号四种记法。
+
+#### Fig 5
+![Fig 5](pic/sms-f5.png)
+
+*Fig 5: 工具符号类型的维恩图（Venn Diagram）*
+
+共有 39 种映射工具支持图形化记法（最大类别），其次是 30 种支持文本记法的工具。在映射工具中，T38 和 T55 同时支持全部四种记法类型。就图形化、表格化及符号化记法的支持而言，T34 是唯一具备这三项功能的工具。工具 T32 支持图形化、文本化与表格化三种标记的独特组合。工具 T5、T16、T21、T28、T33、T43 和 T48 支持图形化与文本化标记，但不支持符号化或表格化标记。
+
+需特别说明的是，由于部分工具仅支持 DSL 开发环节，目前尚无工具能实现全套记法支持。此外，T1、T27 和 T58 属于代码生成器，T57 是 Java 方言，T18 则是涵盖代码生成与模型验证的语言工具集，但本文仍将其归入文本记号范畴。
+
+### RQ2. 工具采用哪些许可类型？
+
+在本 SMS 中，我们将研究分为两类：商业性与非商业性。通常我们直接从研究中提取此信息，但在某些情况下需要通过工具的官方网站和制造商进行检索。[Table 6](#table-6) 显示工具许可类型分布：41 款工具为非商业性质，仅 9 款需要有商业许可。另有 9 款工具因未正式发布且缺乏在线信息而无法确认许可类型 <sup>[10](#10)</sup>。作为非商业软件，学术许可类型工具，及可通过 GitHub 等在线仓库获取的可开放评估的工具，均被纳入统计范围。
+
+### RQ3. 研究聚焦哪些应用领域？
+
+  为映射 DSL 构建工具的应用领域，根据选定研究中评估/概念验证章节的内容，[Fig 6](#fig-6) 按发表年份绘制了应用领域分布图。基于该数据图可得出结论：“DSL Construction” 作为成熟研究领域，考虑到众多的跨应用领域，体现了学术界日益增长的关注度。*（译注：这个结论是怎么得出的？DSL Construction 在图中咩有明确标示锕）*
+
+#### Fig 6
+![Fig 6](pic/sms-f6.png)
+
+*Fig 6: 按出版年份的研究领域分布泡泡图（Bubble Plot）*
+
+  值得注意的是，36%（83 篇）研究涉及支持 DSL 与 DSML 开发生命周期阶段的工具、方法或技术 (method)。嵌入式系统占 3%（7 篇），Web 系统占1%（3 篇），移动应用占 3%（6 篇），多智能体系统占 2%（4 篇）。此外另有 4 项研究聚焦于网络物理系统 (Cyber-Physical Systems)，占比2%。仅被 1 至 2 项研究提及的领域，如航空航天系统，归类为 “Other”。该类别涵盖 53%（123 篇）的研究，彰显了应用领域的多元性。
+
+### RQ4. 这些工具支持 DSL 创建过程的哪些特征？
+
+在讨论该问题结果前，需说明在按功能分类工具时，我们将其划分为三类：LW、DSL 构建工具及工具链辅助工具。如此分类主要考量是，由于某些功能特征对一些工具无关紧要，例如：编辑模式功能对 Acceleo 和 Xpand 等工具便不适用。值得注意的是，多数研究并未提供关于工具功能特征的完整信息，因此需搜索灰色文献 (gray literature) 补充数据。例如，部分工具仅针对 DSL 开发流程的特定环节提供支持（如 Acceleo、Xpand、Meta3、JET 和 XBase）。实践者普遍认为这些工具可与其他工具组合使用，形成互补的工具链。然而现有研究并未探讨其在工具链中的集成方式。
+
+如 [Table 4](#table-4) 中 “DSL Development Mechanism Type” 维度所述，所选研究呈现的工具可归入三大类：1) 通过通用元模型支持 DSL 构建的功能； 2) DSL 环境中具有集成支持的工具箱功能，如 Language Workbench；3) 可适配多个工作台的实用功能工具，作为 DSL 构建工具链的组成部分。
+
+[Table 7](#table-7) 展示了归类为 LW 的工具。针对该组工具，我们采用了最初为 Language Workbench 提出的全部 34 项功能特征（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)），这些工具箱更为完善，整合了同类工具，并提供覆盖 DSL 开发流程更多环节的环境。在此背景下，值得特别强调的是 LW 的完整性，非商业的 LW 如：Xtext、MPS、GEMOC Studio，以及商业的 LW 如：MetaEdit+。它们均涵盖了 DSL 开发流程中的多项功能特性。MetaEdit+（[MetaCase 2017](sms3.md#metacase-2017)）涵盖 28 项功能；MPS（[JetBrains 2017](#jetbrains-2017)）涵盖 32 项功能；GEMOC Studio（[GEMOC 2017](#gemoc-i-2017)）涵盖 31 项功能；而 Spoofax（[Wachsmuth et al. 2014](#wachsmuth-gh-konat-gdp-visser-e-2014)）、Onion（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）以及 Whole（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)；[Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）也涵盖了 DSL 开发过程的诸多特性。
+
+#### Table 7
+![Table 7](pic/sms-t7.png)
+
+六款 LW 工具同时支持图形化与文本化两种表示形式。其中 GEMOC Studio 和 MPS 是仍在维护的非商业工具。GEMOC Studio 是唯一具备模型双向模型展示的工具，这意味着文本模型中的修改会实时同步到图形模型，反之亦然。GEMOC Studio 基于 EMF、Xtext 和 Sirius 构建，因此成为功能最完善的开源工具之一。该工具还支持语义执行与模型仿真。至于 MPS，除图形与文本表示外，还涵盖表格化规范（特征 03 ）。然而，（[Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）指出 LW 中仅部分实现了模型的图形化表示（特征 02 ）。Argyle 被归类为支持图形化表示的工具，因为其支持 Software Product Lines 特征模型的图形化表示。
+
+另外两个同时支持图形与文本表示的 LW 已停止维护：Enso 不再获得支持，Más 则已终止开发。最后，功能最完善的工具 MetaEdit+虽具备完整性，却未提供文本表示规范，仅支持图形模型的文本化呈现。
+
+[Table 8](#table-8) 展示了 DSL 构建工具的特性。其中我们重点强调了 Eclipse DSL 生态系统，该生态包含 EMF 等非商业框架（覆盖 11 项特性）以及 Sirius（[Eclipse F 2017a](#eclipse-f-2017-sirius)），覆盖 4 项特性。
+
+#### Table 8
+![Table 8-1](pic/sms-t8-1.png)
+![Table 8-2](pic/sms-t8-2.png)
+
+以 Sirius 为例，因其属性5 “Model2Text”、6 “Model2Model” 和 8 “Interpretative” 中被归类为 “translational or interpretative semantics”。换言之，Sirius 可通过以下方式支持 DSL 构建：从输入的 EMF 模型定义 Sirius 模型，经代码生成后在 Eclipse IDE 内通过解释执行。
+
+值得注意的是，某些 DSL 构建工具涵盖了大量实用功能。例如 Xtext（[Eclipse F 2017b](#eclipse-f-2017-xtext)）覆盖 29 项功能。EMFText 涵盖表格中所有功能，除了图形化表示法外，因其允许基于 Ecore 模型定义文本语法。部分工具更专注于领域的建模表示，如 MagicDraw 用于建模 SysML、BPM 和 UPDM 语言。MagicDraw 还提供转换机制，例如，转换为 XML 和数据库模型。此外，Enterprise Architect 支持数据建模和模型仿真。但这两款工具均采用商业授权模式。非商业领域建模工具中，Papyrus 堪称完整解决方案，支持 UML profile 与 SysML，可实现实时系统建模。
+
+最后，[Table 9](#table-9) 展示了工具链的实用功能。在此分类中，验证和语义等功能未被纳入考量，因其与这些工具无关。这个组中，值得关注的是：Acceleo（[Eclipse F 2020a](#eclipse-f-2020-acceleo)）具备 14 项功能，Xpand（[Eclipse F 2020c](#eclipse-f-2020-xpand)）拥有 10 项功能，XBase（[Eclipse F 2020b](#eclipse-f-2020-xbase)）则包含 9 项功能。本表所有工具均支持文本标记，这可能源于它们在文本与代码生成方面具有文本处理特性。此外，它们均提供模型转换功能。
+
+#### Table 9
+![Table 9](pic/sms-t9.png)
+
+Meta3、Xpand 和 Xbase 同时支持模型到模型转换与模型到文本转换，而 Acceleo 和 JET 仅支持模型到文本转换。最后需说明，尽管JET（Java Emitter Templates）工具被 5 项研究引用，但该工具已停止维护。
 
 ## 6 讨论
 
@@ -224,38 +293,41 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 
 ----
 ## 原文注释
-#### 1
+#### 0
 通讯员: Daniel Amyot
 - An ́ıbal Iung netoiiung@gmail.com
 
 扩展的作者信息详见文章末页。
 
-#### 2
+#### 1
 基于（[Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）的特征模型改进方案，用于消除重复特征名称。
 
-#### 3
+#### 2
 Compendex: www.engineeringvillage.com
 
-#### 4
+#### 3
 IEEE: www.ieeexplore.ieee.org
 
-#### 5
+#### 4
 ScienceDirect: www.sciencedirect.com
 
-#### 6
+#### 5
 ACM: https://dl.acm.org
 
-#### 7
+#### 6
 Scopus: www.scopus.com
 
-#### 8
+#### 7
 SpringerLink: www.link.springer.com
 
-#### 9
+#### 8
 检索字符串可于我们的在线资料库获取（[Iung et al. 2020](#iung-ab-carbonell-j-marchezan-l-rodrigues-e-bernardino-m-basso-f-medeiros-b-2020)）
 
-#### 10
+#### 9
 研究成果已收录于本团队资料库（[Iung et al. 2020](#iung-ab-carbonell-j-marchezan-l-rodrigues-e-bernardino-m-basso-f-medeiros-b-2020)）
+
+#### 10
+我们搜索了谷歌上的工具（www.google.com）
 
 ----
 ## 参考文献
@@ -493,15 +565,20 @@ In: Proceedings of the 10th International Workshop on Modelling in Software Engi
 #### Dwarakanath A, Era D, Priyadarshi A, Dubash N, Podder S (2017)
 Accelerating Test Automation through a Domain Specific Language
 
-#### Eclipse F (2017) Sirius. Available in: https://www.eclipse.org/sirius/
+#### Eclipse F (2017) Sirius.
+Available in: https://www.eclipse.org/sirius/
 
-#### Eclipse F (2017) Sirius. Available in: https://www.eclipse.org/Xtext/
+#### Eclipse F (2017) Xtext.
+Available in: https://www.eclipse.org/Xtext/
 
-#### Eclipse F (2020) Acceleo. Available in: https://www.eclipse.org/acceleo//
+#### Eclipse F (2020) Acceleo.
+Available in: https://www.eclipse.org/acceleo//
 
-#### Eclipse F (2020) Xbase. Available in: https://wiki.eclipse.org/Xbase
+#### Eclipse F (2020) Xbase.
+Available in: https://wiki.eclipse.org/Xbase
 
-#### Eclipse F (2020) Xpand. Available in: https://www.eclipse.org/modeling/m2t/?project=xpand
+#### Eclipse F (2020) Xpand.
+Available in: https://www.eclipse.org/modeling/m2t/?project=xpand
 
 #### Efftinge S, Eysholdt M, Ko ̈hnlein J., Zarnekow S, von Massow R, Hasselbring W, Hanus M (2012)
 Xbase: Implementing Domain-specific Languages for Java.</br>
