@@ -86,10 +86,18 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 
 ### 3.2 研究问题
 基于此目标，我们提出了以下研究问题（Research Questions, RQ）：
-- **RQ1.** DSL 开发采用哪些技术？我们的目标是描述这些工具的特征，从而评估其在研究与实践中的成熟度。
-- **RQ2.** 工具采用哪些许可类型？由于工具获取与培训依赖于商业模式决策（如基于非商业或商业许可），我们的目标是按许可类型对工具进行分类。
-- **RQ3.** 研究聚焦哪些应用领域？我们的目标是识别 DSL 在跨领域软件开发中的作用，涵盖 Web 应用、移动应用、嵌入式系统等领域。
-- **RQ4.** 这些工具支持 DSL 创建过程的哪些特征？鉴于 DSL 开发工具种类繁多且覆盖开发全周期，我们旨在通过技术特征对这些方案进行分类。
+- **RQ1.** DSL 开发采用哪些技术？
+
+  我们的目标是描述这些工具的特征，从而评估其在研究与实践中的成熟度。
+- **RQ2.** 工具采用哪些许可类型？
+
+  由于工具获取与培训依赖于商业模式决策（如基于非商业或商业许可），我们的目标是按许可类型对工具进行分类。
+- **RQ3.** 研究聚焦哪些应用领域？
+
+  我们的目标是识别 DSL 在跨领域软件开发中的作用，涵盖 Web 应用、移动应用、嵌入式系统等领域。
+- **RQ4.** 这些工具支持 DSL 创建过程的哪些特征？
+
+  鉴于 DSL 开发工具种类繁多且覆盖开发全周期，我们旨在通过技术特征对这些方案进行分类。
 
 #### Fig 2
 ![Fig 2](pic/sms-f2.png)
@@ -162,9 +170,49 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 尽管研究检索采用 2012 至 2019 年的时间范围，但结果中包含 2012 年前的工具。此类工具被纳入是因为年份限制仅适用于研究发表年份，而非工具发布日期。
 
 ### 3.7 数据分析
-我们对收集的数据进行分析以：识别支持 DSL 开发过程的 DSL 技术（工具 / 框架 / language workbench ）（**RQ1**）；识别 DSL 工具的许可类型（商业或非商业），并按符号表示类型展示其许可类型的 DSL 技术（**RQ2**）；按发表年份和研究类别识别并映射应用领域（**RQ3**）； 基于原始研究，梳理支持某个 DSL 开发阶段的 DSL 技术（**RQ4**）。
+我们对收集的数据进行分析以：识别支持 DSL 开发过程的 DSL 技术（工具 / 框架 / language workbench ）（**RQ1**）；识别 DSL 工具的许可类型（商业或非商业），并按符号表示类型展示其许可类型的 DSL 技术（**RQ2**）；按发表年份和研究类别识别并梳理应用领域（**RQ3**）； 基于原始研究，梳理支持某个 DSL 开发阶段的 DSL 技术（**RQ4**）。
 
 ## 4 执行
+本研究的执行 <sup>[10](#10)</sup> 工作于 2019 年 7 月完成，遵循 [Fig2](#fig-2) 所示 “Conduction” 阶段的研究方案。为支持 SMS 的规划与实施阶段，我们采用了 Thoth 工具（[Marchezan et al. 2019](#marchezan-l-bolfe-g-rodrigues-e-bernardino-m-basso-fp-2019)）。采用两组字符串检索 IEEE Xplore 数字图书馆。采用这种组合搜索策略，是由于 IEEE 搜索引擎限制搜索的每组字符串最多包含 15 个检索词。故而，在每个复合检索中，保留其他常用术语，检索字符串被拆分为两个复合术语：DSL 与 DSML。
+
+对于所有科学数据库，检索仅限于 “摘要”、“标题” 和 “关键词” 字段。此外，在检索引擎中，我们直接将年份范围限定为 2012 至 2019 年间发表的论文。
+
+如 [Fig 4](#fig-4) 所示，在去除重复文献后，共筛选出 1,862 项研究。随后剔除与研究主题无关的文献，例如：包含 DSL 或 DSML 术语但研究内容不符的论文。此步骤后，剩余 1,780 项研究进入纳入与排除标准评估阶段。
+
+如 [Fig 2](#fig-2) 所示流程所示，执行了 “Application of Exclusion Criteria” 和 “Application of Inclusion Criteria” 两项活动后。在 “Qualifying and Classifying Papers” 活动中，共读取 1,780 项研究。应用 EC 后，剩余 1,430 项研究。随后因不符合任何 IC 而排除部分研究。最终共有 390 项研究进入筛选与分类阶段。*（译注：本段文字的描述和 [Fig 2](#fig-2) 不一致，但和 [Fig 4](#fig-4) 一致）*
+
+#### Fig 4
+![Fig 4](pic/sms-f4.png)
+
+*Fig 4: 系统性映射研究执行结果*
+
+### 4.1 研究质量评估
+质量评分结果见 [Table 3](#table-3) ，每项研究均可通过列 **ID** 进行识别。参考文献及出版年份列于 **References** 列。基于 QA 的评分分别显示于第 **1、2、3、4** 列，最终 QA 总分呈现于 **QS** 列。两名研究者依据第 [3.3](#33-纳入与排除标准) 节所述的四项 QA 标准，分别对全部 230 项研究进行了独立评估。
+
+该评估方法用于分析名义量表数据，其结果通过应用 [Landis and Koch (1977)](#landis-jr-koch-gg-1977) 提出的评分表进行解读，该评分表可从数据集包中获取。
+
+卡帕系数 (Kappa’s coefficient) 用于分析两位观察者间的评分一致性 (inter-rater agreement)。在本 SMS 中，两位研究者均对每项研究进行分析并应用 QA 标准。结果基于一致性评分数量计算，评分范围为 0 至 1，其中 1 代表完全一致，0 代表完全不一致或随机一致。
+
+对我们 SMS 系统中每位评委评分进行的卡帕分析得出系数为 0.64。该结果表明研究者间存在较高程度的一致性。为解决研究分类中可能出现的评判差异，我们咨询了 DSL 领域的专家。
+
+
+#### Table 3
+![Table 3-1](pic/sms-t3-1.png)
+![Table 3-2](pic/sms-t3-2.png)
+![Table 3-3](pic/sms-t3-3.png)
+![Table 3-4](pic/sms-t3-4.png)
+![Table 3-5](pic/sms-t3-5.png)
+
+### 4.2 分类体系
+该分类体系基于 “Data Interpretation” 活动生成。为从选定研究中获取抽象层面的理解，我们合并了其关键词。本步骤所得结果，用于支持定义和归类代表选定主要研究群体的维度。如 [Table 4](#table-4) 所示，三大维度分别为：(i) DSL 开发机制类型：工具、Language Workbench 或框架；(ii) 功能特性：记法、语义、编辑模式、语法服务、语义服务、验证、测试、组合性；(iii) 发表贡献：方法论、研究成果、实践报告；
+
+“Feature” 维度的分类体系基于（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）的研究成果，[Table 5](#table-5) 揭示了 DSL 支持工具的功能特征。这些特征涵盖工具使用的表示类型（如图形化与文本化）到工具辅助机制（如 Quick Fix 与 Refactoring）。
+
+#### Table 4
+![Table 4](pic/sms-t4.png)
+
+#### Table 5
+![Table 5](pic/sms-t5.png)
 
 ## 5 报告
 
@@ -205,6 +253,9 @@ SpringerLink: www.link.springer.com
 
 #### 9
 检索字符串可于我们的在线资料库获取（[Iung et al. 2020](#iung-ab-carbonell-j-marchezan-l-rodrigues-e-bernardino-m-basso-f-medeiros-b-2020)）
+
+#### 10
+研究成果已收录于本团队资料库（[Iung et al. 2020](#iung-ab-carbonell-j-marchezan-l-rodrigues-e-bernardino-m-basso-f-medeiros-b-2020)）
 
 ----
 ## 参考文献
