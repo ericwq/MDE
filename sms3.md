@@ -323,6 +323,13 @@ Meta3、Xpand 和 Xbase 同时支持模型到模型转换与模型到文本转�
 **结论有效性**：为减轻结论偏倚，我们遵循了（[Petersen et al. 2008](#petersen-k-feldt-r-mujtaba-s-mattsson-m-2008)）提出的研究方案，该方案是规划与实施 SMS 的公认研究方法。所选研究数量较少导致的统计效力不足可能构成另一威胁。通过纳入六个科学数据库、采用针对各数据库定制的表达式检索字符串、搜索文献中提及的工具并严格分析工具特性，最终筛选出充分的研究样本集。最后，我们仅在收集结果后才得出结论，避免了 “钓鱼式研究” 及错误率问题（[Wohlin et al. 2012](#wohlin-c-runeson-p-ho-̈st-m-ohlsson-m-regnell-b-2012)）。此外，研究者在分析和分类研究时可能无意识地受到自身偏见影响，进而影响研究结论。另一潜在威胁在于数据提取可能存在不准确性。为同时缓解这两种威胁，由两名研究者独立完成每项检索研究的质量评估与数据提取工作。若出现质量评估或数据提取分歧，则另委派两名 DSL 领域专家进行疑难讨论。最终由他们裁定：某项研究是否应纳入研究范畴，或某项数据是否应按特定方式分类。
 
 ## 8 结论
+DSL 开发工具对于构建和执行基于 DSL 工具的流程至关重要。因此，梳理这些工具及其特性具有重要意义。正如 [Kitchenham et al. 2010](#kitchenham-ba-budgen-d-brereton-op-2010) 所言：“映射研究能为研究者建立后续研究活动的基准线提供显著帮助”。因此，本文通过系统性映射研究（SMS）对 DSL 开发工具及其特性进行了系统性梳理。
+
+基于 SMS 结果可得出结论：DSL 开发领域是活跃的研究方向。多项研究展示了 DSL 解决方案可用于解决特定领域问题（[Selgrad et al. 2016](#selgrad-k-lier-a-do-̈rntlein-j-reiche-o-marc-stamminger-m-2016)；[Hoyos et al. 2013](#hoyos-jr-garcia-molina-j-botia-ja-2013)；[Córdoba-Sánchez and de Lara 2016]( #co-́rdoba-sa-́nchez-i-de-lara-j-2016); [Zarrin and Baumeister 2014](#zarrin-b-baumeister-h-2014)），或提出辅助 DSL 开发的工具（[Rose et al. 2012](#rose-lm-kolovos-ds-paige-rf-2012); [Wachsmuth et al. 2014](#wachsmuth-gh-konat-gdp-visser-e-2014); [Viyović et al. 2014](#viyovic-́-v-maksimovic-́-m-perisˇic-́-b-2014); [Efftinge et al. 2012](#efftinge-s-eysholdt-m-ko-̈hnlein-j-zarnekow-s-von-massow-r-hasselbring-w-hanus-m-2012)）。据我们所知，本 SMS 是首个聚焦于映射 DSL 开发工具及其特征的研究。本研究重点收集了 DSL 开发流程各阶段的信息以及工具特性。此外，我们还试图识别工具的商业属性（非商业或商业）及其对应的应用领域。
+
+我们的研究结果表明，目前仅有少数工具支持不同工作台之间的双向 DSL 转换。此外，我们还发现支持双向/多重表示法的 DSL 工具同样稀缺。双向 DSL 工具能在同一工具内支持多种表示法，包括图形化、文本化、符号化及/或表格化表示法。同样，另一项较少被探索的工具特性是，支持自定义图形元素来表示语言应用领域的概念（如.SVG、.EPS、.JPG），这有助于提升语言在特定领域中的表达能力。
+
+最后，这项映射研究对构建 DSL 的研究与实践具有重要意义。从实践角度而言，研究结果可帮助 DSL 开发者识别更契合项目需求的工具、工具许可类型，以及能从所提议 DSL 中获益的领域。对结果的分析有助于 DSL 研究者和实践者选择开发新 DSL 的工具，或在 DSL 开发过程中选择协同工作的工具组合。对研究者而言，本研究可通过探讨模型动画与仿真等新兴趋势，有助于确定新的研究方向。
 
 ----
 ## 原文注释
