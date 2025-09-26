@@ -6,7 +6,7 @@ An ́ıbal Iung<sup>[0](#0)</sup> · Joa ̃ o Carbonell<sup>[0](#0)</sup> · Luc
 
 ----
 ## 摘要
-领域特定语言（DSL）是专用于特定应用领域的编程或建模语言。支持 DSL 实现的工具种类繁多，使得选择合适工具的决策过程变得困难。因此，识别并映射这些工具的特性对于学术界和工业界在 DSL 开发中的决策具有重要意义。目标：本研究旨在识别并梳理 2012 至 2019 年间文献中提及的、用于开发 DSL 的工具、语言工作台（ Language Workbenchese, LW ）或框架。方法：采用文献的系统性映射研究（ Systematic Mapping Study, SMS ）方法，聚焦 DSL 开发工具。结果： 我们共识别出 59 种工具（含 9 种商业许可工具与 41 种非商业许可工具），并从 230 篇论文中分析其功能特性。结论：现有工具数量庞大且覆盖功能广泛。此外，我们观察到开发者通常采用单一类型的表示法 (notation) 来实现 DSL（文本或图形）。我们还探讨了研究空白，例如：缺乏支持元元模型转换，以及对建模工具互操作性的支持。
+领域特定语言（DSL）是专用于特定应用领域的编程或建模语言。支持 DSL 实现的工具种类繁多，使得选择合适工具的决策过程变得困难。因此，识别并映射这些工具的特性对于学术界和工业界在 DSL 开发中的决策具有重要意义。目标：本研究旨在识别并梳理 2012 至 2019 年间文献中提及的、用于开发 DSL 的工具、语言工作台（ Language Workbenchese, LW ）或框架。方法：采用文献的系统性映射研究（ Systematic Mapping Study, SMS ）方法，聚焦 DSL 开发工具。结果： 我们共识别出 59 种工具（含 9 种商业许可工具与 41 种非商业许可工具），并从 230 篇论文中分析其功能特性。结论：现有工具数量庞大且覆盖功能广泛。此外，我们观察到开发者通常采用单一类型的表示法 (notation) 来实现 DSL（文本或图形）。我们还探讨了研究空白，例如：缺乏支持元元模型转换的工具，以及对建模工具互操作性支持的工具。
 
 ----
 ## 关键词
@@ -15,42 +15,42 @@ Model driven engineering · DSL-supporting tools · Systematic mapping study · 
 
 ----
 ## 1. 引言
-特定领域的计算机系统实施正变得日益复杂，需要整合多个知识领域。例如，现代 Web 系统的编码需要考虑多个实现要点，包括可用性、安全性、持久性及业务规则。为使这些不同要点能独立于编码技术进行开发，软件工程师正采用领域特定语言（DSL）的开发模式（[Fowler 2010](#fowler-m-2010)），这是对特定领域特征进行建模和编码的最常用方法之一。DSL 已被应用于众多领域，包括性能测试开发（[Bernardino et al. 2016](#bernardino-m-zorzo-af-rodrigues-em-2016)）、机器深度学习（[Zhao and Huang 2018](#zhao-t-huang-x-2018)）、面向对象的领域驱动设计（[Le et al. 2018](#le-dm-dang-d-h-nguyen-v-h-2018)）、学校课表自动生成（[Ribić et al. 2018](#ribic-́-s-turcˇinhodzˇic-́-r-muratovic-́-ribic-́-a-kosar-t-2018)）以及用于通信与查询的数据库语言 （[Fowler 2010](#fowler-m-2010)）。
+特定领域的计算机系统实施正变得日益复杂，需要整合多个知识领域。例如，现代 Web 系统的编码需要考虑多个实现要点，包括可用性、安全性、持久性及业务规则。为使这些不同要点能独立于编码技术进行开发，软件工程师正采用领域特定语言（DSL）的开发模式（[Fowler 2010](#fowler-m-2010)），这是对特定领域功能进行建模和编码的最常用方法之一。DSL 已被应用于众多领域，包括性能测试开发（[Bernardino et al. 2016](#bernardino-m-zorzo-af-rodrigues-em-2016)）、机器深度学习（[Zhao and Huang 2018](#zhao-t-huang-x-2018)）、面向对象的领域驱动设计（[Le et al. 2018](#le-dm-dang-d-h-nguyen-v-h-2018)）、学校课表自动生成（[Ribić et al. 2018](#ribic-́-s-turcˇinhodzˇic-́-r-muratovic-́-ribic-́-a-kosar-t-2018)）以及用于通信与查询的数据库语言 （[Fowler 2010](#fowler-m-2010)）。
 
 在此背景下，为设计捕获软件需求的所有元素，需要开发图形化和/或文本化的 DSL，以向最终用户提供最佳前端体验。DSL 能实现比软件工程日常实践中常用编程/建模语言更高的抽象层次。例如，当前开发实践中，开发者使用集成开发环境（IDE）中的代码编辑器，通过通用语言（ General Purpose Languages, GPL）（[Fowler 2010](#fowler-m-2010)）如 C 和 Python， 实现代码。与此同时，基于平台无关性理念的方法正在改变这种开发模式，通过引入更高层次的语言，使其与 C 和 Python 等具体实现无关。
 
-要实现这种平台独立性，即通过与具体实现细节无关的软件开发项目，可能需要创建新的 DSL 来捕捉领域概念。然而，创建新 DSL 并非易事，需要借助多种 DSL 开发工具。这些工具支持 DSL 的开发与维护过程，确保其一致性、演进性和可维护性。此外，这些工具可能包含代码生成器、验证器、模型检查器，以及词法分析器、语义分析器和语法分析器。通常，这些集成工具属于名为语言工作台（Languages Workbenches, LWs）的工具箱（[Fowler 2010](#fowler-m-2010)），其使用流程通常以工具链的形式呈现（[Jakumeit et al. 2014](#jakumeitebuchwaldswagelaarddanlhegedusa-́herrmannsdorfermhorntkalninaekrause-c-lano-k-lepper-m-rensink-a-rose-l-watzoldt-s-mazanek-s-2014)）。
+要实现这种平台独立性，即一个与具体实现细节无关的软件开发项目，可能需要创建新的 DSL 来捕捉领域概念。然而，创建新 DSL 并非易事，需要借助多种 DSL 开发工具。这些工具支持 DSL 的开发与维护过程，确保其一致性、演进性和可维护性。此外，这些工具可能包含代码生成器、验证器、模型检查器，以及词法分析器、语义分析器和语法分析器。通常，这些集成工具是名为语言工作台（Languages Workbenches, LWs）（[Fowler 2010](#fowler-m-2010)）的工具箱的一部分，其使用流程通常以工具链的形式呈现（[Jakumeit et al. 2014](#jakumeitebuchwaldswagelaarddanlhegedusa-́herrmannsdorfermhorntkalninaekrause-c-lano-k-lepper-m-rensink-a-rose-l-watzoldt-s-mazanek-s-2014)）。
 
-为实现某些软件开发流程任务的自动化（[Whittle et al. 2015](#whittle-j-hutchinson-j-rouncefield-m-ha-̊kan-b-rogardt-h-2015)），在启用工具链之前必须谨慎选择每项工具（[Basso et al. 2017](#basso-fp-werner-cml-de-oliveira-tc-2017)）。这一过程颇为复杂，因为某些工具仅能协助 DSL 开发的单一环节（[Mussbacher et al. 2014](#mussbacher-g-amyot-d-breu-r-bruel-j-m-cheng-bhc-collet-p-combemale-b-france-rb-hel--dal-r-hill-j-kienzle-j-scho-̈ttle-m-steimann-f-stikkolorum-d-whittle-j-2014)），而另一些工具则能覆盖多个环节。这种多样性虽有益于实践，却也增加了理解的难度，既要厘清启动 DSL 辅助流程所需的核心功能，又要识别哪些互补工具能在特定场景下支持语言构建（[Liebel et al. 2014](#liebel-g-marko-n-tichy-m-leitner-a-hansson-jo-̈rgen-2014)）。
+为实现某些软件开发流程任务的自动化（[Whittle et al. 2015](#whittle-j-hutchinson-j-rouncefield-m-ha-̊kan-b-rogardt-h-2015)），在启用工具链（[Basso et al. 2017](#basso-fp-werner-cml-de-oliveira-tc-2017)）之前必须谨慎选择每项工具。这会比较复杂，因为某些工具仅能协助 DSL 开发的单一环节（[Mussbacher et al. 2014](#mussbacher-g-amyot-d-breu-r-bruel-j-m-cheng-bhc-collet-p-combemale-b-france-rb-hel--dal-r-hill-j-kienzle-j-scho-̈ttle-m-steimann-f-stikkolorum-d-whittle-j-2014)），而另一些工具则能覆盖多个环节。这种多样性虽有益于实践，却也增加了理解的难度，既要厘清启动 DSL 辅助流程所需的核心功能特征，又要识别哪些互补工具能在特定场景下支持语言构建（[Liebel et al. 2014](#liebel-g-marko-n-tichy-m-leitner-a-hansson-jo-̈rgen-2014)）。
 
-尽管该领域文献中充斥着关于 DSL 开发工具的参考文献，却缺乏对其质量属性的最新图谱。在此背景下，一项关于这些工具的映射研究，调研有助于技术决策的功能与信息，将会帮助软件工程师在特定开发场景中选择最优方案。欢迎提交关于工具链决策的论文（[Liebel et al. 2014](#liebel-g-marko-n-tichy-m-leitner-a-hansson-jo-̈rgen-2014)），因为缺乏此类映射会，阻碍选择合适的元生成器，这是构建特定领域专用工具，以支持某种软件工程任务的的关键环节（[Jakumeit et al. 2014](#jakumeitebuchwaldswagelaarddanlhegedusa-́herrmannsdorfermhorntkalninaekrause-c-lano-k-lepper-m-rensink-a-rose-l-watzoldt-s-mazanek-s-2014)）。当前，该选择过程需要耗费时间，研究诸多影响决策的关键要素，包括技术层面，如哪些工具满足需求和描述性数据（用于理解其运作机制）。例如：类似 MetaEdit+（[Kelly et al. 1996](#kelly-s-lyytinen-k-rossi-m-1996)）这类工具虽在技术层面支持完整的 DSL 开发流程且应用广泛，但 MetaEdit+ 的商业许可模式可能与某些业务场景存在冲突。因此，在特定情境下，开发者可能需要寻找免费和/或非商业化的替代方案。
+尽管该领域文献中充斥着关于 DSL 开发工具的参考文献，却缺乏对其质量属性的最新梳理。在此背景下，一项关于这些工具的映射研究，调研有助于技术决策的功能特征与信息，将会帮助软件工程师在特定开发场景中选择最优方案。欢迎提交关于工具链决策的论文（[Liebel et al. 2014](#liebel-g-marko-n-tichy-m-leitner-a-hansson-jo-̈rgen-2014)），因为缺乏此类映射会阻碍选择合适的元生成器，这是构建领域特定专用工具，以支持某种软件工程任务的的关键活动（[Jakumeit et al. 2014](#jakumeitebuchwaldswagelaarddanlhegedusa-́herrmannsdorfermhorntkalninaekrause-c-lano-k-lepper-m-rensink-a-rose-l-watzoldt-s-mazanek-s-2014)）。当前，该选择过程需要耗费时间，调研诸多影响决策的关键要素，包括技术层面，如哪些工具满足需求和描述性数据（用于理解其运作）。例如：类似 MetaEdit+（[Kelly et al. 1996](#kelly-s-lyytinen-k-rossi-m-1996)）这类工具虽在技术层面支持完整的 DSL 开发流程且应用广泛，但 MetaEdit+ 的商业许可模式可能与某些业务场景存在冲突。因此，在特定情境下，开发者可能需要寻找免费和/或非商业化的替代方案。
 
-为进一步决策而对这些工具进行特征描述时，探讨 DSL 开发过程及其应用的研究至关重要。当前的特征化研究（[Pérez et al. 2013](#pe-́rez-f-valderas-p-fons-j-2013)；[Arkin and Tekinerdogan 2014](#arkin-e-tekinerdogan-b-2014)）虽提及了 DSL 创建中使用的工具，却未提供技术特征等足够细节。其他研究则聚焦于 DSL 领域的系统性映射（[do Nascimento et al. 2012](#do-nascimento-lm-viana-dl-neto-pas-martins-da-garcia-vc-meira-sr-2012)；[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)； [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015); [Kosar et al. 2016](#kosar-t-bohra-s-mernik-m-2016); [Méndez-Acuna et al. 2016](#me-́ndez-acuna-d-galindo-j-degueule-t-combemale-b-baudry-b-2016)），但这些综述并未梳理，支持特定 DSL 与 DSML 开发生命周期阶段的，工具及其功能特性。如高亮显示与错误标记。受限于此，DSL 构建的技术决策仍面临巨大挑战。
+为进一步决策而对这些工具进行分类时，探讨 DSL 开发过程及其应用的研究至关重要。当前的特征化研究（[Pérez et al. 2013](#pe-́rez-f-valderas-p-fons-j-2013)；[Arkin and Tekinerdogan 2014](#arkin-e-tekinerdogan-b-2014)）虽提及了 DSL 创建中使用的工具，却未提供技术特征等足够细节。其他研究则聚焦于 DSL 领域的系统性映射（[do Nascimento et al. 2012](#do-nascimento-lm-viana-dl-neto-pas-martins-da-garcia-vc-meira-sr-2012)；[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)； [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015); [Kosar et al. 2016](#kosar-t-bohra-s-mernik-m-2016); [Méndez-Acuna et al. 2016](#me-́ndez-acuna-d-galindo-j-degueule-t-combemale-b-baudry-b-2016)），但这些文献并未梳理，支持特定 DSL 与 DSML 开发生命周期阶段的，工具及其功能特性。如高亮显示与错误标记。受限于此，DSL 构建的技术决策仍面临巨大挑战。
 
-本文采用系统性映射研究（Systematic Mapping Study, SMS ）方法（[Kitchenham et al. 2011](#kitchenham-ba-budgen-d-brereton-op-2011)），全面梳理了支持 DSL 开发的工具。我们不仅阐明了 DSL 在不同领域的应用场景，更呈现了 DSL 开发工具研究领域的现状综述，同时指明了未来研究机遇与空白领域。该综述包含对跨应用领域的分析，即 DSL 被提出的领域，以及构建 DSL 所采用的实践方法。据我们所知，本 SMS 首次系统性地阐述了构建 DSL 的技术特性，涵盖结构特征及商业要素，如许可类型和适用性。因此，本研究为该领域做出了重要贡献。
+本文采用系统性映射研究（Systematic Mapping Study, SMS ）方法（[Kitchenham et al. 2011](#kitchenham-ba-budgen-d-brereton-op-2011)），全面梳理了支持 DSL 开发的工具。我们不仅阐明了 DSL 用在哪些领域，还提供了 DSL 开发工具研究领域的现状综述，同时指明了未来研究机遇与空白领域。该综述包含对跨应用领域的分析，即 DSL 被提出的领域，以及构建 DSL 所采用的实践方法。据我们所知，本 SMS 阐述了构建 DSL 的技术特性，涵盖结构特征及商业要素，如许可类型和适用性。因此，本研究为该领域做出了重要贡献。
 
-本文结构如下：第 [2](#2-背景) 节介绍全文使用的术语与概念；第 [3](#3-sms-流程) 节阐述 SMS 规划；第 [4](#4-执行) 节报告对 DSL 开发工具的 SMS 如何执行；第 [5](#5-报告) 节呈现为解答研究问题所收集的数据；第 [6](#6-讨论) 节探讨研究空白；第 [7](#7-对有效性的威胁) 节阐述有效性面临的威胁（threats to validity）；最后第 [8](#8-结论) 节总结全文。
+本文结构如下：第 [2](#2-背景) 节介绍全文使用的术语与概念；第 [3](#3-sms-流程) 节阐述 SMS 规划；第 [4](#4-执行) 节报告如何执行关于 DSL 开发工具的 SMS ；第 [5](#5-报告) 节呈现为解答研究问题所收集的数据；第 [6](#6-讨论) 节探讨研究空白；第 [7](#7-对有效性的威胁) 节阐述有效性面临的威胁（threats to validity）；最后第 [8](#8-结论) 节总结全文。
 
 ----
 ## 2 背景
-SMS 作为二次研究，旨在勾勒研究领域框架，并从原始研究中筛选出最具相关性的成果。开展 SMS 时，研究者可采用与系统性文献综述（Systematic Literature Review, SLR）相似的检索与数据提取方法。但不同于 SLR，SMS 涵盖更广阔的研究领域与主题（[Kitchenham et al.，2011](#kitchenham-ba-budgen-d-brereton-op-2011)）。此外，SMS 结果更侧重于简明分类与统计分析，侧重于浅层评估。基于此，下文将介绍支撑本 SMS 的核心技术术语。
+SMS 作为二次研究，旨在勾勒研究领域框架，并从原始研究中筛选出最具相关性的成果。开展 SMS 时，研究者可采用与系统性文献评论（Systematic Literature Review, SLR）相似的检索与数据提取方法。但不同于 SLR，SMS 涵盖更广阔的研究领域与主题（[Kitchenham et al.，2011](#kitchenham-ba-budgen-d-brereton-op-2011)）。此外，SMS 结果更侧重于简明分类与统计分析，侧重于浅层评估。基于此，下文将介绍支撑本 SMS 的核心技术术语。
 
 ### 2.1 领域特定语言（DSL）
 DSL，亦称小语言、小型语言、专用语言或领域特定建模语言（Domain-Specific Modeling Languages, DSML），被定义为 “具有有限表达能力、专注于特定领域的计算机编程语言”（[Mernik et al. 2005](#mernik-m-heering-j-sloane-am-2005)）。
 
 开发 DSL，会使用名为语言工作台（Language Workbenches, LW）的工具。据 [Wachsmuth et al. 2014](#wachsmuth-gh-konat-gdp-visser-e-2014) 所述，LW 提供了 “实现编程语言的高级机制，并使新语言的开发变得经济可行”。LW 不仅能简化语义与语法分析器的定义，还支持创建语言专属的编辑环境，以及开发基于语言的其他工具，例如模型调试器（[Wu et al. 2008](#wu-h-gray-j-mernik-m-2008)）、模型编译器（[Henriques et al. 2002](#henriques-pr-pereira-mjv-mernik-m-lenicˇ-m-avdicˇausˇevic-́-e-zˇumer-v-2002)）和模型测试引擎。
 
-LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1997](#johnson-re-1997) 的定义，“框架是应用程序的骨架，开发人员能够对其进行定制”。根据元对象设施（Meta-Object Facility, MOF）规范（[OMG 2019](#omg-2019)），“元模型是由关于模型的描述构成 (consists of statements) 的模型，它本身也是模型，但其论域 (universe of discourse) 是一组模型”。元模型包含关于系统构造的陈述，是模型的抽象化表达（[Jeusfeld 2009](#jeusfeld-ma-2009)）。此外，元模型还用于为图形化与文本化语言定义 DSL（[Schmidt 2006](#schmidt-dc-2006)）。
+LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1997](#johnson-re-1997) 的定义，“框架是应用程序的骨架，开发人员能够对其进行定制”。根据元对象设施（Meta-Object Facility, MOF）规范（[OMG 2019](#omg-2019)），“元模型是一个模型，由关于模型的描述组成，它本身也是模型，但其论域 (universe of discourse) 是一组模型”。元模型包含关于系统构造的陈述，是模型的抽象（[Jeusfeld 2009](#jeusfeld-ma-2009)）。此外，元模型还被用来为图形与文本语言定义 DSL（[Schmidt 2006](#schmidt-dc-2006)）。
 
-### 2.2 DSL 开发工具特性
-本节介绍本 SMS 所选主要研究中，作为 LW 信息收集模型的特性。我们认为 “特性” 一词指代被分析的 DSL 开发支持工具所提供的功能。因此，依据 [Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013) 及 [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015) 的研究，所有表格化特征及子特征被划分为六大类别（符号、语义、编辑器、验证、测试及组合能力），如图 [Fig 1](#fig-1) <sup>[1](#1)</sup> 所示。下文将详细阐述这六大类别：
+### 2.2 DSL 开发工具特征
+本节介绍本 SMS 所选主要研究中，作为 LW 信息收集模型的特征 (features)。我们认为 “特征” 一词指代被分析的 DSL 开发支持工具所提供的功能。因此，依据 [Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013) 及 [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015) 的研究，所有列表的 (tabulated) 特征及子特征被划分为六大类别（符号系统、语义、编辑器、验证、测试及组合能力），如图 [Fig 1](#fig-1) <sup>[1](#1)</sup> 所示。下文将详细阐述这六大类别：
 
 #### Fig 1
 ![Fig 1](pic/sms-f1.png)
 
 *Fig 1: 基于 [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015) 研究改编的 DSL 语言工作台的特征模型*
 
-**符号（Notation）** ：LW 支持的强制符号表示法。它决定模型或程序将以文本、图形或表格形式呈现。也可采用混合方式，使用一种或多种符号表示法。现有符号类型包括：文本、图形、表格及符号，符号作为表格的子特征。根据 [Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013) 的定义：“符号可混合使用文本、图形和表格符号，其中文本符号可选支持符号 (symbols)，例如嵌入常规文本的符号 (symbols)，如积分符号或分数线”。
+**符号系统（Notation）** ：LW 支持的强制符号表示法。它决定模型或程序将以文本、图形或表格形式呈现。也可采用混合方式，使用一种或多种符号表示法。现有符号类型包括：文本、图形、表格及符号，符号作为表格的子特征。根据 [Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013) 的定义：“符号可混合使用文本、图形和表格符号，其中文本符号可选支持符号 (symbols)，例如嵌入常规文本的符号 (symbols)，如积分符号或分数线”。
 
 **语义（Semantics）** ：关注模型的含义，可分为翻译语义与解释语义两类。翻译语义从模型生成某种语言的程序；解释语义则直接执行模型而不进行预先翻译，例如，采用 Model@Runtime 方法（[Mussbacher et al. 2014](#mussbacher-g-amyot-d-breu-r-bruel-j-m-cheng-bhc-collet-p-combemale-b-france-rb-hel--dal-r-hill-j-kienzle-j-scho-̈ttle-m-steimann-f-stikkolorum-d-whittle-j-2014)）。如 [Fig 1](#fig-1) 所示，这两种语义机制可能同时存在于 LW 中。此外，翻译语义可细分为三类：模型到文本、模型到模型以及具体语法。
 
