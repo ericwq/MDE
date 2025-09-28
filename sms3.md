@@ -43,24 +43,24 @@ DSL，亦称小语言、小型语言、专用语言或领域特定建模语言�
 LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1997](#johnson-re-1997) 的定义，“框架是应用程序的骨架，开发人员能够对其进行定制”。根据元对象设施（Meta-Object Facility, MOF）规范（[OMG 2019](#omg-2019)），“元模型是一个模型，由关于模型的描述组成，它本身也是模型，但其论域 (universe of discourse) 是一组模型”。元模型包含关于系统构造的陈述，是模型的抽象（[Jeusfeld 2009](#jeusfeld-ma-2009)）。此外，元模型还被用来为图形与文本语言定义 DSL（[Schmidt 2006](#schmidt-dc-2006)）。
 
 ### 2.2 DSL 开发工具特征
-本节介绍本 SMS 所选主要研究中，作为 LW 信息收集模型的特征 (features)。我们认为 “特征” 一词指代被分析的 DSL 开发支持工具所提供的功能。因此，依据 [Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013) 及 [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015) 的研究，所有列表的 (tabulated) 特征及子特征被划分为六大类别（符号系统、语义、编辑器、验证、测试及组合能力），如图 [Fig 1](#fig-1) <sup>[1](#1)</sup> 所示。下文将详细阐述这六大类别：
+本节介绍本 SMS 所选主要研究中，作为 LW 信息收集模型的特征 (features)。我们认为 “特征” 一词指代被分析的 DSL 开发支持工具所提供的功能。因此，依据 [Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013) 及 [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015) 的研究，所有列表的 (tabulated) 特征及子特征被划分为六大类别（符号表示法、语义、编辑器、验证、测试及组合能力），如图 [Fig 1](#fig-1) <sup>[1](#1)</sup> 所示。下文将详细阐述这六大类别：
 
 #### Fig 1
 ![Fig 1](pic/sms-f1.png)
 
 *Fig 1: 基于 [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015) 研究改编的 DSL 语言工作台的特征模型*
 
-**符号系统（Notation）** ：LW 支持的强制符号表示法。它决定模型或程序将以文本、图形或表格形式呈现。也可采用混合方式，使用一种或多种符号表示法。现有符号类型包括：文本、图形、表格及符号，符号作为表格的子特征。根据 [Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013) 的定义：“符号可混合使用文本、图形和表格符号，其中文本符号可选支持符号 (symbols)，例如嵌入常规文本的符号 (symbols)，如积分符号或分数线”。
+**符号表示法（Notation）** ：LW 支持的强制符号表示法。它决定模型或程序将以文本、图形或表格形式呈现。也可采用混合方式，使用一种或多种符号表示法。现有符号表示法类型包括：文本、图形、表格及符号 (Symbolic)，符号作为表格的子特征。根据 [Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013) 的定义：“符号表示法可混合使用文本、图形和表格符号表示法，其中文本符号表示法可支持符号 (symbols)，例如嵌入常规文本的积分符号或分数线”。
 
 **语义（Semantics）** ：关注模型的含义，可分为翻译语义与解释语义两类。翻译语义从模型生成某种语言的程序；解释语义则直接执行模型而不进行预先翻译，例如，采用 Model@Runtime 方法（[Mussbacher et al. 2014](#mussbacher-g-amyot-d-breu-r-bruel-j-m-cheng-bhc-collet-p-combemale-b-france-rb-hel--dal-r-hill-j-kienzle-j-scho-̈ttle-m-steimann-f-stikkolorum-d-whittle-j-2014)）。如 [Fig 1](#fig-1) 所示，这两种语义机制可能同时存在于 LW 中。此外，翻译语义可细分为三类：模型到文本、模型到模型以及具体语法。
 
-**编辑器支持（Editor Support）** ：LW 中的编辑器支持包含一个名为编辑模式的子功能，该模式分为两种类型：自由编辑模式，作为常见的文本型编辑器，用户可自由编写和编辑模板；投影编辑模式 (projectional edition) ，用户需在预定义的固定布局中进行操作。此外，编辑器支持还提供两种服务类型：语法服务 (Syntactic Service) 与语义服务。语法服务包含：可视化高亮，如文本语言的着色；大纲视图导航支持；模型部分折叠；语法补全模板提供代码建议；程序比较，例如：通过 diff 工具；模型呈现的自动格式化、重构或对齐。
+**编辑器支持（Editor Support）** ：LW 中的编辑器支持包含一个名为编辑模式的子特征，该模式分为两种类型：自由编辑模式，作为常见的文本型编辑器，用户可自由编写和编辑模板；投影编辑模式 (projectional edition) ，用户需在预定义的固定布局中进行操作。此外，编辑器支持还提供两种服务类型：语法服务 (Syntactic Service) 与语义服务。语法服务包含：可视化高亮，如文本语言的着色；大纲导航支持；模型部分折叠；提供代码建议的语法补全模板；程序比较，例如：通过 diff 工具；模型呈现的自动格式化、重构或对齐。
 
-另一方面，语义服务包含以下内容：通过引用解析将声明和变量等概念关联起来；通过融合引用解析等语义信息的语义补全功能提供代码辅助；对程序或模型进行保留语义的重构（如重命名类和移动属性）；用于突出显示结构特征不一致或对象约束违规的错误标记；用于修复错误的快速修复方案；源代码追溯与模型追踪；以及实时翻译生成的代码。
+另一方面，语义服务包含以下内容：通过引用解析将声明和变量等概念关联起来；通过融合语义信息（引用解析等）的语义补全提供代码辅助；对程序或模型进行保留语义的重构（如重命名类和移动属性）；用于突出显示结构特征不一致，或对象约束违规的错误标记；用于修复错误的快速修复方案；溯源与模型追踪；以及实时翻译生成的代码。
 
 **验证（Validation）** ：LW 识别模型与元模型间结构、语法及语义不一致与矛盾的能力。验证类型：结构验证与语义验证，细分为命名、类型及程序化验证。
 
-**测试（Testing）**：LW 为语言测试提供的支持，涵盖语义测试（翻译或解释）与语法测试（解析器或投影）。测试旨在实现语言调试及语言调试器的开发。测试支持类型：DSL 测试、DSL 语言定义调试（DSL 调试）以及定义语言的调试器（DSL 程序调试）。
+**测试（Testing）**：LW 为语言测试提供的支持，涵盖语义测试（翻译或解释）与语法测试（解析器或投影）。测试旨在实现语言调试及开发语言调试器。测试支持类型：DSL 测试、DSL 语言定义调试（DSL 调试）以及所定义语言的调试器（DSL 程序调试）。
 
 **组合性（Composability）** ：LW 提供的一项特性，允许使用多种语言处理系统的不同方面，例如支持增量扩展和语言对齐。例如，由其他元模型构成的元模型，或包含其他元模型结构特征的元模型。与组合性相关的特性包括：语法/视图、组合性验证、组合性语义以及编辑器服务。
 
