@@ -175,14 +175,14 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 
 对于所有科学数据库，检索仅限于 “摘要”、“标题” 和 “关键词” 字段。此外，在检索引擎中，我们直接将年份范围限定为 2012 至 2019 年间发表的论文。
 
-如 [Fig 4](#fig-4) 所示，在去除重复文献后，共筛选出 1,862 项研究。随后剔除与研究主题无关的文献，例如：包含 DSL 或 DSML 术语但研究内容不符的论文。此步骤后，剩余 1,780 项研究进入纳入与排除标准评估阶段。
+如 [Fig 4](#fig-4) 所示，在去除重复文献后，共筛选出 1,862 项研究。随后剔除与研究主题无关的文献，例如：包含 DSL 或 DSML 术语但不属于研究范围的论文。此步骤后，剩余 1,780 项研究进入纳入与排除标准评估阶段。
 
 #### Fig 4
 ![Fig 4](pic/sms-f4.png)
 
 *Fig 4: 系统性映射研究执行结果*
 
-如 [Fig 2](#fig-2) 所示流程所示，执行了 “Application of Exclusion Criteria” 和 “Application of Inclusion Criteria” 两项活动后。在 “Qualifying and Classifying Papers” 活动中，共读取 1,780 项研究。应用 EC 后，剩余 1,430 项研究。随后因不符合任何 IC 而排除部分研究。最终共有 390 项研究进入筛选与分类阶段。*（译注：本段文字的描述和 [Fig 2](#fig-2) 不一致，但和 [Fig 4](#fig-4) 一致）*
+如 [Fig 2](#fig-2) 所示流程所示，执行了 “Application of Exclusion Criteria” 和 “Application of Inclusion Criteria” 两项活动后。结果有 1,780 项研究，被 “Qualifying and Classifying Papers” 活动读取。应用 EC 后，剩余 1,430 项研究。随后因不符合任何 IC 而排除部分研究。最终共有 390 项研究进入筛选 (qualification) 与分类。*（译注：本段的文字描述有误，和 [Fig 4](#fig-4) 不一致，图上描述的应该是正确的）*
 
 ### 4.1 研究质量评估
 质量评分结果见 [Table 3](#table-3) ，每项研究均可通过列 **ID** 进行识别。参考文献及出版年份列于 **References** 列。基于 QA 的评分分别显示于第 **1、2、3、4** 列，最终 QA 总分呈现于 **QS** 列。两名研究者依据第 [3.5](#35-研究质量评估) 节所述的四项 QA 标准，分别对全部 230 项研究进行了独立评估。*（译注：原文中对于 QA 标准的引用章节有笔误，应该为 [3.5](#35-研究质量评估) ，原文中指向了 [3.3](#33-纳入与排除标准) 节）*
@@ -201,12 +201,12 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 对我们 SMS 系统中每位评委评分进行的卡帕分析得出系数为 0.64。该结果表明研究者间存在较高程度的一致性。为解决研究分类中可能出现的评判差异，我们咨询了 DSL 领域的专家。
 
 ### 4.2 分类体系
-该分类体系基于 “Data Interpretation” 活动生成。为从选定研究中获取抽象层面的理解，我们合并了其关键词。本步骤所得结果，用于支持定义和归类代表选定主要研究群体的维度。如 [Table 4](#table-4) 所示，三大维度分别为：(i) DSL 开发机制类型：工具、Language Workbench 或框架；(ii) 功能特性：记法、语义、编辑模式、语法服务、语义服务、验证、测试、组合性；(iii) 发表贡献：方法论、研究成果、实践报告；
+该分类体系基于 “[Data Interpretation](#fig-2)” 活动生成。为从选定研究中获取抽象层面的理解，我们合并了其关键词。<ins>本步骤所得结果，用于支持定义和分类代表选定原始研究群体的维度。如 [Table 4](#table-4) 所示，三大维度分别为：(i) DSL 开发机制类型：工具、Language Workbench 或框架；(ii) 功能特性：符号表示法、语义、编辑模式、语法服务、语义服务、验证、测试、组合性；(iii) 发表贡献：方法论、研究成果、实践报告</ins>；*（译注：这种分类法可以对原始研究进行并行的多维度分析？）*
 
 #### Table 4
 ![Table 4](pic/sms-t4.png)
 
-“Feature” 维度的分类体系基于（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）的研究成果，[Table 5](#table-5) 揭示了 DSL 支持工具的功能特征。这些特征涵盖工具使用的表示类型（如图形化与文本化）到工具辅助机制（如 Quick Fix 与 Refactoring）。
+“Feature” 维度的分类体系基于（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）的研究成果，[Table 5](#table-5) 揭示了 DSL 支持工具的功能特征。这些特征涵盖了从，工具使用的表示类型 (representation type)，如图形化与文本化，到工具辅助机制，如 Quick Fix 与 Refactoring。
 
 #### Table 5
 ![Table 5](pic/sms-t5.png)
@@ -218,7 +218,7 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 
 通过分析 230 篇选定论文，我们识别出 59 种 DSL 开发工具，详见 [Table 6](#table-6)。我们注意到部分技术被不同作者多次引用。
 
-值得强调的是 Xtext framework（102）获得大量引用，同时基于 Eclipse Modeling Framework （EMF）（114）和 Graphical Modeling Framework（GMF）（30）的衍生工具也广受关注，例如： Papyrus 工具（18）和 Sirius framework（42）。其他 LW 获得相当数量的引用，例如：MetaCase 公司的 MetaEdit+（27）、JetBrains 开发的 Meta Programming System（MPS）（48）以及 MetaBorg 的 Spoofax（21）。
+<ins>值得强调的是 Xtext framework（102）获得大量引用</ins>，同时基于 Eclipse Modeling Framework （EMF）（114）和 Graphical Modeling Framework（GMF）（30）的衍生工具也广受关注，例如： Papyrus 工具（18）和 Sirius framework（42）。其他 LW 获得相当数量的引用，例如：MetaCase 公司的 MetaEdit+（27）、JetBrains 开发的 Meta Programming System（MPS）（48）以及 MetaBorg 的 Spoofax（21）。
 
 #### Table 6
 ![Table 6-1](pic/sms-t6-1.png)
@@ -226,16 +226,17 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 ![Table 6-3](pic/sms-t6-3.png)
 ![Table 6-4](pic/sms-t6-4.png)
 
-[Fig 5](#fig-5) 展示了工具支持的符号表示法的维恩图 (Venn diagram)：字母 A 代表图形符号；字母 B 代表文本符号； 字母 C 代表图形与文本两种记法；字母 D 代表图形、表格与符号三种记法；字母 E 代表图形、文本与表格三种记法；字母 F 代表图形、文本、表格与符号四种记法。
+[Fig 5](#fig-5) 展示了工具支持的符号表示法的维恩图 (Venn diagram)：字母 A 代表图形符号表示法；字母 B 代表文本符号表示法； 字母 C 代表图形与文本两种表示法；字母 D 代表图形、表格与符号三种表示法；字母 E 代表图形、文本与表格三种表示法；字母 F 代表图形、文本、表格与符号四种表示法。
 
 #### Fig 5
 ![Fig 5](pic/sms-f5.png)
 
-*Fig 5: 工具符号类型的维恩图（Venn Diagram）*
+*Fig 5: 工具符号表示类型的维恩图（Venn Diagram）*
 
-共有 39 种映射工具支持图形化记法（最大类别），其次是 30 种支持文本记法的工具。在映射工具中，T38 和 T55 同时支持全部四种记法类型。就图形化、表格化及符号化记法的支持而言，T34 是唯一具备这三项功能的工具。工具 T32 支持图形化、文本化与表格化三种标记的独特组合。工具 T5、T16、T21、T28、T33、T43 和 T48 支持图形化与文本化标记，但不支持符号化或表格化标记。
+共有 39 种映射工具支持图形符号表示法（最大类别），其次是 30 种支持文本符号表示法的工具。在映射工具中，T38 (MPS) 和 T55 (Whole) 同时支持全部四种符号表示法。就图形、表格及 symbolic 的符号表示法的支持而言，T34 (MetaEdit+) 是唯一具备这三项功能的工具。工具 T32  (
+Ma ́s) 支持图形、文本与表格三种符号表示法的独特组合。工具 T5、T16、T21、T28、T33、T43 和 T48 支持图形与文本符号表示法，但不支持符号或表格。
 
-需特别说明的是，由于部分工具仅支持 DSL 开发环节，目前尚无工具能实现全套记法支持。此外，T1、T27 和 T58 属于代码生成器，T57 是 Java 方言，T18 则是涵盖代码生成与模型验证的语言工具集，但本文仍将其归入文本记号范畴。
+需特别说明的是，由于部分工具仅支持 DSL 开发中的一个环节，目前尚无工具能实现全部符号表示法。<ins>此外，T1 (Acceleo)、T27 (JET) 和 T58 (Xpand) 属于代码生成器</ins>，T57 是 Java 方言，T18 则是涵盖代码生成与模型验证的语言工具集，但本文仍将其归入文本符号表示法范畴。
 
 ### RQ2. 工具采用哪些许可类型？
 
@@ -243,14 +244,14 @@ LW 可作为独立版本使用，也可与框架组合使用。根据 [Johnson 1
 
 ### RQ3. 研究聚焦哪些应用领域？
 
-  为映射 DSL 构建工具的应用领域，根据选定研究中评估/概念验证章节的内容，[Fig 6](#fig-6) 按发表年份绘制了应用领域分布图。基于该数据图可得出结论：“DSL Construction” 作为成熟研究领域，考虑到众多的跨应用领域，体现了学术界日益增长的关注度。*（译注：这个结论是怎么得出的？DSL Construction 在图中咩有明确标示锕）*
+  为映射 DSL 构建工具的应用领域，根据选定研究中评估/概念验证章节的内容，[Fig 6](#fig-6) 按发表年份绘制了应用领域分布图。基于该数据图可得出结论：“DSL Construction” 作为成熟研究领域，考虑到众多的跨应用领域，体现了学术界日益增长的关注度。*（译注：这个结论是怎么得出的？DSL Construction 在图中没有明确标示啊）*
 
 #### Fig 6
 ![Fig 6](pic/sms-f6.png)
 
 *Fig 6: 按出版年份的研究领域分布泡泡图（Bubble Plot）*
 
-  值得注意的是，36%（83 篇）研究涉及支持 DSL 与 DSML 开发生命周期阶段的工具、方法或技术 (method)。嵌入式系统占 3%（7 篇），Web 系统占1%（3 篇），移动应用占 3%（6 篇），多智能体系统占 2%（4 篇）。此外另有 4 项研究聚焦于网络物理系统 (Cyber-Physical Systems)，占比2%。仅被 1 至 2 项研究提及的领域，如航空航天系统，归类为 “Other”。该类别涵盖 53%（123 篇）的研究，彰显了应用领域的多元性。
+  值得注意的是，36%（83 篇）研究涉及支持 DSL 与 DSML 开发生命周期阶段的工具、方法或手段 (method)。嵌入式系统占 3%（7 篇），Web 系统占1%（3 篇），移动应用占 3%（6 篇），多智能体系统占 2%（4 篇）。此外另有 4 项研究聚焦于网络物理系统 (Cyber-Physical Systems)，占比 2%。仅被 1 至 2 项研究提及的领域，如航空航天系统，归类为 “Other”。该类别涵盖 53%（123 篇）的研究，彰显了应用领域的多元性。
 
 ### RQ4. 这些工具支持 DSL 创建过程的哪些特征？
 
