@@ -244,7 +244,7 @@ Ma ́s) 支持图形、文本与表格三种符号表示法的独特组合。工
 
 ### RQ3. 研究聚焦哪些应用领域？
 
-  为映射 DSL 构建工具的应用领域，根据选定研究中评估/概念验证章节的内容，[Fig 6](#fig-6) 按发表年份绘制了应用领域分布图。基于该数据图可得出结论：“DSL Construction” 作为成熟研究领域，考虑到众多的跨应用领域，体现了学术界日益增长的关注度。*（译注：这个结论是怎么得出的？DSL Construction 在图中没有明确标示啊）*
+  为映射 DSL 构建工具的应用领域，根据选定研究中评估/概念验证章节的内容，[Fig 6](#fig-6) 按发表年份绘制了应用领域分布图。基于该数据图可得出结论：“DSL Construction” 作为成熟研究领域，考虑到众多的跨应用领域，体现了学术界日益增长的关注度。*（译注：这个结论是怎么得出的？DSL Construction 在图中没有明确标示啊，另外，图中的领域是如何确定下来的？）*
 
 #### Fig 6
 ![Fig 6](pic/sms-f6.png)
@@ -253,35 +253,36 @@ Ma ́s) 支持图形、文本与表格三种符号表示法的独特组合。工
 
   值得注意的是，36%（83 篇）研究涉及支持 DSL 与 DSML 开发生命周期阶段的工具、方法或手段 (method)。嵌入式系统占 3%（7 篇），Web 系统占1%（3 篇），移动应用占 3%（6 篇），多智能体系统占 2%（4 篇）。此外另有 4 项研究聚焦于网络物理系统 (Cyber-Physical Systems)，占比 2%。仅被 1 至 2 项研究提及的领域，如航空航天系统，归类为 “Other”。该类别涵盖 53%（123 篇）的研究，彰显了应用领域的多元性。
 
-### RQ4. 这些工具支持 DSL 创建过程的哪些特征？
+### RQ4. 这些工具支持 DSL 创建过程的哪些特性？
 
-在讨论该问题结果前，需说明在按功能分类工具时，我们将其划分为三类：LW、DSL 构建工具及工具链辅助工具。如此分类主要考量是，由于某些功能特征对一些工具无关紧要，例如：编辑模式功能对 Acceleo 和 Xpand 等工具便不适用。值得注意的是，多数研究并未提供关于工具功能特征的完整信息，因此需搜索灰色文献 (gray literature) 补充数据。例如，部分工具仅针对 DSL 开发流程的特定环节提供支持（如 Acceleo、Xpand、Meta3、JET 和 XBase）。实践者普遍认为这些工具可与其他工具组合使用，形成互补的工具链。然而现有研究并未探讨其在工具链中的集成方式。
+在讨论该问题结果前，需说明在按功能特性分类工具时，我们将其划分为三类：LW、DSL 构建工具及工具链工具，见 [Table 4](#table-4)。如此分类主要考量是，由于某些功能特性对一些工具无关紧要，例如：编辑模式功能对 Acceleo 和 Xpand 等工具不适用。值得注意的是，多数研究并未提供关于工具功能特性的完整信息，因此需搜索灰色文献 (gray literature) 补充数据。例如，部分工具仅针对 DSL 开发流程的特定环节提供支持（如 Acceleo、Xpand、Meta3、JET 和 XBase）。<ins>实践者普遍认为这些工具可与其他工具组合使用，形成互补的工具链。然而现有研究并未探讨其在工具链中的集成方式</ins>。
 
 如 [Table 4](#table-4) 中 “DSL Development Mechanism Type” 维度所述，所选研究呈现的工具可归入三大类：1) 通过通用元模型支持 DSL 构建的功能； 2) DSL 环境中具有集成支持的工具箱功能，如 Language Workbench；3) 可适配多个工作台的实用功能工具，作为 DSL 构建工具链的组成部分。
 
-[Table 7](#table-7) 展示了归类为 LW 的工具。针对该组工具，我们采用了最初为 Language Workbench 提出的全部 34 项功能特征（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)），这些工具箱更为完善，整合了同类工具，并提供覆盖 DSL 开发流程更多环节的环境。在此背景下，值得特别强调的是 LW 的完整性，非商业的 LW 如：Xtext、MPS、GEMOC Studio，以及商业的 LW 如：MetaEdit+。它们均涵盖了 DSL 开发流程中的多项功能特性。MetaEdit+（[MetaCase 2017](sms3.md#metacase-2017)）涵盖 28 项功能；MPS（[JetBrains 2017](#jetbrains-2017)）涵盖 32 项功能；GEMOC Studio（[GEMOC 2017](#gemoc-i-2017)）涵盖 31 项功能；而 Spoofax（[Wachsmuth et al. 2014](#wachsmuth-gh-konat-gdp-visser-e-2014)）、Onion（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）以及 Whole（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)；[Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）也涵盖了 DSL 开发过程的诸多特性。
+[Table 7](#table-7) 展示了归类为 LW 的工具。针对该组工具，我们采用了最初为 Language Workbench 提出的全部 34 项功能特性（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)），这是更为完善的工具箱，整合了同类工具，并提供覆盖 DSL 开发流程更多环节的环境。从这个意义上说，值得特别强调的是 LW 的完整性，非商业的 LW 如：Xtext、MPS、GEMOC Studio，以及商业的 LW 如：MetaEdit+。它们均涵盖了 DSL 开发流程中的多项功能特性。MetaEdit+（[MetaCase 2017](sms3.md#metacase-2017)）涵盖 28 项功能；MPS（[JetBrains 2017](#jetbrains-2017)）涵盖 32 项功能；GEMOC Studio（[GEMOC 2017](#gemoc-i-2017)）涵盖 31 项功能；而 Spoofax（[Wachsmuth et al. 2014](#wachsmuth-gh-konat-gdp-visser-e-2014)）、Onion（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013); [Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）以及 Whole（[Erdweg et al. 2013](#erdweg-s-van-der-storm-t-volter-m-boersma-m-bosman-r-cook-wr-gerritsen-a-hulshout-a-2013)；[Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）也涵盖了 DSL 开发过程的诸多特性。*（译注：Xtext 不属于 LW，为何出现在描述中？）*
 
 #### Table 7
 ![Table 7](pic/sms-t7.png)
 
-六款 LW 工具同时支持图形化与文本化两种表示形式。其中 GEMOC Studio 和 MPS 是仍在维护的非商业工具。GEMOC Studio 是唯一具备模型双向模型展示的工具，这意味着文本模型中的修改会实时同步到图形模型，反之亦然。GEMOC Studio 基于 EMF、Xtext 和 Sirius 构建，因此成为功能最完善的开源工具之一。该工具还支持语义执行与模型仿真。至于 MPS，除图形与文本表示外，还涵盖表格化规范（特征 03 ）。然而，（[Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）指出 LW 中仅部分实现了模型的图形化表示（特征 02 ）。Argyle 被归类为支持图形化表示的工具，因为其支持 Software Product Lines 特征模型的图形化表示。
+六款 LW 工具同时支持图形与文本化两种符号表示法。<ins>其中 GEMOC Studio 和 MPS 是仍在维护的非商业工具。GEMOC Studio 是唯一具备模型双向展示的工具，这意味着文本模型中的修改会实时同步到图形模型，反之亦然。GEMOC Studio 基于 EMF、Xtext 和 Sirius 构建，因此成为最完善的开源工具之一</ins>。该工具还支持语义执行与模型仿真。至于 MPS，除图形与文本符号表示法外，还涵盖表格化规范（[特征 03](#table-5) ）。然而，（[Erdweg et al. 2015](#erdweg-s-van-der-storm-t-vo-̈lter-m-tratt-l-bosman-r-cook-wr-gerritsen-a-hulshout-a-kelly-s-loh-a-et-al-2015)）指出 LW 中仅部分实现了模型的图形化表示（[特征 02](#table-5)）。Argyle 被归类为支持图形化表示法的工具，因为其支持 Software Product Lines 规范作为特征模型的图形化表示。
 
-另外两个同时支持图形与文本表示的 LW 已停止维护：Enso 不再获得支持，Más 则已终止开发。最后，功能最完善的工具 MetaEdit+虽具备完整性，却未提供文本表示规范，仅支持图形模型的文本化呈现。
+另外两个同时支持图形与文本符号表示法的 LW 已停止维护：Enso 不再获得支持，Más 则已终止开发。最后，功能最完善的工具 MetaEdit+ 虽具备完整性，却未提供文本表示法的规范，仅支持图形模型的文本呈现。
 
-[Table 8](#table-8) 展示了 DSL 构建工具的特性。其中我们重点强调了 Eclipse DSL 生态系统，该生态包含 EMF 等非商业框架（覆盖 11 项特性）以及 Sirius（[Eclipse F 2017a](#eclipse-f-2017-sirius)），覆盖 4 项特性。
+[Table 8](#table-8) 展示了 DSL 构建工具的功能特性。其中我们重点强调了 Eclipse DSL 生态系统，该生态包含 EMF 等非商业框架，覆盖 11 项特性，以及 Sirius（[Eclipse F 2017a](#eclipse-f-2017-sirius)），覆盖 4 项特性。
 
 #### Table 8
 ![Table 8-1](pic/sms-t8-1.png)
 ![Table 8-2](pic/sms-t8-2.png)
 
-以 Sirius 为例，因其属性5 “Model2Text”、6 “Model2Model” 和 8 “Interpretative” 中被归类为 “translational or interpretative semantics”。换言之，Sirius 可通过以下方式支持 DSL 构建：从输入的 EMF 模型定义 Sirius 模型，经代码生成后在 Eclipse IDE 内通过解释执行。
+以 Sirius 为例，因其特性 5 “[Model2Text](#table-5)”、6 “[Model2Model](#table-5)” 和 8 “[Interpretative](#table-5)” 被归类为 “translational or interpretative semantics”。换言之，Sirius 可通过以下方式支持 DSL 构建：从输入的 EMF 模型定义 Sirius 模型，通过代码生成后在 Eclipse IDE 内通过解释执行。
 
-值得注意的是，某些 DSL 构建工具涵盖了大量实用功能。例如 Xtext（[Eclipse F 2017b](#eclipse-f-2017-xtext)）覆盖 29 项功能。EMFText 涵盖表格中所有功能，除了图形化表示法外，因其允许基于 Ecore 模型定义文本语法。部分工具更专注于领域的建模表示，如 MagicDraw 用于建模 SysML、BPM 和 UPDM 语言。MagicDraw 还提供转换机制，例如，转换为 XML 和数据库模型。此外，Enterprise Architect 支持数据建模和模型仿真。但这两款工具均采用商业授权模式。非商业领域建模工具中，Papyrus 堪称完整解决方案，支持 UML profile 与 SysML，可实现实时系统建模。
+<ins>值得注意的是，某些 DSL 构建工具涵盖了大量功能特性。例如 Xtext（[Eclipse F 2017b](#eclipse-f-2017-xtext)）覆盖 29 项功能特性</ins>。EMFText 涵盖表格中所有功能特性，除了图形符号表示法外，因其允许基于 Ecore 模型定义文本语法。部分工具更专注于领域的建模表示，如 MagicDraw 用于建模 SysML、BPM 和 UPDM 语言。MagicDraw 还提供转换机制，例如，转换为 XML 和数据库模型。此外，Enterprise Architect 支持数据建模和模型仿真。但这两款工具均采用商业授权模式。<ins>非商业领域建模工具中，Papyrus 堪称完整解决方案，支持 UML profile 与 SysML，可实现实时系统建模</ins>。
 
-最后，[Table 9](#table-9) 展示了工具链的实用功能。在此分类中，验证和语义等功能未被纳入考量，因其与这些工具无关。这个组中，值得关注的是：Acceleo（[Eclipse F 2020a](#eclipse-f-2020-acceleo)）具备 14 项功能，Xpand（[Eclipse F 2020c](#eclipse-f-2020-xpand)）拥有 10 项功能，XBase（[Eclipse F 2020b](#eclipse-f-2020-xbase)）则包含 9 项功能。本表所有工具均支持文本标记，这可能源于它们在文本与代码生成方面具有文本处理特性。此外，它们均提供模型转换功能。
+最后，[Table 9](#table-9) 展示了工具链工具的功能特性。在此分类中，验证和语义等功能特性未被纳入考量，因它们与这些工具无关。该组中，值得关注的是：Acceleo（[Eclipse F 2020a](#eclipse-f-2020-acceleo)）具备 14 项功能特性，Xpand（[Eclipse F 2020c](#eclipse-f-2020-xpand)）拥有 10 项功能特性，XBase（[Eclipse F 2020b](#eclipse-f-2020-xbase)）则包含 9 项功能特性。<ins>本表所有工具均支持文本符号表示法，这可能源于它们具有与文本和代码生成相关的文本特性 (textual aspect)。此外，它们均提供模型转换功能</ins>。
 
 #### Table 9
 ![Table 9](pic/sms-t9.png)
+*（译注：上图中的图例 2 是笔误，应该是 Syntactic Services）*
 
 Meta3、Xpand 和 Xbase 同时支持模型到模型转换与模型到文本转换，而 Acceleo 和 JET 仅支持模型到文本转换。最后需说明，尽管JET（Java Emitter Templates）工具被 5 项研究引用，但该工具已停止维护。
 
