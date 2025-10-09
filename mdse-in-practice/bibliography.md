@@ -4,7 +4,7 @@
 Roberto Acerbis, Aldo Bongio, Marco Brambilla, Massimo Tisi, Stefano Ceri, and Emanuele Tosetti.</br>
 Developing eBusiness solutions with a model driven approach: The case of Acer EMEA.</br>
 In Luciano Baresi, Piero Fraternali, and Geert-Jan Houben, Eds., Proc. of the 7th International Conference Web Engineering (ICWE’07), volume 4607 of Lecture Notes in Computer Science, pages 539–544.</br>
-Springer, 2007. DOI: 10.1007/978-3-540-73597-7. [2]()
+Springer, 2007. DOI: 10.1007/978-3-540-73597-7. [2](ch1/2.md#12-软件开发的建模)
 
 #### 2
 Alfred V. Aho, Monica S. Lam, Ravi Sethi, and Jeffrey D. Ullman.</br>
@@ -53,7 +53,7 @@ Software and System Modelling, 4(2):171–188, 2005. DOI: 10.1007/s10270-005-007
 #### 11
 Mike Blechar and David Norton.</br>
 Trends in model-driven development, 4Q09-3Q10.</br>
-Technical report, Gartner, 2009. [3]()
+Technical report, Gartner, 2009. [3](ch1/2.md#12-软件开发的建模)
 
 #### 12
 Petra Brosch, Gerti Kappel, Philip Langer, Martina Seidl, Konrad Wieland, and Manuel Wimmer.</br>
