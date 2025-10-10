@@ -48,7 +48,7 @@ Queue, 2(1):72–80, 2004. DOI: 10.1145/984458.984495. [74]()
 #### 10
 Jean Bézivin.</br>
 On the unification power of models.</br>
-Software and System Modelling, 4(2):171–188, 2005. DOI: 10.1007/s10270-005-0079-0. [8]()
+Software and System Modelling, 4(2):171–188, 2005. DOI: 10.1007/s10270-005-0079-0. [8](ch2/1.md#21-mdse-基础)
 
 #### 11
 Mike Blechar and David Norton.</br>

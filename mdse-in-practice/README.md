@@ -51,8 +51,10 @@ Manuel Wimmer, 奥地利维也纳工业大学
 ### 目录
 * [序言](foreword/0.md)
 * [感谢](ack/0.md)
-* [第一章](ch1/0.md)
+* [第一章 引言](ch1/0.md)
   - [模型的目的与用途](ch1/1.md)
   - [软件开发的建模](ch1/2.md)
   - [如何阅读本书](ch1/3.md)
+* [第二章 MDSE 原理](ch2/0.md)
+  - [MDSE 基础](ch2/1.md)
 * [参考文献](bibliography.md)
