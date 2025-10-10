@@ -57,4 +57,5 @@ Manuel Wimmer, 奥地利维也纳工业大学
   - [如何阅读本书](ch1/3.md)
 * [第二章 MDSE 原理](ch2/0.md)
   - [MDSE 基础](ch2/1.md)
+  - [缩略语迷宫：MD\* 丛林](ch2/2.md)
 * [参考文献](bibliography.md)
