@@ -28,7 +28,7 @@ Journal of Object Technology, 8(5):49–84, 2009. DOI: 10.5381/jot.2009.8.5.c5. 
 #### 6
 Dinesh Batra and George M. Marakas.</br>
 Conceptual data modelling in theory and practice.</br>
-European Journal on Information Systems, 4(3):185–193, 1995. DOI: 10.1057/ejis.1995.21. [21]()
+European Journal on Information Systems, 4(3):185–193, 1995. DOI: 10.1057/ejis.1995.21. [21](ch2/5.md)
 
 #### 7
 Benoit Baudry, Sudipto Ghosh, Franck Fleurey, Robert B. France, Yves Le Traon, and Jean-Marie Mottu.</br>
@@ -100,7 +100,7 @@ IBM Systems Journal, 45(3):621–645, 2006. DOI: 10.1147/sj.453.0621. [123]()
 #### 20
 Brian Dobing and Jeffrey Parsons.</br>
 How UML is used.</br>
-Communications of the ACM, 49:109–113, 2006. DOI: 10.1145/1125944.1125949. [21]()
+Communications of the ACM, 49:109–113, 2006. DOI: 10.1145/1125944.1125949. [21](ch2/5.md)
 
 #### 21
 Hartmut Ehrig, Karsten Ehrig, Ulrike Prange, and Gabriele Taentzer.</br>
@@ -118,12 +118,12 @@ Electronic Notes in Theoretical Computer Science, 127(3):59–74, 2005. DOI: 10.
 #### 24
 Andrew Forward and Timothy C. Lethbridge.</br>
 Problems and opportunities for model-centric vs. code-centric development: A survey of software professionals.</br>
-In Proc. of the International Workshop on Models in Software Engineering (MiSE’08) and (ICSE’08), pages 27–32, ACM, 2008. DOI: 10.1145/1370731.1370738. [21]()
+In Proc. of the International Workshop on Models in Software Engineering (MiSE’08) and (ICSE’08), pages 27–32, ACM, 2008. DOI: 10.1145/1370731.1370738. [21](ch2/5.md)
 
 #### 25
 Martin Fowler.</br>
 UML Distilled: A Brief Guide to the Standard Object Modelling Language, 3rd ed.,</br>
-Addison-Wesley, 2003. [23]()
+Addison-Wesley, 2003. [23](ch2/5.md#fig-211)
 
 #### 26
 Mirco Franzago and Henry Muccini and Ivano Malavolta.</br>
@@ -143,7 +143,7 @@ The Institute of Electrical and Electronics Engineers Inc., 1991. [33]()
 #### 29
 Robert L. Glass.</br>
 Loyal opposition—frequently forgotten fundamental facts about software engineering.</br>
-IEEE Software, 18(3):112–111, 2001. DOI: 10.1109/ms.2001.922739. [23]()
+IEEE Software, 18(3):112–111, 2001. DOI: 10.1109/ms.2001.922739. [23](ch2/5.md#fig-211)
 
 #### 30
 Jack Greenfield, Keith Short, Steve Cook, and Stuart Kent.</br>
@@ -169,7 +169,7 @@ SIGMOD Record, 40(1):35–39, 2011. DOI: 10.1145/2007206.2007217. [139]()
 #### 34
 John Hutchinson, Mark Rouncefield, and Jon Whittle.</br>
 Model-driven engineering practices in industry: Social, organizational and managerial factors that lead to success or failure.</br>
-Science of Computer Programming, 89: 144–161, 2014. DOI: 10.1016/j.scico.2013.03.017. 21, 23, [53]()
+Science of Computer Programming, 89: 144–161, 2014. DOI: 10.1016/j.scico.2013.03.017. [21](ch2/5.md), [23](ch2/5.md#fig-211), [53]()
 
 #### 35
 ISO/IEC. 14977:1996(E) Information technology—syntactic metalanguage—extended BNF, International Standard, 1996. DOI: 10.3403/01300022. [85]()
@@ -312,7 +312,7 @@ John Wiley & Sons, 2006. [92]()
 #### 63
 Friedrich Steimann and Thomas Kühne.</br>
 Coding for the code.</br>
-Queue, 3:44–51, 2005. DOI: 10.1145/1113322.1113336. [23]()
+Queue, 3:44–51, 2005. DOI: 10.1145/1113322.1113336. [23](ch2/5.md#fig-211)
 
 #### 64
 David Steinberg, Frank Budinsky, Marcelo Paternostro, and Ed Merks.</br>

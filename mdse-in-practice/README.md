@@ -68,4 +68,5 @@ Manuel Wimmer, 奥地利维也纳工业大学
     * [2.4.1 绘图工具与建模工具的区别](ch2/4.md#241-绘图工具与建模工具的区别)
     * [2.4.2 基于模型的 MDSE 工具与基于编程的 MDSE 工具](ch2/4.md#242-基于模型的-mdse-工具与基于编程的-mdse-工具)
     * [2.4.3 Eclipse 与 EMF](ch2/4.md#243-eclipse-与-emf)
+  - [2.5  MDSE 的采用与批评](ch2/5.md)
 * [参考文献](bibliography.md)
