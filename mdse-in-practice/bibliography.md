@@ -13,7 +13,7 @@ Compilers: Principles, Techniques, and Tools, 2nd ed., Addison-Wesley, 2007. [14
 #### 3
 Manoli Albert, Jordi Cabot, Cristina Gómez, and Vicente Pelechano.</br>
 Automatic generation of basic behavior schemas from UML class diagrams.</br>
-Software and System Modelling, 9(1):47–67, 2010. DOI: 10.1007/s10270-008-0108-x. [27]()
+Software and System Modelling, 9(1):47–67, 2010. DOI: 10.1007/s10270-008-0108-x. [27](ch3/1.md#fig-32)
 
 #### 4
 Scott Ambler.</br>
@@ -236,7 +236,7 @@ Software and System Modelling, 5(4):369–385, 2006. DOI: 10.1007/s10270-006-001
 #### 48
 Stephen J. Mellor and Marc J. Balcer.</br>
 Executable UML: A Foundation for Model-Driven Architecture,</br>
-Addison-Wesley, 2002. [27]()
+Addison-Wesley, 2002. [27](ch3/0.md#4)
 
 #### 49
 Tom Mens and Pieter Van Gorp.</br>
@@ -352,7 +352,7 @@ Academic Press, 1993. DOI: 10.1016/c2013-0-07627-x. [170]()
 #### 71
 Markus Völter.</br>
 A catalog of patterns for program generation.</br>
-In Kevlin Henney and Dietmar Schütz, editors, Proc. of the 8th European Conference on Pattern Languages of Programs (EuroPLoP’03), pages 285–320, 2003. [28]()
+In Kevlin Henney and Dietmar Schütz, editors, Proc. of the 8th European Conference on Pattern Languages of Programs (EuroPLoP’03), pages 285–320, 2003. [28](ch3/1.md#fig-34)
 
 #### 72
 Andrés Yie and Dennis Wagelaar.</br>

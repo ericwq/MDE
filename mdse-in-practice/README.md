@@ -70,4 +70,5 @@ Manuel Wimmer, 奥地利维也纳工业大学
     * [2.4.3 Eclipse 与 EMF](ch2/4.md#243-eclipse-与-emf)
   - [2.5  MDSE 的采用与批评](ch2/5.md)
 * [第三章 MDSE 用例](ch3/0.md)
+  - [3.1 软件开发的自动化](ch3/1.md)
 * [参考文献](bibliography.md)
