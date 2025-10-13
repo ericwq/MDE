@@ -75,7 +75,7 @@ Science of Computer Programming, 89:71–87, 2014. DOI: 10.1016/j.scico.2013.03.
 Hugo Bruneliere, Jordi Cabot, Cauê Clasen, Frédéric Jouault, and Jean Bézivin.</br>
 Towards model driven tool interoperability: Bridging eclipse and microsoft modelling tools.</br>
 In Thomas Kühne, Bran Selic, Marie-Pierre Gervais, and François Terrier, Eds., Proc. of the 6th European Conference on Modelling Foundations and Applications (ECMFA’10), volume 6138 of Lecture Notes in Computer Science, pages 32–47.</br>
-Springer, 2010. DOI: 10.1007/978-3-642-13595-8. [34]()
+Springer, 2010. DOI: 10.1007/978-3-642-13595-8. [34](ch3/2.md)
 
 #### 16
 Richard M. Burton and Borge Obel.</br>
@@ -138,7 +138,7 @@ Addison-Wesley Professional, Boston, 1995. 68, 87, [145]()
 #### 28
 Anne Geraci.</br>
 IEEE Standard Computer Dictionary: Compilation of IEEE Standard Computer Glossaries.</br>
-The Institute of Electrical and Electronics Engineers Inc., 1991. [33]()
+The Institute of Electrical and Electronics Engineers Inc., 1991. [33](ch3/2.md)
 
 #### 29
 Robert L. Glass.</br>
@@ -177,7 +177,7 @@ ISO/IEC. 14977:1996(E) Information technology—syntactic metalanguage—extende
 #### 36
 Javier Luis Cánovas Izquierdo, Frédéric Jouault, Jordi Cabot, and Jesús García Molina.</br>
 API2MoL: Automating the building of bridges between APIs and model-driven engineering.</br>
-Information and Software Technology, 54(3):257–273, 2012. DOI: 10.1016/j.infsof.2011.09.006. [34]()
+Information and Software Technology, 54(3):257–273, 2012. DOI: 10.1016/j.infsof.2011.09.006. [34](ch3/2.md)
 
 #### 37
 Ivar Jacobson, Grady Booch, and James Rumbaugh.</br>
