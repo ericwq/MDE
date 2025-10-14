@@ -80,7 +80,7 @@ Springer, 2010. DOI: 10.1007/978-3-642-13595-8. [34](ch3/2.md)
 #### 16
 Richard M. Burton and Borge Obel.</br>
 Strategic Organizational Diagnosis and Design,</br>
-Kluwer Academic Publishers, 1998. DOI: 10.1007/978-1-4684-0023-6. [54]()
+Kluwer Academic Publishers, 1998. DOI: 10.1007/978-1-4684-0023-6. [54](ch5/1.md#512-开发过程的社会技术契合度)
 
 #### 17
 Antonio Cicchetti, Davide Di Ruscio, Romina Eramo, and Alfonso Pierantonio.</br>
@@ -153,7 +153,7 @@ John Wiley & Sons, 2004. DOI: 10.1007/978-3-540-28630-1_19. [61]()
 #### 31
 Jonathan Grudin.</br>
 Groupware and social dynamics: Eight challenges for developers.</br>
-Communications of the ACM, 37(1):92–105, 1994. DOI: 10.1145/175222.175230. [54]()
+Communications of the ACM, 37(1):92–105, 1994. DOI: 10.1145/175222.175230. [54](ch5/0.md)
 
 #### 32
 Reiko Heckel, Jochen Malte Küster, and Gabriele Taentzer.</br>
@@ -169,7 +169,7 @@ SIGMOD Record, 40(1):35–39, 2011. DOI: 10.1145/2007206.2007217. [139]()
 #### 34
 John Hutchinson, Mark Rouncefield, and Jon Whittle.</br>
 Model-driven engineering practices in industry: Social, organizational and managerial factors that lead to success or failure.</br>
-Science of Computer Programming, 89: 144–161, 2014. DOI: 10.1016/j.scico.2013.03.017. [21](ch2/5.md), [23](ch2/5.md#fig-211), [53]()
+Science of Computer Programming, 89: 144–161, 2014. DOI: 10.1016/j.scico.2013.03.017. [21](ch2/5.md), [23](ch2/5.md#fig-211), [53](ch5/1.md)
 
 #### 35
 ISO/IEC. 14977:1996(E) Information technology—syntactic metalanguage—extended BNF, International Standard, 1996. DOI: 10.3403/01300022. [85]()
@@ -182,7 +182,7 @@ Information and Software Technology, 54(3):257–273, 2012. DOI: 10.1016/j.infso
 #### 37
 Ivar Jacobson, Grady Booch, and James Rumbaugh.</br>
 The Unified Software Development Process, 1st ed.,</br>
-Addison-Wesley Professional, 1999. [55]()
+Addison-Wesley Professional, 1999. [55](ch5/2.md)
 
 #### 38
 Jean-Marc Jézéquel.</br>
