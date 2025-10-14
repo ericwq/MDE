@@ -23,7 +23,7 @@ Wiley, 2002. [56](ch5/3.md)
 #### 5
 Sven Apel and Christian Kästner.</br>
 An overview of feature-oriented software development.</br>
-Journal of Object Technology, 8(5):49–84, 2009. DOI: 10.5381/jot.2009.8.5.c5. [60]()
+Journal of Object Technology, 8(5):49–84, 2009. DOI: 10.5381/jot.2009.8.5.c5. [60](ch5/6.md)
 
 #### 6
 Dinesh Batra and George M. Marakas.</br>
@@ -148,7 +148,7 @@ IEEE Software, 18(3):112–111, 2001. DOI: 10.1109/ms.2001.922739. [23](ch2/5.md
 #### 30
 Jack Greenfield, Keith Short, Steve Cook, and Stuart Kent.</br>
 Software Factories: Assembling Applications with Patterns, Models, Frameworks, and Tools,</br>
-John Wiley & Sons, 2004. DOI: 10.1007/978-3-540-28630-1_19. [61]()
+John Wiley & Sons, 2004. DOI: 10.1007/978-3-540-28630-1_19. [61](ch5/6.md)
 
 #### 31
 Jonathan Grudin.</br>
@@ -187,7 +187,7 @@ Addison-Wesley Professional, 1999. [55](ch5/2.md)
 #### 38
 Jean-Marc Jézéquel.</br>
 Model-driven engineering for software product lines.</br>
-ISRN Software Engineering, 2012:1–24, 2012 DOI: 10.5402/2012/670803. [60]()
+ISRN Software Engineering, 2012:1–24, 2012 DOI: 10.5402/2012/670803. [60](ch5/6.md)
 
 #### 39
 Cliff B. Jones, Peter W. O’Hearn, and Jim Woodcock.</br>
@@ -286,7 +286,7 @@ http://www.omg.org/spec/UML/2.1.2/Superstructure/PDF [102]()
 #### 58
 Klaus Pohl, Günter Böckle, and Frank J. van der Linden.</br>
 Software Product Line Engineering: Foundations, Principles, and Techniques,</br>
-Springer, 2005. DOI: 10.1007/3-540-28901-1. [59]()
+Springer, 2005. DOI: 10.1007/3-540-28901-1. [59](ch5/6.md)
 
 #### 59
 Louis M. Rose, Markus Herrmannsdoerfer, James R. Williams, Dimitrios S. Kolovos, Kelly Garcés, Richard F. Paige, and Fiona A. C. Polack.</br>
