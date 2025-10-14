@@ -38,7 +38,7 @@ Communications of the ACM, 53(6):139–143, 2010. DOI: 10.1145/1743546.1743583. 
 #### 8
 Kent Beck.</br>
 Test-Driven Development by Example,</br>
-Addison-Wesley Professional, 2002. [58]()
+Addison-Wesley Professional, 2002. [58](ch5/5.md)
 
 #### 9
 Alex E. Bell.</br>
@@ -342,7 +342,7 @@ Research Report RR-7582, INRIA, 2011. [137](), [139]()
 #### 69
 Albert Tort, Antoni Olivé, and Maria-Ribera Sancho.</br>
 An approach to test-driven development of conceptual schemas.</br>
-Data & Knowledge Engineering, 70(12):1088–1111, 2011. DOI: 10.1016/j.datak.2011.07.006. [59]()
+Data & Knowledge Engineering, 70(12):1088–1111, 2011. DOI: 10.1016/j.datak.2011.07.006. [59](ch5/5.md#552-测试驱动建模)
 
 #### 70
 Edward Tsang.</br>
