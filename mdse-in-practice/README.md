@@ -82,4 +82,5 @@ Manuel Wimmer, 奥地利维也纳工业大学
 * [第 4 章 模型驱动架构（MDA）](ch4/0.md)
   - [4.1 MDA 定义与假设](ch4/1.md)
   - [4.2 建模层次：CIM、PIM、PSM](ch4/2.md)
+  - [4.3 映射](ch4/3.md)
 * [参考文献](bibliography.md)
