@@ -91,4 +91,5 @@ Manuel Wimmer, 奥地利维也纳工业大学
     * [5.1.2 开发过程的社会技术契合度](ch5/1.md#512-开发过程的社会技术契合度)
   - [5.2 传统开发流程与 MDSE](ch5/2.md)
   - [5.3 敏捷与 MDSE](ch5/3.md)
+  - [5.4 DDD 与 MDSE](ch5/4.md)
 * [参考文献](bibliography.md)

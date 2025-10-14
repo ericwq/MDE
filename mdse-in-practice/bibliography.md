@@ -108,7 +108,7 @@ Fundamentals of Algebraic Graph Transformation, Springer, 2006. DOI: 10.1007/3-5
 
 #### 22
 Eric Evans.</br>
-Domain-driven Design: Tackling Complexity in the Heart of Software, Addison-Wesley Professional, 2004. [57]()
+Domain-driven Design: Tackling Complexity in the Heart of Software, Addison-Wesley Professional, 2004. [57](ch5/4.md)
 
 #### 23
 Jean-Marie Favre and Tam Nguyen.</br>
