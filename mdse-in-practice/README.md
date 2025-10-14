@@ -84,4 +84,5 @@ Manuel Wimmer, 奥地利维也纳工业大学
   - [4.2 建模层次：CIM、PIM、PSM](ch4/2.md)
   - [4.3 映射](ch4/3.md)
   - [4.4 MDA 中的通用语言与领域特定语言](ch4/4.md)
+  - [4.5 架构驱动现代化（ADM）](ch4/5.md)
 * [参考文献](bibliography.md)

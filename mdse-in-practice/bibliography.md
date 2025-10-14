@@ -266,7 +266,7 @@ In Albert Llamosí and Alfred Strohmeier, Eds., Proc. of the 9th Ada-Europe Inte
 #### 54
 Object Management Group (OMG).</br>
 Architecture-driven modernization task force, 2007.</br>
-http://adm.omg.org [50]()
+http://adm.omg.org [50](ch4/5.md)
 
 #### 55
 Object Management Group (OMG).</br>
