@@ -172,7 +172,7 @@ Model-driven engineering practices in industry: Social, organizational and manag
 Science of Computer Programming, 89: 144–161, 2014. DOI: 10.1016/j.scico.2013.03.017. [21](ch2/5.md), [23](ch2/5.md#fig-211), [53](ch5/1.md)
 
 #### 35
-ISO/IEC. 14977:1996(E) Information technology—syntactic metalanguage—extended BNF, International Standard, 1996. DOI: 10.3403/01300022. [85]()
+ISO/IEC. 14977:1996(E) Information technology—syntactic metalanguage—extended BNF, International Standard, 1996. DOI: 10.3403/01300022. [85](ch7/0.md#1)
 
 #### 36
 Javier Luis Cánovas Izquierdo, Frédéric Jouault, Jordi Cabot, and Jesús García Molina.</br>
