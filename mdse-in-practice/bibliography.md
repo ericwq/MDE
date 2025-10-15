@@ -221,7 +221,7 @@ IEEE Software, 26:22–29, 2009. DOI: 10.1109/ms.2009.109. [77](ch6/6.md#661-dsl
 #### 45
 Anneke Kleppe.</br>
 Software Language Engineering: Creating Domain-Specific Languages Using Metamodels, 1st ed.,</br>
-Addison-Wesley Professional, 2008. [87]()
+Addison-Wesley Professional, 2008. [87](ch7/1.md)
 
 #### 46
 Dimitrios S. Kolovos, Davide Di Ruscio, Alfonso Pierantonio, and Richard F. Paige.</br>
@@ -231,7 +231,7 @@ In Proc. of the International Workshop on Comparison and Versioning of Software 
 #### 47
 Thomas Kühne.</br>
 Matters of (meta-)modeling.</br>
-Software and System Modelling, 5(4):369–385, 2006. DOI: 10.1007/s10270-006-0017-9. 86, [91]()
+Software and System Modelling, 5(4):369–385, 2006. DOI: 10.1007/s10270-006-0017-9. [86](ch7/1.md), [91]()
 
 #### 48
 Stephen J. Mellor and Marc J. Balcer.</br>
