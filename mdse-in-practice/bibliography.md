@@ -43,7 +43,7 @@ Addison-Wesley Professional, 2002. [58](ch5/5.md)
 #### 9
 Alex E. Bell.</br>
 Death by UML fever.</br>
-Queue, 2(1):72–80, 2004. DOI: 10.1145/984458.984495. [74]()
+Queue, 2(1):72–80, 2004. DOI: 10.1145/984458.984495. [74](ch6/4.md#644-uml-工具)
 
 #### 10
 Jean Bézivin.</br>
@@ -133,7 +133,7 @@ In Proc. of the 1st International Conference on Mobile Software Engineering and 
 #### 27
 Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.</br>
 Design Patterns: Elements of Reusable Object-Oriented Software,</br>
-Addison-Wesley Professional, Boston, 1995. 68, 87, [145]()
+Addison-Wesley Professional, Boston, 1995. [68](ch6/4.md#641-设计实践), [87](), [145]()
 
 #### 28
 Anne Geraci.</br>
