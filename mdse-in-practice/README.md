@@ -114,4 +114,5 @@ Manuel Wimmer, 奥地利维也纳工业大学
   - [6.6 DSL 概述](ch6/6.md)
     * [6.6.1 DSL 原则](ch6/6.md#661-dsl-原则)
     * [6.6.2 DSL 示例](ch6/6.md#662-dsl-示例)
+  - [6.7 定义建模约束（OCL）](ch6/7.md)
 * [参考文献](bibliography.md)
