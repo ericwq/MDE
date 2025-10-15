@@ -117,4 +117,5 @@ Manuel Wimmer, 奥地利维也纳工业大学
   - [6.7 定义建模约束（OCL）](ch6/7.md)
 * [第 7 章 开发自己的建模语言](ch7/0.md)
   - [7.1 元模型导向的语言设计](ch7/1.md)
+  - [7.2 DSML 示例：SWML](ch7/2.md)
 * [参考文献](bibliography.md)

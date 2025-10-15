@@ -133,7 +133,7 @@ In Proc. of the 1st International Conference on Mobile Software Engineering and 
 #### 27
 Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.</br>
 Design Patterns: Elements of Reusable Object-Oriented Software,</br>
-Addison-Wesley Professional, Boston, 1995. [68](ch6/4.md#641-设计实践), [87](), [145]()
+Addison-Wesley Professional, Boston, 1995. [68](ch6/4.md#641-设计实践), [87](ch7/2.md), [145]()
 
 #### 28
 Anne Geraci.</br>
