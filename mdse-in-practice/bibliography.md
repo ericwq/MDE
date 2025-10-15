@@ -216,7 +216,7 @@ In Proc. of the 9th OOPSLA Workshop on Domain-Specific Modeling (DSM’09), 2009
 #### 44
 Steven Kelly and Risto Pohjonen.</br>
 Worst practices for domain-specific modelling.</br>
-IEEE Software, 26:22–29, 2009. DOI: 10.1109/ms.2009.109. [77]()
+IEEE Software, 26:22–29, 2009. DOI: 10.1109/ms.2009.109. [77](ch6/6.md#661-dsl-原则)
 
 #### 45
 Anneke Kleppe.</br>
