@@ -211,7 +211,7 @@ In Laurence Tratt and Martin Gogolla, Eds., Proc. of the 3rd International Confe
 #### 43
 Gabor Karsai, Holger Krahn, Claas Pinkernell, Bernhard Rumpe, Martin Schindler, and Steven Völkel.</br>
 Design guidelines for domain specific languages.</br>
-In Proc. of the 9th OOPSLA Workshop on Domain-Specific Modeling (DSM’09), 2009. [92]()
+In Proc. of the 9th OOPSLA Workshop on Domain-Specific Modeling (DSM’09), 2009. [92](ch7/3.md#731-元模型开发过程)
 
 #### 44
 Steven Kelly and Risto Pohjonen.</br>
@@ -231,7 +231,7 @@ In Proc. of the International Workshop on Comparison and Versioning of Software 
 #### 47
 Thomas Kühne.</br>
 Matters of (meta-)modeling.</br>
-Software and System Modelling, 5(4):369–385, 2006. DOI: 10.1007/s10270-006-0017-9. [86](ch7/1.md), [91]()
+Software and System Modelling, 5(4):369–385, 2006. DOI: 10.1007/s10270-006-0017-9. [86](ch7/1.md), [91](ch7/3.md#fig-72)
 
 #### 48
 Stephen J. Mellor and Marc J. Balcer.</br>
@@ -276,7 +276,7 @@ http://www.omg.org/cgi-bin/doc?ormsc/14-06-01 [43](ch4/0.md)
 #### 56
 Object Management Group (OMG).</br>
 Meta object facility, version 2.0, 2006.</br>
-http://www.omg.org/spec/MOF/2.0/PDF [89]()
+http://www.omg.org/spec/MOF/2.0/PDF [89](ch7/3.md)
 
 #### 57
 Object Management Group (OMG).</br>
@@ -307,7 +307,7 @@ IEEE Software, 20(5):42–45, 2003. DOI: 10.1109/ms.2003.1231150. [123]()
 #### 62
 Thomas Stahl, Markus Voelter, and Krzysztof Czarnecki.</br>
 Model-Driven Software Development: Technology, Engineering, Management,</br>
-John Wiley & Sons, 2006. [92]()
+John Wiley & Sons, 2006. [92](ch7/3.md#731-元模型开发过程)
 
 #### 63
 Friedrich Steimann and Thomas Kühne.</br>
