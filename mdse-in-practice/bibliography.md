@@ -251,7 +251,7 @@ Science of Computer Programming, 76(12):1223–1246, 2011. DOI: 10.1016/j.scico.
 #### 51
 Daniel L. Moody.</br>
 The “physics” of notations: Toward a scientific basis for constructing visual notations in software engineering.</br>
-IEEE Transactions on Software Engineering, 35(6):756–779, 2009. DOI: 10.1109/tse.2009.67. [103]()
+IEEE Transactions on Software Engineering, 35(6):756–779, 2009. DOI: 10.1109/tse.2009.67. [103](ch7/4.md#fig-79)
 
 #### 52
 Tien N. Nguyen, Ethan V. Munson, John T. Boyland, and Cheng Thao.</br>
@@ -281,7 +281,7 @@ http://www.omg.org/spec/MOF/2.0/PDF [89](ch7/3.md)
 #### 57
 Object Management Group (OMG).</br>
 Unified modelling language superstructure specification, version 2.1.2, 2007.</br>
-http://www.omg.org/spec/UML/2.1.2/Superstructure/PDF [102]()
+http://www.omg.org/spec/UML/2.1.2/Superstructure/PDF [102](ch7/4.md)
 
 #### 58
 Klaus Pohl, Günter Böckle, and Frank J. van der Linden.</br>
