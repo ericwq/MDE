@@ -69,7 +69,7 @@ In Emerging Technologies for the Evolution and Maintenance of Software Models, p
 #### 14
 Marco Brambilla, Piero Fraternali.</br>
 Large-scale model-driven engineering of web user interaction: The WebML and WebRatio experience.</br>
-Science of Computer Programming, 89:71–87, 2014. DOI: 10.1016/j.scico.2013.03.010. [115]()
+Science of Computer Programming, 89:71–87, 2014. DOI: 10.1016/j.scico.2013.03.010. [115](ch7/5.md#752-在-ifml-中满足要求)
 
 #### 15
 Hugo Bruneliere, Jordi Cabot, Cauê Clasen, Frédéric Jouault, and Jean Bézivin.</br>
@@ -90,7 +90,7 @@ In Proc. of the 12th International IEEE Enterprise Distributed Object Computing 
 #### 18
 Jim Conallen.</br>
 Building Web Applications with UML,</br>
-Addison-Wesley, 2002. [116]()
+Addison-Wesley, 2002. [116](ch7/5.md#752-在-ifml-中满足要求)
 
 #### 19
 Krzysztof Czarnecki and Simon Helsen.</br>
@@ -128,7 +128,7 @@ Addison-Wesley, 2003. [23](ch2/5.md#fig-211)
 #### 26
 Mirco Franzago and Henry Muccini and Ivano Malavolta.</br>
 Towards a collaborative framework for the design and development of data-intensive mobile applications</br>
-In Proc. of the 1st International Conference on Mobile Software Engineering and Systems (MobileSoft2014), pages 58–61, ACM, 2014. DOI: 10.1145/2593902.2593917. [116]()
+In Proc. of the 1st International Conference on Mobile Software Engineering and Systems (MobileSoft2014), pages 58–61, ACM, 2014. DOI: 10.1145/2593902.2593917. [116](ch7/5.md#752-在-ifml-中满足要求)
 
 #### 27
 Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.</br>
