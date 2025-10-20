@@ -95,7 +95,7 @@ Addison-Wesley, 2002. [116](ch7/5.md#752-在-ifml-中满足要求)
 #### 19
 Krzysztof Czarnecki and Simon Helsen.</br>
 Feature-based survey of model transformation approaches.</br>
-IBM Systems Journal, 45(3):621–645, 2006. DOI: 10.1147/sj.453.0621. [123]()
+IBM Systems Journal, 45(3):621–645, 2006. DOI: 10.1147/sj.453.0621. [123](ch8/1.md)
 
 #### 20
 Brian Dobing and Jeffrey Parsons.</br>
@@ -241,7 +241,7 @@ Addison-Wesley, 2002. [27](ch3/0.md#4)
 #### 49
 Tom Mens and Pieter Van Gorp.</br>
 A taxonomy of model transformation.</br>
-Electronic Notes in Theoretical Computer Science, 152:125–142, 2006. DOI: 10.1016/j.entcs.2005.10.021. [123](), [124]()
+Electronic Notes in Theoretical Computer Science, 152:125–142, 2006. DOI: 10.1016/j.entcs.2005.10.021. [123](ch8/1.md), [124](ch8/1.md)
 
 #### 50
 Bart Meyers and Hans Vangheluwe.</br>
