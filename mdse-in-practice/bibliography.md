@@ -301,7 +301,7 @@ In Proc. of the 20th International Workshop on Graph-Theoretic Concepts in Compu
 #### 61
 Shane Sendall and Wojtek Kozaczynski.</br>
 Model transformation: The heart and soul of model-driven software development.</br>
-IEEE Software, 20(5):42–45, 2003. DOI: 10.1109/ms.2003.1231150. [123]()
+IEEE Software, 20(5):42–45, 2003. DOI: 10.1109/ms.2003.1231150. [123](ch8/0.md)
 
 
 #### 62
