@@ -197,12 +197,12 @@ IEEE Computer, 39(4):93–95, 2006. DOI: 10.1109/mc.2006.145. [169]()
 #### 40
 Frédéric Jouault.</br>
 Loosely coupled traceability for ATL.</br>
-In Proc. of the International Workshop on Traceability (ECMDA’05), pages 29–37, 2005. [131]()
+In Proc. of the International Workshop on Traceability (ECMDA’05), pages 29–37, 2005. [131](ch8/2.md#内部与外部追踪模型)
 
 #### 41
 Frédéric Jouault, Freddy Allilaire, Jean Bézivin, and Ivan Kurtev.</br>
 ATL: A model transformation tool.</br>
-Science of Computer Programming, 72(1-2):31–39, 2008. DOI: 10.1016/j.scico.2007.08.002. [125]()
+Science of Computer Programming, 72(1-2):31–39, 2008. DOI: 10.1016/j.scico.2007.08.002. [125](ch8/2.md)
 
 #### 42 Frédéric Jouault and Massimo Tisi.</br>
 Towards incremental execution of ATL transformations.</br>
@@ -296,7 +296,7 @@ In Dorina C. Petriu, Nicolas Rouquette, and Øystein Haugen, Eds., Proc. of the 
 #### 60
 Andy Schürr.</br>
 Specification of graph translators with triple graph grammars.</br>
-In Proc. of the 20th International Workshop on Graph-Theoretic Concepts in Computer Science (WG’94), volume 903 of Lecture Notes in Computer Science, pages 151–163, Springer, 1994. DOI: 10.1007/3-540-59071-4_45. [131]()
+In Proc. of the 20th International Workshop on Graph-Theoretic Concepts in Computer Science (WG’94), volume 903 of Lecture Notes in Computer Science, pages 151–163, Springer, 1994. DOI: 10.1007/3-540-59071-4_45. [131](ch8/2.md#atl替代方案)
 
 #### 61
 Shane Sendall and Wojtek Kozaczynski.</br>
@@ -357,4 +357,4 @@ In Kevlin Henney and Dietmar Schütz, editors, Proc. of the 8th European Confere
 #### 72
 Andrés Yie and Dennis Wagelaar.</br>
 Advanced traceability for ATL.</br>
-In Proc. of the 1st International Workshop on Model Transformation with ATL (MtATL 2009), 2009. [131]()
+In Proc. of the 1st International Workshop on Model Transformation with ATL (MtATL 2009), 2009. [131](ch8/2.md#内部与外部追踪模型)
