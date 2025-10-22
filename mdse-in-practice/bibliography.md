@@ -104,7 +104,7 @@ Communications of the ACM, 49:109–113, 2006. DOI: 10.1145/1125944.1125949. [21
 
 #### 21
 Hartmut Ehrig, Karsten Ehrig, Ulrike Prange, and Gabriele Taentzer.</br>
-Fundamentals of Algebraic Graph Transformation, Springer, 2006. DOI: 10.1007/3-540-31188-2. [132]()
+Fundamentals of Algebraic Graph Transformation, Springer, 2006. DOI: 10.1007/3-540-31188-2. [132](ch8/3.md)
 
 #### 22
 Eric Evans.</br>
@@ -327,7 +327,7 @@ In Proc. of the International Summer School on Generative and Transformational T
 #### 66
 Eugene Syriani and Hans Vangheluwe.</br>
 De-/re-constructing model transformation languages.</br>
-ECEASST, 29:1-14, 2010. DOI: 10.14279/tuj.eceasst.29.407. [136]()
+ECEASST, 29:1-14, 2010. DOI: 10.14279/tuj.eceasst.29.407. [136](ch8/3.md#fig-86)
 
 #### 67
 Massimo Tisi, Frédéric Jouault, Piero Fraternali, Stefano Ceri, and Jean Bézivin.</br>
