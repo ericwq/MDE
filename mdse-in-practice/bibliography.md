@@ -164,7 +164,7 @@ Springer, 2002. [136]()
 #### 33
 Zhenjiang Hu, Andy Schürr, Perdita Stevens, and James F. Terwilliger.</br>
 Dagstuhl seminar on bidirectional transformations (BX).</br>
-SIGMOD Record, 40(1):35–39, 2011. DOI: 10.1145/2007206.2007217. [139]()
+SIGMOD Record, 40(1):35–39, 2011. DOI: 10.1145/2007206.2007217. [139](ch8/4.md#844-双向模型转换)
 
 #### 34
 John Hutchinson, Mark Rouncefield, and Jon Whittle.</br>
@@ -204,9 +204,10 @@ Frédéric Jouault, Freddy Allilaire, Jean Bézivin, and Ivan Kurtev.</br>
 ATL: A model transformation tool.</br>
 Science of Computer Programming, 72(1-2):31–39, 2008. DOI: 10.1016/j.scico.2007.08.002. [125](ch8/2.md)
 
-#### 42 Frédéric Jouault and Massimo Tisi.</br>
+#### 42
+Frédéric Jouault and Massimo Tisi.</br>
 Towards incremental execution of ATL transformations.</br>
-In Laurence Tratt and Martin Gogolla, Eds., Proc. of the 3rd International Conference on Theory and Practice of Model Transformations (ICMT’10), volume 6142 of Lecture Notes in Computer Science, pages 123–137, Springer, 2010. [139]()
+In Laurence Tratt and Martin Gogolla, Eds., Proc. of the 3rd International Conference on Theory and Practice of Model Transformations (ICMT’10), volume 6142 of Lecture Notes in Computer Science, pages 123–137, Springer, 2010. [139](ch8/4.md#843-超越批处理增量与延迟转换)
 
 #### 43
 Gabor Karsai, Holger Krahn, Claas Pinkernell, Bernhard Rumpe, Martin Schindler, and Steven Völkel.</br>
@@ -322,7 +323,7 @@ Addison-Wesley Professional, 2009. [143]()
 #### 65
 Perdita Stevens.</br>
 A Landscape of Bidirectional Model Transformations.</br>
-In Proc. of the International Summer School on Generative and Transformational Techniques in Software Engineering II (GTTSE’07), volume 5235 of Lecture Notes in Computer Science, pages 408–424, Springer, 2007. DOI: 10.1007/978-3-540-88643-3_10. [139]()
+In Proc. of the International Summer School on Generative and Transformational Techniques in Software Engineering II (GTTSE’07), volume 5235 of Lecture Notes in Computer Science, pages 408–424, Springer, 2007. DOI: 10.1007/978-3-540-88643-3_10. [139](ch8/4.md#844-双向模型转换)
 
 #### 66
 Eugene Syriani and Hans Vangheluwe.</br>
@@ -332,12 +333,12 @@ ECEASST, 29:1-14, 2010. DOI: 10.14279/tuj.eceasst.29.407. [136](ch8/3.md#fig-86)
 #### 67
 Massimo Tisi, Frédéric Jouault, Piero Fraternali, Stefano Ceri, and Jean Bézivin.</br>
 On the use of higher-order model transformations.</br>
-In Proc. of the 5th European Conference on Model Driven Architecture—Foundations and Applications (ECMDA-FA’09), volume 5562 of Lecture Notes in Computer Science, pages 18–33, Springer, 2009. DOI: 10.1007/978-3-642-02674-4_3. [138]()
+In Proc. of the 5th European Conference on Model Driven Architecture—Foundations and Applications (ECMDA-FA’09), volume 5562 of Lecture Notes in Computer Science, pages 18–33, Springer, 2009. DOI: 10.1007/978-3-642-02674-4_3. [138](ch8/4.md#842-热点万物皆模型包括转换)
 
 #### 68
 Massimo Tisi, Salvador Martínez, Frédéric Jouault, and Jordi Cabot.</br>
 Refining models with rule-based model transformations.</br>
-Research Report RR-7582, INRIA, 2011. [137](), [139]()
+Research Report RR-7582, INRIA, 2011. [137](ch8/4.md#843-超越批处理增量与延迟转换), [139]()
 
 #### 69
 Albert Tort, Antoni Olivé, and Maria-Ribera Sancho.</br>
