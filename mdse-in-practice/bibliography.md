@@ -133,7 +133,7 @@ In Proc. of the 1st International Conference on Mobile Software Engineering and 
 #### 27
 Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.</br>
 Design Patterns: Elements of Reusable Object-Oriented Software,</br>
-Addison-Wesley Professional, Boston, 1995. [68](ch6/4.md#641-设计实践), [87](ch7/2.md), [145]()
+Addison-Wesley Professional, Boston, 1995. [68](ch6/4.md#641-设计实践), [87](ch7/2.md), [145](ch9/2.md#fig-93)
 
 #### 28
 Anne Geraci.</br>
@@ -318,7 +318,7 @@ Queue, 3:44–51, 2005. DOI: 10.1145/1113322.1113336. [23](ch2/5.md#fig-211)
 #### 64
 David Steinberg, Frank Budinsky, Marcelo Paternostro, and Ed Merks.</br>
 EMF: Eclipse Modeling Framework 2.0, 2nd ed.,</br>
-Addison-Wesley Professional, 2009. [143]()
+Addison-Wesley Professional, 2009. [143](ch9/2.md)
 
 #### 65
 Perdita Stevens.</br>
