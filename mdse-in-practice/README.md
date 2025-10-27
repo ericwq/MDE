@@ -148,4 +148,5 @@ Manuel Wimmer, 奥地利维也纳工业大学
     * [9.3.3 Acceleo：M2T 转换标准的实现](ch9/3.md#933-acceleom2t-转换标准的实现)
   - [9.4 掌握代码生成技术](ch9/4.md)
   - [9.5 附记：通过 M2M 转换与 TCS 实现代码生成](ch9/5.md)
+* [第 10 章 模型管理](ch10/0.md)
 * [参考文献](bibliography.md)
