@@ -59,7 +59,7 @@ Technical report, Gartner, 2009. [3](ch1/2.md#12-软件开发的建模)
 Petra Brosch, Gerti Kappel, Philip Langer, Martina Seidl, Konrad Wieland, and Manuel Wimmer.</br>
 An introduction to model versioning.</br>
 In Marco Bernardo, Vittorio Cortellessa, and Alfonso Pierantonio, Eds., Advanced Lectures of 12th International School on Formal Methods for the Design of Computer, Communication, and Software Systems—Formal Methods for Model-Driven Engineering (SFM’12), volume 7320 of Lecture Notes in Computer Science, pages 336–398.</br>
-Springer, 2012. DOI: 10.1007/978-3-642-30982-3. 161, [163]()
+Springer, 2012. DOI: 10.1007/978-3-642-30982-3. [161](ch10/3.md), [163]()
 
 #### 13
 Petra Brosch, Philip Langer, Martina Seidl, Konrad Wieland, Manuel Wimmer, and Gerti Kappel.</br>
@@ -227,7 +227,7 @@ Addison-Wesley Professional, 2008. [87](ch7/1.md)
 #### 46
 Dimitrios S. Kolovos, Davide Di Ruscio, Alfonso Pierantonio, and Richard F. Paige.</br>
 Different models for model matching: An analysis of approaches to support model differencing.</br>
-In Proc. of the International Workshop on Comparison and Versioning of Software Models (CVSM’09) and (ICSE’09), pages 1–6, IEEE Computer Society, 2009. DOI: 10.1109/cvsm.2009.5071714. [161]()
+In Proc. of the International Workshop on Comparison and Versioning of Software Models (CVSM’09) and (ICSE’09), pages 1–6, IEEE Computer Society, 2009. DOI: 10.1109/cvsm.2009.5071714. [161](ch10/3.md)
 
 #### 47
 Thomas Kühne.</br>
