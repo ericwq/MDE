@@ -33,7 +33,7 @@ European Journal on Information Systems, 4(3):185–193, 1995. DOI: 10.1057/ejis
 #### 7
 Benoit Baudry, Sudipto Ghosh, Franck Fleurey, Robert B. France, Yves Le Traon, and Jean-Marie Mottu.</br>
 Barriers to systematic model transformation testing.</br>
-Communications of the ACM, 53(6):139–143, 2010. DOI: 10.1145/1743546.1743583. [171]()
+Communications of the ACM, 53(6):139–143, 2010. DOI: 10.1145/1743546.1743583. [171](ch10/7.md#1072-模型测试与验证)
 
 #### 8
 Kent Beck.</br>
@@ -192,7 +192,7 @@ ISRN Software Engineering, 2012:1–24, 2012 DOI: 10.5402/2012/670803. [60](ch5/
 #### 39
 Cliff B. Jones, Peter W. O’Hearn, and Jim Woodcock.</br>
 Verified software: A grand challenge.</br>
-IEEE Computer, 39(4):93–95, 2006. DOI: 10.1109/mc.2006.145. [169]()
+IEEE Computer, 39(4):93–95, 2006. DOI: 10.1109/mc.2006.145. [169](ch10/7.md)
 
 #### 40
 Frédéric Jouault.</br>
@@ -348,7 +348,7 @@ Data & Knowledge Engineering, 70(12):1088–1111, 2011. DOI: 10.1016/j.datak.201
 #### 70
 Edward Tsang.</br>
 Foundations of Constraint Satisfaction,</br.
-Academic Press, 1993. DOI: 10.1016/c2013-0-07627-x. [170]()
+Academic Press, 1993. DOI: 10.1016/c2013-0-07627-x. [170](ch10/7.md#fig-105)
 
 #### 71
 Markus Völter.</br>
