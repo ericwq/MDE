@@ -113,7 +113,7 @@ Domain-driven Design: Tackling Complexity in the Heart of Software, Addison-Wesl
 #### 23
 Jean-Marie Favre and Tam Nguyen.</br>
 Towards a megamodel to model software evolution through transformations.</br>
-Electronic Notes in Theoretical Computer Science, 127(3):59–74, 2005. DOI: 10.1016/j.entcs.2004.08.034. [167]()
+Electronic Notes in Theoretical Computer Science, 127(3):59–74, 2005. DOI: 10.1016/j.entcs.2004.08.034. [167](ch10/6.md)
 
 #### 24
 Andrew Forward and Timothy C. Lethbridge.</br>
