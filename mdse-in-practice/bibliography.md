@@ -247,7 +247,7 @@ Electronic Notes in Theoretical Computer Science, 152:125–142, 2006. DOI: 10.1
 #### 50
 Bart Meyers and Hans Vangheluwe.</br>
 A framework for evolution of modelling languages.</br>
-Science of Computer Programming, 76(12):1223–1246, 2011. DOI: 10.1016/j.scico.2011.01.002. [165]()
+Science of Computer Programming, 76(12):1223–1246, 2011. DOI: 10.1016/j.scico.2011.01.002. [165](ch10/5.md)
 
 #### 51
 Daniel L. Moody.</br>
@@ -292,7 +292,7 @@ Springer, 2005. DOI: 10.1007/3-540-28901-1. [59](ch5/6.md)
 #### 59
 Louis M. Rose, Markus Herrmannsdoerfer, James R. Williams, Dimitrios S. Kolovos, Kelly Garcés, Richard F. Paige, and Fiona A. C. Polack.</br>
 A Comparison of Model Migration Tools.</br>
-In Dorina C. Petriu, Nicolas Rouquette, and Øystein Haugen, Eds., Proc. of the 13th International Conference on Model Driven Engineering Languages and Systems (MODELS’10), volume 6394 of Lecture Notes in Computer Science, pages 61–75, Springer, 2010. DOI: 10.1007/978-3-642-16145-2. [166]()
+In Dorina C. Petriu, Nicolas Rouquette, and Øystein Haugen, Eds., Proc. of the 13th International Conference on Model Driven Engineering Languages and Systems (MODELS’10), volume 6394 of Lecture Notes in Computer Science, pages 61–75, Springer, 2010. DOI: 10.1007/978-3-642-16145-2. [166](ch10/5.md#fig-103)
 
 #### 60
 Andy Schürr.</br>
