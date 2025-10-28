@@ -59,12 +59,12 @@ Technical report, Gartner, 2009. [3](ch1/2.md#12-软件开发的建模)
 Petra Brosch, Gerti Kappel, Philip Langer, Martina Seidl, Konrad Wieland, and Manuel Wimmer.</br>
 An introduction to model versioning.</br>
 In Marco Bernardo, Vittorio Cortellessa, and Alfonso Pierantonio, Eds., Advanced Lectures of 12th International School on Formal Methods for the Design of Computer, Communication, and Software Systems—Formal Methods for Model-Driven Engineering (SFM’12), volume 7320 of Lecture Notes in Computer Science, pages 336–398.</br>
-Springer, 2012. DOI: 10.1007/978-3-642-30982-3. [161](ch10/3.md), [163]()
+Springer, 2012. DOI: 10.1007/978-3-642-30982-3. [161](ch10/3.md), [163](ch10/4.md)
 
 #### 13
 Petra Brosch, Philip Langer, Martina Seidl, Konrad Wieland, Manuel Wimmer, and Gerti Kappel.</br>
 The past, present, and future of model versioning.</br>
-In Emerging Technologies for the Evolution and Maintenance of Software Models, pages 410–443. IGI Global, 2011. DOI: 10.4018/978-1-61350-438-3.ch015. [163]()
+In Emerging Technologies for the Evolution and Maintenance of Software Models, pages 410–443. IGI Global, 2011. DOI: 10.4018/978-1-61350-438-3.ch015. [163](ch10/4.md)
 
 #### 14
 Marco Brambilla, Piero Fraternali.</br>
@@ -257,7 +257,7 @@ IEEE Transactions on Software Engineering, 35(6):756–779, 2009. DOI: 10.1109/t
 #### 52
 Tien N. Nguyen, Ethan V. Munson, John T. Boyland, and Cheng Thao.</br>
 An infrastructure for development of object-oriented, multi-level configuration management services.</br>
-In Proc. of the 27th International Conference on Software Engineering (ICSE’05), pages 215–224, ACM, 2005. DOI: 10.1109/icse.2005.1553564. [163]()
+In Proc. of the 27th International Conference on Software Engineering (ICSE’05), pages 215–224, ACM, 2005. DOI: 10.1109/icse.2005.1553564. [163](ch10/4.md)
 
 #### 53
 Antoni Olivé.</br>
