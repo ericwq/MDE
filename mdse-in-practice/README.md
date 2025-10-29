@@ -22,14 +22,14 @@ Luciano Baresi，米兰理工大学
 
 Marco Brambilla, 意大利米兰理工大学
 
-Jordi Cabot, 西班牙加泰罗尼亚高等研究院（ICREA）与加泰罗尼亚开放大学（UOC）
+Jordi Cabot, 西班牙 ICREA 与加泰罗尼亚开放大学（UOC）
 
 Manuel Wimmer, 奥地利维也纳工业大学
 
 ### 摘要
 本书探讨了基于模型的方法如何提升软件专业人员的日常实践水平。这种方法被称为模型驱动软件工程（Model-Driven Software Engineering, MDSE），或简称为模型驱动工程（Model-Driven Engineering, MDE）。
 
-大量定量与定性研究表明，MDSE 实践能显著提高软件开发的效率与成效。鉴于软件开发与业务分析的融合趋势，预计未来软件行业对 MDSE 的采用将呈指数级增长。
+大量定量与定性研究表明，MDSE 实践能显著提高软件开发的效率 (efficiency) 与成效 (effectiveness) 。鉴于软件开发与业务分析的融合趋势，预计未来软件行业对 MDSE 的采用将呈指数级增长。
 
 本书旨在提供敏捷灵活的入门工具，助您快速掌握 MDSE 的基本原理与技术，并根据需求选择合适的工具集，从而立即享受 MDSE 带来的效益。
 
