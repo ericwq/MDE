@@ -85,7 +85,7 @@ Kluwer Academic Publishers, 1998. DOI: 10.1007/978-1-4684-0023-6. [54](ch5/1.md#
 #### 17
 Antonio Cicchetti, Davide Di Ruscio, Romina Eramo, and Alfonso Pierantonio.</br>
 Automating co-evolution in model-driven engineering.</br>
-In Proc. of the 12th International IEEE Enterprise Distributed Object Computing Conference (EDOC’08), pages 222–231, IEEE Computer Society, 2008. DOI: 10.1109/edoc.2008.44. [165]()
+In Proc. of the 12th International IEEE Enterprise Distributed Object Computing Conference (EDOC’08), pages 222–231, IEEE Computer Society, 2008. DOI: 10.1109/edoc.2008.44. [165](ch10/5.md)
 
 #### 18
 Jim Conallen.</br>
