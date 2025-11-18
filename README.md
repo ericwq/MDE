@@ -9,3 +9,4 @@
 ----
 - [模型驱动软件开发（中文版）](mdsd/README.md)
 - [模型驱动软件工程实践：第二版](mdse-in-practice/README.md)
+- [领域驱动设计（中文版）](ddd/README.md)
