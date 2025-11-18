@@ -13,4 +13,5 @@
   - [本书结构](preface/4.md)
   - [谁应该阅读本书](preface/5.md)
   - [领域驱动团队](preface/6.md)
+* [致谢](acknowledgments.md)
 * [参考文献](references.md)
