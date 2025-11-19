@@ -1,5 +1,7 @@
 ## 参考文献
 
+#### ▶[上一节](glossary.md)
+
 #### Alexander CMS 1975
 Alexander, C., M. Silverstein, S. Angel, S. Ishikawa, and D. Abrams. 1975.</br>
 The Oregon Experiment.</br>
@@ -123,3 +125,5 @@ Prentice Hall PTR.
 Wirfs-Brock, R., and A. McKean. 2003.</br>
 Object Design: Roles, Responsibilities, and Collaborations.</br>
 Addison-Wesley.
+
+#### ▶[下一节](./photo-credits.md)

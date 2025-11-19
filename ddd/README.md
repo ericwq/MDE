@@ -15,4 +15,6 @@
   - [领域驱动团队](preface/6.md)
 * [致谢](acknowledgments.md)
 * [第一部分：让领域模型发挥作用](part1.md)
+* [术语表](glossary.md)
 * [参考文献](references.md)
+* [图片鸣谢](photo-credits.md)
