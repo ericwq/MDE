@@ -1,4 +1,7 @@
 ## 致谢
+
+#### ▶[上一节](preface/6.md)
+
 这本书的创作历时四年有余，期间历经多次修订，承蒙众多人士鼎力相助。
 
 谨向审阅文稿并提出宝贵意见的诸位致谢。若无这些反馈，本书绝无问世之日。其中数位审阅者尤为倾注心血。由 Russ Rufer 和 Tracy Bialek 领导的硅谷模式小组 (Silicon Valley Patterns Group) 耗时七周审阅了本书首版完整草稿。伊利诺伊大学 Ralph Johnson 主持的读书会同样花费数周审阅了后期版本。聆听这些小组长达数小时的热烈讨论，对我产生了深远影响。Kyle Brown 与 Martin Fowler 提供了详尽反馈、宝贵见解及无价的精神支持（期间他正坐在一条鱼上）。Ward Cunningham 的评论帮助我弥补了若干重要薄弱环节。Alistair Cockburn 与 Hilary Evans 在早期给予鼓励，并协助我顺利完成出版流程。David Siegel 和 Eugene Wallingford 帮助我在技术性较强的部分避免了尴尬。Vibhu Mohindra 和 Vladimir Gitlevich 对所有代码示例进行了细致入微的核查。
@@ -22,3 +25,5 @@ Josh Kerievsky 促成了本书发展历程中的重大转折点：他劝说我�
 更早之前，我的思维方式深受父母 Carol 与 Gary Evans 的影响。几位特别的老师唤醒了我的兴趣或为我奠定基础，尤其是 Dale Currier（高中数学老师）、Mary Brown（高中英语写作老师）和 Josephine McGlamery（六年级科学老师）。
 
 最后，感谢我的朋友和家人，以及 Fernando De Leon，感谢你们一路鼓励我。
+
+#### ▶[下一节](part1.md)

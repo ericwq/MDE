@@ -4,7 +4,7 @@
 <img src="img/cover.webp" width="40%">
 
 ### 目录
-* [关于《领域驱动设计》的赞誉](praise.md)
+* [对《领域驱动设计》的赞誉](praise.md)
 * [序言](foreword.md)
 * [前言](preface/0.md)
   - [对比三个项目](preface/1.md)
@@ -14,4 +14,5 @@
   - [谁应该阅读本书](preface/5.md)
   - [领域驱动团队](preface/6.md)
 * [致谢](acknowledgments.md)
+* [第一部分：让领域模型发挥作用](part1.md)
 * [参考文献](references.md)

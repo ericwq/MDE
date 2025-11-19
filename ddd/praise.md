@@ -1,4 +1,4 @@
-## 关于《领域驱动设计》的赞誉
+## 对《领域驱动设计》的赞誉
 
 “这本书理应出现在每位深思熟虑的软件开发者书架上。”
 
@@ -27,3 +27,6 @@ Dave Collins，《Designing Object-Oriented User Interfaces》作者
 “埃里克将建模与构建商业应用的实战经验编织成这本实用之作。作为资深实践者，他对通用语言、用户共享模型效益、对象生命周期管理、逻辑与物理应用结构，以及深度重构过程与成果的阐述，为本领域作出了重大贡献。”
 
 Luke Hohmann，《Beyond Software Architecture》作者
+
+#### ▶[下一节](foreword.md)
+
