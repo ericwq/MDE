@@ -1,6 +1,5 @@
 ## 领域驱动设计：中文版（非盈利，非官方）
 ----
-<!-- ![cover](img/cover.png) -->
 <img src="img/cover.webp" width="40%">
 
 ### 目录
@@ -15,6 +14,7 @@
   - [领域驱动团队](preface/6.md)
 * [致谢](acknowledgments.md)
 * [第一部分：让领域模型发挥作用](part1.md)
+  - [第一章 咀嚼知识](ch1/0.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
 * [图片鸣谢](photo-credits.md)
