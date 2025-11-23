@@ -12,7 +12,7 @@ Josh Kerievsky 促成了本书发展历程中的重大转折点：他劝说我�
 
 同时感谢 Awad Faddoul，我曾在他那间绝妙的咖啡馆里伏案写作数百小时。那段隐居时光，加上大量风帆冲浪活动，支撑着我持续前行。
 
-我非常感谢 Martine Jousset, Richard Paselk 和 Ross Venables 创作了精美的照片来阐释若干关键概念（参见第 517 页的 [图片鸣谢](photo-credits.md)）。
+我非常感谢 Martine Jousset, Richard Paselk 和 Ross Venables 创作了精美的照片来阐释若干关键概念（参见第 517 页的 [图片鸣谢](photo-credits.md) ）。
 
 在构思本书之前，我必须先形成自己对软件开发的见解与理解。这种认知体系的形成，很大程度上得益于几位杰出人士的慷慨相助 —— 他们既是我的非正式导师，也是我的挚友。David Siegel, Eric Gold 和 Iseult White 以各自独特的方式，帮助我构建了软件设计的思维体系。与此同时，Bruce Gordon, Richard Frey-berg 和 Judith Segal 同样以迥异的路径，指引我在成功项目实践的领域中找到方向。
 
