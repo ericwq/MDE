@@ -2,12 +2,12 @@
 
 #### ▶[上一节](glossary.md)
 
-#### Alexander CMS 1975
+#### Alexander 1975
 Alexander, C., M. Silverstein, S. Angel, S. Ishikawa, and D. Abrams. 1975.</br>
 The Oregon Experiment.</br>
 Oxford University Press.
 
-#### Alexander CSI 1977
+#### Alexander 1977
 Alexander, C., S. Ishikawa, and M. Silverstein. 1977.</br>
 A Pattern Language: Towns, Buildings, Construction.</br>
 Oxford University Press.
