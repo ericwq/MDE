@@ -23,6 +23,7 @@
   - [第二章 沟通与语言运用](ch2/0.md)
     * [通用语言](ch2/1.md)
     * [大声说出模型](ch2/2.md)
+    * [一个团队，一种语言](ch2/3.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
 * [图片鸣谢](photo-credits.md)
