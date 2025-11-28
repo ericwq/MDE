@@ -41,6 +41,7 @@
     * [关联关系](ch5/1.md)
     * [实体（又称引用对象）](ch5/2.md)
     * [值对象](ch5/3.md)
+    * [服务](ch5/4.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
