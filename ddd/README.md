@@ -42,6 +42,7 @@
     * [实体（又称引用对象）](ch5/2.md)
     * [值对象](ch5/3.md)
     * [服务](ch5/4.md)
+    * [模块（又称包）](ch5/5.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
