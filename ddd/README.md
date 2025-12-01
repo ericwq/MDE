@@ -46,6 +46,7 @@
     * [建模范式](ch5/6.md)
   - [第 6 章 领域对象的生命周期](ch6/0.md)
     * [聚合体](ch6/1.md)
+    * [工厂](ch6/2.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
