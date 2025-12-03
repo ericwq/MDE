@@ -58,6 +58,7 @@
     * [选择`REPOSITORIES`](ch7/6.md)
     * [逐步验证场景](ch7/7.md)
     * [对象创建](ch7/8.md)
+    * [暂停重构：货运`AGGREGATE`的替代设计方案](ch7/9.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
