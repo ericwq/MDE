@@ -54,6 +54,7 @@
     * [隔离领域：引入应用程序](ch7/2.md)
     * [区分`ENTITIES`与`VALUE`对象](ch7/3.md)
     * [设计航运领域的关联关系](ch7/4.md)
+    * [`AGGREGATE` 边界](ch7/5.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
