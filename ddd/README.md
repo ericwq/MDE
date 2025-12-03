@@ -56,6 +56,7 @@
     * [设计航运领域的关联关系](ch7/4.md)
     * [`AGGREGATE` 边界](ch7/5.md)
     * [选择`REPOSITORIES`](ch7/6.md)
+    * [逐步验证场景](ch7/7.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
