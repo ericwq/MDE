@@ -75,6 +75,7 @@
     * [意图显露接口](ch10/1.md)
     * [无副作用函数](ch10/2.md)
     * [断言](ch10/3.md)
+    * [概念轮廓](ch10/4.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
