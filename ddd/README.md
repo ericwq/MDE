@@ -78,6 +78,7 @@
     * [概念轮廓](ch10/4.md)
     * [独立类](ch10/5.md)
     * [闭包操作](ch10/6.md)
+    * [声明式设计](ch10/7.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
