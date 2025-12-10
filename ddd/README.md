@@ -88,6 +88,7 @@
   - [第 12 章 设计模式与模型的关联](ch12/0.md)
     * [策略)](ch12/1.md)
     * [组合](ch12/2.md)
+    * [为何不采用`FLYWEIGHT`？](ch12/3.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
