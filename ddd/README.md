@@ -97,6 +97,7 @@
     * [时机](ch13/5.md)
     * [危机即机遇](ch13/6.md)
 * [第四部分：策略设计](part4.md)
+  - [第 14 章 维护模型完整性](ch14/0.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
