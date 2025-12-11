@@ -101,6 +101,7 @@
     * [有界上下文](ch14/1.md)
     * [持续集成](ch14/2.md)
     * [上下文地图](ch14/3.md)
+    * [`BOUNDED CONTEXTS`之间的关系](ch14/4.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
