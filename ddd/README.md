@@ -103,6 +103,7 @@
     * [上下文地图](ch14/3.md)
     * [`BOUNDED CONTEXTS`之间的关系](ch14/4.md)
     * [共享内核](ch14/5.md)
+    * [客户/供应商开发团队](ch14/6.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
