@@ -107,6 +107,7 @@
     * [顺从者](ch14/7.md)
     * [反腐层](ch14/8.md)
     * [分道扬镖](ch14/9.md)
+    * [开放主机服务](ch14/10.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
