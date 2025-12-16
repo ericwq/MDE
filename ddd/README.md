@@ -122,6 +122,7 @@
     * [隔离的核心：`SEGREGATED CORE`](ch15/7.md)
     * [抽象核心：`ABSTRACT CORE`](ch15/8.md)
     * [深度模型提炼](ch15/9.md)
+    * [选择重构目标](ch15/10.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
