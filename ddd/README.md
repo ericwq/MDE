@@ -120,6 +120,7 @@
     * [标记核心：`HIGHLIGHTED CORE`](ch15/5.md)
     * [凝聚机制：`COHESIVE MECHANISM`](ch15/6.md)
     * [隔离的核心：`SEGREGATED CORE`](ch15/7.md)
+    * [抽象核心：`ABSTRACT CORE`](ch15/8.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
