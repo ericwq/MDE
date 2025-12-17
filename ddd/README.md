@@ -125,6 +125,7 @@
     * [选择重构目标](ch15/10.md)
   - [第 16 章 大规模结构](ch16/0.md)
     * [演进的秩序：`EVOLVING ORDER`](ch16/1.md)
+    * [系统隐喻：`SYSTEM METAPHOR`](ch16/2.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
