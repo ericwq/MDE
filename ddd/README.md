@@ -127,6 +127,7 @@
     * [演进的秩序：`EVOLVING ORDER`](ch16/1.md)
     * [系统隐喻：`SYSTEM METAPHOR`](ch16/2.md)
     * [职责分层：`RESPONSIBILITY LAYERS`](ch16/3.md)
+    * [知识层级：`KNOWLEDGE LEVEL`](ch16/4.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
