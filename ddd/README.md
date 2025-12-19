@@ -128,6 +128,7 @@
     * [系统隐喻：`SYSTEM METAPHOR`](ch16/2.md)
     * [职责分层：`RESPONSIBILITY LAYERS`](ch16/3.md)
     * [知识层级：`KNOWLEDGE LEVEL`](ch16/4.md)
+    * [可插拔组件框架：`PLUGGABLE COMPONENT FRAMEWORK`](ch6/5.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
