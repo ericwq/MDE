@@ -130,6 +130,7 @@
     * [知识层级：`KNOWLEDGE LEVEL`](ch16/4.md)
     * [可插拔组件框架：`PLUGGABLE COMPONENT FRAMEWORK`](ch16/5.md)
     * [结构应该有多严格？](ch16/6.md)
+    * [重构以适配结构](ch16/7.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
