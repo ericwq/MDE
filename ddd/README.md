@@ -134,6 +134,7 @@
   - [第十七章  整合战略](ch17/0.md)
     * [结合大规模结构与`BOUNDED CONTEXTS`](ch17/1.md)
     * [大规模结构与蒸馏的结合](ch17/2.md)
+    * [评估先行](ch17/3.md)
 * [附录：本书中模式的运用](appendix.md)
 * [术语表](glossary.md)
 * [参考文献](references.md)
