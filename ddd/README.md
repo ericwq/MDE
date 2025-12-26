@@ -45,7 +45,7 @@
     * [模块（又称包）：`MODULES`](ch5/5.md)
     * [建模范式](ch5/6.md)
   - [第 6 章 领域对象的生命周期](ch6/0.md)
-    * [聚合体：`AGGREGATE`](ch6/1.md)
+    * [聚合体：`AGGREGATES`](ch6/1.md)
     * [工厂：`FACTORIES`](ch6/2.md)
     * [存储库：`REPOSITORIES`](ch6/3.md)
     * [为关系数据库设计对象](ch6/4.md)
