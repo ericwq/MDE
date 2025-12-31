@@ -1,6 +1,6 @@
 ## 领域驱动设计参考：定义和模式总结（非盈利，非官方）
 ---
-<img src="img/reference.jpg" width="40%">
+<img src="img/reference.jpg" width="40%" /></br>
 
 ### 目录
 
@@ -52,9 +52,9 @@
   * [凝聚机制: Cohesive Mechanisms](ch5/5.md)
   * [隔离的核心: Segregated Core](ch5/6.md)
   * [抽象核心: Abstract Core](ch5/7.md)
-- [Large-scale Structure for Strategic Design](ch6/0.md)
-  * [Evolving Order](ch6/1.md)
-  * [System Metaphor](ch6/2.md)
-  * [Responsibility Layers](ch6/3.md)
-  * [Knowledge Level](ch6/4.md)
-  * [Pluggable Component Framework](ch6/5.md)
+- [VI. 战略设计的大规模结构](ch6/0.md)
+  * [演进的秩序: Evolving Order](ch6/1.md)
+  * [系统隐喻: System Metaphor](ch6/2.md)
+  * [职责分层: Responsibility Layers](ch6/3.md)
+  * [知识层级: Knowledge Level](ch6/4.md)
+  * [可插拔组件框架: Pluggable Component Framework](ch6/5.md)
