@@ -4,7 +4,7 @@
 
 在这本新书中，Vaughn Vernon 以独特的方式完整呈现了领域驱动设计（DDD），通过全新的概念阐释、创新的示例以及独创的主题结构，为读者带来耳目一新的阅读体验。我认为这种新颖的替代方法将帮助人们理解 DDD 的微妙之处，特别是 [Aggregates](TODO) 和 [Bounded Contexts](TODO) 等更抽象的概念。不仅是不同的人偏好不同的风格 —— 若没有多种解释，微妙的抽象概念很难被理解。
 
-此外，本书还传递了过去九年间的一些洞见，这些内容虽曾在论文和演讲中提及，却从未以书籍形式呈现。它将 [Domain Events](TODO) 与 [Entities](TODO)、[Value Objects](TODO) 并列为模型的构建基石，探讨了 [Big Ball of Mud](TODO) 概念并将其置于 [Context Map](TODO) 中，同时阐释了六边形 (hexagonal) 架构，相较于分层架构，这种架构更能准确描述我们的实践方式。
+此外，本书还传递了过去九年间的一些洞见，这些内容虽曾在论文和演讲中提及，却从未以书籍形式呈现。它将 [Domain Events](TODO) 与 [Entities](TODO)、[Value Objects](TODO) 并列为模型的构建基石，探讨了 [Big Ball of Mud](TODO) 概念并将其置于 [Context Map](TODO) 中，同时阐释了 [Hexagonal Architecture](ch4/3.md) ，相较于分层架构，这种架构更能准确描述我们的实践方式。
 
 我第一次接触本书的内容是在近两年前（尽管当时 Vaughn 已着手撰写此书多时）。在首届 DDD 峰会上，我们几人承诺撰写特定主题的文章，这些主题要么蕴含新颖见解，要么能满足社区对具体指导的迫切需求。Vaughn 主动承担起 [Aggregates](TODO) 的撰写任务，并持续发表了一系列相关精彩文章（最终成为本书的章节内容）。
 
