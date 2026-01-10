@@ -6,7 +6,7 @@
 
 回溯过去，正是 Eric Evans 耗费五年职业生涯中的大部分时间，撰写了首部关于 DDD 的权威著作。若非他的付出，以及源自 Smalltalk 和设计模式社区的智慧结晶，经 Eric 本人精炼完善，更多开发者恐怕仍在靠临时拼凑的方式交付劣质软件。遗憾的是，这种现象远比想象中普遍。正如 Eric 所言，软件开发质量的低下，以及开发团队毫无创造力且毫无乐趣的工作状态，曾几乎让他彻底离开软件行业。我们衷心感谢 Eric 将精力投入教育事业而非转行，这份奉献值得我们深深感激。
 
-在 2011 年首届 DDD 峰会的尾声，Eric 邀请我与会时，与会者一致认为领导层应制定一套指导方针，帮助更多开发者成功实践 DDD。当时我已完成本书大部分内容，对开发者普遍存在的认知缺口有着深刻理解。我主动撰写了关于 [Aggregates](TODO) 设计 “经验法则” 的文章。这篇题为《Effective Aggregate Design》的三部曲系列，最终构成了本书 [第 10 章](ch10/0.md) 的基础框架。当文章发布于 dddcommunity.org 后，业界对这类权威指导的迫切需求便显而易见。感谢 DDD 领域的其他领导者审阅该文稿并为本书提供宝贵反馈。Eric Evans 与 Paul Rayner 对文稿进行了多次详细审阅。Udi Dahan, Greg Young, Jimmy Nilsson, Niclas Hedhman, 和 Rickard Öberg 也提供了宝贵意见。
+在 2011 年首届 DDD 峰会的尾声，Eric 邀请我与会时，与会者一致认为领导层应制定一套指导方针，帮助更多开发者成功实践 DDD。当时我已完成本书大部分内容，对开发者普遍存在的认知缺口有着深刻理解。我主动撰写了关于`Aggregates`设计 “经验法则” 的文章。这篇题为《Effective Aggregate Design》的三部曲系列，最终构成了本书 [第 10 章](ch10/0.md) 的基础框架。当文章发布于 dddcommunity.org 后，业界对这类权威指导的迫切需求便显而易见。感谢 DDD 领域的其他领导者审阅该文稿并为本书提供宝贵反馈。Eric Evans 与 Paul Rayner 对文稿进行了多次详细审阅。Udi Dahan, Greg Young, Jimmy Nilsson, Niclas Hedhman, 和 Rickard Öberg 也提供了宝贵意见。
 
 特别感谢 Randy Stafford ，这位 DDD 社区的资深成员。几年前在 Denver 参加我的一次 DDD 讲座后，Randy 便鼓励我更深入地参与更广泛的 DDD 社区。不久后，Randy 引荐我认识 Eric Evans ，让我得以阐述凝聚 DDD 社区的构想。尽管我的设想略显宏大且可能难以实现，Eric 却说服我们：组建由核心 DDD 领导者组成的精干团队，反而能创造更具现实意义的价值。2011 年 DDD 峰会正是源于这些讨论。毋庸置疑，若非 Randy 不断鼓励我推进对 DDD 的构想，这本书便不会诞生，甚至可能连 DDD 峰会都无从谈起。尽管 Randy 因忙于 Oracle Coherence 项目未能参与本书撰写，但或许未来我们仍有机会携手创作。
 
@@ -14,7 +14,7 @@
 
 我的早期审稿人之一是 Leo Gorodinsk ，他始终支持这个项目。我第一次见到 Leo 是在 Denver 的 DDD 聚会上。他根据自己在 Boulder, Colorado 带领团队实践 DDD 时遇到的困境，为本书提供了许多宝贵建议。希望我的书能像他的严谨审阅帮助到我那样，同样对 Leo 有所裨益。我视 Leo 为 DDD 未来的重要组成部分。
 
-还有很多人至少对我书中的一个章节提供了反馈，有些人对多个章节提供了意见。一些更为批判性的反馈来自 Gojko Adzic、Alberto Brandolini、Udi Dahan、Dan Haywood、Dave Muirhead 和 Stefan Tilkov。具体来说，Dan Haywood 和 Gojko Adzic 提供了大量早期反馈，这些反馈基于我写的最难读的内容。我很高兴他们坚持并纠正了我。Alberto Brandolini 对战略设计的总体见解，以及对 [Context Mapping](TODO)的具体见解，帮助我集中关注这些重要内容的核心。Dave Muirhead 拥有丰富的面向对象设计、领域建模、对象持久化和内存数据网格（包括 GemFire 和 Coherence）经验，他对我书中一些对象持久化的历史和细节有重要影响。除了在 REST 方面的贡献外，Stefan Tilkov 还提供了关于架构的总体见解，尤其是关于 SOA 以及 Pipes 与 Filters 模式的具体见解。最后，Udi Dahan 验证并帮助我厘清了 CQRS、Long-Running Processes（即 Sagas）以及基于 NServiceBus 的消息传递等概念。其他提供宝贵反馈的审稿人包括：Rinat Abdullin、Svein Arne Ackenhausen、Javier Ruiz Aranguren、William Doman、Chuck Durfee、Craig Hoff、Aeden Jameson、Jiwei Wu、Josh Maletz、Tom Marrs、Michael McCarthy、Rob Meidal、Jon Slenk、Aaron Stockton、Tom Stockton、Chris Sutton 以及 Wes Williams。
+还有很多人至少对我书中的一个章节提供了反馈，有些人对多个章节提供了意见。一些更为批判性的反馈来自 Gojko Adzic、Alberto Brandolini、Udi Dahan、Dan Haywood、Dave Muirhead 和 Stefan Tilkov。具体来说，Dan Haywood 和 Gojko Adzic 提供了大量早期反馈，这些反馈基于我写的最难读的内容。我很高兴他们坚持并纠正了我。Alberto Brandolini 对战略设计的总体见解，以及对`Context Mapping`的具体见解，帮助我集中关注这些重要内容的核心。Dave Muirhead 拥有丰富的面向对象设计、领域建模、对象持久化和内存数据网格（包括 GemFire 和 Coherence）经验，他对我书中一些对象持久化的历史和细节有重要影响。除了在 REST 方面的贡献外，Stefan Tilkov 还提供了关于架构的总体见解，尤其是关于 SOA 以及 Pipes 与 Filters 模式的具体见解。最后，Udi Dahan 验证并帮助我厘清了 CQRS、Long-Running Processes（即 Sagas）以及基于 NServiceBus 的消息传递等概念。其他提供宝贵反馈的审稿人包括：Rinat Abdullin、Svein Arne Ackenhausen、Javier Ruiz Aranguren、William Doman、Chuck Durfee、Craig Hoff、Aeden Jameson、Jiwei Wu、Josh Maletz、Tom Marrs、Michael McCarthy、Rob Meidal、Jon Slenk、Aaron Stockton、Tom Stockton、Chris Sutton 以及 Wes Williams。
 
 Scorpio Steele 为本书创作了精彩绝伦的插图。他让 IDDD 团队的每位成员都化身为他们本应成为的超级英雄。另一端则是我的好友 Kerry Gilbert 进行的非技术性编辑审阅。当其他人确保我的技术表述准确无误时，凯瑞则用 “语法锤” 对我进行了严苛的校对。
 
