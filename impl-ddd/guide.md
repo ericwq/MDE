@@ -22,7 +22,7 @@ Eric Evans 所著的 *《Domain-Driven Design》* 本质上呈现了一套庞大
 
 若您从章节中间开始阅读，遇到诸如`Bounded Context`等术语时，请记住本书很可能有专门章节阐述该模式。只需快速查阅索引，即可获取更丰富的参考资料。
 
-若你已阅读过 [[Evans]](bibli.md#evans) 著作并对其模式有所了解，本书将更适合用于深化对领域驱动设计的理解，并为现有模型设计提供优化思路。此时你或许无需立即掌握全局视角。但若您对 DDD 尚属新手，下文将帮助您理解模式间的关联性，并说明如何借助本书快速上手实践。请继续阅读。
+若你已阅读过 [\[Evans\]](bibli.md#evans) 著作并对其模式有所了解，本书将更适合用于深化对领域驱动设计的理解，并为现有模型设计提供优化思路。此时你或许无需立即掌握全局视角。但若您对 DDD 尚属新手，下文将帮助您理解模式间的关联性，并说明如何借助本书快速上手实践。请继续阅读。
 
 ### DDD 的宏观视角
 
@@ -46,7 +46,7 @@ Eric Evans 所著的 *《Domain-Driven Design》* 本质上呈现了一套庞大
 
 #### 架构
 
-有时，通过`Context Mapping`交互的新`Bounded Context`或现有的需要采用新的[Architecture (4)](ch4/0.md) 风格。需要牢记的是，从战略和战术层面设计的领域模型应保持架构中立性。然而，每个模型周围和模型之间仍然需要一些架构。[Hexagonal](TODO) 是一种能承载`Bounded Context` 的一种强大的架构风格，可用来为 [Service-Oriented](TODO)、[REST](TODO)、[Event-Driven](TODO) 等其他架构风格提供基础支撑。 [Fig G.3](#fig-g3) 展示了`Hexagonal`架构，尽管结构略显复杂，但其实现方式其实相当简洁。
+有时，通过`Context Mapping`交互的新`Bounded Context`或现有的需要采用新的 [Architecture (4)](ch4/0.md) 风格。需要牢记的是，从战略和战术层面设计的领域模型应保持架构中立性。然而，每个模型周围和模型之间仍然需要一些架构。[Hexagonal](TODO) 是一种能承载`Bounded Context` 的一种强大的架构风格，可用来为 [Service-Oriented](TODO)、[REST](TODO)、[Event-Driven](TODO) 等其他架构风格提供基础支撑。 [Fig G.3](#fig-g3) 展示了`Hexagonal`架构，尽管结构略显复杂，但其实现方式其实相当简洁。
 
 有时我们可能会过度关注架构，而忽视精心构建基于 DDD 的模型的重要性。<ins>架构固然重要，但架构的影响力会随时间消长。请牢记正确排序优先级，将更多精力投入领域模型，它具有更高的业务价值，且更具持久性。</ins>
 
@@ -58,7 +58,7 @@ Eric Evans 所著的 *《Domain-Driven Design》* 本质上呈现了一套庞大
 
 我们在`Bounded Context`中运用 DDD 的构建块模式集进行 *战术建模* 。如 [Fig G.4](#fig-g4) 所示，[Aggregate (10)](ch10/0.md) 是战术设计中最关键的模式之一。
 
-`Aggregate`由单个 [Entity (5)](ch5/0.md) 或一组`Entities`与 [Value Objects (6)](ch6/0.md) 的构成，其在整个生命周期内必须保持事务一致性。掌握如何有效建模`Aggregates`至关重要，这也是 DDD 构建模块中最易被忽视的技术之一。既然`Aggregates`如此重要，你或许会疑惑为何本书将其置于后文阐述。首先，本书战术模式的编排顺序遵循 [[Evans]](bibli.md#evans) 的原著结构。此外，由于`Aggregates`模式需基于其他战术模式构建，我们选择先阐述`Entities`、`Value Objects`等基础构建块，再深入探讨更复杂的`Aggregate`模式。
+`Aggregate`由单个 [Entity (5)](ch5/0.md) 或一组`Entities`与 [Value Objects (6)](ch6/0.md) 的构成，其在整个生命周期内必须保持事务一致性。掌握如何有效建模`Aggregates`至关重要，这也是 DDD 构建模块中最易被忽视的技术之一。既然`Aggregates`如此重要，你或许会疑惑为何本书将其置于后文阐述。首先，本书战术模式的编排顺序遵循 [\[Evans\]](bibli.md#evans) 的原著结构。此外，由于`Aggregates`模式需基于其他战术模式构建，我们选择先阐述`Entities`、`Value Objects`等基础构建块，再深入探讨更复杂的`Aggregate`模式。
 
 `Aggregate`的实例通过其 [Repository (12)](ch12/0.md) 进行持久化存储，后续可在其中进行检索和获取。如 [Fig G.4](#fig-g4) 所示。
 
@@ -90,6 +90,6 @@ Eric Evans 所著的 *《Domain-Driven Design》* 本质上呈现了一套庞大
 
 |牛仔逻辑||
 |---|---|
-|AJ：“别担心自己会咬下嚼不动的东西。你的嘴巴可能比你想象的要大得多。” ;-)</br> LB：“你想说的是 ‘头脑’ 吧，J。你的头脑比你想象的要大得多！”|![g7a](img/fig.g7a.png)|
+|AJ：“别担心自己会咬下嚼不动的东西。你的嘴巴可能比你想象的要大得多。” ;-)</br> LB：“你想说的是 ‘头脑’ 吧，J。你的头脑比你想象的要大得多！”|<img src="img/cbl.1.png" width="50%"/>|
 
 #### ▶[下一节](ch1/0.md)
