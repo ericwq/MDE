@@ -14,6 +14,7 @@ Vaughn Vernon
 - [第 1 章：DDD 入门指南](ch1/0.md)
   * [我能实践 DDD 吗？](ch1/1.md)
   * [为何要采用 DDD](ch1/2.md)
+  * [如何实践 DDD](ch1/3.md)
 - [第 2 章：领域、子领域与有界上下文 (Bounded Contexts)](ch2/0.md)
 - [第 3 章：上下文地图 (Context Maps)](ch3/0.md)
 - [第 4 章：架构](ch4/0.md)

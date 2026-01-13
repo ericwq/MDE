@@ -26,7 +26,7 @@ Eric Evans 所著的 *《Domain-Driven Design》* 本质上呈现了一套庞大
 
 ### DDD 的宏观视角
 
-一开始，我会带你了解 DDD 的支柱之一，[Ubiquitous Language (1)](ch1/0.md) 。`Ubiquitous Language`适用于单一的 [Bounded Context (2)](ch2/0.md) 。你需要立即熟悉这一关键的领域建模思维方式。只要记住，无论你的软件模型在 *战术上 (tactically)* 如何设计，从 *战略上 (strategically)* 来看，你都希望它们能够体现以下内容：在一个明确的`Bounded Context`中建模的一套清晰的`Ubiquitous Language`。
+一开始，我会带你了解 DDD 的支柱之一，[Ubiquitous Language (1)](ch1/3.md#ubiquitous-language) 。`Ubiquitous Language`适用于单一的 [Bounded Context (2)](ch2/0.md) 。你需要立即熟悉这一关键的领域建模思维方式。只要记住，无论你的软件模型在 *战术上 (tactically)* 如何设计，从 *战略上 (strategically)* 来看，你都希望它们能够体现以下内容：在一个明确的`Bounded Context`中建模的一套清晰的`Ubiquitous Language`。
 
 #### 战略建模
 
