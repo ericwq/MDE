@@ -16,6 +16,7 @@ Vaughn Vernon
   * [为何要采用 DDD](ch1/2.md)
   * [如何实践 DDD](ch1/3.md)
   * [使用 DDD 的商业价值](ch1/4.md)
+  * [应用 DDD 的挑战](ch1/5.md)
 - [第 2 章：领域、子领域与有界上下文 (Bounded Contexts)](ch2/0.md)
 - [第 3 章：上下文地图 (Context Maps)](ch3/0.md)
 - [第 4 章：架构](ch4/0.md)
