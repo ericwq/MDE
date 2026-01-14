@@ -17,6 +17,8 @@ Vaughn Vernon
   * [如何实践 DDD](ch1/3.md)
   * [使用 DDD 的商业价值](ch1/4.md)
   * [应用 DDD 的挑战](ch1/5.md)
+  * [虚构，充满现实](ch1/6.md)
+  * [总结](ch1/7.md)
 - [第 2 章：领域、子领域与有界上下文 (Bounded Contexts)](ch2/0.md)
 - [第 3 章：上下文地图 (Context Maps)](ch3/0.md)
 - [第 4 章：架构](ch4/0.md)
