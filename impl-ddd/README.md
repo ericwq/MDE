@@ -23,6 +23,7 @@ Vaughn Vernon
   * [全局](ch2/1.md)
   * [## 为何战略设计如此至关重要](ch2/2.md)
   * [真实世界的领域与`Subdomains`](ch2/3.md)
+  * [理解`Bounded Contexts`](ch2/4.md)
 - [第 3 章：上下文地图 (Context Maps)](ch3/0.md)
 - [第 4 章：架构](ch4/0.md)
 - [第 5 章：实体 (Entities)](ch5/0.md)
