@@ -30,6 +30,8 @@ Vaughn Vernon
   * [为何`Context Maps`如此重要](ch3/1.md)
   * [总结](ch3/2.md)
 - [第 4 章：架构](ch4/0.md)
+  * [采访成功的首席信息官](ch4/1.md)
+  * [分层](ch4/2.md)
 - [第 5 章：实体 (Entities)](ch5/0.md)
 - [第 6 章：值对象 (Value Objects)](ch6/0.md)
 - [第 7 章：服务 (Services)](ch7/0.md)
