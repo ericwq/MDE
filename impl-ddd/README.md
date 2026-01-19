@@ -35,6 +35,7 @@ Vaughn Vernon
   * [`Hexagonal`或`Ports and Adapters`](ch4/3.md)
   * [面向服务](ch4/4.md)
   * [表征状态转移 —— REST](ch4/5.md)
+  * [命令查询职责分离（CQRS）](ch4/6.md)
 - [第 5 章：实体 (Entities)](ch5/0.md)
 - [第 6 章：值对象 (Value Objects)](ch6/0.md)
 - [第 7 章：服务 (Services)](ch7/0.md)
