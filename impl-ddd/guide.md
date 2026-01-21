@@ -46,7 +46,7 @@ Eric Evans 所著的 *《Domain-Driven Design》* 本质上呈现了一套庞大
 
 #### 架构
 
-有时，通过`Context Mapping`交互的新`Bounded Context`或现有的需要采用新的 [Architecture (4)](ch4/0.md) 风格。需要牢记的是，从战略和战术层面设计的领域模型应保持架构中立性。然而，每个模型周围和模型之间仍然需要一些架构。[Hexagonal](TODO) 是一种能承载`Bounded Context` 的一种强大的架构风格，可用来为 [Service-Oriented](TODO)、[REST](TODO)、[Event-Driven](TODO) 等其他架构风格提供基础支撑。 [Fig G.3](#fig-g3) 展示了`Hexagonal`架构，尽管结构略显复杂，但其实现方式其实相当简洁。
+有时，通过`Context Mapping`交互的新`Bounded Context`或现有的需要采用新的 [Architecture (4)](ch4/0.md) 风格。需要牢记的是，从战略和战术层面设计的领域模型应保持架构中立性。然而，每个模型周围和模型之间仍然需要一些架构。[Hexagonal](ch4/3.md) 是一种能承载`Bounded Context` 的一种强大的架构风格，可用来为 [Service-Oriented](ch4/4.md)、[REST](ch4/5.md)、[Event-Driven](ch4/7.md) 等其他架构风格提供基础支撑。 [Fig G.3](#fig-g3) 展示了`Hexagonal`架构，尽管结构略显复杂，但其实现方式其实相当简洁。
 
 有时我们可能会过度关注架构，而忽视精心构建基于 DDD 的模型的重要性。<ins>架构固然重要，但架构的影响力会随时间消长。请牢记正确排序优先级，将更多精力投入领域模型，它具有更高的业务价值，且更具持久性。</ins>
 
