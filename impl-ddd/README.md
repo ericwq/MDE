@@ -38,6 +38,7 @@ Vaughn Vernon
   * [命令查询职责分离（CQRS）](ch4/6.md)
   * [事件驱动架构](ch4/7.md)
   * [`Data Fabric`与基于网格的分布式计算](ch4/8.md)
+  * [总结](ch4/9.md)
 - [第 5 章：实体 (Entities)](ch5/0.md)
 - [第 6 章：值对象 (Value Objects)](ch6/0.md)
 - [第 7 章：服务 (Services)](ch7/0.md)
