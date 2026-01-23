@@ -42,6 +42,7 @@ Vaughn Vernon
 - [第 5 章：实体 (Entities)](ch5/0.md)
   * [为什么我们使用`Entities`](ch5/1.md)
   * [唯一标识](ch5/2.md)
+  * [发现`Entities`及其内在特征](ch5/3.md)
 - [第 6 章：值对象 (Value Objects)](ch6/0.md)
 - [第 7 章：服务 (Services)](ch7/0.md)
 - [第 8 章：领域事件 (Domain Events)](ch8/0.md)
