@@ -49,6 +49,7 @@ Vaughn Vernon
   * [与极简主义结合（Integrate with Minimalism）](ch6/2.md)
   * [以`Values`表达的标准类型](ch6/3.md)
   * [测试`Value Objects`](ch6/4.md)
+  * [实现](ch6/5.md)
 - [第 7 章：服务 (Services)](ch7/0.md)
 - [第 8 章：领域事件 (Domain Events)](ch8/0.md)
 - [第 9 章：模块 (Modules)](ch9/0.md)
