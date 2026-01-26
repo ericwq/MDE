@@ -46,7 +46,7 @@ Vaughn Vernon
   * [总结](ch5/4.md)
 - [第 6 章：值对象 (Value Objects)](ch6/0.md)
   * [`Value`的特征](ch6/1.md)
-  * [与极简主义结合（Integrate with Minimalism）](ch6/2.md)
+  * [以极简方式集成](ch6/2.md)
   * [以`Values`表达的标准类型](ch6/3.md)
   * [测试`Value Objects`](ch6/4.md)
   * [实现](ch6/5.md)
