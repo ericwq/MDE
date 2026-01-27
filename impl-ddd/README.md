@@ -53,6 +53,7 @@ Vaughn Vernon
   * [持久化`Value Objects`](ch6/6.md)
   * [总结](ch6/7.md)
 - [第 7 章：服务 (Services)](ch7/0.md)
+  * [什么是领域服务（先首先，不是什么）](ch7/1.md)
 - [第 8 章：领域事件 (Domain Events)](ch8/0.md)
 - [第 9 章：模块 (Modules)](ch9/0.md)
 - [第 10 章：聚合体 (Aggregates)](ch10/0.md)
