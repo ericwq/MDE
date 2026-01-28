@@ -59,6 +59,8 @@ Vaughn Vernon
   * [测试服务](ch7/4.md)
   * [总结](ch7/5.md)
 - [第 8 章：领域事件 (Domain Events)](ch8/0.md)
+  * [领域事件的时间与原因](ch8/1.md)
+  * [建模事件](ch8/2.md)
 - [第 9 章：模块 (Modules)](ch9/0.md)
 - [第 10 章：聚合体 (Aggregates)](ch10/0.md)
 - [第 11 章：工厂模式 (Factories)](ch11/0.md)
