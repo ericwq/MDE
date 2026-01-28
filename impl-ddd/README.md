@@ -55,6 +55,8 @@ Vaughn Vernon
 - [第 7 章：服务 (Services)](ch7/0.md)
   * [什么是领域服务（先首先，不是什么）](ch7/1.md)
   * [确保你需要`Service`](ch7/2.md)
+  * [在领域中建模`Service`](ch7/3.md)
+  * [测试服务](ch7/4.md)
 - [第 8 章：领域事件 (Domain Events)](ch8/0.md)
 - [第 9 章：模块 (Modules)](ch9/0.md)
 - [第 10 章：聚合体 (Aggregates)](ch10/0.md)
