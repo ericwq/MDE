@@ -71,6 +71,7 @@ Vaughn Vernon
   * [基于模块进行设计](ch9/1.md)
   * [模块命名基本约定](ch9/2.md)
   * [模型的模块命名约定](ch9/3.md)
+  * [`Agile Project Management Context`的模块](ch9/4.md)
 - [第 10 章：聚合体 (Aggregates)](ch10/0.md)
 - [第 11 章：工厂模式 (Factories)](ch11/0.md)
 - [第 12 章：存储库 (Repositories)](ch12/0.md)
