@@ -74,6 +74,7 @@ Vaughn Vernon
   * [`Agile Project Management Context`的模块](ch9/4.md)
   * [其他层中的模块](ch9/5.md)
   * [模块优先于`Bounded Context`](ch9/6.md)
+  * [总结](ch9/7.md)
 - [第 10 章：聚合体 (Aggregates)](ch10/0.md)
 - [第 11 章：工厂模式 (Factories)](ch11/0.md)
 - [第 12 章：存储库 (Repositories)](ch12/0.md)
