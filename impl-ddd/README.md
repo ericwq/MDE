@@ -68,6 +68,7 @@ Vaughn Vernon
   * [实现](ch8/7.md)
   * [总结](ch8/8.md)
 - [第 9 章：模块 (Modules)](ch9/0.md)
+  * [基于模块进行设计](ch9/1.md)
 - [第 10 章：聚合体 (Aggregates)](ch10/0.md)
 - [第 11 章：工厂模式 (Factories)](ch11/0.md)
 - [第 12 章：存储库 (Repositories)](ch12/0.md)
