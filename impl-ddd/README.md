@@ -79,6 +79,7 @@ Vaughn Vernon
   * [在 Scrum 核心领域中使用`Aggregate`](ch10/1.md)
   * [规则：在一致性边界中建模真实不变量](ch10/2.md)
   * [规则：设计小型`Aggregates`](ch10/3.md)
+  * [规则：通过标识引用其他Aggregates](ch10/4.md)
 - [第 11 章：工厂模式 (Factories)](ch11/0.md)
 - [第 12 章：存储库 (Repositories)](ch12/0.md)
 - [第 13 章：集成界限上下文](ch13/0.md)
