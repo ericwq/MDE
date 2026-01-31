@@ -76,6 +76,7 @@ Vaughn Vernon
   * [模块优先于`Bounded Context`](ch9/6.md)
   * [总结](ch9/7.md)
 - [第 10 章：聚合体 (Aggregates)](ch10/0.md)
+  * [在 Scrum 核心领域中使用`Aggregate`](ch10/1.md)
 - [第 11 章：工厂模式 (Factories)](ch11/0.md)
 - [第 12 章：存储库 (Repositories)](ch12/0.md)
 - [第 13 章：集成界限上下文](ch13/0.md)
