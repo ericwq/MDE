@@ -85,7 +85,7 @@ Vaughn Vernon
   * [通过探索获得洞见](ch10/7.md)
   * [实现](ch10/8.md)
   * [总结](ch10/9.md)
-- [第 11 章：工厂模式 (Factories)](ch11/0.md)
+- [第 11 章：工厂 (Factories)](ch11/0.md)
 - [第 12 章：存储库 (Repositories)](ch12/0.md)
 - [第 13 章：集成界限上下文](ch13/0.md)
 - [第 14 章：应用](ch14/0.md)
