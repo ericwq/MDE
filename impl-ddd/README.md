@@ -86,6 +86,7 @@ Vaughn Vernon
   * [实现](ch10/8.md)
   * [总结](ch10/9.md)
 - [第 11 章：工厂 (Factories)](ch11/0.md)
+  * [领域模型中的工厂](ch11/1.md)
 - [第 12 章：存储库 (Repositories)](ch12/0.md)
 - [第 13 章：集成界限上下文](ch13/0.md)
 - [第 14 章：应用](ch14/0.md)
