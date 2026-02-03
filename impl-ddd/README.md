@@ -91,6 +91,7 @@ Vaughn Vernon
   * [服务工厂](ch11/3.md)
   * [总结](ch11/4.md)
 - [第 12 章：存储库 (Repositories)](ch12/0.md)
+  * [面向集合的`Repositories`](ch12/1.md)
 - [第 13 章：集成界限上下文](ch13/0.md)
 - [第 14 章：应用](ch14/0.md)
 - [附录 A：聚合体与事件源：A+ES](appendix.md)
