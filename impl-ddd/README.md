@@ -97,6 +97,7 @@ Vaughn Vernon
   * [管理事务](ch12/4.md)
   * [类型层次结构](ch12/5.md)
   * [`Repository`与数据访问对象](ch12/6.md)
+  * [测试`Repositories`](ch12/7.md)
 - [第 13 章：集成界限上下文](ch13/0.md)
 - [第 14 章：应用](ch14/0.md)
 - [附录 A：聚合体与事件源：A+ES](appendix.md)
