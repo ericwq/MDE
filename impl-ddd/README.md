@@ -94,6 +94,7 @@ Vaughn Vernon
   * [面向集合的`Repositories`](ch12/1.md)
   * [面向持久化的`Repositories`](ch12/2.md)
   * [额外行为](ch12/3.md)
+  * [管理事务](ch12/4.md)
 - [第 13 章：集成界限上下文](ch13/0.md)
 - [第 14 章：应用](ch14/0.md)
 - [附录 A：聚合体与事件源：A+ES](appendix.md)
