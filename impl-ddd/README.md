@@ -100,6 +100,7 @@ Vaughn Vernon
   * [测试`Repositories`](ch12/7.md)
   * [总结](ch12/8.md)
 - [第 13 章：集成界限上下文](ch13/0.md)
+  * [集成基础](ch13/1.md)
 - [第 14 章：应用](ch14/0.md)
 - [附录 A：聚合体与事件源：A+ES](appendix.md)
 - [参考文献](bibli.md)
