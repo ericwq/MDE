@@ -107,5 +107,6 @@ Vaughn Vernon
 - [第 14 章：应用](ch14/0.md)
   * [用户界面](ch14/1.md)
   * [应用服务](ch14/2.md)
+  * [组合多个`Bounded Contexts`](ch14/3.md)
 - [附录 A：聚合体与事件源：A+ES](appendix.md)
 - [参考文献](bibli.md)
