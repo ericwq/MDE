@@ -140,7 +140,7 @@
     * [可插拔组件框架：`PLUGGABLE COMPONENT FRAMEWORK`](ch16/5.md)
     * [结构应该有多严格？](ch16/6.md)
     * [重构以适配结构](ch16/7.md)
-  - [第十七章  整合战略](ch17/0.md)
+  - [第 17 章  整合战略](ch17/0.md)
     * [大规模结构与`BOUNDED CONTEXTS`的结合](ch17/1.md)
     * [大规模结构与提炼的结合](ch17/2.md)
     * [评估先行](ch17/3.md)
