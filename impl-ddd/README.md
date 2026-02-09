@@ -110,5 +110,6 @@ Vaughn Vernon
   * [组合多个`Bounded Contexts`](ch14/3.md)
   * [基础设施](ch4/4.md)
   * [企业组件容器](ch14/5.md)
+  * [总结](ch14/6.md)
 - [附录 A：聚合体与事件源：A+ES](appendix.md)
 - [参考文献](bibli.md)
