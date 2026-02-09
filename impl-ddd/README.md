@@ -99,7 +99,7 @@ Vaughn Vernon
   * [`Repository`与数据访问对象](ch12/6.md)
   * [测试`Repositories`](ch12/7.md)
   * [总结](ch12/8.md)
-- [第 13 章：集成界限上下文](ch13/0.md)
+- [第 13 章：集成`Bounded Contexts`](ch13/0.md)
   * [集成基础](ch13/1.md)
   * [使用 RESTful 资源进行集成](ch13/2.md)
   * [使用消息进行集成](ch13/3.md)
