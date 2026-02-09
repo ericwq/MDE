@@ -347,7 +347,7 @@ Data & Knowledge Engineering, 70(12):1088–1111, 2011. DOI: 10.1016/j.datak.201
 
 #### 70
 Edward Tsang.</br>
-Foundations of Constraint Satisfaction,</br.
+Foundations of Constraint Satisfaction,.</br>
 Academic Press, 1993. DOI: 10.1016/c2013-0-07627-x. [170](ch10/7.md#fig-105)
 
 #### 71
