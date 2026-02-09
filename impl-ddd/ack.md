@@ -10,7 +10,7 @@
 
 特别感谢 Randy Stafford ，这位 DDD 社区的资深成员。几年前在 Denver 参加我的一次 DDD 讲座后，Randy 便鼓励我更深入地参与更广泛的 DDD 社区。不久后，Randy 引荐我认识 Eric Evans ，让我得以阐述凝聚 DDD 社区的构想。尽管我的设想略显宏大且可能难以实现，Eric 却说服我们：组建由核心 DDD 领导者组成的精干团队，反而能创造更具现实意义的价值。2011 年 DDD 峰会正是源于这些讨论。毋庸置疑，若非 Randy 不断鼓励我推进对 DDD 的构想，这本书便不会诞生，甚至可能连 DDD 峰会都无从谈起。尽管 Randy 因忙于 Oracle Coherence 项目未能参与本书撰写，但或许未来我们仍有机会携手创作。
 
-衷心感谢 Rinat Abdullin、Stefan Tilkov 和 Wes Williams 为本书撰写了若干专题章节。要通晓 DDD 的所有知识几乎不可能，更不可能成为软件开发所有领域的专家。正因如此，我邀请特定领域的专家撰写了 [第 4 章](ch4/0.md) 及 [附录 A](appendix.md) 的部分章节。感谢 Stefan Tilkov 分享其非凡的 REST 知识，感谢 Wes Williams 贡献 GemFire 实践经验，更感谢 Rinat Abdullin 持续分享其在聚合体实现事件源方面的不断积累的经验。
+衷心感谢 Rinat Abdullin、Stefan Tilkov 和 Wes Williams 为本书撰写了若干专题章节。要通晓 DDD 的所有知识几乎不可能，更不可能成为软件开发所有领域的专家。正因如此，我邀请特定领域的专家撰写了 [第 4 章](ch4/0.md) 及 [附录 A](appendix/0.md) 的部分章节。感谢 Stefan Tilkov 分享其非凡的 REST 知识，感谢 Wes Williams 贡献 GemFire 实践经验，更感谢 Rinat Abdullin 持续分享其在聚合体实现事件源方面的不断积累的经验。
 
 我的早期审稿人之一是 Leo Gorodinsk ，他始终支持这个项目。我第一次见到 Leo 是在 Denver 的 DDD 聚会上。他根据自己在 Boulder, Colorado 带领团队实践 DDD 时遇到的困境，为本书提供了许多宝贵建议。希望我的书能像他的严谨审阅帮助到我那样，同样对 Leo 有所裨益。我视 Leo 为 DDD 未来的重要组成部分。
 

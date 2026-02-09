@@ -1,6 +1,6 @@
 ## 参考文献
 
-#### ▶[上一节](appendix.md)
+#### ▶[上一节](appendix/17.md)
 
 #### [Appleton, LoD] 
 Appleton, Brad. n.d. “Introducing Demeter and Its Laws.” www.bradapp.com/docs/demeter-intro.html.
