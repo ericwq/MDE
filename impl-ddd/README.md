@@ -115,4 +115,5 @@ Vaughn Vernon
   * [应用服务内部](appendix/1.md)
   * [`Command Handler`](appendix/2.md)
   * [Lambda 语法](appendix/3.md)
+  * [并发控制](appendix/4.md)
 - [参考文献](bibli.md)
