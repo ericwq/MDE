@@ -116,4 +116,5 @@ Vaughn Vernon
   * [`Command Handler`](appendix/2.md)
   * [Lambda 语法](appendix/3.md)
   * [并发控制](appendix/4.md)
+  * [A+ES 带来的结构灵活性](appendix/5.md)
 - [参考文献](bibli.md)
