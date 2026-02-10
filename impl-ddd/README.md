@@ -118,4 +118,5 @@ Vaughn Vernon
   * [并发控制](appendix/4.md)
   * [A+ES 带来的结构灵活性](appendix/5.md)
   * [性能](appendix/6.md)
+  * [实现`Event Store`](appendix/7.md)
 - [参考文献](bibli.md)
