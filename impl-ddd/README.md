@@ -114,4 +114,5 @@ Vaughn Vernon
 - [附录 A：`Aggregate`与`Event Sourcing`：A+ES](appendix/0.md)
   * [应用服务内部](appendix/1.md)
   * [`Command Handler`](appendix/2.md)
+  * [Lambda 语法](appendix/3.md)
 - [参考文献](bibli.md)
