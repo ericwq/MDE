@@ -124,4 +124,5 @@ Vaughn Vernon
   * [聚焦型`Aggregates`](appendix/10.md)
   * [读取模型投影](appendix/11.md)
   * [与`Aggregate`设计结合使用](appendix/12.md)
+  * [事件增强](appendix/13.md)
 - [参考文献](bibli.md)
