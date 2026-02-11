@@ -119,4 +119,5 @@ Vaughn Vernon
   * [A+ES 带来的结构灵活性](appendix/5.md)
   * [性能](appendix/6.md)
   * [实现`Event Store`](appendix/7.md)
+  * [关系型持久化](appendix/8.md)
 - [参考文献](bibli.md)
