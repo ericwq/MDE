@@ -121,4 +121,5 @@ Vaughn Vernon
   * [实现`Event Store`](appendix/7.md)
   * [关系型持久化](appendix/8.md)
   * [BLOB 持久化](appendix/9.md)
+  * [聚焦型`Aggregates`](appendix/10.md)
 - [参考文献](bibli.md)
