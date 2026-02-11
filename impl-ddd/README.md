@@ -126,4 +126,5 @@ Vaughn Vernon
   * [与`Aggregate`设计结合使用](appendix/12.md)
   * [事件增强](appendix/13.md)
   * [支持性工具与模式](appendix/14.md)
+  * [契约生成](appendix/15.md)
 - [参考文献](bibli.md)
