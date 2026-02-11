@@ -120,4 +120,5 @@ Vaughn Vernon
   * [性能](appendix/6.md)
   * [实现`Event Store`](appendix/7.md)
   * [关系型持久化](appendix/8.md)
+  * [BLOB 持久化](appendix/9.md)
 - [参考文献](bibli.md)
