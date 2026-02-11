@@ -122,4 +122,5 @@ Vaughn Vernon
   * [关系型持久化](appendix/8.md)
   * [BLOB 持久化](appendix/9.md)
   * [聚焦型`Aggregates`](appendix/10.md)
+  * [读取模型投影](appendix/11.md)
 - [参考文献](bibli.md)
