@@ -146,7 +146,7 @@
     * [评估先行](ch17/3.md)
     * [谁制定战略？](ch17/4.md)
     * [战略设计决策的六大要素](ch17/5.md)
-  - [结论](conclusion/0.md)
+  - [结尾](conclusion/0.md)
     * [尾声](conclusion/1.md)
     * [展望未来](conclusion/2.md)
 * [附录：本书中模式的运用](appendix.md)
