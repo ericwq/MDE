@@ -6,5 +6,6 @@
 
 * [2 架构模式]()
   - [2.5 自适应系统 (Adaptable Systems)](ch2/5/0.md)
-  - [2.5 反射 (Reflection)](ch2/5/2.md)
+    * [微内核 (Microkernel)](ch2/5/1.md)
+    * [反射 (Reflection)](ch2/5/2.md)
 * [参考文献](ref.md)
