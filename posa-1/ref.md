@@ -53,16 +53,16 @@ K. Beck: Smalltalk Best Practice Patterns, Prentice-Hall, 1997
 K. Beck, W. Cunningham: A Laboratory For Teaching Object-Oriented Thinking, Proceedings of OOPSLA '89, N. Meyrowitz (Ed), Special Issue of SIGPLAN Notices, Vol. 24, No. 10, pp. 1–6, October 1989
 
 ## [BI93]
-A.P. Black, M.P. Immel: Encapsulating Plurality, Proceedings of ECOOP '93, pp. 57–79, [ECOOP93]
+A.P. Black, M.P. Immel: Encapsulating Plurality, Proceedings of ECOOP '93, pp. 57–79, [ECOOP93](#ecoop93)
 
 ## [BJ94]
-K. Beck, R. Johnson: Patterns Generate Architectures, Proceedings of ECOOP '94, pp. 139–149, [ECOOP94]
+K. Beck, R. Johnson: Patterns Generate Architectures, Proceedings of ECOOP '94, pp. 139–149, [ECOOP94](#ecoop94)
 
 ## [BKSP92]
-F. Buschmann, K. Kiefer, M. Stal, F. Paulisch: The Meta-Information-Protocol: Run-Time Type Information for C++, Proceedings of IMSA '92, pp. 82–87, [IMSA92]
+F. Buschmann, K. Kiefer, M. Stal, F. Paulisch: The Meta-Information-Protocol: Run-Time Type Information for C++, Proceedings of IMSA '92, pp. 82–87, [IMSA92](#imsa92)
 
 ## [BM94]
-F. Buschmann, R. Meunier: A System of Patterns, Proceedings of PLoP '94, pp. 325–343, [PLoP94]
+F. Buschmann, R. Meunier: A System of Patterns, Proceedings of PLoP '94, pp. 325–343, [PLoP94](#plop94)
 
 ## [BM95]
 F. Buschmann, R. Meunier: Building a Software System, Electronic Design, February 20, 1995
@@ -95,7 +95,7 @@ Chorus systèmes: Chorus Kernel v3.2, Implementation Guide, CS/TR-90-5
 J. Coutaz, L. Nigay, D. Salber: Agent-Based Architecture Modelling for Interactive Systems, The Amadeus Project, ESPRIT Basic Research Action 7040, System Modelling/WP53, April 1995
 
 ## [CM93]
-S. Chiba, T. Masuda: Designing an Extensible Distributed Language with a Meta-Level Architecture, Proceedings of ECOOP '93, pp. 482–501, [ECOOP93]
+S. Chiba, T. Masuda: Designing an Extensible Distributed Language with a Meta-Level Architecture, Proceedings of ECOOP '93, pp. 482–501, [ECOOP93](#ecoop93)
 
 ## [Coad92]
 P. Coad: Object-Oriented Patterns, Communications of the ACM, Vol. 35, No. 9, September 1992
@@ -113,7 +113,7 @@ J.O. Coplien: The Counted Body Idiom, Pattern Mailing List Reflector, Feb 1994
 J.O. Coplien: Generative pattern languages: An emerging direction of software design, C++ Report, SIGS Publications, July-August 1994
 
 ## [Cope94c]
-J.O. Coplien: A Generative Development-Process Pattern Language, Proceedings of PLoP '94, pp. 183–237, [PLoP94]
+J.O. Coplien: A Generative Development-Process Pattern Language, Proceedings of PLoP '94, pp. 183–237, [PLoP94](#plop94)
 
 ## [Cope95]
 J.O. Coplien: The History of Patterns, see http://c2.com/cgi/wiki?HistoryOfPatterns
@@ -131,7 +131,7 @@ Iain Craig: Blackboard Systems, Ablex Publishing Corporation, Norwood, New Jerse
 J. Crowley: Navigation for an Intelligent Mobile Robot, IEEE Journal of Robotics and Automation, Vol. RA-1, No. 1, pp. 31–41, March 1985
 
 ## [Cun94]
-W. Cunningham: The CHECKS Pattern Language of Information Integrity, Proceedings of PLoP '94, pp. 145–155, [PLoP94]
+W. Cunningham: The CHECKS Pattern Language of Information Integrity, Proceedings of PLoP '94, pp. 145–155, [PLoP94](#plop94)
 
 ## [Cus93]
 H. Custer: Inside Windows NT, Microsoft Press, 1993
@@ -161,7 +161,7 @@ M. Tokoro, R. Pareschi (Eds.): ECOOP '94 – Object-Oriented Programming, Procee
 W. Olthoff (Ed.): ECOOP '95 – Object-Oriented Programming, Proceedings of 9th European Conference, Aarhus, Denmark, August 1995, Lecture Notes in Computer Science 952, Springer-Verlag, Berlin Heidelberg New York, 1995
 
 ## [EHLR88]
-L.D. Erman, F. Hayes-Roth, V.R. Lesser, D.R. Reddy: The Hearsay-II Speech-Understanding System: Integrating Knowledge to Resolve Uncertainty, ACM Computing Surveys 12 (2), pp. 213-253, 1980, reprinted in Blackboard Systems, pp. 31-86, [EM88]
+L.D. Erman, F. Hayes-Roth, V.R. Lesser, D.R. Reddy: The Hearsay-II Speech-Understanding System: Integrating Knowledge to Resolve Uncertainty, ACM Computing Surveys 12 (2), pp. 213-253, 1980, reprinted in Blackboard Systems, pp. 31-86, [EM88](#em88)
 
 ## [EKM+94]
 R. Eisenhauer, S. Kumsta, F. Miralles, K. Möbius, U. Steinmüller, P. Stobbe, C. Vester: Architektur-Handbuch für Software-Architekten, Siemens Nixdorf Informationssysteme AG, internal report, 1994
@@ -193,7 +193,7 @@ D. Gelernter: Generative Communication in LINDA, ACM Transactions on Programming
 J. Grabowski, P. Graubmann, E. Rudolph: The Standardization of Message Sequence Charts, in Software Engineering Standards Symposium, Brighton, UK, 1993
 
 ## [GHJV93]
-E. Gamma, R. Helm, R. Johnson, J. Vlissides: Design Patterns: Abstraction and Reuse of Object-Oriented Design, Proceedings of ECOOP '93, pp. 406-431, [ECOOP93]
+E. Gamma, R. Helm, R. Johnson, J. Vlissides: Design Patterns: Abstraction and Reuse of Object-Oriented Design, Proceedings of ECOOP '93, pp. 406-431, [ECOOP93](#ecoop93)
 
 ## [GHJV95]
 E. Gamma, R. Helm, R. Johnson, J. Vlissides: Design Patterns – Elements of Reusable Object-Oriented Software, Addison-Wesley, 1995
@@ -223,7 +223,7 @@ R. Händel, M.N. Huber, S. Schröder, ATM Networks – Concepts, Protocols, Appl
 J. Hartmann, C. Reichetzeder, M. Varian: CMS Pipelines, http://www.akh-wien.ac.at/pipeline.html
 
 ## [HT92]
-Y. Honda, M. Tokoro: Soft Real-Time Programming through Reflection, Proceedings of IMSA '92, pp. 12–23, [IMSA92]
+Y. Honda, M. Tokoro: Soft Real-Time Programming through Reflection, Proceedings of IMSA '92, pp. 12–23, [IMSA92](#imsa92)
 
 ## [IEEE88]
 IEEE: Portable Operating System Interface for Computer Environments (POSIX), 1003.1, Sept. 1988
@@ -232,7 +232,7 @@ IEEE: Portable Operating System Interface for Computer Environments (POSIX), 100
 A. Yonezawa, B.C. Smith (Eds.): Proceedings of the International Workshop on New Models for Software Architecture '92 – Reflection and Meta-Level Architecture, Tokyo, Japan, 1992
 
 ## [IMY92]
-Y. Ichisugi, S. Matsuoka, A. Yonezawa: RbCl: A Reflective Object-Oriented Concurrent Language without a Run-time Kernel, Proceedings of IMSA '92, pp. 24–35, [IMSA92]
+Y. Ichisugi, S. Matsuoka, A. Yonezawa: RbCl: A Reflective Object-Oriented Concurrent Language without a Run-time Kernel, Proceedings of IMSA '92, pp. 24–35, [IMSA92](#imsa92)
 
 ## [Iona95]
 IONA Technologies Ltd: Orbix Programmer's Guide, compare also http://www.iona.ie/, Dublin, Ireland, 1995
@@ -256,7 +256,7 @@ E-A. Karlsson (Ed.): Software Reuse – A Holistic Approach, John Wiley & Sons, 
 S.E. Keene, Object-Oriented Programming in Common Lisp – A Programmer's Guide to CLOS, Addison-Wesley, 1989
 
 ## [Kic92]
-G. Kiczales: Towards a New Model of Abstraction in Software Engineering, Proceedings of IMSA '92, pp. 1–11, [IMSA92]
+G. Kiczales: Towards a New Model of Abstraction in Software Engineering, Proceedings of IMSA '92, pp. 1–11, [IMSA92](#imsa92)
 
 ## [KLLM95]
 G. Kiczales, R. DeLine, A. Lee, C. Maeda: Open Implementation – Analysis and Design™ of Substrate Software, Tutorial #21 of OOPSLA '95, October 1995
@@ -298,7 +298,7 @@ M. Linton, P. Calder, J. Interrante, S. Tang, J. Vlissides: InterViews Reference
 D. Lea: Collections, a Java package, http://g.oswego.edu/dl/, 1996
 
 ## [LeEr88]
-V.R. Lesser, L.D. Erman: A Retrospective View of the Hearsay-II Architecture, in Blackboard Systems, Proc. of IJCAI-77, pp. 790-800 and Technical Report CMU-CS-78-117, reproduced in Blackboard Systems, pp. 87-121, [EM88]
+V.R. Lesser, L.D. Erman: A Retrospective View of the Hearsay-II Architecture, in Blackboard Systems, Proc. of IJCAI-77, pp. 790-800 and Technical Report CMU-CS-78-117, reproduced in Blackboard Systems, pp. 87-121, [EM88](#em88)
 
 ## [Lim93]
 C.-C. Lim: A Parallel Object-Oriented System for Realizing Reusable and Efficient Data Abstractions, PhD dissertation, TR-93-063, International Computer Science Institute, Berkeley, CA, 1993, see also http://www.icsi.berkeley.edu/~sather/psather.html
@@ -319,13 +319,13 @@ S. Maffeis: The Object Group Design Pattern, 2nd USENIX Conference on Object-Ori
 J. Markowitz: Talking to Machines, Byte, December 1995, pp. 97-104
 
 ## [McA95]
-J. McAffer: Meta-level Programming with CodA, Proceedings of ECOOP '95, pp. 190-214, [ECOOP95]
+J. McAffer: Meta-level Programming with CodA, Proceedings of ECOOP '95, pp. 190-214, [ECOOP95](#ecoop95)
 
 ## [ME96]
 T.D. Mejjer, R. Engel: Making Design Patterns explicit in FACE, a Framework Adaptive Composition Environment, submitted to EuroPLoP '96
 
 ## [Mes94]
-G. Meszaros: Pattern: Half Object + Prototocol (HOPP), Proceedings of PLoP '94, pp. 129-132, [PLoP94]
+G. Meszaros: Pattern: Half Object + Prototocol (HOPP), Proceedings of PLoP '94, pp. 129-132, [PLoP94](#plop94)
 
 ## [Mey92]
 S. Meyers: Effective C++ – 50 Specific Ways to Improve Your Programs and Designs, Addison-Wesley, 1992
@@ -346,7 +346,7 @@ H.P. Nii: Blackboard Systems, Part I and II, The AI Magazine, vol. 7, nos 2 (pp.
 A. Newell, H.A. Simon: Human Problem Solving, Prentice-Hall, 1972
 
 ## [OIT92]
-H. Okamura, Y. Ishikawa, M. Tokoro: AL-1/D: A Distributed Programming System with Multi-Model Reflection Framework, Proceedings of IMSA '92, pp. 36-47, [IMSA92]
+H. Okamura, Y. Ishikawa, M. Tokoro: AL-1/D: A Distributed Programming System with Multi-Model Reflection Framework, Proceedings of IMSA '92, pp. 36-47, [IMSA92](#imsa92)
 
 ## [OMG92]
 Object Management Group: The Common Object Request Broker: Architecture and Specification, OMG Document Number 91.12.1, Revision 1.1, 1992
@@ -376,7 +376,7 @@ J.O. Coplien, N. Kerth, J. Vlissides (Eds.): Pattern Languages of Program Design
 ParcPlace Systems Inc.: Objectworks\Smalltalk Release 4.1 User's Guide, ParcPlace Systems, 1992
 
 ## [Pree94]
-W. Pree: Meta Patterns – A Means For Capturing the Essentials of Reusable Object-Oriented Design, Proceedings of ECOOP '94, pp 150-162, [ECOOP94]
+W. Pree: Meta Patterns – A Means For Capturing the Essentials of Reusable Object-Oriented Design, Proceedings of ECOOP '94, pp 150-162, [ECOOP94](#ecoop94)
 
 ## [Pree95]
 W. Pree: Design Patterns for Object-Oriented Software Development, Addison-Wesley, 1995
@@ -412,7 +412,7 @@ A. Sane, R. Campbell: Composite Messages: A Structural Pattern For Communication
 K.J. Schmucker: Object-Oriented Programming for the Macintosh™, Hayden Book Company, Hasbrouck Heights, New Jersey, 1986
 
 ## [Sch94]
-D.C. Schmidt: Reactor: An Object Behavioral Pattern for Concurrent Event Demultiplexing and Event Handler Dispatching, Proceedings of PLoP '94, pp. 529–545, [PLoP94]
+D.C. Schmidt: Reactor: An Object Behavioral Pattern for Concurrent Event Demultiplexing and Event Handler Dispatching, Proceedings of PLoP '94, pp. 529–545, [PLoP94](#plop94)
 
 ## [Sch95]
 D.C. Schmidt: A System of Reusable Design Patterns for Communication Software, Theory and Practice of Object Systems, Special Issue on Patterns and Pattern Languages, S.P. Berczuk (Ed), John Wiley and Sons, 1995
@@ -451,7 +451,7 @@ D. Soni, R. Nord, C. Hofmeister: Software Architecture in Industrial Application
 Siemens Nixdorf Informationssysteme AG: Generic++ 2.0, Portable C++ Foundation Class Library, User manual, October 1994
 
 ## [Sou94]
-J. Soukup: Implementing Patterns, Proceedings of PLoP '94, pp.395–412, in [PLoP94]
+J. Soukup: Implementing Patterns, Proceedings of PLoP '94, pp.395–412, in [PLoP94](#plop94)
 
 ## [SRC84]
 J. Saltzer, D. Reed, D. Clark: End-To-End Arguments in System Design, ACM Transactions on Computer Systems, Vol. 2, No. 4, pp. 277–288, Nov. 1984
@@ -478,7 +478,7 @@ B. Stroustrup: The C++ Programming Language, Second Edition, Addison-Wesley, 199
 Sun Microsystems, Inc.: Sun OS Documentation Tools, Formatting Documents, March 1990
 
 ## [SW95]
-R.J. Stroud, Z. Wu: Using Metaobject Protocols to Implement Atomic Data Types, Proceedings of ECOOP '95, pp. 168–189, [ECOOP95]
+R.J. Stroud, Z. Wu: Using Metaobject Protocols to Implement Atomic Data Types, Proceedings of ECOOP '95, pp. 168–189, [ECOOP95](#ecoop95)
 
 ## [Tal94]
 Taligent Inc.: Taligent's Guide To Designing Programs – Well-Mannered Object-Oriented Design in C++, Addison-Wesley, 1994
@@ -490,7 +490,7 @@ A.S. Tanenbaum: Modern Operating Systems, Prentice Hall, 1992
 Siemens AG: Toolkit for Autonomous Software Components Communication, Systemdokumentation, internal document, 1991
 
 ## [Ter88]
-A. Terry: Using Explicit Strategic Knowledge to Control Expert Systems, originally published in 1985, reproduced in Blackboard Systems, pp. 159–188, [EM88]
+A. Terry: Using Explicit Strategic Knowledge to Control Expert Systems, originally published in 1985, reproduced in Blackboard Systems, pp. 159–188, [EM88](#em88)
 
 ## [THG94]
 R. Thomson, K.E. Huff, J.W.Gish: Maximizing Reuse During Reengineering, Proceedings of the Third International Conference on Software Reuse, Rio de Janeiro, Brazil, pp. 16–23, IEEE Computer Society Press, 1994
@@ -517,19 +517,19 @@ R. Wirfs-Brock, B. Wilkerson, L. Wiener: Designing Object-Oriented Software, Pre
 A. Weinand, E. Gamma, R. Marty: ET++ – An Object-Oriented Application Framework in C++, in Proceedings of OOPSLA '88, pp. 46–57, San Diego, 1988
 
 ## [Wil84]
-M.A. Williams: Hierarchical Multi-expert Signal Understanding, Technical Report ESL-IR201, ESL Inc., Sunnyville, CA, 1984. Reproduced in Blackboard Systems, pp. 387–415, [EM88]
+M.A. Williams: Hierarchical Multi-expert Signal Understanding, Technical Report ESL-IR201, ESL Inc., Sunnyville, CA, 1984. Reproduced in Blackboard Systems, pp. 387–415, [EM88](#em88)
 
 ## [Woo96]
 D.W. Woodward: Ein Microkernel für die Datenbank, Software-Entwicklung, AWI Verlag, April 1996, S. 28–31
 
 ## [Yok92]
-Y. Yokote: The New Mechanism for Object-Oriented System Programming, Proceedings of IMSA '92, pp. 88–93, [IMSA92]
+Y. Yokote: The New Mechanism for Object-Oriented System Programming, Proceedings of IMSA '92, pp. 88–93, [IMSA92](#imsa92)
 
 ## [ZEWH95]
 S.H. Zweben, S.H. Edwards, B.W. Weide, J.E. Hollingsworth: The Effects of Layering and Encapsulation on Software Development Cost and Quality, IEEE Transactions on Software Engineering, Vol. 21, No. 3, pp. 200–208, 1995
 
 ## [Zim94]
-W. Zimmer: Relationships Between Design Patterns, Proceedings of PLoP '94, pp. 345–364, [PLoP94]
+W. Zimmer: Relationships Between Design Patterns, Proceedings of PLoP '94, pp. 345–364, [PLoP94](#plop94)
 
 ## [Zim96]
 C. Zimmermann: Objektorientierte Konzepte: Entscheidungsschichten zwischen Anwendung und Betriebssystemkern—Zwischenspiele, iX, Februar 1996, S.146–151
