@@ -10,9 +10,7 @@
 |<img src="img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/01-tool-landscape.html) |2023/7/26|
 
-
 ---
-
 我们先从工具链开始。
 每当进入一个模式和技术仍在不断演进的新领域时，我都会试着构建一套事物之间如何相互关联的思维模型。
 这有助于应对扑面而来的海量信息。
