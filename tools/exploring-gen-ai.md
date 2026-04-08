@@ -10,6 +10,10 @@
 我会在这里发布各类备忘录，记录我和同事们的学习心得与思考。
 
 ---
+
+2023
+
+- [生成式人工智能 (GenAI) 与其他代码生成工具有何区别？](exploring-gen-ai-07.md) (2023/9/19)
 - [基于 GitHub Copilot 的 TDD](exploring-gen-ai-06.md) (2023/8/17) Paul Sobocinski 撰写
 - [代码辅助工具无法替代结对编程](exploring-gen-ai-05.md) (2023/8/10)
 - [行内辅助功能 —— 它会在哪些方面造成阻碍？](exploring-gen-ai-04.md) (2023/8/3)

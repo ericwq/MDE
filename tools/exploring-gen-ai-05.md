@@ -1,4 +1,3 @@
-
 # 代码辅助工具无法替代结对编程
 
 | |<img src="img/donkey-card.png" width="40%" />|
