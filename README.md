@@ -12,3 +12,9 @@
 - [领域驱动设计 —— 处理软件核心复杂性（中文版）](ddd/README.md)
 - [领域驱动设计参考：定义和模式总结（中文版）](ddd-ref/README.md)
 - [实现领域驱动设计（中文版）](impl-ddd/README.md)
+
+## AI 相关文章
+----
+- [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md)
+- [Harness 工程是什么？2026年完整入门指南](tools/harness-2026.md)
+- [探索生成式 AI ](tools/exploring-gen-ai.md)
