@@ -1,4 +1,3 @@
-
 # 借助 AI 接手遗留代码库
 
 | |<img src="img/donkey-card.png" width="40%" />|
