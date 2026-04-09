@@ -13,6 +13,7 @@
 
 2023
 
+- [如何解决编码助手不可靠的问题](exploring-gen-ai-08.md) (2023/11/29)
 - [生成式人工智能 (GenAI) 与其他代码生成工具有何区别？](exploring-gen-ai-07.md) (2023/9/19)
 - [基于 GitHub Copilot 的 TDD](exploring-gen-ai-06.md) (2023/8/17) Paul Sobocinski 撰写
 - [代码辅助工具无法替代结对编程](exploring-gen-ai-05.md) (2023/8/10)
@@ -22,4 +23,4 @@
 - [工具链](exploring-gen-ai-01.md) (2023/7/26)
 
 ---
-如果你好奇为什么我们系列配图里用了一头驴，不妨读一读我为这位热情满满却不太可靠的编码助手 [设定人设](https://martinfowler.com/articles/exploring-gen-ai/08-how-to-tackle-unreliability.html) 的缘由。
+如果你好奇为什么我们系列配图里用了一头驴，不妨读一读我为这位热情满满却不太可靠的编码助手 [设定人设](exploring-gen-ai-08.md) 的缘由。
