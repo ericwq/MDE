@@ -11,8 +11,10 @@
 
 ---
 
-2023
+2024
+- [借助 AI 接手遗留代码库](exploring-gen-ai-09.md) (2024/8/15)
 
+2023
 - [如何解决编码助手不可靠的问题](exploring-gen-ai-08.md) (2023/11/29)
 - [生成式人工智能 (GenAI) 与其他代码生成工具有何区别？](exploring-gen-ai-07.md) (2023/9/19)
 - [基于 GitHub Copilot 的 TDD](exploring-gen-ai-06.md) (2023/8/17) Paul Sobocinski 撰写
