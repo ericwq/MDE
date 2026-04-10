@@ -7,7 +7,7 @@
 || |
 |:---|---:|
 |[Unmesh Joshi](https://twitter.com/unmeshjoshi)| |
-|<img src="img/uj.jpg" width="30%" /> |Unmesh 是 Thoughtworks 公司的杰出工程师，常驻印度 Puna。他是 Patterns of Distributed Systems 一书的作者。|
+|<img src="img/uj.jpg" width="30%" /> |Unmesh 是 Thoughtworks 公司的杰出工程师，常驻印度 Puna。他是 [Patterns of Distributed Systems](https://martinfowler.com/books/patterns-distributed.html) 一书的作者。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/14-guiding-llm-java-bytebuffer.html) |2025/4/17|
 
 ---

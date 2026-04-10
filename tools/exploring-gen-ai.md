@@ -13,6 +13,7 @@
 
 ---
 2025
+- [利用 LLM 构建三十米望远镜镜面可视化：分步实践之旅](exploring-gen-ai-15.md) (2025/4/30) Unmesh Joshi 撰写
 - [指导 LLM 编写健壮的 Java ByteBuffer 代码](exploring-gen-ai-14.md) (2025/4/17) Unmesh Joshi 撰写
 - [开发者能力在智能体编程中的作用](exploring-gen-ai-13.md) (2025/3/25)
 - [LLM 的推理能力在软件任务中扮演着怎样的角色？](exploring-gen-ai-12.md) (2025/2/18)
