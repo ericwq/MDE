@@ -1,8 +1,10 @@
 # 探索生成式 AI
 
-|[Birgitta Böckeler](https://birgitta.info/)| 2025/7/31|
+|[Birgitta Böckeler](https://birgitta.info/)| |
 |:---|---:|
-|<img src="img/bb.jpg" width="30%" /> [原文](https://martinfowler.com/articles/exploring-gen-ai.html)|<img src="img/donkey-card.png" width="40%" />|
+|<img src="img/bb.jpg" width="30%" /> |<img src="img/donkey-card.png" width="40%" />|
+|[原文](https://martinfowler.com/articles/exploring-gen-ai.html)| 2025/7/31|
+
 
 生成式人工智能，尤其是大语言模型（LLM）已经迅速进入公众视野。
 和许多软件开发人员一样，我对它所带来的可能性充满兴趣，但从长远来看，它究竟会对我们的行业产生怎样的影响，我还无法确定。
@@ -11,6 +13,7 @@
 
 ---
 2025
+- [指导 LLM 编写健壮的 Java ByteBuffer 代码](exploring-gen-ai-14.md) (2025/4/17) Unmesh Joshi 撰写
 - [开发者能力在智能体编程中的作用](exploring-gen-ai-13.md) (2025/3/25)
 - [LLM 的推理能力在软件任务中扮演着怎样的角色？](exploring-gen-ai-12.md) (2025/2/18)
 

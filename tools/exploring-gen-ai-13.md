@@ -1,4 +1,3 @@
-
 # 开发者能力在智能体编程中的作用
 
 | |<img src="img/donkey-card.png" width="40%" />|
