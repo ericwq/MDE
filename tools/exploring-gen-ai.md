@@ -13,6 +13,7 @@
 
 ---
 2025
+- [与 AI 协作，丢掉代码](exploring-gen-ai-19.md) (2025/7/31)
 - [我依然关注代码](exploring-gen-ai-18.md) (2025/7/9)
 - [自主编程智能体：一个基于 Codex 的示例](exploring-gen-ai-17.md) (2025/6/4)
 - [利用 LLM 构建定制化工具](exploring-gen-ai-16.md) (2025/5/14) Unmesh Joshi 撰写
