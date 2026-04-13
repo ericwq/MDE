@@ -13,6 +13,7 @@
 
 ---
 2025
+- [我依然关注代码](exploring-gen-ai-18.md) (2025/7/9)
 - [自主编程智能体：一个基于 Codex 的示例](exploring-gen-ai-17.md) (2025/6/4)
 - [利用 LLM 构建定制化工具](exploring-gen-ai-16.md) (2025/5/14) Unmesh Joshi 撰写
 - [编码助手对软件供应链构成威胁](exploring-gen-ai-15e.md) (2025/5/13) Jim Gumbley 和 Lilly Ryan 撰写
