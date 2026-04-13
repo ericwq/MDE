@@ -13,7 +13,8 @@
 
 ---
 2025
-- [编码助手对软件供应链构成威胁](exploring-gen-ai-16.md) (2025/5/13) Jim Gumbley 和 Lilly Ryan 撰写
+- [利用 LLM 构建定制化工具](exploring-gen-ai-16.md) (2025/5/14) Unmesh Joshi 撰写
+- [编码助手对软件供应链构成威胁](exploring-gen-ai-15e.md) (2025/5/13) Jim Gumbley 和 Lilly Ryan 撰写
 - [利用 LLM 构建三十米望远镜镜面可视化：分步实践之旅](exploring-gen-ai-15.md) (2025/4/30) Unmesh Joshi 撰写
 - [指导 LLM 编写健壮的 Java ByteBuffer 代码](exploring-gen-ai-14.md) (2025/4/17) Unmesh Joshi 撰写
 - [开发者能力在智能体编程中的作用](exploring-gen-ai-13.md) (2025/3/25)
