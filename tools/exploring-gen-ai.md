@@ -13,6 +13,7 @@
 
 ---
 2025
+- [理解规范驱动开发：Kiro、spec-kit 与 Tessl](exploring-gen-ai-22.md) (2025/10/15)
 - [将 AI 锚定到参考应用](exploring-gen-ai-21.md) (2025/9/25)
 - [氛围还是不氛围](exploring-gen-ai-20.md) (2025/9/23)
 - [与 AI 协作，丢掉代码](exploring-gen-ai-19.md) (2025/7/31) Matteo Vaccari 撰写
