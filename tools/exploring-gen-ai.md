@@ -13,6 +13,7 @@
 
 ---
 2025
+- [将 AI 锚定到参考应用](exploring-gen-ai-21.md) (2025/9/25)
 - [氛围还是不氛围](exploring-gen-ai-20.md) (2025/9/23)
 - [与 AI 协作，丢掉代码](exploring-gen-ai-19.md) (2025/7/31) Matteo Vaccari 撰写
 - [我依然关注代码](exploring-gen-ai-18.md) (2025/7/9)
