@@ -13,6 +13,7 @@
 
 ---
 2026
+- [面向代码智能体的上下文工程](exploring-gen-ai-24.md) (2026/2/5)
 - [在使用智能体编码时评估内在质量](exploring-gen-ai-23.md) (2026/1/27) Erik Doernenburg 撰写
 
 2025
