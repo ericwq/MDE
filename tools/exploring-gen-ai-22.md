@@ -192,7 +192,7 @@ API 部分体现了这样一种设计思路：
 这个过程也让我再次体会到，编写一份无歧义且完整的规范会面临诸多陷阱与挑战。</ins>
 
 
-<img src="img/sdd-overview-tessl-1.png" width="100%" /></br>
+<img src="img/sdd-overview-tessl.png" width="100%" /></br>
 *这是我们之前的概览图，针对 Tessl 的定制版本：记忆库区域包含一个 `.tessl/framework` 文件夹，内含 4 个文件，此外还有 KNOWLEDGE.md 和 AGENTS.md。规范区域展示了一个文件 dynamic-data-renderer.spec.md，即规范文件。该图中还设有一个代码区域，包含文件 dynamic-data-renderer.js。规范区域与代码区域之间有双向箭头相连，因为在 Tessl 的模式下，二者会保持相互同步。*
 
 ## 观察与疑问

@@ -12,6 +12,9 @@
 我会在这里发布各类备忘录，记录我和同事们的学习心得与思考。
 
 ---
+2026
+- [在使用智能体编码时评估内在质量](exploring-gen-ai-23.md) (2026/1/27) Erik Doernenburg 撰写
+
 2025
 - [理解规范驱动开发：Kiro、spec-kit 与 Tessl](exploring-gen-ai-22.md) (2025/10/15)
 - [将 AI 锚定到参考应用](exploring-gen-ai-21.md) (2025/9/25)
