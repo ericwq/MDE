@@ -15,6 +15,9 @@
 
 ## AI 相关文章
 ----
-- [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md)
-- [Harness 工程是什么？2026年完整入门指南](tools/harness-2026.md)
-- [探索生成式 AI ](tools/exploring-gen-ai.md)
+这是个快速变化的领域，所以相关文章都标出了时间。
+
+- [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md) (2024/1/26)
+- [Harness 工程是什么？2026年完整入门指南](tools/harness-2026.md) (2026/3/6)
+- [探索生成式 AI ](tools/exploring-gen-ai.md) (多篇系列内容：2023~2026)
+- [面向编码智能体用户的管控工程](tools/harness-engineering.md) (2026/4/2)
