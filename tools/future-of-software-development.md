@@ -1,9 +1,9 @@
 # 软件开发的未来
 
-2026/2/13 [原文](https://martinfowler.com/bliki/FutureOfSoftwareDevelopment.html)
+[Martin Fowler](https://martinfowler.com/)
 
 <img src="img/mf.jpg" width="10%" /></br>
-[Martin Fowler](https://martinfowler.com/)
+2026/2/13 [原文](https://martinfowler.com/bliki/FutureOfSoftwareDevelopment.html)
 
 2026 年 2 月，Thoughtworks 在 Utah 州 Deer Valley 举办了一场名为 “软件开发的未来” 的研讨会。
 此次活动选址 Utah 州山区，意在纪念 [敏捷软件开发宣言](https://agilemanifesto.org/) 签署 25 周年，

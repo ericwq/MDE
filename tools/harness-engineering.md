@@ -4,9 +4,8 @@
 LLM 具有非确定性，不了解我们的业务上下文，也并非真正理解代码，它们只是基于 token 进行推理。
 本文探讨一种思维模型，整合来自上下文工程与管控工程的前沿理念，以此构建这种信任。*
 
-|| |
-|:---|---:|
 |[Birgitta Böckeler](https://birgitta.info/)| |
+|:---|---:|
 |<img src="img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有超过二十余年软件开发、架构设计及技术管理经验。|
 | [原文](https://martinfowler.com/articles/harness-engineering.html) |2026/4/2|
 

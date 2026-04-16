@@ -6,9 +6,9 @@
 他在初始提示中为 LLM 设定实现策略（思维链提示），并要求模型先给出实现方案而非直接生成代码（通用知识提示）。
 得到方案后，他再据此完善实现逻辑，并生成实用的代码片段。</i>
 
-|| |
+| [Martin Fowler](https://martinfowler.com/)| |
 |:---|:---|
-|<img src="img/mf.jpg" width="20%" />| [Martin Fowler](https://martinfowler.com/)|
+|<img src="img/mf.jpg" width="20%" />| |
 |[原文](https://martinfowler.com/articles/2023-chatgpt-xu-hao.html)| 2023/4/13|
 
 ---
