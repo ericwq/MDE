@@ -17,8 +17,9 @@
 ----
 这是个快速变化的领域，所以相关文章都标出了时间。
 
-- [LLM 编程提示词示例](./tools/2023-chatgpt-xu-hao.md) (2023/4/13) Martin Fowler
-- [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md) (2024/1/26) Eric Evans
-- [Harness 工程是什么？2026年完整入门指南](tools/harness-2026.md) (2026/3/6) Jamie Park
-- [探索生成式 AI ](tools/exploring-gen-ai.md) (多篇系列内容：2023~2026) Birgitta Böckeler 等人
+- [探索生成式 AI ](tools/exploring-gen-ai.md) (系列文章：2023~2026) Birgitta Böckeler 等人
 - [面向编码智能体用户的管控工程](tools/harness-engineering.md) (2026/4/2) Birgitta Böckeler
+- [Harness 工程是什么？2026年完整入门指南](tools/harness-2026.md) (2026/3/6) Jamie Park
+- [软件开发的未来](./tools/future-of-software-development.md) (2026/2/13) Martin Fowler
+- [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md) (2024/1/26) Eric Evans
+- [LLM 编程提示词示例](tools/2023-chatgpt-xu-hao.md) (2023/4/13) Martin Fowler
