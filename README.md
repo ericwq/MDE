@@ -20,6 +20,7 @@
 - [探索生成式 AI ](tools/exploring-gen-ai.md) (系列文章：2023~2026) Birgitta Böckeler 等人
 - [面向编码智能体用户的管控工程](tools/harness-engineering.md) (2026/4/2) Birgitta Böckeler
 - [Harness 工程是什么？2026年完整入门指南](tools/harness-2026.md) (2026/3/6) Jamie Park
-- [软件开发的未来](./tools/future-of-software-development.md) (2026/2/13) Martin Fowler
+- [软件开发的未来](tools/future-of-software-development.md) (2026/2/13) Martin Fowler
+- [基于 LLM 的函数调用](tools/function-call-LLM.md) (2025/5/6) Kiran Prakash
 - [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md) (2024/1/26) Eric Evans
 - [LLM 编程提示词示例](tools/2023-chatgpt-xu-hao.md) (2023/4/13) Martin Fowler
