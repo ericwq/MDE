@@ -1,12 +1,11 @@
 # 利用 LLM 构建三十米望远镜镜面可视化：分步实践之旅
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-|| |
-|:---|---:|
 |[Unmesh Joshi](https://twitter.com/unmeshjoshi)| |
-|<img src="img/uj.jpg" width="30%" /> |Unmesh 是 Thoughtworks 公司的杰出工程师，常驻印度 Puna。他是 [Patterns of Distributed Systems](https://martinfowler.com/books/patterns-distributed.html) 一书的作者。|
+|:---|---:|
+|<img src="../img/uj.jpg" width="30%" /> |Unmesh 是 Thoughtworks 公司的杰出工程师，常驻印度 Puna。他是 [Patterns of Distributed Systems](https://martinfowler.com/books/patterns-distributed.html) 一书的作者。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/15-building-tmt-mirror-visualization.html) |2025/4/30|
 
 ---
@@ -38,7 +37,7 @@
 Claude 尝试生成了代码，但结果并不符合我的预期。
 布局显得很呆板，对称性也不够理想。于是我决定采用分步实现的方式。
 
-<img src="img/step1-initial-attempt.png" width="40%" /></br>
+<img src="../img/step1-initial-attempt.png" width="40%" /></br>
 
 ## 第二步：绘制单个六边形
 <div style="background-color: #0a2463; padding: 8px; border-left: 4px solid lightblue;">
@@ -59,7 +58,7 @@ Claude 生成了简洁的 D3 代码，绘制出了方向和几何形状均正确
 经验教训：从小处着手。
 在扩展复杂度之前，先确认基础功能可以正常运行。
 
-<img src="img/step2-single-hexagon.png" width="40%" title="竖直边为平底的单个六边形"/></br>
+<img src="../img/step2-single-hexagon.png" width="40%" title="竖直边为平底的单个六边形"/></br>
 
 ## 第三步：添加第二个六边形
 <div style="background-color: #0a2463; padding: 8px; border-left: 4px solid lightblue;">
@@ -70,7 +69,7 @@ Claude 生成了简洁的 D3 代码，绘制出了方向和几何形状均正确
 
 Claude 调整了坐标，将第二个六边形通过对齐竖直边的方式紧贴在第一个旁边。布局逻辑开始逐渐清晰。
 
-<img src="img/step3-two-hexagons.png" width="40%" title="两个共享竖直边的六边形"/></br>
+<img src="../img/step3-two-hexagons.png" width="40%" title="两个共享竖直边的六边形"/></br>
 
 ## 第四步：创建第二行
 <div style="background-color: #0a2463; padding: 8px; border-left: 4px solid lightblue;">
@@ -93,11 +92,11 @@ The number of hexagons in the second row should be such that the first row appea
   “Oops... this does not share the slanting edges with the previous row.”
 </div></br>
 
-<img src="img/step4-two-rows.png" width="40%" title="两行六边形"/></br>
+<img src="../img/step4-two-rows.png" width="40%" title="两行六边形"/></br>
 
 但最终，在明确了间距和偏移逻辑后，Claude 给出了正确的实现。
 
-<img src="img/step4-two-rows_fixed.png" width="40%" title="两行六边形实现了正确的边对齐"/></br>
+<img src="../img/step4-two-rows_fixed.png" width="40%" title="两行六边形实现了正确的边对齐"/></br>
 
 经验总结：基于几何图形的布局往往需要多次迭代，并仔细进行视觉检查。
 
@@ -163,7 +162,7 @@ Claude 最初是按照环的索引进行编号的，而非按照行的顺序。
 - 悬浮提示展示镜段元数据
 - 从外环到内环的视觉对称性
 
-<img src="img/step7-numbered-segments.png" width="100%" title="带有编号镜段和悬浮提示的最终结构"/></br>
+<img src="../img/step7-numbered-segments.png" width="100%" title="带有编号镜段和悬浮提示的最终结构"/></br>
 
 ## 反思
 这段经历让我总结出了几个重要心得：

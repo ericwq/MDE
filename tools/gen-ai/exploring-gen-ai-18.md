@@ -1,12 +1,11 @@
 # 我依然关注代码
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-|| |
-|:---|---:|
 |[Birgitta Böckeler](https://birgitta.info/)| |
-|<img src="img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
+|:---|---:|
+|<img src="../img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/i-still-care-about-the-code.html) |2025/7/9|
 
 ---

@@ -1,12 +1,11 @@
 # 编码助手对软件供应链构成威胁
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-| | | | |
-|---|---|---|---|
 |[Jim Gumbley](https://www.linkedin.com/in/jimgumbley)| |[Lilly Ryan](https://www.linkedin.com/in/lilly-ryan/) | |
-|<img src="img/jim_gumbley.jpg" width="60%" /> |Jim 是 Thoughtworks 的技术顾问，专注于风险管理以及将安全能力融入软件和基础设施建设。|<img src="img/pro_lilly_ryan_2.png" width="70%" /> |Lilly Ryan 曾从事历史学研究，现转型为信息安全专家，在澳大利亚工作。|
+|---|---|---|---|
+|<img src="../img/jim_gumbley.jpg" width="60%" /> |Jim 是 Thoughtworks 的技术顾问，专注于风险管理以及将安全能力融入软件和基础设施建设。|<img src="../img/pro_lilly_ryan_2.png" width="70%" /> |Lilly Ryan 曾从事历史学研究，现转型为信息安全专家，在澳大利亚工作。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/software-supply-chain-attack-surface.html)| | |2025/5/13|
 
 ---
@@ -22,7 +21,7 @@
 被入侵的 MCP 服务器、规则文件，甚至某段代码或依赖项，都有可能向智能体提供被篡改的指令或命令并使其执行。
 这并非无关紧要的细节 —— 相比传统开发模式或基于 AI 代码建议的系统，这种情况会显著扩大攻击面。
 
-<img src="img/supply-chain-attack-surface.png" width="100%" /></br>
+<img src="../img/supply-chain-attack-surface.png" width="100%" /></br>
 
 *图 1：持续部署（CD）流水线，重点展示指令与代码在这些层级之间的流转方式。该图同时标注了可能发生投毒攻击的供应链环节，以及权限提升的关键要素。*
 

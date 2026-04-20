@@ -1,12 +1,11 @@
 # 与 AI 协作，丢掉代码
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-|| |
-|:---|---:|
 |[Matteo Vaccari](https://matteo.vaccari.name/)| |
-|<img src="img/matteo.png" width="30%" /> |Matteo 是一名开发者兼技术负责人。他十分认可极限编程在助力团队与业务取得成功方面的价值。|
+|:---|---:|
+|<img src="../img/matteo.png" width="30%" /> |Matteo 是一名开发者兼技术负责人。他十分认可极限编程在助力团队与业务取得成功方面的价值。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/partner-with-ai-and-throw-away-the-code.html) |2025/7/31|
 
 ---

@@ -1,12 +1,11 @@
 # 自主编程智能体：一个基于 Codex 的示例
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-|| |
-|:---|---:|
 |[Birgitta Böckeler](https://birgitta.info/)| |
-|<img src="img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
+|:---|---:|
+|<img src="../img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/autonomous-agents-codex-example.html) |2025/6/4|
 
 ---
@@ -31,11 +30,11 @@
 
 ### 实际情况：
 
-<img src="img/codex-before.png" width="80%" title="当前界面截图——网页界面中的部分标签：DeliveryManagement、Client-Research"/></br>
+<img src="../img/codex-before.png" width="80%" title="当前界面截图——网页界面中的部分标签：DeliveryManagement、Client-Research"/></br>
 
 ### 我希望智能体实现的效果：
 
-<img src="img/codex-after.png" width="80%" title="预期效果截图——标签应更易读：Delivery Management、Client Research"/></br>
+<img src="../img/codex-after.png" width="80%" title="预期效果截图——标签应更易读：Delivery Management、Client Research"/></br>
 
 ### 提示词：
 <div style="background-color: #0a2463; padding: 8px; border-left: 4px solid lightblue;">
@@ -56,7 +55,7 @@
 
 以下是 Codex 中的日志界面展示效果：
 
-<img src="img/codex-log_view.png" width="80%" title="一张Codex“日志”视图的截图，展示了步骤摘要和命令执行的示例"/></br>
+<img src="../img/codex-log_view.png" width="80%" title="一张Codex“日志”视图的截图，展示了步骤摘要和命令执行的示例"/></br>
 
 ### 首先收集信息
 
@@ -213,7 +212,7 @@
 |是时候最终确定拉取请求说明并验证提交内容了。|||
 |界面测试因环境问题失败。我会引用最后出错的代码行。完成！|||
 
-<img src="img/codex-results_view.png" width="100%" title="OpenAI Codex 最终结果界面截图"/></br>
+<img src="../img/codex-results_view.png" width="100%" title="OpenAI Codex 最终结果界面截图"/></br>
 
 [这里是 Codex 创建的完整拉取请求](https://github.com/tw-haiven/haiven/pull/830) 。
 
@@ -234,14 +233,14 @@
 目前，你可以配置容器镜像、环境变量、密钥以及启动脚本。
 文档中特别指出，在执行该启动脚本后，环境将不再能够访问互联网，这会对环境形成沙箱隔离，并降低部分安全风险。
 
-<img src="img/codex-environment_setup.png" width="80%" title="Codex 环境配置界面截图（截至 2025 年 5 月底）；显示可配置的容器镜像、环境变量、密钥以及安装脚本。"/></br>
+<img src="../img/codex-environment_setup.png" width="80%" title="Codex 环境配置界面截图（截至 2025 年 5 月底）；显示可配置的容器镜像、环境变量、密钥以及安装脚本。"/></br>
 
 对于这类 “自主后台智能体” 而言，为其搭建的远程开发环境的成熟度至关重要，同时这也是一项棘手的挑战。
 例如在本次场景中，Codex 就没能成功运行测试。
 
-<img src="img/codex-failed_to_run_tests.png" width="50%" title=""/></br>
+<img src="../img/codex-failed_to_run_tests.png" width="50%" title=""/></br>
 
-<img src="img/codex-failing_tests.png" width="50%" title="显示 Codex 错误信息的截图，表明其无法运行测试。"/></br>
+<img src="../img/codex-failing_tests.png" width="50%" title="显示 Codex 错误信息的截图，表明其无法运行测试。"/></br>
 
 这个名为 Haiven 的项目，实际上配备了一套脚本化的开发者安全保障机制，具体体现为一套相当完善的 [.pre-commit 配置](https://github.com/tw-haiven/haiven/blob/main/.pre-commit-config.yaml) 。
 理想情况下，智能代理在创建拉取请求之前，就能够执行完整的 pre-commit 检查。

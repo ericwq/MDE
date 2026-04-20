@@ -1,12 +1,11 @@
 # 通过多文件编辑扩大解决方案规模
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-|| |
-|:---|---:|
 |[Birgitta Böckeler](https://birgitta.info/)| |
-|<img src="img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
+|:---|---:|
+|<img src="../img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/11-multi-file-editing.html) |2024/11/19|
 
 ---
@@ -34,11 +33,11 @@ Codeium 则刚刚发布了名为 [Windsurf](https://codeium.com/windsurf) 的新
 
 以下是 GitHub Copilot 的使用示例：
 
-<img src="img/copilot-multiedit-01.png" width="100%" /></br>
+<img src="../img/copilot-multiedit-01.png" width="100%" /></br>
 
 Cursor Composer 功能示例：
 
-<img src="img/cursor-multiedit-01.png" width="100%" /></br>
+<img src="../img/cursor-multiedit-01.png" width="100%" /></br>
 
 ## 使用多文件编辑时需要考虑的事项
 ### 问题规模
@@ -58,7 +57,7 @@ Cursor Composer 功能示例：
 - 将该新属性作为 API 接口的一部分返回给前端
 - 前端根据该属性判断页面上某个元素是否可编辑
 
-<img src="img/multiedit-example.png" width="100%" /></br>
+<img src="../img/multiedit-example.png" width="100%" /></br>
 
 在我看来，这次变更和提交规模都很合适，对 AI 来说也不算过大，能够可靠地完成任务。
 不过也有人可能会说，他们通常会把这项工作拆分成三次提交。

@@ -1,12 +1,11 @@
 # 软件工程循环中的人与智能体
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-|| |
-|:---|---:|
 |[Kief Morris](https://kief.com/)| |
-|<img src="img/kief-morris.jpg" width="30%" /> | Kief Morris 居住在伦敦，担任 Thoughtworks 全球云技术专家。|
+|:---|---:|
+|<img src="../img/kief-morris.jpg" width="30%" /> | Kief Morris 居住在伦敦，担任 Thoughtworks 全球云技术专家。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html) |2026/3/4|
 
 ---
@@ -26,7 +25,7 @@
 执行循环包含创建、选择与使用代码、测试、工具、基础设施等中间产物，也可能涉及技术设计文档、架构决策记录（ADR）等文档。
 我们习惯将这些产物视为交付物，但实际上，中间产物只是达成目标的手段。
 
-<img src="img/humans-agents-image1.png" width="40%" /></br>
+<img src="../img/humans-agents-image1.png" width="40%" /></br>
 *软件交付反馈循环：上层的 “目标循环 (why loop)” 与下层的 “执行循环(how loop)” 相连。
 目标循环围绕想法与可运行软件迭代优化，执行循环则围绕规格文档、代码、测试等中间产物迭代实施。*
 
@@ -37,7 +36,7 @@
 最内层循环负责生成与测试代码。
 中间各层循环将更高层级的工作拆解为更小任务，交由下层循环实现，并对结果进行验证。
 
-<img src="img/humans-agents-image2.png" width="40%" /></br>
+<img src="../img/humans-agents-image2.png" width="40%" /></br>
 *多层级的 “执行循环” 支撑着 “目标循环” ：外层循环围绕功能特性迭代，中层循环围绕用户故事迭代，内层循环围绕代码迭代。*
 
 *图 2：执行循环包含多层内层循环，分别针对完整实现中的更小粒度增量开展工作。*
@@ -54,7 +53,7 @@
 这就是氛围编码（vibe coding）的普遍定义。
 对规格驱动开发（SDD）的某些解读也基本如此 —— 人类只专注描述想要达成的成果，而不规定 LLM 该如何实现。
 
-<img src="img/humans-agents-image3.png" width="30%" /></br>
+<img src="../img/humans-agents-image3.png" width="30%" /></br>
 *人类处于循环之外：上层的目标循环由人类掌控，围绕想法与可运行软件迭代；通过机器人连接下层执行循环，由其对代码等中间产物进行迭代。*
 
 *图 3：人类负责目标循环，智能体负责执行循环。*
@@ -90,7 +89,7 @@
 通常，当智能体在某段出错代码上陷入无效循环时，人类开发者能在数秒内理解并修复。
 在许多场景下，人类的经验与判断力依然优于 LLM 。
 
-<img src="img/humans-agents-image4.png" width="30%" /></br>
+<img src="../img/humans-agents-image4.png" width="30%" /></br>
 *人类介入循环：单一的 “目标+执行” 循环，上层由人类掌控，下层由机器人执行。该循环围绕想法、代码与测试等中间产物，以及可运行软件进行迭代。*
 
 *图 4：人类同时负责目标循环与执行循环。*
@@ -115,7 +114,7 @@
 由规范、质量检查与工作流指引组成的整套体系，用来控制执行循环（how loop）内部各个层级的子循环，这就是智能体的管控框架（harness）。
 构建与维护这类管控框架的新兴实践—— [管控工程 (Harness Engineering)](https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html) ，正是人类在循环之上开展工作的方式。
 
-<img src="img/humans-agents-image5.png" width="30%" /></br>
+<img src="../img/humans-agents-image5.png" width="30%" /></br>
 *人类掌控循环：由人类连接，上层的目标循环（why loop）与下层的执行循环（how loop）。目标循环围绕想法与可运行软件迭代。机器人位于执行循环的最底层，围绕规格、代码等中间产物进行迭代。*
 
 *图 5：人类定义执行循环，智能体负责运行。*
@@ -133,7 +132,7 @@
 ## 智能体飞轮 (The agentic flywheel)
 下一阶段是：人类指导智能体去管理和优化管控框架，而非亲自动手。
 
-<img src="img/humans-agents-image6.png" width="30%" /></br>
+<img src="../img/humans-agents-image6.png" width="30%" /></br>
 *飞轮：上层的 “目标循环（why loop）” 通过人类与机器人共同连接下层的 “执行循环（how loop）”。目标循环围绕想法与可运行软件迭代，执行循环围绕规格说明等中间产物迭代。*
 
 *图 6：人类指导智能体构建并优化执行循环。*

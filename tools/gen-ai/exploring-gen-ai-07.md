@@ -1,12 +1,11 @@
 # 生成式人工智能 (GenAI) 与其他代码生成工具有何区别？
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-|| |
-|:---|---:|
 |[Birgitta Böckeler](https://birgitta.info/)| |
-|<img src="img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
+|:---|---:|
+|<img src="../img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/07-how-is-this-different.html) |2023/9/19|
 
 ---
@@ -25,13 +24,13 @@
 以低代码平台为例：它们提升了抽象层级并降低了开发工作量，但也因此 [最适用于某些类型简单、逻辑直接的应用场景](https://www.thoughtworks.com/radar/techniques/bounded-low-code-platforms) 。
 一旦需要实现更具定制化、更复杂的功能，我们就会触碰到这层壁垒，不得不再次降低抽象层级。
 
-<img src="img/abstraction-levels-force-field.png" width="100%" title="软件中典型抽象层级的示意图：从最底层的 0 和 1 开始，依次向上经过编程语言、框架、平台，直至低代码应用。顶部的一条波浪线标注着 '可定制性与可扩展性的无形壁垒'" /></br>
+<img src="../img/abstraction-levels-force-field.png" width="100%" title="软件中典型抽象层级的示意图：从最底层的 0 和 1 开始，依次向上经过编程语言、框架、平台，直至低代码应用。顶部的一条波浪线标注着 '可定制性与可扩展性的无形壁垒'" /></br>
 
 GenAI 开辟了一个全新的潜力领域，因为它并非又一次试图突破这层壁垒。
 相反，它能够让人类在所有抽象层级上都更高效地工作，而无需像编译器或代码生成器那样，去正式定义结构化语言和转换器。
 
 
-<img src="img/abstraction-levels-with-genai.png" width="100%" title="软件中典型抽象层级的示意图：从最底层的 0 和 1 开始，依次向上经过编程语言、框架、平台，直至低代码应用。右侧一个标注 '自然语言' 的垂直方框有多条箭头指向所有抽象层级，表明 GenAI 可辅助构建各个层级的内容" /></br>
+<img src="../img/abstraction-levels-with-genai.png" width="100%" title="软件中典型抽象层级的示意图：从最底层的 0 和 1 开始，依次向上经过编程语言、框架、平台，直至低代码应用。右侧一个标注 '自然语言' 的垂直方框有多条箭头指向所有抽象层级，表明 GenAI 可辅助构建各个层级的内容" /></br>
 
 <ins>在越高的抽象层级上应用生成式人工智能，开发一款软件所需的整体工作量就越低</ins>。
 回到低代码的例子，该领域已有不少令人瞩目的案例，展示了仅 [通过少量提示词就能搭建完整应用](https://www.youtube.com/watch?v=9thyji4QRa8) 的过程。

@@ -13,39 +13,39 @@
 
 ---
 2026
-- [软件工程循环中的人与智能体](exploring-gen-ai-26.md) (2026/3/4) Kief Morris 撰写
-- [Harness 工程——初步思考](exploring-gen-ai-25.md) (2026/2/17)
-- [面向代码智能体的上下文工程](exploring-gen-ai-24.md) (2026/2/5)
-- [在使用智能体编码时评估内在质量](exploring-gen-ai-23.md) (2026/1/27) Erik Doernenburg 撰写
+- [软件工程循环中的人与智能体](gen-ai/exploring-gen-ai-26.md) (2026/3/4) Kief Morris 撰写
+- [Harness 工程——初步思考](gen-ai/exploring-gen-ai-25.md) (2026/2/17)
+- [面向代码智能体的上下文工程](gen-ai/exploring-gen-ai-24.md) (2026/2/5)
+- [在使用智能体编码时评估内在质量](gen-ai/exploring-gen-ai-23.md) (2026/1/27) Erik Doernenburg 撰写
 
 2025
-- [理解规范驱动开发：Kiro、spec-kit 与 Tessl](exploring-gen-ai-22.md) (2025/10/15)
-- [将 AI 锚定到参考应用](exploring-gen-ai-21.md) (2025/9/25)
-- [氛围还是不氛围](exploring-gen-ai-20.md) (2025/9/23)
-- [与 AI 协作，丢掉代码](exploring-gen-ai-19.md) (2025/7/31) Matteo Vaccari 撰写
-- [我依然关注代码](exploring-gen-ai-18.md) (2025/7/9)
-- [自主编程智能体：一个基于 Codex 的示例](exploring-gen-ai-17.md) (2025/6/4)
-- [利用 LLM 构建定制化工具](exploring-gen-ai-16.md) (2025/5/14) Unmesh Joshi 撰写
-- [编码助手对软件供应链构成威胁](exploring-gen-ai-15e.md) (2025/5/13) Jim Gumbley 和 Lilly Ryan 撰写
-- [利用 LLM 构建三十米望远镜镜面可视化：分步实践之旅](exploring-gen-ai-15.md) (2025/4/30) Unmesh Joshi 撰写
-- [指导 LLM 编写健壮的 Java ByteBuffer 代码](exploring-gen-ai-14.md) (2025/4/17) Unmesh Joshi 撰写
-- [开发者能力在智能体编程中的作用](exploring-gen-ai-13.md) (2025/3/25)
-- [LLM 的推理能力在软件任务中扮演着怎样的角色？](exploring-gen-ai-12.md) (2025/2/18)
+- [理解规范驱动开发：Kiro、spec-kit 与 Tessl](gen-ai/exploring-gen-ai-22.md) (2025/10/15)
+- [将 AI 锚定到参考应用](gen-ai/exploring-gen-ai-21.md) (2025/9/25)
+- [氛围还是不氛围](gen-ai/exploring-gen-ai-20.md) (2025/9/23)
+- [与 AI 协作，丢掉代码](gen-ai/exploring-gen-ai-19.md) (2025/7/31) Matteo Vaccari 撰写
+- [我依然关注代码](gen-ai/exploring-gen-ai-18.md) (2025/7/9)
+- [自主编程智能体：一个基于 Codex 的示例](gen-ai/exploring-gen-ai-17.md) (2025/6/4)
+- [利用 LLM 构建定制化工具](gen-ai/exploring-gen-ai-16.md) (2025/5/14) Unmesh Joshi 撰写
+- [编码助手对软件供应链构成威胁](gen-ai/exploring-gen-ai-15e.md) (2025/5/13) Jim Gumbley 和 Lilly Ryan 撰写
+- [利用 LLM 构建三十米望远镜镜面可视化：分步实践之旅](gen-ai/exploring-gen-ai-15.md) (2025/4/30) Unmesh Joshi 撰写
+- [指导 LLM 编写健壮的 Java ByteBuffer 代码](gen-ai/exploring-gen-ai-14.md) (2025/4/17) Unmesh Joshi 撰写
+- [开发者能力在智能体编程中的作用](gen-ai/exploring-gen-ai-13.md) (2025/3/25)
+- [LLM 的推理能力在软件任务中扮演着怎样的角色？](gen-ai/exploring-gen-ai-12.md) (2025/2/18)
 
 2024
-- [通过多文件编辑扩大解决方案规模](exploring-gen-ai-11.md) (2024/11/19)
-- [构建用于迁移技术栈的 AI 智能体应用](exploring-gen-ai-10.md) (2024/8/20)
-- [借助 AI 接手遗留代码库](exploring-gen-ai-09.md) (2024/8/15)
+- [通过多文件编辑扩大解决方案规模](gen-ai/exploring-gen-ai-11.md) (2024/11/19)
+- [构建用于迁移技术栈的 AI 智能体应用](gen-ai/exploring-gen-ai-10.md) (2024/8/20)
+- [借助 AI 接手遗留代码库](gen-ai/exploring-gen-ai-09.md) (2024/8/15)
 
 2023
-- [如何解决编码助手不可靠的问题](exploring-gen-ai-08.md) (2023/11/29)
-- [生成式人工智能 (GenAI) 与其他代码生成工具有何区别？](exploring-gen-ai-07.md) (2023/9/19)
-- [基于 GitHub Copilot 的 TDD](exploring-gen-ai-06.md) (2023/8/17) Paul Sobocinski 撰写
-- [代码辅助工具无法替代结对编程](exploring-gen-ai-05.md) (2023/8/10)
-- [行内辅助功能 —— 它会在哪些方面造成阻碍？](exploring-gen-ai-04.md) (2023/8/3)
-- [行内辅助功能 —— 在哪些场景下更实用？](exploring-gen-ai-03.md) (2023/8/1)
-- [中位数——三个函数的故事](exploring-gen-ai-02.md) (2023/7/27)
-- [工具链](exploring-gen-ai-01.md) (2023/7/26)
+- [如何解决编码助手不可靠的问题](gen-ai/exploring-gen-ai-08.md) (2023/11/29)
+- [生成式人工智能 (GenAI) 与其他代码生成工具有何区别？](gen-ai/exploring-gen-ai-07.md) (2023/9/19)
+- [基于 GitHub Copilot 的 TDD](gen-ai/exploring-gen-ai-06.md) (2023/8/17) Paul Sobocinski 撰写
+- [代码辅助工具无法替代结对编程](gen-ai/exploring-gen-ai-05.md) (2023/8/10)
+- [行内辅助功能 —— 它会在哪些方面造成阻碍？](gen-ai/exploring-gen-ai-04.md) (2023/8/3)
+- [行内辅助功能 —— 在哪些场景下更实用？](gen-ai/exploring-gen-ai-03.md) (2023/8/1)
+- [中位数——三个函数的故事](gen-ai/exploring-gen-ai-02.md) (2023/7/27)
+- [工具链](gen-ai/exploring-gen-ai-01.md) (2023/7/26)
 
 ---
 如果你好奇为什么我们系列配图里用了一头驴，不妨读一读我为这位热情满满却不太可靠的编码助手 [设定人设](exploring-gen-ai-08.md) 的缘由。

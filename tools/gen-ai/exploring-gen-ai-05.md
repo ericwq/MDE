@@ -1,12 +1,11 @@
 # 代码辅助工具无法替代结对编程
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-|| |
-|:---|---:|
 |[Birgitta Böckeler](https://birgitta.info/)| |
-|<img src="img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
+|:---|---:|
+|<img src="../img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/05-not-your-pair-programmer.html) |2023/8/10|
 
 ---
@@ -22,7 +21,7 @@
 将代码辅助工具定位为结对程序员，是对结对编程这一实践的贬低，也会加深人们对结对编程价值普遍存在的片面理解与误解。
 我翻出了以往讲解结对编程所用的一组幻灯片，以及 [本站发布的一篇综合性文章](https://martinfowler.com/articles/on-pair-programming.html)，把其中提到的所有益处浓缩到了一页幻灯片中：
 
-<img src="img/benefits-of-pair-programming.png" width="100%" /></br>
+<img src="../img/benefits-of-pair-programming.png" width="100%" /></br>
 
 代码辅助工具在这方面最能产生显著效果的，是第一点 “1+1>2”。
 它们能帮我们突破瓶颈，优化新人上手流程，加快战术层面的工作效率，让我们能更专注于战略层面——也就是整体方案的设计。

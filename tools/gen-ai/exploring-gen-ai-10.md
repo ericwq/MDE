@@ -1,12 +1,11 @@
 # 构建用于迁移技术栈的 AI 智能体应用
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-|| |
-|:---|---:|
 |[Birgitta Böckeler](https://birgitta.info/)| |
-|<img src="img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
+|:---|---:|
+|<img src="../img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/10-ai-for-tech-stack-migration.html) |2024/8/20|
 
 ---
@@ -83,7 +82,7 @@ def run_tests(test_file_path: Annotated[str, "Relative path to the test file to 
 
 我追踪了请求与响应过程，以便更清晰地了解内部逻辑。下面是过程的可视化展示：
 
-<img src="img/overview_enzyme_agent.png" width="100%" />
+<img src="../img/overview_enzyme_agent.png" width="100%" />
 
 一些观察结果：
 

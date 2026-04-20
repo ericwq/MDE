@@ -1,12 +1,11 @@
 # 将 AI 锚定到参考应用
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-|| |
-|:---|---:|
 |[Birgitta Böckeler](https://birgitta.info/)| |
-|<img src="img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
+|:---|---:|
+|<img src="../img/bb.jpg" width="30%" /> |Birgitta 是 Thoughtworks 的杰出工程师，同时也是 AI 辅助交付领域专家。她拥有二十余年软件开发、架构设计及技术管理经验。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/anchoring-to-reference.html) |2025/9/25|
 
 ---
@@ -28,7 +27,7 @@
 更重要的是，如果你要为多种编码模式编写提示词，还需要让它们彼此保持一致。
 把代码示例维护在一个可以编译和运行的参考应用项目中（就像服务模板一样），会让你向 AI 提供可编译、风格一致的示例变得容易得多。
 
-<img src="img/drift-commit-example.png" width="100%" title="截图展示了一次Git提交差异：为控制器添加了@Slf4j 注解，并在每个控制器方法中加入了log.debug语句。"/></br>
+<img src="../img/drift-commit-example.png" width="100%" title="截图展示了一次Git提交差异：为控制器添加了@Slf4j 注解，并在每个控制器方法中加入了log.debug语句。"/></br>
 
 ## 检测与参考应用的偏离
 现在回到我一开始提到的问题：一旦代码生成完成（无论是通过 AI 还是服务模板生成），并在此基础上进行扩展与维护，代码库往往会逐渐偏离参考应用这一标杆范本。
@@ -36,14 +35,14 @@
 因此在第二步，我开始思考如何利用这种方法，在业务代码库与参考应用之间进行 "代码模式偏离检测 (code pattern drift detection)"。
 我用一个相对简单的示例做了测试：在参考应用的控制器 (controller) 类中添加了日志记录器 (logger) 以及 `log.debug` 语句。
 
-<img src="img/drift-mcp-server-samples.png" width="100%" title="参考应用中某次 Git 提交差异的截图，显示某个控制器新增了 @Slf4j 注解，并在其中一个接口映射方法中添加了 log.debug 语句。"/></br>
+<img src="../img/drift-mcp-server-samples.png" width="100%" title="参考应用中某次 Git 提交差异的截图，显示某个控制器新增了 @Slf4j 注解，并在其中一个接口映射方法中添加了 log.debug 语句。"/></br>
 
 随后我扩展了 MCP 服务器，使其能够访问参考应用中的 Git 提交记录。
 让智能体先查看参考应用中的实际变更，能让我对偏离检测的范围进行一定控制；
 我可以通过提交记录，明确告知 AI 我关注的是哪一类代码偏离。
 在引入这一方式之前，我只是让 AI 对比参考控制器与现有控制器，结果它会做大量无关的比对，而这种基于提交限定范围的方式效果显著。
 
-<img src="img/drift-mcp-server-commits.png" width="100%" title="此前图示的扩展版本，本次展示了偏离检测的完整架构。提示词要求智能体查找最新变更，智能体通过 MCP 服务器从参考应用获取最新提交。接着智能体查看差异内容，并据此分析目标应用，生成偏离报告。第二步，用户便可让智能体编写代码，填补报告中发现的差距。"/></br>
+<img src="../img/drift-mcp-server-commits.png" width="100%" title="此前图示的扩展版本，本次展示了偏离检测的完整架构。提示词要求智能体查找最新变更，智能体通过 MCP 服务器从参考应用获取最新提交。接着智能体查看差异内容，并据此分析目标应用，生成偏离报告。第二步，用户便可让智能体编写代码，填补报告中发现的差距。"/></br>
 
 第一步，我只是让 AI 生成一份识别所有代码偏离问题的报告，方便我进行审核和修改，比如剔除无关的检测结果。
 第二步，我让 AI 根据这份报告编写代码，填补其中发现的差距。

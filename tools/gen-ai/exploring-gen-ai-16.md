@@ -1,13 +1,12 @@
 # 利用 LLM 构建定制化工具
 —— 以扩展 PlantUML 为例的案例研究
 
-<img src="img/donkey-card.png" width="25%" align="right"/></br>
+<img src="../img/donkey-card.png" width="25%" align="right"/></br>
 本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
-|| |
-|:---|---:|
 |[Unmesh Joshi](https://twitter.com/unmeshjoshi)| |
-|<img src="img/uj.jpg" width="30%" /> |Unmesh 是 Thoughtworks 公司的杰出工程师，常驻印度 Puna。他是 [Patterns of Distributed Systems](https://martinfowler.com/books/patterns-distributed.html) 一书的作者。|
+|:---|---:|
+|<img src="../img/uj.jpg" width="30%" /> |Unmesh 是 Thoughtworks 公司的杰出工程师，常驻印度 Puna。他是 [Patterns of Distributed Systems](https://martinfowler.com/books/patterns-distributed.html) 一书的作者。|
 | [原文](https://martinfowler.com/articles/exploring-gen-ai/16-building-custom-tooling-with-llms.html) |2025/5/14|
 
 本项目使用了搭载 Claude Sonnet 3.7 的 Cursor 编辑器。
@@ -67,7 +66,7 @@ System --> User: Dashboard View
 
 经 PlantUML 处理后，这段文本会生成可视化的时序图，展示组件之间的交互过程。
 
-<img src="img/user-authentication.png" width="50%" /></br>
+<img src="../img/user-authentication.png" width="50%" /></br>
 
 PlantUML 类代码的特性使其易于学习和使用，对于已经熟悉文本类工具的开发者来说尤为如此。
 
@@ -226,9 +225,9 @@ First, let's create a simple HTML template for the viewer: ....
 这套方案让我们能够从单个 PlantUML 文件快速生成分步图表，并以分步形式进行查看。
 因此上述图表可按以下步骤序列进行展示：
 
-<img src="img/user-authentication-step-1.png" width="35%" /></br>
-<img src="img/user-authentication-step-2.png" width="50%" /></br>
-<img src="img/user-authentication-step-3.png" width="50%" /></br>
+<img src="../img/user-authentication-step-1.png" width="35%" /></br>
+<img src="../img/user-authentication-step-2.png" width="50%" /></br>
+<img src="../img/user-authentication-step-3.png" width="50%" /></br>
 
 
 ## 代码是唯一可信源
