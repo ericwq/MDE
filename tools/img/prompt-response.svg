@@ -1,0 +1,143 @@
+
+<svg class = 'nodearc' id = '' version = '1.1' viewBox = '-10 -10 600 180' xmlns = 'http://www.w3.org/2000/svg'>
+<style>@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600,700,800);
+
+svg.nodearc {
+  --default-fill: #F7F8FE;
+  --default-stroke: #0f1872;
+  --legend: #ef5ba1;
+  --dash-stroke: 3,3;
+  path {
+    stroke: var(--default-stroke);
+    fill: none; 
+    stroke-width: 1.5;
+  }
+  .na-node {
+    rect, path {
+      display: block;
+      fill: var(--default-fill);
+      stroke: var(--default-stroke);
+      stroke-width: 2;
+    }
+  }
+
+  
+  foreignObject {
+    overflow: visible;
+    line-height: 1.1;
+    font-family: Open Sans, sans-serif;
+    font-size: 8pt;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .na-node .label-center p {
+    display: table;
+    height: 100%;
+    width: 100%;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+
+  .na-surround {
+    rect {
+      fill: #eeeeee;
+      stroke: grey;
+      stroke-width: 1.5;
+    }
+    p {
+      padding: 3px;
+      font-size: 7pt;
+    }
+  }
+
+
+  .legend {
+    font-style: italic;
+    color: var(--legend);
+  }
+
+  path.legend-line {
+    stroke: var(--legend)
+  }
+}
+</style>
+
+<g class = 'na-node picture-node' nid = 'user'>
+<g class = '' transform = 'translate(0, 0)'>
+<path d = 'm 22.02127,10.00741
+h 0.005
+c 2.95253,0 5.2159,2.29601 5.2425,5.316239 0.029,3.366031 -2.30931,5.86275 -5.47826,5.86275
+h -0.0399
+c -2.87153,-0.01935 -5.20018,-2.3613 -5.23282,-5.26305 -0.0411,-3.328549 2.36371,-5.913519 5.50365,-5.915939
+z
+
+m 6.32897,18.69916
+c 4.61366,-2.67144 7.33116,-7.751081 7.36124,-14.83984 -0.01,-3.64653 -1.39405,-8.00882 -5.62335,-11.04115 -2.96341,-2.12191 -6.34999,-2.82558 -9.91794,-2.82558 -0.081,0 -0.16564,0.0012 -0.24544,0.0012 -11.6734896,0.10277 -18.95325957,12.78583 -13.2827496,22.979439 1.64425,2.95681 4.3496896,4.997591 7.3301496,6.221221 -0.24548,0.37672 -0.48256,0.77549 -0.71034,1.1961 -4.6771996,7.50097 -5.9450096,6.57892 -11.0879096,14.47238 -5.05568,8.02585 -0.86286,14.63125 8.1317596,14.86799
+h 0.13083
+c 5.23479,0 7.89346,0.0654 10.54434,0.13083 2.65867,0.0654 5.30643,0.13083 10.53032,0.13083
+h 0.25855 0.0825
+c 8.73608,0 12.38221,-6.88575 7.15365,-14.32909 -5.21766,-7.36079 -4.80648,-7.2798 -9.41982,-15.11563 -0.39653,-0.67354 -0.8095,-1.28955 -1.23583,-1.84872
+z' transform = 'scale(0.8333333333333334)'></path>
+</g>
+
+<foreignObject class = 'label-below' height = '20' width = '34.51916666666667' x = '0' y = '55'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>User</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'ui'>
+<rect class = '' height = '50' width = '100' x = '84.51916666666668' y = '0'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '84.51916666666668' y = '0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>User App</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'solid-stick na-arc'>
+<path class = 'solid-stick na-arc line' d = 'M 39.51916666666667 25.0 L 79.51916666666668 25.0'></path>
+
+<path class = 'solid-stick na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 79.51916666666668, 25.0)translate(79.51916666666668 25.0)'></path>
+
+<path class = 'solid-stick na-arc start-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(180.0, 39.51916666666667, 25.0)translate(39.51916666666667 25.0)'></path>
+</g>
+
+<g class = 'na-node' nid = 'llm'>
+<rect class = '' height = '50' width = '100' x = '84.51916666666668' y = '100'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '84.51916666666668' y = '100'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>LLM</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 109.51916666666668 50 L 109.51916666666668 100'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 109.51916666666668, 100)translate(109.51916666666668 100)'></path>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 159.51916666666668 100 L 159.51916666666668 50'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(-90.0, 159.51916666666668, 50)translate(159.51916666666668 50)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '69.51916666666668' y = '75'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>prompt</div>
+</foreignObject>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '164.51916666666668' y = '60'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>response</div>
+</foreignObject>
+</svg>

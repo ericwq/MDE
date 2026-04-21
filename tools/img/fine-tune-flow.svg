@@ -1,0 +1,264 @@
+
+<svg class = 'nodearc activity' id = '' version = '1.1' viewBox = '-10 -10 700 450' xmlns = 'http://www.w3.org/2000/svg'>
+<style>@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600,700,800);
+
+svg.nodearc.activity {
+  --default-fill: #F7F8FE;
+  --default-stroke: #0f1872;
+  --legend: #ef5ba1;
+  --dash-stroke: 3,3;
+  path {
+    stroke: var(--default-stroke);
+    fill: none; 
+    stroke-width: 1.5;
+  }
+  .na-node {
+    rect, path {
+      display: block;
+      fill: var(--default-fill);
+      stroke: var(--default-stroke);
+      stroke-width: 2;
+    }
+  }
+
+  
+  foreignObject {
+    overflow: visible;
+    line-height: 1.1;
+    font-family: Open Sans, sans-serif;
+    font-size: 8pt;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .na-node .label-center p {
+    display: table;
+    height: 100%;
+    width: 100%;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+
+  .na-surround {
+    rect {
+      fill: #eeeeee;
+      stroke: grey;
+      stroke-width: 1.5;
+    }
+    p {
+      padding: 3px;
+      font-size: 7pt;
+    }
+  }
+
+
+  .legend {
+    font-style: italic;
+    color: var(--legend);
+  }
+
+  path.legend-line {
+    stroke: var(--legend)
+  }
+}
+svg.nodearc.activity.activity .na-node rect {rx: 15px}</style>
+
+<g class = 'na-node' nid = 'start'>
+<circle class = '' cx = '15.0' cy = '27.5' r = '15' transform = ''></circle>
+
+<foreignObject class = 'label-center' height = '15.0' width = '30' x = '0' y = '20'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'tweak'>
+<rect class = '' height = '50' width = '100' x = '80.0' y = '2.5'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '80.0' y = '2.5'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Tweak Prompts</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 30 27.5 L 80.0 27.5'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 80.0, 27.5)translate(80.0 27.5)'></path>
+</g>
+
+<g class = 'na-node' nid = 'tweak_s'>
+<path d = 'M 105.0 102.5 M 130.0 102.5 L 155.0 127.5 L 130.0 152.5 L 105.0 127.5 L 130.0 102.5'></path>
+
+<foreignObject class = 'label-center' height = '50' width = '50' x = '105.0' y = '102.5'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '155.0' y = '112.5'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>[else]</div>
+</foreignObject>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '60.0' y = '152.5'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>[satisfactory]</div>
+</foreignObject>
+
+<g class = 'na-node' nid = 'tweak_s_done'>
+<rect class = '' height = '30' width = '50' x = '105.0' y = '202.5'></rect>
+
+<foreignObject class = 'label-center' height = '30' width = '50' x = '105.0' y = '202.5'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Done</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 130.0 152.5 L 130.0 202.5'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 130.0, 202.5)translate(130.0 202.5)'></path>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 130.0 52.5 L 130.0 102.5'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 130.0, 102.5)translate(130.0 102.5)'></path>
+</g>
+
+<g class = 'na-node' nid = 'rag'>
+<rect class = '' height = '50' width = '100' x = '205.0' y = '102.5'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '205.0' y = '102.5'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Introduce RAG</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 155.0 127.5 L 205.0 127.5'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 205.0, 127.5)translate(205.0 127.5)'></path>
+</g>
+
+<g class = 'na-node' nid = 'rag_s'>
+<path d = 'M 230.0 202.5 M 255.0 202.5 L 280.0 227.5 L 255.0 252.5 L 230.0 227.5 L 255.0 202.5'></path>
+
+<foreignObject class = 'label-center' height = '50' width = '50' x = '230.0' y = '202.5'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '280.0' y = '212.5'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>[else]</div>
+</foreignObject>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '185.0' y = '252.5'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>[satisfactory]</div>
+</foreignObject>
+
+<g class = 'na-node' nid = 'rag_s_done'>
+<rect class = '' height = '30' width = '50' x = '230.0' y = '302.5'></rect>
+
+<foreignObject class = 'label-center' height = '30' width = '50' x = '230.0' y = '302.5'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Done</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 255.0 252.5 L 255.0 302.5'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 255.0, 302.5)translate(255.0 302.5)'></path>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 255.0 152.5 L 255.0 202.5'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 255.0, 202.5)translate(255.0 202.5)'></path>
+</g>
+
+<g class = 'na-node' nid = 'fine'>
+<rect class = '' height = '50' width = '100' x = '330.0' y = '202.5'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '330.0' y = '202.5'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Fine Tuning</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 280.0 227.5 L 330.0 227.5'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 330.0, 227.5)translate(330.0 227.5)'></path>
+</g>
+
+<g class = 'na-node' nid = 'fine_s'>
+<path d = 'M 355.0 302.5 M 380.0 302.5 L 405.0 327.5 L 380.0 352.5 L 355.0 327.5 L 380.0 302.5'></path>
+
+<foreignObject class = 'label-center' height = '50' width = '50' x = '355.0' y = '302.5'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '405.0' y = '312.5'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>[else]</div>
+</foreignObject>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '310.0' y = '352.5'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>[satisfactory]</div>
+</foreignObject>
+
+<g class = 'na-node' nid = 'fine_s_done'>
+<rect class = '' height = '30' width = '50' x = '355.0' y = '402.5'></rect>
+
+<foreignObject class = 'label-center' height = '30' width = '50' x = '355.0' y = '402.5'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Done</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 380.0 352.5 L 380.0 402.5'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 380.0, 402.5)translate(380.0 402.5)'></path>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 380.0 252.5 L 380.0 302.5'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 380.0, 302.5)translate(380.0 302.5)'></path>
+</g>
+
+<g class = 'na-node' nid = 'revisit'>
+<rect class = '' height = '50' width = '100' x = '455.0' y = '302.5'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '455.0' y = '302.5'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>revisit use case</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 405.0 327.5 L 455.0 327.5'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 455.0, 327.5)translate(455.0 327.5)'></path>
+</g>
+</svg>

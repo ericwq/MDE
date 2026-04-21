@@ -1,0 +1,192 @@
+
+<svg class = 'nodearc' id = '' version = '1.1' viewBox = '-10 -10 600 430' xmlns = 'http://www.w3.org/2000/svg'>
+<style>@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600,700,800);
+
+svg.nodearc {
+  --default-fill: #F7F8FE;
+  --default-stroke: #0f1872;
+  --legend: #ef5ba1;
+  --dash-stroke: 3,3;
+  path {
+    stroke: var(--default-stroke);
+    fill: none; 
+    stroke-width: 1.5;
+  }
+  .na-node {
+    rect, path {
+      display: block;
+      fill: var(--default-fill);
+      stroke: var(--default-stroke);
+      stroke-width: 2;
+    }
+  }
+
+  
+  foreignObject {
+    overflow: visible;
+    line-height: 1.1;
+    font-family: Open Sans, sans-serif;
+    font-size: 8pt;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .na-node .label-center p {
+    display: table;
+    height: 100%;
+    width: 100%;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+
+  .na-surround {
+    rect {
+      fill: #eeeeee;
+      stroke: grey;
+      stroke-width: 1.5;
+    }
+    p {
+      padding: 3px;
+      font-size: 7pt;
+    }
+  }
+
+
+  .legend {
+    font-style: italic;
+    color: var(--legend);
+  }
+
+  path.legend-line {
+    stroke: var(--legend)
+  }
+}
+</style>
+
+<g class = 'na-surround'>
+<rect class = '' height = '194' width = '144' x = '128' y = '108'></rect>
+
+<foreignObject class = 'label-tl' height = '194' width = '144' x = '128' y = '108'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Retriever</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'emb'>
+<rect class = '' height = '50' width = '100' x = '100' y = '0'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '100' y = '0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Embedding Model</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node picture-node' nid = 'v_store'>
+<g class = '' transform = 'translate(250, 0)'>
+<path d = 'm 0 45 l 0 -40 c 0 -2.76 11.2 -5 25 -5 c 13.8 0 25 2.24 25 5 l 0 40 c 0 2.76 -11.2 5 -25 5 c -13.8 0 -25 -2.24 -25 -5 m 0 0 l 0 -40 c 0 -2.76 11.2 -5 25 -5 c 13.8 0 25 2.24 25 5 l 0 40 c 0 2.76 -11.2 5 -25 5 c -13.8 0 -25 -2.24 -25 -5 m 0 -40 c 0 2.76 11.2 5 25 5 c 13.8 0 25 -2.24 25 -5' transform = 'scale(1.0)'></path>
+</g>
+
+<foreignObject class = 'label-center' height = '50' width = '50' x = '250' y = '0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Vector Store</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'vec'>
+<rect class = '' height = '50' width = '100' x = '150' y = '130'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '150' y = '130'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Vector Search</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'key'>
+<rect class = '' height = '50' width = '100' x = '150' y = '230'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '150' y = '230'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Keyword Search</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node picture-node' nid = 'k_store'>
+<g class = '' transform = 'translate(175.0, 330)'>
+<path d = 'm 0 45 l 0 -40 c 0 -2.76 11.2 -5 25 -5 c 13.8 0 25 2.24 25 5 l 0 40 c 0 2.76 -11.2 5 -25 5 c -13.8 0 -25 -2.24 -25 -5 m 0 0 l 0 -40 c 0 -2.76 11.2 -5 25 -5 c 13.8 0 25 2.24 25 5 l 0 40 c 0 2.76 -11.2 5 -25 5 c -13.8 0 -25 -2.24 -25 -5 m 0 -40 c 0 2.76 11.2 5 25 5 c 13.8 0 25 -2.24 25 -5' transform = 'scale(1.0)'></path>
+</g>
+
+<foreignObject class = 'label-below' height = '20' width = '50' x = '175.0' y = '385'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Text Store</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 0 155.0 L 150 155.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 150, 155.0)translate(150 155.0)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '0' y = '160.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>query phrase</div>
+</foreignObject>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 150.0 50 L 150.0 90 L 175.0 90 L 175.0 130'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 175.0, 130)translate(175.0 130)'></path>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 275.0 50 L 275.0 90 L 225.0 90 L 225.0 130'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 225.0, 130)translate(225.0 130)'></path>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 250 155.0 L 400 155.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 400, 155.0)translate(400 155.0)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '350' y = '160.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>document fragments</div>
+</foreignObject>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 0 255.0 L 150 255.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 150, 255.0)translate(150 255.0)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '0' y = '260.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>keywords</div>
+</foreignObject>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 200.0 330 L 200.0 280'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(-90.0, 200.0, 280)translate(200.0 280)'></path>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 250 255.0 L 400 255.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 400, 255.0)translate(400 255.0)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '350' y = '260.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>document fragments</div>
+</foreignObject>
+</svg>

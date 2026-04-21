@@ -1,0 +1,120 @@
+
+<svg class = 'nodearc' id = '' version = '1.1' viewBox = '-10 -10 600 120' xmlns = 'http://www.w3.org/2000/svg'>
+<style>@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600,700,800);
+
+svg.nodearc {
+  --default-fill: #F7F8FE;
+  --default-stroke: #0f1872;
+  --legend: #ef5ba1;
+  --dash-stroke: 3,3;
+  path {
+    stroke: var(--default-stroke);
+    fill: none; 
+    stroke-width: 1.5;
+  }
+  .na-node {
+    rect, path {
+      display: block;
+      fill: var(--default-fill);
+      stroke: var(--default-stroke);
+      stroke-width: 2;
+    }
+  }
+
+  
+  foreignObject {
+    overflow: visible;
+    line-height: 1.1;
+    font-family: Open Sans, sans-serif;
+    font-size: 8pt;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .na-node .label-center p {
+    display: table;
+    height: 100%;
+    width: 100%;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+
+  .na-surround {
+    rect {
+      fill: #eeeeee;
+      stroke: grey;
+      stroke-width: 1.5;
+    }
+    p {
+      padding: 3px;
+      font-size: 7pt;
+    }
+  }
+
+
+  .legend {
+    font-style: italic;
+    color: var(--legend);
+  }
+
+  path.legend-line {
+    stroke: var(--legend)
+  }
+}
+</style>
+
+<g class = 'na-node' nid = 'rewriter'>
+<rect class = '' height = '100' width = '100' x = '150' y = '0'></rect>
+
+<foreignObject class = 'label-center' height = '100' width = '100' x = '150' y = '0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Rewriter</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 0 50.0 L 150 50.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 150, 50.0)translate(150 50.0)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '0' y = '55.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>query</div>
+</foreignObject>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 250 25.0 L 400 25.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 400, 25.0)translate(400 25.0)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '310' y = '29.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>similar query</div>
+</foreignObject>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 250 50.0 L 400 50.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 400, 50.0)translate(400 50.0)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '310' y = '54.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>varied query</div>
+</foreignObject>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 250 75.0 L 400 75.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 400, 75.0)translate(400 75.0)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '310' y = '79.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>similar inquiry</div>
+</foreignObject>
+</svg>

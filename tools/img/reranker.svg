@@ -1,0 +1,312 @@
+
+<svg class = 'nodearc reranker' id = '' version = '1.1' viewBox = '-10 -10 600 250' xmlns = 'http://www.w3.org/2000/svg'>
+<style>@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600,700,800);
+
+svg.nodearc.reranker {
+  --default-fill: #F7F8FE;
+  --default-stroke: #0f1872;
+  --legend: #ef5ba1;
+  --dash-stroke: 3,3;
+  path {
+    stroke: var(--default-stroke);
+    fill: none; 
+    stroke-width: 1.5;
+  }
+  .na-node {
+    rect, path {
+      display: block;
+      fill: var(--default-fill);
+      stroke: var(--default-stroke);
+      stroke-width: 2;
+    }
+  }
+
+  
+  foreignObject {
+    overflow: visible;
+    line-height: 1.1;
+    font-family: Open Sans, sans-serif;
+    font-size: 8pt;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .na-node .label-center p {
+    display: table;
+    height: 100%;
+    width: 100%;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+
+  .na-surround {
+    rect {
+      fill: #eeeeee;
+      stroke: grey;
+      stroke-width: 1.5;
+    }
+    p {
+      padding: 3px;
+      font-size: 7pt;
+    }
+  }
+
+
+  .legend {
+    font-style: italic;
+    color: var(--legend);
+  }
+
+  path.legend-line {
+    stroke: var(--legend)
+  }
+}
+svg.nodearc.reranker.reranker .reranker-group  rect {
+  stroke-dasharray: var(--dash-stroke);
+  fill: none;
+}
+</style>
+
+<g class = 'na-node' nid = 'retriever'>
+<rect class = '' height = '50' width = '100' x = '100' y = '80'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '100' y = '80'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Retriever</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 0 105.0 L 100 105.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 100, 105.0)translate(100 105.0)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '100' x = '10' y = '110.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>query</div>
+</foreignObject>
+
+<g class = 'reranker-group na-node' nid = 'input'>
+<rect class = 'reranker-group' height = '200' width = '50' x = '250' y = '5.0'></rect>
+
+<foreignObject class = 'label-center' height = '200' width = '50' x = '250' y = '5.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node picture-node' nid = 'input_1'>
+<g class = '' transform = 'translate(260.0, 15.0)'>
+<path d = 'M 0 0 L 50 0 L 50 40 C 35 35 15 55 0 45 Z' transform = 'scale(0.6)'></path>
+</g>
+
+<foreignObject class = 'label-center' height = '30.0' width = '30' x = '260.0' y = '15.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node picture-node' nid = 'input_2'>
+<g class = '' transform = 'translate(260.0, 55.0)'>
+<path d = 'M 0 0 L 50 0 L 50 40 C 35 35 15 55 0 45 Z' transform = 'scale(0.6)'></path>
+</g>
+
+<foreignObject class = 'label-center' height = '30.0' width = '30' x = '260.0' y = '55.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node picture-node' nid = 'input_3'>
+<g class = '' transform = 'translate(260.0, 95.0)'>
+<path d = 'M 0 0 L 50 0 L 50 40 C 35 35 15 55 0 45 Z' transform = 'scale(0.6)'></path>
+</g>
+
+<foreignObject class = 'label-center' height = '30.0' width = '30' x = '260.0' y = '95.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'input_3_dot_1'>
+<circle class = '' cx = '275.0' cy = '136.0' r = '2' transform = ''></circle>
+
+<foreignObject class = 'label-center' height = '2.0' width = '4' x = '273.0' y = '135.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'input_3_dot_2'>
+<circle class = '' cx = '275.0' cy = '146.0' r = '2' transform = ''></circle>
+
+<foreignObject class = 'label-center' height = '2.0' width = '4' x = '273.0' y = '145.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'input_3_dot_3'>
+<circle class = '' cx = '275.0' cy = '156.0' r = '2' transform = ''></circle>
+
+<foreignObject class = 'label-center' height = '2.0' width = '4' x = '273.0' y = '155.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node picture-node' nid = 'input_4'>
+<g class = '' transform = 'translate(260.0, 170.0)'>
+<path d = 'M 0 0 L 50 0 L 50 40 C 35 35 15 55 0 45 Z' transform = 'scale(0.6)'></path>
+</g>
+
+<foreignObject class = 'label-center' height = '30.0' width = '30' x = '260.0' y = '170.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 200 105.0 L 250 105.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 250, 105.0)translate(250 105.0)'></path>
+</g>
+
+<g class = 'na-node' nid = 'reranker'>
+<rect class = '' height = '50' width = '100' x = '350' y = '80.0'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '350' y = '80.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>Reranker</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 300 105.0 L 350 105.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 350, 105.0)translate(350 105.0)'></path>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 60 105.0 L 60 225.0 L 400.0 225.0 L 400.0 130.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(-90.0, 400.0, 130.0)translate(400.0 130.0)'></path>
+</g>
+
+<g class = 'reranker-group na-node' nid = 'output'>
+<rect class = 'reranker-group' height = '200' width = '50' x = '500' y = '5.0'></rect>
+
+<foreignObject class = 'label-center' height = '200' width = '50' x = '500' y = '5.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node picture-node' nid = 'output_1'>
+<g class = '' transform = 'translate(510.0, 15.0)'>
+<path d = 'M 0 0 L 50 0 L 50 40 C 35 35 15 55 0 45 Z' transform = 'scale(0.6)'></path>
+</g>
+
+<foreignObject class = 'label-center' height = '30.0' width = '30' x = '510.0' y = '15.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>0.9</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node picture-node' nid = 'output_2'>
+<g class = '' transform = 'translate(510.0, 55.0)'>
+<path d = 'M 0 0 L 50 0 L 50 40 C 35 35 15 55 0 45 Z' transform = 'scale(0.6)'></path>
+</g>
+
+<foreignObject class = 'label-center' height = '30.0' width = '30' x = '510.0' y = '55.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>0.89</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node picture-node' nid = 'output_3'>
+<g class = '' transform = 'translate(510.0, 95.0)'>
+<path d = 'M 0 0 L 50 0 L 50 40 C 35 35 15 55 0 45 Z' transform = 'scale(0.6)'></path>
+</g>
+
+<foreignObject class = 'label-center' height = '30.0' width = '30' x = '510.0' y = '95.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>0.85</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'output_3_dot_1'>
+<circle class = '' cx = '525.0' cy = '136.0' r = '2' transform = ''></circle>
+
+<foreignObject class = 'label-center' height = '2.0' width = '4' x = '523.0' y = '135.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'output_3_dot_2'>
+<circle class = '' cx = '525.0' cy = '146.0' r = '2' transform = ''></circle>
+
+<foreignObject class = 'label-center' height = '2.0' width = '4' x = '523.0' y = '145.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'output_3_dot_3'>
+<circle class = '' cx = '525.0' cy = '156.0' r = '2' transform = ''></circle>
+
+<foreignObject class = 'label-center' height = '2.0' width = '4' x = '523.0' y = '155.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span></span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-node picture-node' nid = 'output_4'>
+<g class = '' transform = 'translate(510.0, 170.0)'>
+<path d = 'M 0 0 L 50 0 L 50 40 C 35 35 15 55 0 45 Z' transform = 'scale(0.6)'></path>
+</g>
+
+<foreignObject class = 'label-center' height = '30.0' width = '30' x = '510.0' y = '170.0'>
+<p xmlns = 'http://www.w3.org/1999/xhtml'>
+<span>0.1</span>
+</p>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 450 105.0 L 500 105.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 500, 105.0)translate(500 105.0)'></path>
+</g>
+
+<foreignObject class = 'na-text legend' height = '50' width = '100' x = '110' y = '50'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>Fast, but less accurate match</div>
+</foreignObject>
+
+<foreignObject class = 'na-text legend' height = '50' width = '100' x = '350' y = '60.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>Slow, more accurate</div>
+</foreignObject>
+</svg>
