@@ -20,6 +20,7 @@
 
 - [面向编码智能体用户的管控工程](tools/harness-engineering.md) (2026/4/2) Birgitta Böckeler
 - [软件开发的未来](tools/future-of-software-development.md) (2026/2/13) Martin Fowler
+- [对话：LLM 与目标/实现闭环](./tools/convo-what-how.md) (2026/1/21) Unmesh Joshi，Rebecca Parsons 和 Martin Fowler
 - [对话：LLM 与抽象构建](tools/convo-llm-abstractions.md) (2025/8/26) Unmesh Joshi 和 Martin Fowler
 - [基于 LLM 的函数调用](tools/function-call-LLM.md) (2025/5/6) Kiran Prakash
 - [构建 GenAI 产品的新兴模式](tools/gen-ai-patterns.md) (2025/2/25) Bharani Subramaniam 和 Martin Fowler
