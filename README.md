@@ -19,20 +19,21 @@
 下面是 martinfowler.com 上，标签为：[generative AI](https://martinfowler.com/tags/generative%20AI.html) 的相关文章：
 
 - [片段：4月21日](tools/fragments/2026-04-21.md) (2026/4/21) Martin Fowler
-- [面向编码智能体用户的管控工程](tools/harness-engineering.md) (2026/4/2) Birgitta Böckeler
-- [软件开发的未来](tools/future-of-software-development.md) (2026/2/13) Martin Fowler
-- [对话：LLM 与目标/实现闭环](tools/convo-what-how.md) (2026/1/21) Unmesh Joshi，Rebecca Parsons 和 Martin Fowler
-- [对话：LLM 与抽象构建](tools/convo-llm-abstractions.md) (2025/8/26) Unmesh Joshi 和 Martin Fowler
-- [基于 LLM 的函数调用](tools/function-call-LLM.md) (2025/5/6) Kiran Prakash
-- [构建 GenAI 产品的新兴模式](tools/gen-ai-patterns.md) (2025/2/25) Bharani Subramaniam 和 Martin Fowler
-- [LLM 编程提示词示例](tools/2023-chatgpt-xu-hao.md) (2023/4/13) Martin Fowler
+- ❄ [降低 AI 辅助开发挫折的模式](tools/reduce-friction-ai-main.md) (系列文章：2026) Rahul Garg
+- ❄ [面向编码智能体用户的管控工程](tools/harness-engineering.md) (2026/4/2) Birgitta Böckeler
+- ❄ [软件开发的未来](tools/future-of-software-development.md) (2026/2/13) Martin Fowler
+- ❄ [对话：LLM 与目标/实现闭环](tools/convo-what-how.md) (2026/1/21) Unmesh Joshi，Rebecca Parsons 和 Martin Fowler
+- ❄ [对话：LLM 与抽象构建](tools/convo-llm-abstractions.md) (2025/8/26) Unmesh Joshi 和 Martin Fowler
+- ❄ [基于 LLM 的函数调用](tools/function-call-LLM.md) (2025/5/6) Kiran Prakash
+- ❄ [构建 GenAI 产品的新兴模式](tools/gen-ai-patterns.md) (2025/2/25) Bharani Subramaniam 和 Martin Fowler
+- ❄ [LLM 编程提示词示例](tools/2023-chatgpt-xu-hao.md) (2023/4/13) Martin Fowler
 - [探索生成式 AI ](tools/exploring-gen-ai.md) (系列文章：2023~2026) Birgitta Böckeler 等人
 
 下面是 来自互联网的关于 AI 及编程智能体的文章：
 
-- [编码智能体的组成部分](tools/components-of-a-coding-agent.md) (2026/4/4) Sebastian Raschka
+- ❄ [编码智能体的组成部分](tools/components-of-a-coding-agent.md) (2026/4/4) Sebastian Raschka
 - [Harness 工程是什么？2026年完整入门指南](tools/harness-2026.md) (2026/3/6) Jamie Park
-- [那么，接下来是哪个词呢？](tools/so-whats-the-next-word-then.md) (2026/2/6) Matthias Kainer
+- ❄ [那么，接下来是哪个词呢？](tools/so-whats-the-next-word-then.md) (2026/2/6) Matthias Kainer
 - [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md) (2024/1/26) Eric Evans
 
 ----
