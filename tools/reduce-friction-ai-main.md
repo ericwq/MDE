@@ -12,7 +12,7 @@
 - [知识预填充 (Knowledge Priming)](reduce-friction-ai/knowledge-priming.md)
 - [设计先行协作 (Design-First Collaboration)](reduce-friction-ai/design-first-collaboration.md)
 - [上下文锚定 (Context Anchoring)](reduce-friction-ai/context-anchoring.md)
-- 团队规范编码化 (Encoding Team Standards)
+- [编码团队规范 (Encoding Team Standards)](reduce-friction-ai/encoding-team-standards.md)
 - 反馈飞轮 (Feedback Flywheel)
 
 ---
@@ -157,7 +157,7 @@ AI 速度很快 —— 快得惊人。但它和人类结对伙伴一样，都需
 
 [了解更多](reduce-friction-ai/design-first-collaboration.md) …
 
-### 团队规范编码化 (Encoding Team Standards)
+### 编码团队规范 (Encoding Team Standards)
 ***人类协作类比*** ：资深开发者的本能判断
 
 每个团队都有这样的资深开发者：他们凭直觉就能判断代码是否合格 —— 能发现他人忽略的架构偏差、安全漏洞和规范违规问题。
