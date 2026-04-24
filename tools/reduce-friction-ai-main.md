@@ -10,7 +10,7 @@
 ---
 ## 模式
 - [知识预填充 (Knowledge Priming)](reduce-friction-ai/knowledge-priming.md)
-- 设计先行协作 (Design-First Collaboration)
+- [设计先行协作 (Design-First Collaboration)](reduce-friction-ai/design-first-collaboration.md)
 - 上下文锚定 (Context Anchoring)
 - 团队规范编码化 (Encoding Team Standards)
 - 反馈飞轮 (Feedback Flywheel)
