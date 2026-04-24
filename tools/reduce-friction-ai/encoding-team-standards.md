@@ -65,7 +65,7 @@
 
 这是系统性问题，而非个人能力问题，因此必须依靠系统性方案解决。
 
-本系列前文介绍的方法，聚焦于完善 AI 的认知储备：[知识预填充](knowledge-priming.md) 让 AI 熟知项目规范，[设计先行协作](design-first-collaboration.md) 统一架构共识，[上下文锚定](context-anchoring.md) 保障多会话间认知持续一致。
+本系列前文介绍的方法，聚焦于完善 AI 的认知储备：[知识预置](knowledge-priming.md) 让 AI 熟知项目规范，[设计先行协作](design-first-collaboration.md) 统一架构共识，[上下文锚定](context-anchoring.md) 保障多会话间认知持续一致。
 本文则着眼于另一核心：让 AI 在各类关键协作场景中，统一落地团队评判标准，不受使用者差异影响，全程保持输出一致。
 
 ## 可执行治理
