@@ -21,6 +21,7 @@
 - [片段：4月21日](tools/fragments/2026-04-21.md) (2026/4/21) Martin Fowler
 - ❄ [降低 AI 辅助开发挫折的模式](tools/reduce-friction-ai-main.md) (系列文章：2026) Rahul Garg
 - ❄ [面向编码智能体用户的管控工程](tools/harness-engineering.md) (2026/4/2) Birgitta Böckeler
+- [架构决策记录](tools/ADR.md) (2026/3/24) Martin Fowler
 - ❄ [软件开发的未来](tools/future-of-software-development.md) (2026/2/13) Martin Fowler
 - ❄ [对话：LLM 与目标/实现闭环](tools/convo-what-how.md) (2026/1/21) Unmesh Joshi，Rebecca Parsons 和 Martin Fowler
 - ❄ [对话：LLM 与抽象构建](tools/convo-llm-abstractions.md) (2025/8/26) Unmesh Joshi 和 Martin Fowler
