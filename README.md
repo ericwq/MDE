@@ -32,6 +32,7 @@
 
 下面是 来自互联网的关于 AI 及编程智能体的文章：
 
+- [写了 17 年开源代码，我为什么认为在编程智能体中堆砌功能纯属浪费时间？](tools/piling-features-in-coding-agent.md) (2026/4/27) Mario Zechner
 - ❄ [编码智能体的组成部分](tools/components-of-a-coding-agent.md) (2026/4/4) Sebastian Raschka
 - [Harness 工程是什么？2026年完整入门指南](tools/harness-2026.md) (2026/3/6) Jamie Park
 - ❄ [那么，接下来是哪个词呢？](tools/so-whats-the-next-word-then.md) (2026/2/6) Matthias Kainer
