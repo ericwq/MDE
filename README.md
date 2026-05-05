@@ -18,6 +18,7 @@
 
 下面是 martinfowler.com 上，标签为：[generative AI](https://martinfowler.com/tags/generative%20AI.html) 的相关文章：
 
+- [片段：4月29日](tools/fragments/2026-04-29.md) (2026/4/29) Martin Fowler
 - [片段：4月21日](tools/fragments/2026-04-21.md) (2026/4/21) Martin Fowler
 - ❄ [降低 AI 辅助开发挫折的模式](tools/reduce-friction-ai-main.md) (系列文章：2026) Rahul Garg
 - ❄ [面向编码智能体用户的管控工程](tools/harness-engineering.md) (2026/4/2) Birgitta Böckeler
