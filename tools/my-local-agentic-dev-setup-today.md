@@ -342,7 +342,7 @@ nono run --profile pi -- pi
 
 ## 延伸阅读
 
-- [编码智能体生成它自己的扩展](https://willemvandenende.com/blog/engineering/coding-agent-generates-its-own-extensions) —— 在与智能体对话的过程中，即时为它提供解决方案。
+- [编码智能体生成它自己的扩展](local/coding-agent-generates-its-own-extensions.md) —— 在与智能体对话的过程中，即时为它提供解决方案。
 
 - [与 Pi 一起进行番茄结对](https://willemvandenende.com/blog/engineering/a-pair-pomodoro-with-pi) —— 关于使用编码智能体进行短周期工作的一次简短实验。
 
