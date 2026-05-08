@@ -344,7 +344,7 @@ nono run --profile pi -- pi
 
 - [编码智能体生成它自己的扩展](local/coding-agent-generates-its-own-extensions.md) —— 在与智能体对话的过程中，即时为它提供解决方案。
 
-- [与 Pi 一起进行番茄结对](https://willemvandenende.com/blog/engineering/a-pair-pomodoro-with-pi) —— 关于使用编码智能体进行短周期工作的一次简短实验。
+- [与 Pi 共度双番茄钟时光](local/a-pair-pomodoro-with-pi.md) —— 关于使用编码智能体进行短周期工作的一次简短实验。
 
 - [如何入门 Pi 编码智能体（在 VPS 上）](https://willemvandenende.com/blog/engineering/how-to-get-started-with-the-pi-coding-agent-on-a-vps) —— 在 VPS 上配置 Pi 比我预想的要简单。
 
