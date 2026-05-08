@@ -2,7 +2,7 @@
 
 | [Martin Fowler](https://martinfowler.com/)| |
 |:---|:---|
-|<img src="img/mf.jpg" width="20%" />| |
+|<img src="../img/mf.jpg" width="20%" />| |
 |[原文](https://martinfowler.com/bliki/ArchitectureDecisionRecord.html)| 2026/3/26|
 
 ---
