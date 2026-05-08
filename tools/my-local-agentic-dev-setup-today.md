@@ -346,7 +346,7 @@ nono run --profile pi -- pi
 
 - [与 Pi 共度双番茄钟时光](local/a-pair-pomodoro-with-pi.md) —— 关于使用编码智能体进行短周期工作的一次简短实验。
 
-- [如何入门 Pi 编码智能体（在 VPS 上）](https://willemvandenende.com/blog/engineering/how-to-get-started-with-the-pi-coding-agent-on-a-vps) —— 在 VPS 上配置 Pi 比我预想的要简单。
+- [如何上手 Pi 编码智能体（在 VPS 上）](local/how-to-get-started-with-the-pi-coding-agent-on-a-vps.md) —— 在 VPS 上配置 Pi 比我预想的要简单。
 
 - [小型开源 LLM 现已可用于开源智能体](https://willemvandenende.com/blog/engineering/smaller-open-llms-now-work-for-open-agents) —— 开源权重模型及推理在质量和速度上的阶段性跃升。
 
