@@ -348,7 +348,7 @@ nono run --profile pi -- pi
 
 - [如何上手 Pi 编码智能体（在 VPS 上）](local/how-to-get-started-with-the-pi-coding-agent-on-a-vps.md) —— 在 VPS 上配置 Pi 比我预想的要简单。
 
-- [小型开源 LLM 现已可用于开源智能体](https://willemvandenende.com/blog/engineering/smaller-open-llms-now-work-for-open-agents) —— 开源权重模型及推理在质量和速度上的阶段性跃升。
+- [小型开源 LLM 现已可用于开源智能体](local/smaller-open-llms-now-work-for-open-agents.md) —— 开源权重模型及推理在质量和速度上的阶段性跃升。
 
 - Nate B Jones 本周发布了一期不错的播客/视频，讨论了苹果在本地模型方面的策略 —— 例如，对于那些一旦数据离开办公室（无论加密程度如何）就无法获得工作认证的律所而言，这一点尤为重要。
 [Nate B Jones 谈苹果与下一个万亿美元市场](https://podcasts.apple.com/gb/podcast/ai-news-strategy-daily-with-nate-b-jones/id1877109372?i=1000763732500)
