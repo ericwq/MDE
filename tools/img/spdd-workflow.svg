@@ -1,0 +1,309 @@
+
+<svg class = 'nodearc overall' id = '' version = '1.1' viewBox = '-3 -3 800 550' xmlns = 'http://www.w3.org/2000/svg'>
+<style>@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600,700,800);
+
+svg.nodearc.overall {
+  --default-fill: #F7F8FE;
+  --default-stroke: #0f1872;
+  --legend: #ef5ba1;
+  --dash-stroke: 3,3;
+  path {
+    stroke: var(--default-stroke);
+    fill: none; 
+    stroke-width: 1.5;
+  }
+  .na-node {
+    * {
+      fill: var(--default-fill);
+      stroke: var(--default-stroke);
+      stroke-width: 2;
+    }
+  }
+
+  
+  foreignObject {
+    overflow: visible;
+    line-height: 1.1;
+    font-family: Open Sans, sans-serif;
+    font-size: 8pt;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .na-node .label-center &gt; div {
+    display: table;
+    height: 100%;
+    width: 100%;
+    &amp; &gt; * {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      padding: 2px;
+    }
+  }
+
+  .na-surround {
+    rect {
+      fill: #eeeeee;
+      stroke: grey;
+      stroke-width: 1.5;
+    }
+    div {
+      padding: 3px;
+      font-size: 7pt;
+    }
+  }
+
+
+  .legend {
+    font-style: italic;
+    color: var(--legend);
+  }
+
+  path.legend-line {
+    stroke: var(--legend)
+  }
+}
+
+svg.nodearc.overall.overall{.flow_start {fill: var(--default-stroke)}}
+svg.nodearc.overall.overall{.flow_target path {fill: var(--default-stroke)}}
+svg.nodearc.overall.overall {
+  --doc-stroke: Tan;
+  --doc-dash: 10 5;
+  .doc path, .person path {
+    fill: none ;
+    stroke-dasharray: var(--doc-dash);
+    stroke: var(--doc-stroke);
+  }
+
+  .git_db {
+    color: var(--doc-stroke);
+    text-align: center;
+    path {
+      fill: var(--doc-stroke);
+    }
+  }
+
+
+  .doc {
+    color: var(--doc-stroke);
+  }
+
+
+  .create, .read, .rw, .database_cyl path {
+    stroke-dasharray: var(--doc-dash);
+    stroke: var(--doc-stroke);
+  }
+
+  .core_skill {
+    rect {
+      fill: green;
+      stroke: none;
+    }
+    div {
+      color: white;
+    }
+
+
+  }
+
+
+}
+</style>
+
+<g class = 'na-node' nid = 'req'>
+<rect class = '' height = '50' width = '100' x = '120' y = '0'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '120' y = '0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>create initial requirements</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'clarify'>
+<rect class = '' height = '50' width = '100' x = '120.0' y = '80'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '120.0' y = '80'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>clarify analysis</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 170.0 50 L 170.0 80'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 170.0, 80)translate(170.0 80)'></path>
+</g>
+
+<g class = 'na-node' nid = 'gen_analysis'>
+<rect class = '' height = '50' width = '100' x = '120.0' y = '160'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '120.0' y = '160'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>generate analysis context</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 170.0 130 L 170.0 160'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 170.0, 160)translate(170.0 160)'></path>
+</g>
+
+<g class = 'flow_doc doc na-node' nid = 'doc_analysis'>
+<path d = 'M 270.0 165.0 M 270.0 165.0 L 340.0 165.0 L 340.0 202.6 C 316.2 193.8 289.6 210.6 270.0 202.6 Z'></path>
+
+<foreignObject class = 'label-center' height = '40' width = '70' x = '270.0' y = '165.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>analysis context</p></div>
+</foreignObject>
+</g>
+
+<g class = 'create na-arc'>
+<path class = 'create na-arc line' d = 'M 220.0 185.0 L 270.0 185.0'></path>
+
+<path class = 'create na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 270.0, 185.0)translate(270.0 185.0)'></path>
+</g>
+
+<g class = 'flow_doc doc na-node' nid = 'reasons'>
+<path d = 'M 0.0 165.0 M 0.0 165.0 L 70.0 165.0 L 70.0 202.6 C 46.199999999999996 193.8 19.599999999999998 210.6 0.0 202.6 Z'></path>
+
+<foreignObject class = 'label-center' height = '40' width = '70' x = '0.0' y = '165.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>REASONS canvas</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'gen_sp'>
+<rect class = '' height = '50' width = '100' x = '120.0' y = '240'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '120.0' y = '240'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>generate structured prompt</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 170.0 210 L 170.0 240'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 170.0, 240)translate(170.0 240)'></path>
+</g>
+
+<g class = 'read na-arc'>
+<path class = 'read na-arc line' d = 'M 305.0 205.0 L 305.0 222.5 L 195.0 222.5 L 195.0 240'></path>
+
+<path class = 'read na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 195.0, 240)translate(195.0 240)'></path>
+</g>
+
+<g class = 'read na-arc'>
+<path class = 'read na-arc line' d = 'M 35.0 205.0 L 35.0 222.5 L 145.0 222.5 L 145.0 240'></path>
+
+<path class = 'read na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 145.0, 240)translate(145.0 240)'></path>
+</g>
+
+<g class = 'flow_doc doc na-node' nid = 'd_sp'>
+<path d = 'M 270.0 245.0 M 270.0 245.0 L 340.0 245.0 L 340.0 282.6 C 316.2 273.8 289.6 290.6 270.0 282.6 Z'></path>
+
+<foreignObject class = 'label-center' height = '40' width = '70' x = '270.0' y = '245.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Structured Prompts</p></div>
+</foreignObject>
+</g>
+
+<g class = 'create na-arc'>
+<path class = 'create na-arc line' d = 'M 220.0 265.0 L 270.0 265.0'></path>
+
+<path class = 'create na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 270.0, 265.0)translate(270.0 265.0)'></path>
+</g>
+
+<g class = 'na-node' nid = 'gen_code'>
+<rect class = '' height = '50' width = '100' x = '120.0' y = '320'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '120.0' y = '320'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>generate code</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 170.0 290 L 170.0 320'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 170.0, 320)translate(170.0 320)'></path>
+</g>
+
+<g class = 'read na-arc'>
+<path class = 'read na-arc line' d = 'M 305.0 285.0 L 305.0 302.5 L 195.0 302.5 L 195.0 320'></path>
+
+<path class = 'read na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 195.0, 320)translate(195.0 320)'></path>
+</g>
+
+<g class = 'flow_doc doc na-node' nid = 'd_code'>
+<path d = 'M 270.0 375.0 M 270.0 375.0 L 340.0 375.0 L 340.0 412.6 C 316.2 403.8 289.6 420.6 270.0 412.6 Z'></path>
+
+<foreignObject class = 'label-center' height = '40' width = '70' x = '270.0' y = '375.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Code</p></div>
+</foreignObject>
+</g>
+
+<g class = 'create na-arc'>
+<path class = 'create na-arc line' d = 'M 220.0 345.0 L 245.0 345.0 L 245.0 385.0 L 270.0 385.0'></path>
+
+<path class = 'create na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 270.0, 385.0)translate(270.0 385.0)'></path>
+</g>
+
+<g class = 'git_db na-node picture-node' nid = 'git'>
+<g class = 'git_db' transform = 'translate(390.0, 290.0)'>
+<path d = 'M535.6 300.1L340 104.5C334.6 99 327.2 96 319.6 96C312 96 304.6 99 299.2 104.4L258.5 145L310 196.5C337.1 187.4 362.7 213.3 353.4 240.2L403.1 289.9C437.3 278.1 464.3 320.9 438.6 346.6C412.1 373.1 368.4 343.7 382.6 309.3L336.3 263L336.3 384.9C361.6 397.4 358.6 426.7 345.4 439.9C339 446.3 330.2 450 321.1 450C312 450 303.3 446.4 296.8 439.9C279.2 422.3 285.7 393 308 383.9L308 260.9C287.2 252.4 283.4 230.2 289.4 215.9L238.6 165L104.5 299.1C99 304.6 96 311.9 96 319.5C96 327.1 99 334.5 104.5 339.9L300.1 535.6C305.5 541 312.8 544 320.5 544C328.2 544 335.5 541 340.9 535.6L535.6 340.9C541 335.5 544 328.1 544 320.5C544 312.9 541 305.5 535.6 300.1z' transform = 'scale(0.078125, 0.078125)'></path>
+</g>
+
+<foreignObject class = 'label-below' height = '20' width = '50' x = '390.0' y = '337.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>git</p></div>
+</foreignObject>
+</g>
+
+<g class = 'read na-arc'>
+<path class = 'read na-arc line' d = 'M 340.0 265.0 L 365.0 265.0 L 365.0 315.0 L 390.0 315.0'></path>
+
+<path class = 'read na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 390.0, 315.0)translate(390.0 315.0)'></path>
+</g>
+
+<g class = 'read na-arc'>
+<path class = 'read na-arc line' d = 'M 340.0 395.0 L 365.0 395.0 L 365.0 315.0 L 390.0 315.0'></path>
+
+<path class = 'read na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 390.0, 315.0)translate(390.0 315.0)'></path>
+</g>
+
+<g class = 'na-node' nid = 'gen_unit_test'>
+<rect class = '' height = '50' width = '100' x = '120.0' y = '400'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '120.0' y = '400'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>generate unit tests</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 170.0 370 L 170.0 400'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 170.0, 400)translate(170.0 400)'></path>
+</g>
+
+<g class = 'create na-arc'>
+<path class = 'create na-arc line' d = 'M 220.0 425.0 L 245.0 425.0 L 245.0 405.0 L 270.0 405.0'></path>
+
+<path class = 'create na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 270.0, 405.0)translate(270.0 405.0)'></path>
+</g>
+
+<g class = 'na-node' nid = 'ci'>
+<rect class = '' height = '50' width = '100' x = '120.0' y = '480'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '120.0' y = '480'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>integrate, build, and deploy</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 170.0 450 L 170.0 480'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 170.0, 480)translate(170.0 480)'></path>
+</g>
+
+<g class = 'read na-arc'>
+<path class = 'read na-arc line' d = 'M 305.0 415.0 L 305.0 505.0 L 220.0 505.0'></path>
+
+<path class = 'read na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(180.0, 220.0, 505.0)translate(220.0 505.0)'></path>
+</g>
+</svg>

@@ -1,0 +1,275 @@
+
+<svg class = 'nodearc spdd-overview' id = '' version = '1.1' viewBox = '0 0 600 310' xmlns = 'http://www.w3.org/2000/svg'>
+<style>@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600,700,800);
+
+svg.nodearc.spdd-overview {
+  --default-fill: #F7F8FE;
+  --default-stroke: #0f1872;
+  --legend: #ef5ba1;
+  --dash-stroke: 3,3;
+  path {
+    stroke: var(--default-stroke);
+    fill: none; 
+    stroke-width: 1.5;
+  }
+  .na-node {
+    * {
+      fill: var(--default-fill);
+      stroke: var(--default-stroke);
+      stroke-width: 2;
+    }
+  }
+
+  
+  foreignObject {
+    overflow: visible;
+    line-height: 1.1;
+    font-family: Open Sans, sans-serif;
+    font-size: 8pt;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .na-node .label-center &gt; div {
+    display: table;
+    height: 100%;
+    width: 100%;
+    &amp; &gt; * {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      padding: 2px;
+    }
+  }
+
+  .na-surround {
+    rect {
+      fill: #eeeeee;
+      stroke: grey;
+      stroke-width: 1.5;
+    }
+    div {
+      padding: 3px;
+      font-size: 7pt;
+    }
+  }
+
+
+  .legend {
+    font-style: italic;
+    color: var(--legend);
+  }
+
+  path.legend-line {
+    stroke: var(--legend)
+  }
+}
+
+svg.nodearc.spdd-overview.spdd-overview{.flow_start {fill: var(--default-stroke)}}
+svg.nodearc.spdd-overview.spdd-overview{.flow_target path {fill: var(--default-stroke)}}svg.nodearc.spdd-overview.spdd-overview .title {
+  font-size: 14px;
+  text-align: center;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .iter-label {
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 600;
+  text-align: center;
+  color: #975f9c;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .business-box {
+  fill: #e3f2fd;
+  stroke: #1976d2;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .prompt-box {
+  fill: #fff3e0;
+  stroke: #e65100;
+  stroke-width: 3;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .code-box {
+  fill: #e8f5e9;
+  stroke: #388e3c;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .main-flow {
+  stroke: #0f1872;
+  stroke-width: 2;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .main-flow .end-marker {
+  fill: #0f1872;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .carry-arc {
+  stroke: #e65100;
+  stroke-width: 2.5;
+  stroke-dasharray: 6 4;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .carry-arc .end-marker {
+  stroke-dasharray: none;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .carry-label {
+  font-size: 9px;
+  text-align: center;
+  color: #e65100;
+  font-style: italic;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .sync-loop {
+  stroke: #e65100;
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .sync-loop .end-marker {
+  stroke-dasharray: none;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .sync-label {
+  font-size: 8px;
+  font-style: italic;
+  color: #e65100;
+}
+
+svg.nodearc.spdd-overview.spdd-overview .arrow-label {
+  font-size: 9px;
+  font-style: italic;
+}
+</style>
+
+<g class = 'business-box na-node' nid = 'business_n'>
+<rect class = 'business-box' height = '40' width = '200' x = '35' y = '58'></rect>
+
+<foreignObject class = 'label-center' height = '40' width = '200' x = '35' y = '58'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Business<br/>Intent</p></div>
+</foreignObject>
+</g>
+
+<g class = 'prompt-box na-node' nid = 'prompt_n'>
+<rect class = 'prompt-box' height = '50' width = '200' x = '35' y = '145'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '200' x = '35' y = '145'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Structured Prompt<br/>versioned · reviewable · reusable</p></div>
+</foreignObject>
+</g>
+
+<g class = 'code-box na-node' nid = 'code_n'>
+<rect class = 'code-box' height = '40' width = '200' x = '35' y = '242'></rect>
+
+<foreignObject class = 'label-center' height = '40' width = '200' x = '35' y = '242'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Code &amp; Tests</p></div>
+</foreignObject>
+</g>
+
+<g class = 'main-flow na-arc'>
+<path class = 'main-flow na-arc line' d = 'M 135.0 98 L 135.0 145'></path>
+
+<path class = 'main-flow na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 135.0, 145)translate(135.0 145)'></path>
+</g>
+
+<g class = 'main-flow na-arc'>
+<path class = 'main-flow na-arc line' d = 'M 135.0 195 L 135.0 242'></path>
+
+<path class = 'main-flow na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 135.0, 242)translate(135.0 242)'></path>
+</g>
+
+<foreignObject class = 'na-text arrow-label' height = '40' width = '200' x = '140.0' y = '103'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>REASONS Canvas</div>
+</foreignObject>
+
+<foreignObject class = 'na-text arrow-label' height = '40' width = '200' x = '140.0' y = '200'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>code generation</div>
+</foreignObject>
+
+<g class = 'sync-loop na-arc'>
+<path class = 'sync-loop na-arc line' d = 'M 35 262.0 L 10 262.0 L 10 170.0 L 35 170.0'></path>
+
+<path class = 'sync-loop na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 35, 170.0)translate(35 170.0)'></path>
+</g>
+
+<foreignObject class = 'na-text sync-label' height = '15' width = '30' x = '14' y = '200'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>sync</div>
+</foreignObject>
+
+<g class = 'business-box na-node' nid = 'business_n1'>
+<rect class = 'business-box' height = '40' width = '200' x = '335' y = '58.0'></rect>
+
+<foreignObject class = 'label-center' height = '40' width = '200' x = '335' y = '58.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Business<br/>Intent</p></div>
+</foreignObject>
+</g>
+
+<g class = 'prompt-box na-node' nid = 'prompt_n1'>
+<rect class = 'prompt-box' height = '50' width = '200' x = '335' y = '145.0'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '200' x = '335' y = '145.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Structured Prompt<br/>versioned · reviewable · reusable</p></div>
+</foreignObject>
+</g>
+
+<g class = 'code-box na-node' nid = 'code_n1'>
+<rect class = 'code-box' height = '40' width = '200' x = '335' y = '242.0'></rect>
+
+<foreignObject class = 'label-center' height = '40' width = '200' x = '335' y = '242.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Code &amp; Tests</p></div>
+</foreignObject>
+</g>
+
+<g class = 'main-flow na-arc'>
+<path class = 'main-flow na-arc line' d = 'M 435.0 98.0 L 435.0 145.0'></path>
+
+<path class = 'main-flow na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 435.0, 145.0)translate(435.0 145.0)'></path>
+</g>
+
+<g class = 'main-flow na-arc'>
+<path class = 'main-flow na-arc line' d = 'M 435.0 195.0 L 435.0 242.0'></path>
+
+<path class = 'main-flow na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 435.0, 242.0)translate(435.0 242.0)'></path>
+</g>
+
+<g class = 'sync-loop na-arc'>
+<path class = 'sync-loop na-arc line' d = 'M 535 262.0 L 560 262.0 L 560 170.0 L 535 170.0'></path>
+
+<path class = 'sync-loop na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(180.0, 535, 170.0)translate(535 170.0)'></path>
+</g>
+
+<foreignObject class = 'na-text sync-label' height = '15' width = '30' x = '535' y = '200.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>sync</div>
+</foreignObject>
+
+<g class = 'carry-arc na-arc'>
+<path class = 'carry-arc na-arc line' d = 'M 235 170.0 L 335 170.0'></path>
+
+<path class = 'carry-arc na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 335, 170.0)translate(335 170.0)'></path>
+</g>
+
+<g class = 'carry-arc na-arc'>
+<path class = 'carry-arc na-arc line' d = 'M 235 262.0 L 335 262.0'></path>
+
+<path class = 'carry-arc na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 335, 262.0)translate(335 262.0)'></path>
+</g>
+
+<foreignObject class = 'na-text carry-label' height = '30' width = '80' x = '245' y = '145.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>accumulated prompt assets</div>
+</foreignObject>
+
+<foreignObject class = 'na-text carry-label' height = '30' width = '60' x = '245' y = '237.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>accumulated code assets</div>
+</foreignObject>
+
+<foreignObject class = 'na-text iter-label' height = '18' width = '100' x = '85.0' y = '38'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>Iteration N</div>
+</foreignObject>
+
+<foreignObject class = 'na-text iter-label' height = '18' width = '100' x = '385.0' y = '38.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>Iteration N+1</div>
+</foreignObject>
+</svg>

@@ -1,0 +1,288 @@
+
+<svg class = 'nodearc reason-canvas' id = '' version = '1.1' viewBox = '0 0 910 420' xmlns = 'http://www.w3.org/2000/svg'>
+<style>@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600,700,800);
+
+svg.nodearc.reason-canvas {
+  --default-fill: #F7F8FE;
+  --default-stroke: #0f1872;
+  --legend: #ef5ba1;
+  --dash-stroke: 3,3;
+  path {
+    stroke: var(--default-stroke);
+    fill: none; 
+    stroke-width: 1.5;
+  }
+  .na-node {
+    * {
+      fill: var(--default-fill);
+      stroke: var(--default-stroke);
+      stroke-width: 2;
+    }
+  }
+
+  
+  foreignObject {
+    overflow: visible;
+    line-height: 1.1;
+    font-family: Open Sans, sans-serif;
+    font-size: 8pt;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .na-node .label-center &gt; div {
+    display: table;
+    height: 100%;
+    width: 100%;
+    &amp; &gt; * {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      padding: 2px;
+    }
+  }
+
+  .na-surround {
+    rect {
+      fill: #eeeeee;
+      stroke: grey;
+      stroke-width: 1.5;
+    }
+    div {
+      padding: 3px;
+      font-size: 7pt;
+    }
+  }
+
+
+  .legend {
+    font-style: italic;
+    color: var(--legend);
+  }
+
+  path.legend-line {
+    stroke: var(--legend)
+  }
+}
+
+svg.nodearc.reason-canvas.reason-canvas{.flow_start {fill: var(--default-stroke)}}
+svg.nodearc.reason-canvas.reason-canvas{.flow_target path {fill: var(--default-stroke)}}svg.nodearc.reason-canvas.reason-canvas .title {
+  font-size: 14px;
+  text-align: center;
+}
+
+
+svg.nodearc.reason-canvas.reason-canvas .abstraction-box {
+  fill: #cce5ff;
+  stroke: #4a90d9;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .specific-box {
+  fill: #c8e6c9;
+  stroke: #4caf50;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .common-task-box {
+  fill: #ffcc80;
+  stroke: #f57c00;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .constraint-box {
+  fill: #ef9a9a;
+  stroke: #e53935;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .main-area {
+  fill: #fffde7;
+  stroke: #fbc02d;
+  stroke-width: 2;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .common-area {
+  fill: #e8f5e9;
+  stroke: #81c784;
+  stroke-width: 2;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .abstraction-area {
+  fill: #e3f2fd;
+  stroke: #90caf9;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .specific-area {
+  fill: #e8f5e9;
+  stroke: #a5d6a7;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .flow-label {
+  font-size: 10px;
+  font-style: italic;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .flow-arc {
+  stroke: #f9a825;
+  stroke-width: 2;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .flow-arc .end-marker {
+  fill: #f9a825;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .dashed-yellow {
+  stroke: #f9a825;
+  stroke-dasharray: 6 4;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .dashed-yellow .end-marker {
+  fill: #f9a825;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .dashed-red {
+  stroke: #e53935;
+  stroke-dasharray: 6 4;
+}
+
+svg.nodearc.reason-canvas.reason-canvas .dashed-red .end-marker {
+  fill: #e53935;
+}
+
+</style>
+
+<g class = 'na-surround' nid = 'main_area'>
+<rect class = 'main-area' height = '170' width = '900' x = '5' y = '55'></rect>
+
+<foreignObject class = 'label-tl' height = '170' width = '900' x = '5' y = '55'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Main Area</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-surround' nid = 'abstraction_parts'>
+<rect class = 'abstraction-area' height = '120' width = '620' x = '30' y = '80'></rect>
+
+<foreignObject class = 'label-tl' height = '120' width = '620' x = '30' y = '80'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Abstraction Parts</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-surround' nid = 'specific_parts'>
+<rect class = 'specific-area' height = '120.0' width = '180' x = '700' y = '80.0'></rect>
+
+<foreignObject class = 'label-tl' height = '120.0' width = '180' x = '700' y = '80.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Specific Parts</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-surround' nid = 'common_standard_parts'>
+<rect class = 'common-area' height = '130' width = '600' x = '115' y = '290'></rect>
+
+<foreignObject class = 'label-tl' height = '130' width = '600' x = '115' y = '290'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Common Standard Parts</p></div>
+</foreignObject>
+</g>
+
+<g class = 'abstraction-box na-node' nid = 'requirements'>
+<rect class = 'abstraction-box' height = '80' width = '130' x = '50' y = '100'></rect>
+
+<foreignObject class = 'label-center' height = '80' width = '130' x = '50' y = '100'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Requirements<br/><br/>Describe the essence of<br/>the requirements clearly<br/>in one sentence</p></div>
+</foreignObject>
+</g>
+
+<g class = 'abstraction-box na-node' nid = 'entities'>
+<rect class = 'abstraction-box' height = '80' width = '130' x = '200' y = '100.0'></rect>
+
+<foreignObject class = 'label-center' height = '80' width = '130' x = '200' y = '100.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Entities<br/><br/>Define domain entities<br/>&amp; relationships</p></div>
+</foreignObject>
+</g>
+
+<g class = 'abstraction-box na-node' nid = 'approach'>
+<rect class = 'abstraction-box' height = '80' width = '130' x = '350' y = '100.0'></rect>
+
+<foreignObject class = 'label-center' height = '80' width = '130' x = '350' y = '100.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Approach<br/><br/>Explain high-level<br/>solutions &amp; collaboration</p></div>
+</foreignObject>
+</g>
+
+<g class = 'abstraction-box na-node' nid = 'structure'>
+<rect class = 'abstraction-box' height = '80' width = '130' x = '500' y = '100.0'></rect>
+
+<foreignObject class = 'label-center' height = '80' width = '130' x = '500' y = '100.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Structure<br/><br/>Define inheritance<br/>relationships and<br/>dependence</p></div>
+</foreignObject>
+</g>
+
+<g class = 'flow-arc na-arc'>
+<path class = 'flow-arc na-arc line' d = 'M 180 140.0 L 200 140.0'></path>
+
+<path class = 'flow-arc na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 200, 140.0)translate(200 140.0)'></path>
+</g>
+
+<g class = 'flow-arc na-arc'>
+<path class = 'flow-arc na-arc line' d = 'M 330 140.0 L 350 140.0'></path>
+
+<path class = 'flow-arc na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 350, 140.0)translate(350 140.0)'></path>
+</g>
+
+<g class = 'flow-arc na-arc'>
+<path class = 'flow-arc na-arc line' d = 'M 480 140.0 L 500 140.0'></path>
+
+<path class = 'flow-arc na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 500, 140.0)translate(500 140.0)'></path>
+</g>
+
+<g class = 'specific-box na-node' nid = 'operations'>
+<rect class = 'specific-box' height = '80' width = '140' x = '720' y = '100.0'></rect>
+
+<foreignObject class = 'label-center' height = '80' width = '140' x = '720' y = '100.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Operations<br/><br/>Decompose abstraction<br/>tasks into concrete,<br/>reviewable,<br/>executable tasks</p></div>
+</foreignObject>
+</g>
+
+<g class = 'common-task-box na-node' nid = 'norms'>
+<rect class = 'common-task-box' height = '70' width = '180' x = '145' y = '320'></rect>
+
+<foreignObject class = 'label-center' height = '70' width = '180' x = '145' y = '320'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Norms<br/><br/>Cross-practice, best practice and etc.</p></div>
+</foreignObject>
+</g>
+
+<g class = 'constraint-box na-node' nid = 'safeguards'>
+<rect class = 'constraint-box' height = '70' width = '160' x = '525' y = '320.0'></rect>
+
+<foreignObject class = 'label-center' height = '70' width = '160' x = '525' y = '320.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Safeguards<br/><br/>Governance guardrails</p></div>
+</foreignObject>
+</g>
+
+<g class = 'dashed-yellow na-arc'>
+<path class = 'dashed-yellow na-arc line' d = 'M 235.0 320 L 235.0 225'></path>
+
+<path class = 'dashed-yellow na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(-90.0, 235.0, 225)translate(235.0 225)'></path>
+</g>
+
+<foreignObject class = 'na-text flow-label' height = '50' width = '100' x = '160.0' y = '260'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>Cross, applies to<br/>all sections</div>
+</foreignObject>
+
+<g class = 'dashed-red na-arc'>
+<path class = 'dashed-red na-arc line' d = 'M 605.0 320.0 L 605.0 225.0'></path>
+
+<path class = 'dashed-red na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(-90.0, 605.0, 225.0)translate(605.0 225.0)'></path>
+</g>
+
+<foreignObject class = 'na-text flow-label' height = '50' width = '100' x = '610.0' y = '260.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>Guardrail, applies<br/>to all sections</div>
+</foreignObject>
+
+<g class = 'flow-arc na-arc'>
+<path class = 'flow-arc na-arc line' d = 'M 650 140.0 L 700 140.0'></path>
+
+<path class = 'flow-arc na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 700, 140.0)translate(700 140.0)'></path>
+</g>
+
+<foreignObject class = 'na-text title' height = '30' nid = 'title' width = '300' x = '305.0' y = '25'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>SPDD REASONS Canvas</div>
+</foreignObject>
+</svg>
