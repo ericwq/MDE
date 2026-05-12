@@ -108,7 +108,8 @@ def test_next_action_is_product_details(search_results):
     conversation_history = [
         {"role": "assistant", "content": f"Found: Nike dry fit T Shirt (ID: p1)"}
     ]
-    action = agent.decide_next_action("Can you tell me more about the shirt?", conversation_history)
+    action = agent.decide_next_action("Can you tell me more about the shirt?",
+                                      conversation_history)
     assert isinstance(action, GetProductDetails)
     assert action.product_id == "p1"
 
@@ -149,8 +150,8 @@ def decide_next_action(self, user_message: str, conversation_history: List[dict]
 ```
 
 在本节中，我们调用 OpenAI 的聊天补全 API，并使用系统提示词指导 LLM（此处为 gpt-4-turbo-preview）根据用户消息和对话历史确定合适的操作，并提取必要参数。
-LLM 以结构化 JSON 格式返回输出，随后用于实例化对应的操作类。
-该类通过调用搜索、获取商品详情等必要 API 来执行相应操作。
+LLM 以结构化 JSON 格式返回输出，随后被用于实例化对应的操作类。
+该类通过调用 search 、get_product_details 等必要 API 来执行相应操作。
 
 ## 系统提示词
 现在，我们来详细查看这条系统提示词：
@@ -164,14 +165,14 @@ SYSTEM_PROMPT = """You are a shopping assistant. Use these functions:
 </div></br>
 
 通过系统提示词我们为 LLM 提供任务所需的上下文信息。
-我们定义其角色为 *购物助手 (shopping assistant)* ，指定预期的 *输出格式* （函数调用），并包含 *约束条件与特殊指令* ，例如当用户请求不明确时要求其进行澄清。
+我们定义其角色为 *购物助手 (shopping assistant)* ，指定预期的 *输出格式* （函数），并包含 *约束条件与特殊指令* ，例如当用户请求不明确时要求其进行澄清。
 
 这是提示词的基础版本，对于本示例而言已经足够。
 但在实际应用中，你可能需要探索更精细的方式来引导 LLM。
 诸如 ***单样本提示（One-shot prompting）*** ——即通过单个示例将用户消息与对应动作配对——
 或 ***少样本提示（Few-shot prompting）*** ——使用多个示例覆盖不同场景—— 这类技术能够显著提升模型响应的准确性与可靠性。
 
-这部分聊天补全 API 调用定义了 LLM 可调用的可用函数，并指明了函数的结构与用途。
+这部分 Chat Completions API 调用定义了 LLM 可调用的可用函数，并指明了函数的结构与用途。
 
 ```Python
 tools=[
@@ -255,10 +256,10 @@ class ShoppingAgent:
         try:
             action = self.decide_next_action(user_message, conversation_history or [])
             return action.execute()
-        except Exception as e:
-            return f"Sorry, I encountered an error: {str(e)}"
+        except Exception as e: return f"Sorry, I encountered an error: {str(e)}"
 
-    def decide_next_action(self, user_message: str, conversation_history: List[dict]):
+    def decide_next_action(self, user_message: str,
+                           conversation_history: List[dict]):
         response = self.client.chat.completions.create(
             model="gpt-4-turbo-preview",
             messages=[
@@ -325,7 +326,7 @@ def is_intent_malicious(self, message: str) -> bool:
     return any(pattern in message_lower for pattern in suspicious_patterns)
 ```
 
-这只是一个基础示例，但可以通过正则匹配、上下文检测进行扩展，或集成基于 LLM 的过滤器，以实现更精细的检测。
+这只是一个基础示例，还可以通过正则匹配、上下文检测进行扩展，或集成基于 LLM 的过滤器，以实现更精细的检测。
 
 构建可靠的提示词注入防护机制，对于在实际场景中保障智能体的安全性与完整性至关重要。
 
@@ -380,11 +381,11 @@ class Clarify:
 你可能会认为这是冗余的，因为相同信息已存在于动作类的具体实现中。
 
 幸运的是，像 [Instructor](https://pypi.org/project/instructor/) 这样的库可以帮助减少这种重复：
-它提供自动将 Pydantic 对象序列化为符合 OpenAI 规范的 JSON 格式的函数。
+它提供函数，自动将 Pydantic 对象序列化为符合 OpenAI schema 的 JSON 格式。
 这减少了代码重复、精简了样板代码，并提升了可维护性。
 
 我们来探讨如何使用 Instructor 简化这一实现。
-核心改动在于将动作类定义为 Pydantic 对象，具体如下：
+关键改动在于将动作类定义为 Pydantic 对象，具体如下：
 
 ```Python
 from typing import List, Union
@@ -436,16 +437,18 @@ class ShoppingAgent:
     def __init__(self):
         self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-    def run(self, user_message: str, conversation_history: List[dict] = None) -> str:
+    def run(self, user_message: str,
+            conversation_history: List[dict] = None) -> str:
         if self.is_intent_malicious(user_message):
             return "Sorry! I cannot process this request."
         try:
-            action = self.decide_next_action(user_message, conversation_history or [])
+            action = self.decide_next_action(user_message,
+                                             conversation_history or [])
             return action.execute()
-        except Exception as e:
-            return f"Sorry, I encountered an error: {str(e)}"
+        except Exception as e: return f"Sorry, I encountered an error: {str(e)}"
 
-    def decide_next_action(self, user_message: str, conversation_history: List[dict]):
+    def decide_next_action(self, user_message: str,
+                           conversation_history: List[dict]):
         response = self.client.chat.completions.create(
             model="gpt-4-turbo-preview",
             messages=[
@@ -457,7 +460,8 @@ class ShoppingAgent:
                 "type": "function",
                 "function": NextActionResponse.openai_schema
             }],
-            tool_choice={"type": "function", "function": {"name": NextActionResponse.openai_schema["name"]}},
+            tool_choice={"type": "function",
+                         "function": {"name": NextActionResponse.openai_schema["name"]}},
         )
         return NextActionResponse.from_response(response).next_action
 
@@ -494,7 +498,7 @@ Martin Fowler 在超过 15 年前对规则引擎的评价至今依然准确：
 相较于僵化的规则链，这类系统借助语言理解实现上下文感知、自适应的行为。
 对于业务人员或领域专家而言，通过自然语言提示词表达规则，实际上可能比使用最终生成难以理解代码的规则引擎更加直观易用。
 
-未来可行的实践路径，或许是将 LLM 驱动的推理与执行关键决策时的显式人工关口 (explicit manual gates) 相结合 —— 在灵活性、可控性与安全性之间取得平衡。
+未来可行的实践路径，或许是将 LLM 驱动的推理，与执行关键决策时的显式人工关口 (explicit manual gates) 相结合 —— 在灵活性、可控性与安全性之间取得平衡。
 
 ## 函数调用 vs 工具调用
 
@@ -530,7 +534,7 @@ MCP 主机通过 MCP 客户端使用这些能力。
 理论上，你可以设想一个通用型智能体，能够访问大量工具并处理各类用户请求 —— 这与我们示例中仅限于购物相关任务的智能体截然不同。
 
 接下来看看我们购物应用的简易 MCP 服务端实现。
-注意其中的 `GET /tools` 接口 —— 它会返回服务端提供的所有函数（或工具）列表。
+注意其中的 `GET /tools` 端点 —— 它会返回服务端提供的所有函数（或工具）列表。
 
 ```Python
 TOOL_REGISTRY = {
@@ -548,7 +552,7 @@ def search_products():
     data = request.json
     keywords = data.get("keywords")
     search_results = SearchClient().search(keywords)
-    return jsonify({"response": f"Here are the products I found: {', '.join(search_results)}"}) 
+    return jsonify({"response": f"Here are the products I found: {', '.join(search_results)}"})
 
 @app.route("/invoke/get_product_details", methods=["POST"])
 def get_product_details():
@@ -595,19 +599,23 @@ class ShoppingAgent:
         self.mcp_client = MCPClient(os.getenv("MCP_SERVER_URL"))
         self.tool_schemas = self.mcp_client.get_tools()
 
-    def run(self, user_message: str, conversation_history: List[dict] = None) -> str:
+    def run(self, user_message: str, conversation_history:
+            List[dict] = None) -> str:
         if self.is_intent_malicious(user_message):
             return "Sorry! I cannot process this request."
 
         try:
-            tool_call = self.decide_next_action(user_message, conversation_history or [])
-            result = self.mcp_client.invoke(tool_call["name"], tool_call["arguments"])
+            tool_call = self.decide_next_action(user_message,
+                                                conversation_history or [])
+            result = self.mcp_client.invoke(tool_call["name"],
+                                            tool_call["arguments"])
             return str(result["response"])
 
         except Exception as e:
             return f"Sorry, I encountered an error: {str(e)}"
 
-    def decide_next_action(self, user_message: str, conversation_history: List[dict]):
+    def decide_next_action(self, user_message: str,
+                           conversation_history: List[dict]):
         response = self.client.chat.completions.create(
             model="gpt-4-turbo-preview",
             messages=[
@@ -629,7 +637,7 @@ class ShoppingAgent:
 ```
 
 ## 结论
-函数调用是 LLM 一项令人振奋且强大的能力，为创新用户体验与开发复杂智能体系统打开了大门。
+函数调用是 LLM 一项令人振奋且强大的能力，它为新颖的用户体验和复杂智能体系统的开发打开了大门。
 然而，它也带来了新的风险 —— 尤其是当用户输入最终可能触发敏感函数或 API 时。
 通过精心设计防护机制与适当的安全保障，许多此类风险可得到有效缓解。
 审慎的做法是：先在低风险操作中启用函数调用，待安全机制成熟后，再逐步扩展至更关键的业务场景。
