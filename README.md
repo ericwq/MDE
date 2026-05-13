@@ -18,7 +18,7 @@
 
 下面是 martinfowler.com 上，标签为：[generative AI](https://martinfowler.com/tags/generative%20AI.html) 的相关文章：
 
-- [什么是代码？](./tools/what-is-code.md) (2026/5/12) Unmesh Joshi
+- ❄ [什么是代码？](./tools/what-is-code.md) (2026/5/12) Unmesh Joshi
 - [片段：5月5日](tools/fragments/2026-05-05.md) (2026/5/5) Martin Fowler
 - [片段：4月29日](tools/fragments/2026-04-29.md) (2026/4/29) Martin Fowler
 - [结构化提示驱动开发（SPDD）](./tools/structured-prompt-driven.md) (2026/4/28) Wei Zhang, Jessie Jie Xia
