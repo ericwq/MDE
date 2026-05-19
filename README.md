@@ -46,3 +46,7 @@
 - [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md) (2024/1/26) Eric Evans
 
 ----
+
+## LLM 本地开发环境
+
+- [pi.dev 安装步骤](./coding-agent/pi-dev-steps.md)
