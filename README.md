@@ -43,6 +43,7 @@
 - ❄ [编码智能体的组成部分](tools/components-of-a-coding-agent.md) (2026/4/4) Sebastian Raschka
 - [Harness 工程是什么？2026年完整入门指南](tools/harness-2026.md) (2026/3/6) Jamie Park
 - ❄ [那么，接下来是哪个词呢？](tools/so-whats-the-next-word-then.md) (2026/2/6) Matthias Kainer
+- ❄ [构建一个有观点且极简的编码代理，我学到了什么](./tools/2025-11-30-pi-coding-agent.md) (2025/11/30) Mario Zechner
 - [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md) (2024/1/26) Eric Evans
 
 ----
