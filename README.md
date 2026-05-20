@@ -41,6 +41,7 @@
 - [我当前的本地智能体开发设置](./tools/my-local-agentic-dev-setup-today.md) (系列文章：2026/4/29)  Willem van den Ende
 - [写了 17 年开源代码，我为什么认为在编程智能体中堆砌功能纯属浪费时间？](tools/piling-features-in-coding-agent.md) (2026/4/27) Mario Zechner
 - ❄ [编码智能体的组成部分](tools/components-of-a-coding-agent.md) (2026/4/4) Sebastian Raschka
+- ❄ [关于他妈的慢下来的思考](tools/2026-03-25-thoughts-on-slowing-the-fuck-down.md) (2026/3/25) Mario Zechner
 - [Harness 工程是什么？2026年完整入门指南](tools/harness-2026.md) (2026/3/6) Jamie Park
 - ❄ [那么，接下来是哪个词呢？](tools/so-whats-the-next-word-then.md) (2026/2/6) Matthias Kainer
 - ❄ [构建一个有观点且极简的编码代理，我学到了什么](./tools/2025-11-30-pi-coding-agent.md) (2025/11/30) Mario Zechner
