@@ -82,7 +82,7 @@ class GetProductDetails():
     product_id: str
 
     def execute(self) -> str:
- # use SearchClient to fetch details of a specific product based on product_id 
+        # use SearchClient to fetch details of a specific product based on product_id
         pass
 
 class Clarify():
@@ -149,7 +149,7 @@ def decide_next_action(self, user_message: str, conversation_history: List[dict]
         return Clarify(**function_args)
 ```
 
-在本节中，我们调用 OpenAI 的聊天补全 API，并使用系统提示词指导 LLM（此处为 gpt-4-turbo-preview）根据用户消息和对话历史确定合适的操作，并提取必要参数。
+在本节中，我们调用 OpenAI 的 chat completion API，并使用系统提示词指导 LLM（此处为 gpt-4-turbo-preview）根据用户消息和对话历史确定合适的操作，并提取必要参数。
 LLM 以结构化 JSON 格式返回输出，随后被用于实例化对应的操作类。
 该类通过调用 search 、get_product_details 等必要 API 来执行相应操作。
 
