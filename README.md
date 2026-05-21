@@ -18,6 +18,7 @@
 
 下面是 martinfowler.com 上，标签为：[generative AI](https://martinfowler.com/tags/generative%20AI.html) 的相关文章：
 
+- ❄ [编码智能体的可维护性传感器](tools/sensors-for-coding-agents.md) (2026/5/20) Birgitta Böckeler
 - [片段：5月14日](tools/fragments/2026-05-14.md) (2026/5/14) Martin Fowler
 - ❄ [询问式 LLM](./tools/bliki/InterrogatoryLLM.md) (2026/5/14) Martin Fowler
 - ❄ [什么是代码？](tools/what-is-code.md) (2026/5/12) Unmesh Joshi
