@@ -51,6 +51,7 @@
 
 ----
 
-## LLM 本地开发环境
+## 编码智能体实践
 
 - [pi.dev 安装步骤](./coding-agent/pi-dev-steps.md)
+- [Lattice](./tools/reduce-friction-ai/lattice/README.md)
