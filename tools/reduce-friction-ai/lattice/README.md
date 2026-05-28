@@ -4,7 +4,7 @@
 
 可组合的 AI 技能，教会助手结构化思维——设计优先、上下文感知、架构引导。
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#许可证)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-plugin-blue.svg)](https://claude.ai/marketplace)
 [![Cursor](https://img.shields.io/badge/Cursor-compatible-blue.svg)](https://cursor.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/techygarg/lattice/blob/main/CONTRIBUTING.md)
@@ -36,8 +36,8 @@ Lattice 的设计遵循三个原则：
 ## 流水线
 
 这些技能构成了一个交付生命周期：`requirement-forge` → `design-blueprint` → `code-forge` → `review`，同时 `refactor-safely` 和 `bug-fix` 覆盖结构性和缺陷驱动的工作。
-`requirement-forge` 启动整个流程 —— 它扮演资深产品经理与业务分析师的双重角色，在 `.lattice/requirements/` 中生成结构化的功能规格说明，直接作为 `design-blueprint` 的输入。
-对于已有代码库的团队，`architecture-compass` 位于流水线之前 —— 它会扫描代码仓库、进行结构化访谈，并产出团队达成一致的架构方向，在任何代码变更开始之前为团队提供指引。
+`requirement-forge` 启动流水线 —— 它扮演资深产品经理与业务分析师的双重角色，在 `.lattice/requirements/` 中生成结构化的功能规格说明，直接作为 `design-blueprint` 的输入。
+对于已有代码库的团队，`architecture-compass` 位于流水线之前 —— 它扫描代码库、进行结构化访谈，并产出团队达成一致的架构方向，在任何代码变更开始之前为团队提供指引。
 每个阶段都会消费并在 `.lattice/` 中生成产出物，使动态上下文层不断累积丰富。
 
 ![功能生命周期流水线](img/image5.png)
@@ -68,7 +68,7 @@ Lattice 的设计遵循三个原则：
    将 `sample/` 文件夹内容复制到任意空目录中，并按照以下步骤操作。
 
 2. **在 AI 工具的聊天界面中运行 `/lattice-init`** —— 扫描项目，按优先级顺序推荐精炼技能，创建 `.lattice/config.yaml`。
-所有技能命令（`/lattice-init`、`/requirement-forge`、`/design-blueprint`、`/code-forge` 等）都是在 AI 聊天界面中输入的，而非终端。
+所有技能命令（`/lattice-init`、`/requirement-forge`、`/design-blueprint`、`/code-forge` 等）都须在 AI 聊天界面中输入，而非终端。
 
 3. **规格定义 (Spec)**（可选但推荐）—— `/requirement-forge` 扮演资深产品经理与业务分析师的双重角色，在任何设计开始之前定义 epic 和功能规格说明。
 接受现有的 PRD、功能列表或口头描述。
@@ -83,12 +83,12 @@ Lattice 的设计遵循三个原则：
 ## 了解更多
 
 - [起源故事](origin.md) — Lattice 为何存在，五种协作模式如何成为一个可安装的框架，以及背后的设计理念
-- [工作原理](how-it-works.md) — 完整技能清单、可组合性机制、原子/分子/精炼技能详解、流水线
-- [实践指南](practical-guide.md) — 场景驱动的问答：快速开始、定制化、工作流、转型、团队使用、故障排查
+- [工作原理](how-it-works.md) — 完整技能清单、可组合机制、原子/分子/精炼技能详解、流水线
+- [实践指南](practical-guide.md) — 场景驱动的问答：快速开始、定制、工作流、转型 (transformation)、团队使用、故障排查
 - [架构指南针](architecture-compass.md) — 架构思考伙伴：为何存在、预期效果、会话如何运作
 - [配置参考](configuration.md) — `.lattice/config.yaml` 中每个配置项的详细说明
 - [框架智能](framework-intelligence.md) — 验证环节、反馈回路、AI 合规技术
-- [协同判断](collaborative-judgment.md) — 为何 AI 应在真正的判断性决策时提问，以及运行时如何工作
+- [协同判断](collaborative-judgment.md) — 为什么人工智能应该就真正的判断性决策、缺失或相互冲突的事实进行提问，以及这在运行时是如何运作的。
 - [系列文章](../../reduce-friction-ai-main.md) — Lattice 所实现的五种协作模式（martinfowler.com）
 
 ## 开发技能

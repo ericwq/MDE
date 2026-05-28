@@ -62,7 +62,8 @@ code-forge 不会重复审查已经发现过的错误。
 | knowledge-priming | `/knowledge-priming` | 加载项目特定的上下文（技术栈、架构、约定），使所有技能具备项目感知能力 |
 | design-first | `/design-first` | 在编写任何代码之前，通过 5 个渐进层级进行结构化设计 |
 | context-anchoring | `/context-anchoring` | 每个功能一个的动态文档，跨会话捕获决策与推理过程 |
-| collaborative-judgment | `/collaborative-judgment` | 以结构化选项的方式暴露真正的判断性决策，而不是默默假设 |
+| collaborative-judgment | `/collaborative-judgment` | 暴露真正的判断性决策或缺失/冲突的知识，而不是默默假设 |
+| learning-harvest | `/learning-harvest` | 管理操作性经验的完整生命周期 —— 加载既有模式、收割新的实践见解、保持文档精简 |
 | requirement-quality | `/requirement-quality` | 功能规格说明质量 —— 完整性、场景结构、验收条件可验证性、独立性、实现切片质量 |
 
 ### 分子技能 —— 调用以运行完整工作流
@@ -115,18 +116,19 @@ code-forge 不会重复审查已经发现过的错误。
 - **clean-code** —— 每段代码都能从单一职责原则 (Single Responsibility Principle)、清晰的命名、可控的复杂度以及恰当的错误处理中受益。
 - **architecture** —— 默认为整洁架构（分层、依赖方向），但也支持你文档化的任意架构风格。结构规则普遍适用。
 - **knowledge-priming** —— 项目上下文（技术栈、架构、约定）始终相关。没有它，AI 会退回到通用的默认假设。
+- **learning-harvest** —— 来自过往会话的操作性经验为当前工作提供信息；新的实践模式在会话结束时被提出，供用户筛选管理。
 - **collaborative-judgment** —— 真正的判断性决策和缺乏依据的不确定性应该被暴露出来，而不是默默解决。由分子技能与其他原子技能组合使用。
 
 **条件应用：**
 
-- **omain-driven-design** —— 仅在触及领域层代码时应用。控制器或基础设施适配器不需要聚合边界检查。
+- **domain-driven-design** —— 仅在触及领域层代码时应用。控制器或基础设施适配器不需要聚合边界检查。
 - **secure-coding** —— 仅在代码跨越信任边界时应用：HTTP 处理器、数据库查询、外部 API 调用、文件 I/O、用户输入处理。
 - **test-quality** —— 仅在编写测试代码时应用。AAA (Arrange-Act-Assert) 结构和测试隔离不适用于生产代码。
 - **requirement-quality** —— 仅当编写或验证功能规格说明时应用。由 `requirement-forge` 组合使用；也可以独立调用来验证手写的规格说明。
 
 ### 特殊的原子技能
 
-有四个原子技能的用途与代码质量类原子不同：
+有 5 个原子技能的用途与代码质量类原子不同：
 
 - **knowledge-priming** 是一个上下文原子。
 它加载项目的标识 ——技术栈、架构概览、目录布局、可信来源以及约定—— 使所有其他技能都能在了解项目实际状况的前提下运行。
@@ -142,12 +144,19 @@ code-forge 不会重复审查已经发现过的错误。
 它管理每个功能的动态文档，跨会话捕获决策、约束和推理过程。
 它解决了 AI 上下文衰减的问题 —— 到了第 30 多条消息之后，早期决策会被自相矛盾，除非它们被写下来。
 
+- **learning-harvest** 是一个经验性知识机制。
+它管理操作性经验的完整生命周期 —— 一份横切的文档，记录在工作过程中发现的模式。
+与标准（预先定义的规则）不同，操作性经验捕获的是团队在实践中反复付出代价才学到的东西，或者那些不断被证明有效的方法。
+AI 提出建议；用户确认哪些内容进入文档。
+它用项目级的经验模式来补充 context-anchoring（每个功能的决策）。
+
 - **collaborative-judgment** 是一个歧义处理协议。
 它确保 AI 以结构化选项的形式暴露真正的判断性决策，并在遇到缺失或冲突的依据时停下来，而不是默默假设。
-每个代码质量原子技能都定义了自己的歧义信号（特定领域的灰色地带）；
-这个原子技能定义了如何呈现、批量处理、澄清和解决这些信号。
+每个代码质量原子都定义了自己的歧义信号（特定领域的灰色地带）；
+该原子技能定义了如何呈现、批处理、澄清和解决这些信号。
 随着项目标准变得越来越具体，它的活跃度会降低。
-完整的设计原理请参见 `docs/collaborative-judgment.md`。
+完整的设计原理请参见 [collaborative-judgment.md](collaborative-judgment.md)。
+
 
 ### 配置解析
 
@@ -190,21 +199,31 @@ code-forge 不会重复审查已经发现过的错误。
 分子技能是编排好的多步骤工作流。
 每个分子技能组合多个原子技能，在工作流的适当时刻应用它们。分子技能引用原子技能——而不是重复原子技能的内容。
 
+### 共享模式：生命周期分子技能
+
+五个分子技能共享一个通用的会话基础设施：**design-blueprint**、**code-forge**、**bug-fix**、**refactor-safely** 和 **review**。
+
+**始终组合**（每个会话）：knowledge-priming、context-anchoring、learning-harvest、collaborative-judgment
+
+**会话生命周期**：
+1. 会话开始时加载操作性经验（learning-harvest 加载）
+2. 加载或创建功能上下文（context-anchoring）
+3. 执行分子技能特定的工作，同时按相关性应用质量原子技能
+4. 用决策丰富上下文（context-anchoring 丰富）
+5. 提出跨切面的经验，供用户确认（learning-harvest 收割）
+
+**质量原子技能**（根据会话所触及的内容有条件地加载）：architecture、clean-code、domain-driven-design、secure-coding、test-quality
+
+以下各个分子技能的描述将只聚焦于它们各自区别于其他的特性。
+
 ### lattice-init
 
-引导式设置体验，弥合安装 Lattice 与获得首次价值之间的差距。
+引导式设置 —— 弥合安装 Lattice 与获得首次价值之间的差距。
+每个项目运行一次。
 
-**组合使用的原子技能：** knowledge-priming
+**组合使用的原子技能**：knowledge-priming
 
-**工作方式：**
-
-1. **扫描项目**：检测语言/框架、目录结构以及现有的 `.lattice/` 状态。
-2. **呈现发现**：展示简洁的设置状态 —— 哪些已存在，哪些缺失。
-3. **引导式设置**：按优先级顺序建议精炼技能（knowledge-priming 优先，然后是 architecture、DDD、clean-code）。
-对于每个缺失项，用户可以运行该精炼技能、跳过它、或跳过所有剩余项。
-4. **后续步骤**：展示从设计到审查的工作流，让用户知道接下来该做什么。
-
-每个项目运行一次。如果 Lattice 已完全配置好，则会确认这一点并展示工作流。
+扫描项目，呈现设置状态，按优先级顺序建议精炼技能（knowledge-priming 优先），然后展示从设计到审查的工作流。
 
 ### requirement-forge
 

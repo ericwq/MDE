@@ -22,6 +22,7 @@ paths:
   review_standards: .lattice/standards/review-standards.md
   requirement_standards: .lattice/standards/requirement-standards.md
   context_base: .lattice/context/
+  operational_learnings: .lattice/learnings/operational-learnings.md
 
 architecture_mode: clean
 ```
@@ -117,6 +118,13 @@ architecture_mode: clean
 - 默认路径：`.lattice/context/`
 - 使用者：`context-anchoring` 原子技能
 - 模式：不适用
+
+`operational_learnings`
+- 用途：操作性经验文件 —— 从实践中积累的模式（设计、实现、审查、修复）。由 `learning-harvest` 原子技能管理的动态文档，非标准文档。
+- 生成方式：（无——由 `learning-harvest` 原子技能管理）
+- 默认路径：`.lattice/learnings/operational-learnings.md`
+- 使用者：`learning-harvest` 原子技能
+- 模式：不适用（仅追加的动态文档，无 overlay/override）
 
 ## `architecture_mode` 键
 
