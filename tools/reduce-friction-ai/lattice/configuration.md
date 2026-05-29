@@ -4,7 +4,7 @@
 它将逻辑键 (logical keys) 映射到原子技能和分子技能在运行时加载的项目特定文档。
 该文件是可选的 —— 所有技能开箱即用，带有内置默认值。
 仅当你想定制某个技能的行为时才添加键 (keys)。
-解析算法的工作原理请参见 [how-it-works.md](how-it-works.md#配置解析) 。
+解析算法的工作原理请参见 [Lattice 的工作原理](how-it-works.md#配置解析) 。
 
 ## 文件结构
 
@@ -121,7 +121,7 @@ architecture_mode: clean
 
 `operational_learnings`
 - 用途：操作性经验文件 —— 从实践中积累的模式（设计、实现、审查、修复）。由 `learning-harvest` 原子技能管理的动态文档，非标准文档。
-- 生成方式：（无——由 `learning-harvest` 原子技能管理）
+- 生成方式：（无 —— 由 `learning-harvest` 原子技能管理）
 - 默认路径：`.lattice/learnings/operational-learnings.md`
 - 使用者：`learning-harvest` 原子技能
 - 模式：不适用（仅追加的动态文档，无 overlay/override）
@@ -133,14 +133,14 @@ architecture_mode: clean
 
 | 值 | 行为 |
 |-----|------|
-| `clean`（若缺失则为默认值） | architecture 原子技能加载整洁架构强制执行规则（`references/clean-architecture.md`），并使用 `references/clean-architecture-defaults.md` 作为基础内容。如果设置了 `paths.architecture`，则自定义文档将作为覆盖层或替换层应用于整洁架构默认值之上。 |
+| `clean`（若缺失则为默认值） | architecture 原子技能加载 clean architecture 强制执行规则（`references/clean-architecture.md`），并使用 `references/clean-architecture-defaults.md` 作为基础内容。如果设置了 `paths.architecture`，则自定义文档将作为覆盖层或替换层应用于 clean architecture 默认值之上。 |
 | `custom` | architecture 原子技能加载自定义架构强制执行规则（`references/custom-architecture.md`），并将团队在 `paths.architecture` 指向的文档作为唯一内容进行读取。没有嵌入默认值 —— 该文档本身就是标准。 |
 
 **何时使用每种模式：**
 
-- **团队使用整洁架构（默认，无需配置）：** 原子技能加载内置的整洁架构规则。无需任何设置。
+- **团队使用 clean architecture（默认，无需配置）：** 原子技能加载内置的整洁架构规则。无需任何设置。
 
-- **团队使用整洁架构并带有定制：** 运行 `/architecture-refiner`，选择 “Clean Architecture”，定制各个部分。
+- **团队使用 clean architecture 并带有定制：** 运行 `/architecture-refiner`，选择 “Clean Architecture”，定制各个部分。
 生成一个带有 `mode: overlay` 或 `mode: override` 的文档。
 配置：设置 `paths.architecture`，`architecture_mode` 可省略（默认为 `clean`）。
 
