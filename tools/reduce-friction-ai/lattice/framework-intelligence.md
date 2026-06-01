@@ -71,7 +71,7 @@ Level 3: 审查级      ──→ 独立评估
 审查在 Payment 中发现 “贫血领域模型”，然后在 User 中再次发现，然后在 Order 中又一次发现。
 每个会话都是从零开始。
 
-**解决方案**：所有分子技能通过 `learning-harvest` 原子技能，同时消费也贡献一个共享的操作性经验 (operational learnings) 文档。
+**解决方案**：通过 `learning-harvest` 原子技能，所有分子技能同时消费也贡献一个共享的操作性经验 (operational learnings) 文档。
 AI 提出模式；用户决定哪些值得保留。
 框架随着使用而变得更智能。
 
