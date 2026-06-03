@@ -38,7 +38,7 @@ Lattice 的设计遵循三个原则：
 这些技能构成了一个交付生命周期：`requirement-forge` → `design-blueprint` → `code-forge` → `review`，同时 `refactor-safely` 和 `bug-fix` 覆盖结构性和缺陷驱动的工作。
 `requirement-forge` 启动流水线 —— 它扮演资深产品经理与业务分析师的双重角色，在 `.lattice/requirements/` 中生成结构化的功能规格说明，直接作为 `design-blueprint` 的输入。
 对于已有代码库的团队，`architecture-compass` 位于流水线之前 —— 它扫描代码库、进行结构化访谈，并产出团队达成一致的架构方向，在任何代码变更开始之前为团队提供指引。
-每个阶段都会消费并在 `.lattice/` 中生成产出物，使动态上下文层不断累积丰富。
+每个阶段都会消费并生成在 `.lattice/` 中的产出物，使动态上下文层不断累积丰富。
 
 ![功能生命周期流水线](img/image5.png)
 
