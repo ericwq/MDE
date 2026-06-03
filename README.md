@@ -16,20 +16,23 @@
 ## AI 及智能体相关文章
 这是个快速变化的领域，所以相关文章都标出了时间。
 
-下面是 martinfowler.com 上，标签为：[generative AI](https://martinfowler.com/tags/generative%20AI.html) 的相关文章：
-
+下面是 martinfowler.com 上，Martin Fowler 的随笔 和 bliki 。
+- ❄ [片段：6月2日](tools/fragments/2026-06-02.md) (2026/6/2) Martin Fowler
 - [片段：5月27日](tools/fragments/2026-05-27.md) (2026/5/27) Martin Fowler
-- ❄ [编码智能体的可维护性传感器](tools/sensors-for-coding-agents.md) (2026/5/20) Birgitta Böckeler
 - [片段：5月14日](tools/fragments/2026-05-14.md) (2026/5/14) Martin Fowler
-- ❄ [询问式 LLM](./tools/bliki/InterrogatoryLLM.md) (2026/5/14) Martin Fowler
-- ❄ [什么是代码？](tools/what-is-code.md) (2026/5/12) Unmesh Joshi
 - [片段：5月5日](tools/fragments/2026-05-05.md) (2026/5/5) Martin Fowler
 - [片段：4月29日](tools/fragments/2026-04-29.md) (2026/4/29) Martin Fowler
-- [结构化提示驱动开发（SPDD）](./tools/structured-prompt-driven.md) (2026/4/28) Wei Zhang, Jessie Jie Xia
 - [片段：4月21日](tools/fragments/2026-04-21.md) (2026/4/21) Martin Fowler
+- [架构决策记录](tools/bliki/ADR.md) (2026/3/24) Martin Fowler
+
+下面是 martinfowler.com 上，标签为：[generative AI](https://martinfowler.com/tags/generative%20AI.html) 的相关文章：
+
+- ❄ [编码智能体的可维护性传感器](tools/sensors-for-coding-agents.md) (2026/5/20) Birgitta Böckeler
+- ❄ [询问式 LLM](./tools/bliki/InterrogatoryLLM.md) (2026/5/14) Martin Fowler
+- ❄ [什么是代码？](tools/what-is-code.md) (2026/5/12) Unmesh Joshi
+- [结构化提示驱动开发（SPDD）](./tools/structured-prompt-driven.md) (2026/4/28) Wei Zhang, Jessie Jie Xia
 - ❄ [降低 AI 辅助开发挫折的模式](tools/reduce-friction-ai-main.md) (系列文章：2026) Rahul Garg
 - ❄ [面向编码智能体用户的管控工程](tools/harness-engineering.md) (2026/4/2) Birgitta Böckeler
-- [架构决策记录](tools/bliki/ADR.md) (2026/3/24) Martin Fowler
 - ❄ [软件开发的未来](tools/future-of-software-development.md) (2026/2/13) Martin Fowler
 - ❄ [对话：LLM 与目标/实现闭环](tools/convo-what-how.md) (2026/1/21) Unmesh Joshi，Rebecca Parsons 和 Martin Fowler
 - ❄ [对话：LLM 与抽象构建](tools/convo-llm-abstractions.md) (2025/8/26) Unmesh Joshi 和 Martin Fowler
