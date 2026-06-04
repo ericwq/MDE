@@ -60,3 +60,4 @@
 
 - [pi.dev 安装步骤](./coding-agent/pi-dev-steps.md)
 - [Lattice](./tools/reduce-friction-ai/lattice/README.md)
+  - [Lattice 技能](./tools/reduce-friction-ai/lattice/skills/README.md)
