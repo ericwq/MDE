@@ -43,6 +43,7 @@
 
 下面是 来自互联网的关于 AI 及编程智能体的文章：
 
+- [开放与封闭：前沿模型的追逐](./tools/open-ai-models.md) (2026/5/15) Stephen O'Grady
 - [我当前的本地智能体开发设置](./tools/my-local-agentic-dev-setup-today.md) (系列文章：2026/4/29)  Willem van den Ende
 - [写了 17 年开源代码，我为什么认为在编程智能体中堆砌功能纯属浪费时间？](tools/piling-features-in-coding-agent.md) (2026/4/27) Mario Zechner
 - [我已经妥协了](tools/2026-04-08-ive-sold-out.md) (2026/4/8) Mario Zechner
