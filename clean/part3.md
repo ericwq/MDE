@@ -37,20 +37,25 @@ SOLID 原则的历史颇为悠久。
 接下来的章节会更详细地描述每个原则。以下是其概要：
 
 - **SRP** ：单一职责原则 (Single Responsibility Principle)
+
   康威定律 (Conway’s law) 的一个积极推论：软件系统的最佳结构受到使用该系统的组织的社会结构的强烈影响，因此每个软件模块只有一个、且仅有一个需要被改变的理由。
 
 - **OCP** ：开闭原则 (Open-Closed Principle)
+
   Bertrand Meyer 在 20 世纪 80 年代使这一原则广为人知。
 其要点是：为了让软件系统易于修改，它们必须被设计成允许通过添加新代码来改变系统的行为，而不是修改现有代码。
 
 - **LSP** ：里氏替换原则 (Liskov Substitution Principle)
+
   Barbara Liskov 于 1988 年提出的关于子类型的著名定义。
 简而言之，该原则指出：为了用可互换的部件构建软件系统，这些部件必须遵守一个契约，使得它们能够相互替换。
 
 - **ISP** ：接口隔离原则 (Interface Segregation Principle)
+
   该原则建议软件设计者避免依赖他们不会使用的东西。
 
 - **DIP** ：依赖反转原则 (Dependency Inversion Principle)
+
   实现高层策略的代码不应依赖于实现底层细节的代码。相反，细节应该依赖于策略。
 
 多年来，这些原则已在许多不同的出版物 <sup>[1](#1)</sup> 中被详细描述。
