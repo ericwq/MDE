@@ -1,6 +1,6 @@
 # pi.dev 安装步骤
 
-这里简要描述了如何安装 [nono.sh](https://nono.sh/docs/cli/getting_started/installation) 以及 [pi.dev](https://pi.dev) ，同时集成 [LM Studio](https://lmstudio.ai/) 中运行的 LLM 。
+这里简要描述了如何安装 [nono.sh](https://nono.sh/docs/cli/getting_started/installation) 以及 [pi.dev](https://pi.dev) ，同时集成云端 LLM 或本地 [LM Studio](https://lmstudio.ai/) 中运行的 LLM 。
 ## 安装 Nono
 
 nono 将限制 coding harness 的权限，同时只占用很少的系统资源（CPU，内存），比容器方式更加高效。
@@ -31,7 +31,8 @@ nono run --profile pi-mono -- pi
 
 ![Nono profile list](./img/nono-profile-list.png)
 
- pi-mono.json
+这是 pi-mono.json 文件的内容说明：
+
 ```json
 {
   "extends": "default",
@@ -59,21 +60,6 @@ nono run --profile pi-mono -- pi
 }
 ```
 
-## 启动 LM Studio
-
- [LM Studio](https://lmstudio.ai/) 将提供 LLM 及推理引擎。你需要预先下载相应的 LLM 模型，这个例子中使用的是：qwen3.6-35b-a3b。
-
-- 在 Developer 页签，
-  - 启动并加载模型：`mlx-community/qwen3.6-35b-a3b`
-  - 下面的配置文件中将使用这个模型
-- 设置模型的上下文大小：262144 (这个值取决于具体的模型)
-- 检查 LM Studio 服务器运行在 1234 端口
-  - 运行 `curl http://127.0.0.1:1234/v1/models`
-  - 能返回模型列表 → 正常
-- 请参考下图
-
-![LM Studios developer panel](./img/lm-studios.png)
-
 ## 安装 pi.dev
 
 - 访问 [pi.dev](https://pi.dev/)
@@ -83,20 +69,19 @@ nono run --profile pi-mono -- pi
   - 如果你的工作目录不同，则要修改 [pi-mono.json](./pi-mono.json) 中的 `filesystem` 部分。
   - 若在任意目录中启动，nono 会询问你是否授权读写当前目录
 - 在 nono 沙箱中运行 pi，同时检查授权访问情况
-  - 运行 pi： `nono run -v --profile pi-dev pi` 
+  - 运行 pi： `nono run -v --profile pi-mono pi` 
   - -v 选项，打印所有授权内容 
   - 此时你可以检查 nono 授权了对哪些资源的访问
-  - 确认授权无误后，`ctrl-c` 退出 pi
-- 为 pi 运行，配置推理引擎
-  - 将 [models.json](./models.json) 另存为文件 `~/.pi/agent/models.json`
-  - `models.json` 中已经预置了上一节中加载的模型，你可以查看一下这个文件，
-  - 若你使用不同的 LLM，则需要修改 `models.json` 中相应的内容。
-  - 注意推理引擎不受 nono 控制
-- 在 nono 沙箱中运行 pi，同时连接推理引擎
-  - 运行 pi： `nono run --profile pi-mono pi`
-- 请参考下图
+  - 确认授权无误后，`ctrl-d` 退出 pi
 
-![pi.dev start](./img/nono-pi-dev.png)
+## 集成云端 LLM
+
+pi 支持各种 provider， 详情参阅 [官方文档](https://pi.dev/docs/latest/providers) 。
+
+快捷步骤如下：
+- 启动 pi
+- 使用 `/login`，进入订阅
+- 选择 `Use an API key`，并输入你的订阅 api-key xxxxx。
 
 ## 为 pi 设置中文回答
 
@@ -119,3 +104,29 @@ cd lattice
 ./tools/install.sh ~/.pi/agent/skills/
 ```
 
+## 本地 LLM：启动 LM Studio
+
+ [LM Studio](https://lmstudio.ai/) 将提供 LLM 及推理引擎。你需要预先下载相应的 LLM 模型，这个例子中使用的是：qwen3.6-35b-a3b。
+
+- 在 Developer 页签，
+  - 启动并加载模型：`mlx-community/qwen3.6-35b-a3b`
+  - 下面的配置文件中将使用这个模型
+- 设置模型的上下文大小：262144 (这个值取决于具体的模型)
+- 检查 LM Studio 服务器运行在 1234 端口
+  - 运行 `curl http://127.0.0.1:1234/v1/models`
+  - 能返回模型列表 → 正常
+- 请参考下图
+
+![LM Studios developer panel](./img/lm-studios.png)
+
+## 本地 LLM：配置 LLM 并运行 Pi
+- 为 pi 运行，配置 LLM
+  - 将 [models.json](./models.json) 另存为文件 `~/.pi/agent/models.json`
+  - `models.json` 中已经预置了上一节中加载的模型，你可以查看一下这个文件，
+  - 若你使用不同的 LLM，则需要修改 `models.json` 中相应的内容。
+  - 注意推理引擎不受 nono 控制
+- 在 nono 沙箱中运行 pi，同时连接推理引擎
+  - 运行 pi： `nono run --profile pi-mono pi`
+- 请参考下图
+
+![pi.dev start](./img/nono-pi-dev.png)
