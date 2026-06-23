@@ -30,6 +30,7 @@
 
 下面是 martinfowler.com 上，标签为：[generative AI](https://martinfowler.com/tags/generative%20AI.html) 的相关文章：
 
+- [构建可靠的智能体 AI 系统](./tools/reliable-llm-bayer.md) (2026/6/16) Sarang Sanjay Kulkarni
 - ❄ [VibeSec 的清算时刻](./tools/vibesec-reckoning.md) (2026/5/27) Gautam Koul, Lucian Moss, Neil Drew-Lopez 和 Daberechi Ruth Edeokoh
 - ❄ [编码智能体的可维护性传感器](tools/sensors-for-coding-agents.md) (2026/5/20) Birgitta Böckeler
 - ❄ [询问式 LLM](./tools/bliki/InterrogatoryLLM.md) (2026/5/14) Martin Fowler
