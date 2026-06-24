@@ -58,6 +58,7 @@
 - [Harness 工程是什么？2026年完整入门指南](tools/harness-2026.md) (2026/3/6) Jamie Park
 - ❄ [那么，接下来是哪个词呢？](tools/so-whats-the-next-word-then.md) (2026/2/6) Matthias Kainer
 - ❄ [构建一个有观点且极简的编码代理，我学到了什么](./tools/2025-11-30-pi-coding-agent.md) (2025/11/30) Mario Zechner
+- [将身份验证、角色和安全性融入 C# 领域驱动设计（DDD）：领域模型与 ASP.NET MVC 实现之争](./tools/weave-security-into-ddd.md) (2025/11/25) codestudy.net
 - [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md) (2024/1/26) Eric Evans
 
 ----
