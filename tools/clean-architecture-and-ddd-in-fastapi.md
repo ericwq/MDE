@@ -1,6 +1,6 @@
 # FastAPI 中的整洁架构与领域驱动设计（DDD）
 
-[![Berkay Sonel](img/berkay-sonel.webp) Berkay Sonel](https://dev.to/berkaysson) 2026/6/14
+[![Berkay Sonel](img/berkay-sonel.webp) Berkay Sonel](https://dev.to/berkaysson) 2026/6/14 [原文](https://dev.to/berkaysson/clean-architecture-and-domain-driven-design-ddd-in-fastapi-5gno)
 
 ---
 \#fastapi \#ddd \#cleancode \#architecture
