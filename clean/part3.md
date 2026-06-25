@@ -64,4 +64,6 @@ SOLID 原则的历史颇为悠久。
 
 ---
 #### 1
-例如，《敏捷软件开发：原则、模式与实践》，Robert C. Martin，Prentice Hall，2002 年；http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod ；以及 https://en.wikipedia.org/wiki/SOLID_(object-oriented_design) （或者直接搜索 SOLID）。
+例如，Agile Software Development, Principles, Patterns, and Practices，Robert C. Martin，Prentice Hall，2002 年；
+http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod ；
+以及 https://en.wikipedia.org/wiki/SOLID_(object-oriented_design) （或者直接搜索 SOLID）。
