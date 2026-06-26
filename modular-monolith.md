@@ -1,3 +1,33 @@
+## 模块化单体系列
+
+---
+## 模块化单体：架构驱动因素
+
+📂 架构和设计 📂 模块化单体  2019-12-26
+![driver](./mmonolith/imgs/Modular_Monolith_Architectural_Drivers_Promo-825x510.jpg)
+
+在第一篇关于模块化单体架构的文章中，我重点介绍了该架构的定义和模块化的描述。
+在这篇文章中，我想讨论一些在我看来最为常见的 *架构驱动因素 (Architectural Drivers)* ，
+它们可能导向 *模块化单体 (Modular Monolith)* 或 *微服务 (Microservices)* 架构。
+
+[更多内容](./mmonolith/todo)
+
+
+## 模块化单体：入门指南
+
+📂 架构和设计 📂 模块化单体  2019-12-2
+![primer](./mmonolith/imgs/Modular_Monolith_a_Primer-825x510.jpg)
+
+自微服务架构兴起以来，许多年已经过去，它仍然是系统架构背景下讨论的主要话题之一。
+云解决方案、容器化以及支持分布式系统开发和维护的先进工具（如 Kubernetes）的普及，进一步促进了这一现象。
+
+观察社区、公司中正在发生的事情，以及与程序员的对话，可以得出结论：大多数新项目都在使用微服务架构来实现。
+此外，一些遗留系统也在向这种方法迁移。
+
+[更多内容](./mmonolith/primer.md)
+
+---
+
 # Kamil Grzybek 权限/授权相关文章完整链接
 官网主页：https://www.kamilgrzybek.com/
 博客总入口：https://www.kamilgrzybek.com/blog
