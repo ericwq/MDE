@@ -1,6 +1,6 @@
 # 模块化单体：入门指南
 
-[原文](https://www.kamilgrzybek.com/blog/posts/modular-monolith-primer) 2019-12-02
+[原文](https://www.kamilgrzybek.com/blog/posts/modular-monolith-primer) 📂 架构和设计 📂 模块化单体 2019-12-02
 
 ![top](./imgs/Modular_Monolith_a_Primer-825x510.jpg)
 
@@ -212,8 +212,8 @@
 
 本是 [模块化单体](../modular-monolith.md) 系列的一部分：
 
-- [模块化单体：入门指南（本文）]()
-- [模块化单体：架构驱动因素](#todo)
+- [模块化单体：入门指南（本文）](primer.md)
+- [模块化单体：架构驱动因素](drivers.md)
 - [模块化单体：架构实施](#todo)
 - [模块化单体：集成风格](#todo)
 - [模块化单体：以领域为中心的设计](#todo)
