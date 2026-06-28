@@ -43,3 +43,42 @@
 ![Every Project is different and has different Context](./imgs/Modular-Monolith_Contexts-1-1024x321.jpg)
 *每个项目都是不同的，并具有不同的上下文*
 
+然而，上下文是一个过于宽泛的概念，我们需要更具体的东西来付诸实践。
+这就是 *架构驱动因素 (Architectural Drivers)* 概念被定义的原因。
+Michael Keeling 在他的 [博客文章](https://www.neverletdown.net/2014/10/architectural-drivers.html) 中这样描述它们：
+
+> 架构驱动因素被正式定义为对架构具有重大影响的需求集合。
+
+Simon Brown 在 [Software Architecture for Developers](https://softwarearchitecturefordevelopers.com/) 一书中对 *架构驱动因素 (Architectural Drivers)* 也有类似的描述：
+
+> 无论你遵循什么过程（传统且计划驱动的 vs. 轻量级且自适应的），
+都存在一组常见的事物，它们真正驱动、影响并塑造最终的软件架构。
+
+*架构驱动因素 (Architectural Drivers)* 有自己的分类。
+主要类别包括：
+
+- **功能需求（Functional Requirements）** —— 系统解决什么问题以及如何解决
+- **质量属性（Quality Attributes）** —— 决定架构质量的一组属性，如可维护性、可扩展性等
+- **技术约束（Technical Constraints）** —— 技术标准、工具限制、团队经验
+- **业务约束（Business Constraints）** —— 预算、硬性截止日期
+
+![Architectural Drivers](./imgs/Modular-Monolith_-Architectural-Drivers-Architectural-Drivers-1024x485.jpg)
+*架构驱动因素*
+
+最重要的是，所有架构驱动因素都是相互关联的，
+并且往往聚焦于一个方面会导致另一个方面的损失（不幸的是，权衡无处不在）。
+让我们考虑这个例子。
+
+你有一个服务，它在 3 秒内（ *质量属性——性能* ）计算某个重要内容（ *功能需求* ）。
+一个新的需求出现了，计算变得更加复杂，现在需要 5 秒（ *性能下降* ）。
+为了回到 3 秒，可以使用另一种技术，但没有时间这样做（ *业务约束 —— 硬性截止日期* ），而且公司里还没有人使用过它（ *技术约束 —— 团队经验* ）。
+提高性能的唯一选择是将计算移到存储过程中，但这会降低可维护性和可读性（ *质量属性* ）。
+
+![Architectural Drivers example](./imgs/Modular-Monolith_-Architectural-Drivers-Example-1024x444.jpg)
+*架构驱动因素示例*
+
+如你所见，<ins>软件架构是</ins>在一个驱动因素与另一个驱动因素之间<ins>持续做出选择</ins>。
+不存在一个 “正确” 的解决方案。
+[没有银弹](https://en.wikipedia.org/wiki/No_Silver_Bullet) 。
+
+带这这些思考，让我们看看在讨论 *模块化单体 (Modular Monolith)* 和 *微服务 (Microservices)* 架构时，一些常见的架构驱动因素及其属性。
