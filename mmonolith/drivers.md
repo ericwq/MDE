@@ -284,7 +284,7 @@ Simon Brown 在 [Software Architecture for Developers](https://softwarearchitect
 本是 [模块化单体](../modular-monolith.md) 系列的一部分：
 
 1. [模块化单体：入门指南](primer.md)
-2. [模块化单体：架构驱动因素](drivers.md)
-3. [模块化单体：架构实施](#todo)
+2. [模块化单体：架构驱动因素（本文）](drivers.md)
+3. [模块化单体：架构实施](enforcement.md)
 4. [模块化单体：集成风格](#todo)
 5. [模块化单体：以领域为中心的设计](#todo)
