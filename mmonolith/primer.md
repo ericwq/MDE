@@ -2,7 +2,7 @@
 
 [原文](https://www.kamilgrzybek.com/blog/posts/modular-monolith-primer) 📂 架构和设计 📂 模块化单体 2019-12-02
 
-![top](./imgs/Modular_Monolith_a_Primer-825x510.jpg)
+<img src="./imgs/Modular_Monolith_a_Primer-825x510.jpg" width="100%"/><br/>
 
 ## 引言
 
@@ -107,26 +107,26 @@
 在下图左侧，我们有一个具有大量依赖关系的模块，你肯定不能说它是独立的。
 另一方面，在右侧，情况正好相反 —— 该模块包含最少的依赖关系，并且它们更松散，它最终更加独立：
 
-![Module independence](./imgs/Module_independence-1024x420.jpg)
+<img src="./imgs/Module_independence-1024x420.jpg" width="100%"/><br/>
 *模块独立性*
 
 然而，依赖关系的数量只是衡量我们模块独立程度的一个指标。
 第二个衡量标准是依赖关系的强度。
 换句话说，我们是频繁地使用多个方法来调用它，还是偶尔使用一个或几个方法来调用它？
 
-![Strong/Weak dependency](./imgs/Module_independence_strongweak-1024x420.jpg)
+<img src="./imgs/Module_independence_strongweak-1024x420.jpg" width="100%"/><br/>
 *强依赖 / 弱依赖*
 
 在第一种情况下，可能是我们错误地定义了模块的边界，**如果两个模块紧密相关，我们应该将它们合并** ：
 
-![Modulers merged](./imgs/Module_indpendence_merge-1024x420.jpg)
+<img src="./imgs/Module_indpendence_merge-1024x420.jpg" width="100%"/><br/>
 *模块合并*
 
 影响模块独立性的最后一个属性是 **它所依赖的模块的变化频率**。
 正如你可能猜到的 —— 这些依赖模块变化越少，该模块就越独立。
 另一方面，如果变化频繁 —— 我们就必须经常更改自己的模块，它就会失去独立性：
 
-![Module stability](./imgs/Module_independence_stability-1024x474.jpg)
+<img src="./imgs/Module_independence_stability-1024x474.jpg" width="100%"/><br/>
 *模块稳定性*
 
 总而言之，模块的独立性由三个主要因素决定：
@@ -143,12 +143,12 @@
 
 在技术上下文中考虑模块时，只有技术性更改才会导致恰好一个模块发生更改：
 
-![Technical modules and technical change](./imgs/TechnicalModules_technicalChange-1024x474.jpg)
+<img src="./imgs/TechnicalModules_technicalChange-1024x474.jpg" width="100%"/><br/>
 *技术模块与技术变更*
 
 添加或更改业务功能通常会贯穿所有层，**导致每个技术模块都发生更改** ：
 
-![Technical modules - new/change business feature](./imgs/TechnicalModule_FeatureChange-1024x421.jpg)
+<img src="./imgs/TechnicalModule_FeatureChange-1024x421.jpg" width="100%"/><br/>
 *技术模块——新增/变更业务功能*
 
 我们必须问自己的问题是：我们更频繁地进行与系统技术部分相关的更改，还是业务功能的更改？
@@ -157,7 +157,7 @@
 因此，在模块化单体中，模块是一个业务模块，**能够完全提供一组所需的功能** 。
 这种设计被称为 *垂直切片 (Vertical Slices)* ，我们将这些切片分组到模块中：
 
-![Business modules and vertical slices](./imgs/BusinessModules_VerticalSlices-1-1024x403.jpg)
+<img src="./imgs/BusinessModules_VerticalSlices-1-1024x403.jpg" width="100%"/><br/>
 
 通过这种方式，频繁的变更 **只影响一个模块** —— 它变得更加独立、自治，并且能够独立提供功能。
 
@@ -166,7 +166,7 @@
 模块化的最后一个属性是 **定义良好的接口** 。
 如果我们的模块没有 *契约（Contract）* ，我们就无法谈论模块化架构：
 
-![Modules without contract (interface)](./imgs/Modules_without_contract-1024x548.jpg)
+<img src="./imgs/Modules_without_contract-1024x548.jpg" width="100%"/><br/>
 *没有契约（接口）的模块*
 
 *契约（Contract）* 是我们向外部提供的内容，因此非常重要。
@@ -174,7 +174,7 @@
 良好的契约应该明确无误，并且仅包含给定契约 (given contract) 的客户端所需要的内容。
 我们应该保持它的稳定（以免破坏我们的客户端），并将其背后的一切隐藏起来（ [封装](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)) ）：
 
-![Modules with contract](./imgs/Modules_with_contract-1024x548.jpg)
+<img src="./imgs/Modules_with_contract-1024x548.jpg" width="100%"/><br/>
 *带有契约的模块*
 
 正如上图所示，我们模块的契约可以采取不同的形式。
@@ -198,12 +198,12 @@
 
 ## 补充资源
 
-- [模块化单体视频 —— Simon Brown](https://www.youtube.com/watch?v=5OjqD-ow8GE)
-- [宏伟的模块化单体 —— Axel Fontaine](https://www.youtube.com/watch?v=BOvxJaklcr0)
-- [模块化编程 —— Wikipedia](https://en.wikipedia.org/wiki/Modular_programming)
-- [单体应用 —— Wikipedia](https://en.wikipedia.org/wiki/Monolithic_application)
-- [模块化单体与 DDD —— GitHub 仓库](https://github.com/kgrzybek/modular-monolith-with-ddd)
-- [垂直切片架构 —— Jimmy Bogard](https://jimmybogard.com/vertical-slice-architecture/)
+1. [模块化单体视频 —— Simon Brown](https://www.youtube.com/watch?v=5OjqD-ow8GE)
+2. [宏伟的模块化单体 —— Axel Fontaine](https://www.youtube.com/watch?v=BOvxJaklcr0)
+3. [模块化编程 —— Wikipedia](https://en.wikipedia.org/wiki/Modular_programming)
+4. [单体应用 —— Wikipedia](https://en.wikipedia.org/wiki/Monolithic_application)
+5. [模块化单体与 DDD —— GitHub 仓库](https://github.com/kgrzybek/modular-monolith-with-ddd)
+6. [垂直切片架构 —— Jimmy Bogard](https://jimmybogard.com/vertical-slice-architecture/)
 
 图片来源：[Magnasoma](https://magnasoma.com/)
 
@@ -212,8 +212,8 @@
 
 本是 [模块化单体](../modular-monolith.md) 系列的一部分：
 
-- [模块化单体：入门指南（本文）](primer.md)
-- [模块化单体：架构驱动因素](drivers.md)
-- [模块化单体：架构实施](#todo)
-- [模块化单体：集成风格](#todo)
-- [模块化单体：以领域为中心的设计](#todo)
+1. [模块化单体：入门指南（本文）](primer.md)
+2. [模块化单体：架构驱动因素](drivers.md)
+3. [模块化单体：架构实施](#todo)
+4. [模块化单体：集成风格](#todo)
+5. [模块化单体：以领域为中心的设计](#todo)
