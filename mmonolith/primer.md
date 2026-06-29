@@ -207,7 +207,6 @@
 
 图片来源：[Magnasoma](https://magnasoma.com/)
 
-
 ## 系列更多文章
 
 本是 [模块化单体](../modular-monolith.md) 系列的一部分：
@@ -216,4 +215,4 @@
 2. [模块化单体：架构驱动因素](drivers.md)
 3. [模块化单体：架构实施](enforcement.md)
 4. [模块化单体：集成风格](integration.md)
-5. [模块化单体：以领域为中心的设计](#todo)
+5. [模块化单体：以领域为中心的设计](ddd.md)

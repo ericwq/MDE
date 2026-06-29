@@ -278,7 +278,6 @@ Simon Brown 在 [Software Architecture for Developers](https://softwarearchitect
 4. [关于单体与微服务架构的文章合集 —— 《当微服务失败时……》](https://docs.google.com/spreadsheets/d/1vjnjAII_8TZBv2XhFHra7kEQzQpOHSZpFIWDjynYYf0/edit#gid=0)
 5. [模块化单体与 DDD —— GitHub 仓库](https://github.com/kgrzybek/modular-monolith-with-ddd)
 
-
 ## 系列更多文章
 
 本是 [模块化单体](../modular-monolith.md) 系列的一部分：
@@ -287,4 +286,4 @@ Simon Brown 在 [Software Architecture for Developers](https://softwarearchitect
 2. [模块化单体：架构驱动因素（本文）](drivers.md)
 3. [模块化单体：架构实施](enforcement.md)
 4. [模块化单体：集成风格](integration.md)
-5. [模块化单体：以领域为中心的设计](#todo)
+5. [模块化单体：以领域为中心的设计](ddd.md)

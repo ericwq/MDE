@@ -1,6 +1,6 @@
 # 模块化单体：集成风格
 
-2019-07-26 📂 架构和设计 📂 模块化单体 [原文](https://www.kamilgrzybek.com/blog/posts/modular-monolith-integration-styles)
+2020-07-26 📂 架构和设计 📂 模块化单体 [原文](https://www.kamilgrzybek.com/blog/posts/modular-monolith-integration-styles)
 
 <img src="./imgs/Monolith_arch_enforcement-825x510.jpg" width="100%"/><br/>
 
@@ -252,6 +252,4 @@
 2. [模块化单体：架构驱动因素](drivers.md)
 3. [模块化单体：架构实施](enforcement.md)
 4. [模块化单体：集成风格（本文）](integration.md)
-5. [模块化单体：以领域为中心的设计](#todo)
-
-<!-- <img src="./imgs/.jpg" width="100%"/><br/> -->
+5. [模块化单体：以领域为中心的设计](ddd.md)
