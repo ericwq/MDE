@@ -1,6 +1,6 @@
 # 模块化单体：架构驱动因素
 
-[原文](https://www.kamilgrzybek.com/blog/posts/modular-monolith-architectural-drivers) 📂 架构和设计 📂 模块化单体  2019-12-26
+2019-12-26 📂 架构和设计 📂 模块化单体 [原文](https://www.kamilgrzybek.com/blog/posts/modular-monolith-architectural-drivers)
 
 <img src="./imgs/Modular_Monolith_Architectural_Drivers_Promo-825x510.jpg" width="100%"/><br/>
 
@@ -286,5 +286,5 @@ Simon Brown 在 [Software Architecture for Developers](https://softwarearchitect
 1. [模块化单体：入门指南](primer.md)
 2. [模块化单体：架构驱动因素（本文）](drivers.md)
 3. [模块化单体：架构实施](enforcement.md)
-4. [模块化单体：集成风格](#todo)
+4. [模块化单体：集成风格](integration.md)
 5. [模块化单体：以领域为中心的设计](#todo)

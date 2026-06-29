@@ -1,8 +1,18 @@
 ## 模块化单体系列
 
 ---
+## 模块化单体：集成风格
+2019-07-26 📂 架构和设计 📂 模块化单体
+![integration](./mmonolith/imgs/modular_monolith_integration_styles_logo-825x510.jpg)
+
+在这篇文章中，我只想讨论缺失的部分 —— 模块化单体架构中模块的集成风格。
+
+[更多内容](./mmonolith/integration.md)
+
+---
+
 ## 模块化单体：架构实施
-📂 模块化单体 2020-03-22
+2020-03-22 📂 模块化单体
 ![enforcement](./mmonolith/imgs/Monolith_arch_enforcement-825x510.jpg)
 
 在之前的文章中，我们讨论了什么是模块化单体架构，以及可能影响其选择的架构驱动因素。
@@ -14,7 +24,7 @@
 
 ## 模块化单体：架构驱动因素
 
-📂 架构和设计 📂 模块化单体  2019-12-26
+2019-12-26 📂 架构和设计 📂 模块化单体
 ![driver](./mmonolith/imgs/Modular_Monolith_Architectural_Drivers_Promo-825x510.jpg)
 
 在第一篇关于模块化单体架构的文章中，我重点介绍了该架构的定义和模块化的描述。
@@ -27,7 +37,7 @@
 
 ## 模块化单体：入门指南
 
-📂 架构和设计 📂 模块化单体  2019-12-2
+2019-12-02 📂 架构和设计 📂 模块化单体
 ![primer](./mmonolith/imgs/Modular_Monolith_a_Primer-825x510.jpg)
 
 自微服务架构兴起以来，许多年已经过去，它仍然是系统架构背景下讨论的主要话题之一。
