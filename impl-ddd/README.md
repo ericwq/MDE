@@ -1,10 +1,9 @@
-## 实现领域驱动设计（非盈利，非官方） 
----
+# 实现领域驱动设计（中文版）
 <img src="img/cover.jpg" width="40%" /></br>
 
 Vaughn Vernon
 
-### 目录
+## 目录
 
 - [序言](foreword.md)
 - [前言](preface.md)

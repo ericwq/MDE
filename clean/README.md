@@ -1,4 +1,4 @@
-# 整洁架构 - 软件结构与设计匠人指南
+# 整洁架构 - 软件结构与设计匠人指南（中文版）
 
 <img src="imgs/clean-architecture-cover.webp" width="40%"/><br/>
 Robert C. Martin (2018)
