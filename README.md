@@ -48,7 +48,7 @@
 
 下面是 来自互联网的关于 AI 及编程智能体的文章：
 
-- [模块化单体](./modular-monolith.md) (系列文章：2019~2020) Kamil Grzybek
+- ❄ [模块化单体](./modular-monolith.md) (系列文章：2019~2020) Kamil Grzybek
 - [FastAPI 中的整洁架构与领域驱动设计（DDD）](./tools/clean-architecture-and-ddd-in-fastapi.md) (2026/6/14) Berkay Sonel
 - [开放与封闭：前沿模型的追逐](./tools/open-ai-models.md) (2026/5/15) Stephen O'Grady
 - [我当前的本地智能体开发设置](./tools/my-local-agentic-dev-setup-today.md) (系列文章：2026/4/29)  Willem van den Ende
@@ -61,7 +61,8 @@
 - ❄ [构建一个有观点且极简的编码代理，我学到了什么](./tools/2025-11-30-pi-coding-agent.md) (2025/11/30) Mario Zechner
 - [将身份验证、角色和安全性融入 C# 领域驱动设计（DDD）：领域模型与 ASP.NET MVC 实现之争](./tools/weave-security-into-ddd.md) (2025/11/25) codestudy.net
 - [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md) (2024/1/26) Eric Evans
-- [REST API 数据验证](./kamil/rest-api-data-validation.md) (2019/2/20) Kamil Grzybek
+- ❄ [领域模型验证](./kamil/domain-model-validation.md) (2019/3/4) Kamil Grzybek
+- ❄ [REST API 数据验证](./kamil/rest-api-data-validation.md) (2019/2/20) Kamil Grzybek
 
 ----
 
