@@ -14,6 +14,7 @@
 - [面向模式的软件架构：模式系统](./posa-1/README.md)
 - [整洁架构 - 软件结构与设计匠人指南（中文版）](clean/README.md)
 - [领域驱动设计精粹 (中文版)](./distalled/README.md)
+- [整洁代码：敏捷软件工匠手册（中文版）](./code/README.md)
 
 ----
 
