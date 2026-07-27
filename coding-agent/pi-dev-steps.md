@@ -22,6 +22,12 @@ nono profile validate ~/.config/nono/profiles/pi-mono.json
 nono run --profile pi-mono -- pi
 ```
 
+以上命令适用于 apple silicon 平台，对于 amd64 平台；使用如下命令
+
+```
+nono run --profile pi-mono --read /usr/local/etc/openssl@3 -- pi
+```
+
 4. 将 [pi-mono.json](./pi-mono.json) 添加至目录 `~/.config/nono/profiles/`
   - 这是个 pi.mono 的 profile 文件，
   - 保持文件名不变
@@ -130,3 +136,15 @@ cd lattice
 - 请参考下图
 
 ![pi.dev start](./img/nono-pi-dev.png)
+
+```
+curl https://api.deepseek.com/v1/chat/completions \
+-H "Authorization: Bearer sk-YOURKEY" \
+-H "Content-Type: application/json" \
+-d '{
+  "model": "deepseek-v4-pro",
+  "messages": [{"role":"user","content":"hi"}]
+}'
+
+nono run --profile pi-mono -- zsh -c "curl -v https://api.deepseek.com/v1/chat/completions -H 'Authorization: Bearer sk-YOURKEY' -H 'Content-Type: application/json' -d '{\"model\":\"deepseek-v4-pro\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}]}'"
+```
