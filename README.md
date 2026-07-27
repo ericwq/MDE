@@ -22,6 +22,8 @@
 这是个快速变化的领域，所以相关文章都标出了时间。
 
 下面是 martinfowler.com 上，Martin Fowler 的随笔 和 bliki 。
+- [片段：7月21日](tools/fragments/2026-07-21.md) (2026/7/21) Martin Fowler
+- [片段：7月13日](tools/fragments/2026-07-13.md) (2026/7/13) Martin Fowler
 - [片段：6月16日](tools/fragments/2026-06-16.md) (2026/6/16) Martin Fowler
 - ❄ [片段：6月2日](tools/fragments/2026-06-02.md) (2026/6/2) Martin Fowler
 - [片段：5月27日](tools/fragments/2026-05-27.md) (2026/5/27) Martin Fowler
