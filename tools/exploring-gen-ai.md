@@ -13,6 +13,8 @@
 
 ---
 2026
+- [本地模型用于编码的体验](../tools/local/local-models-for-coding-experiences.md) (2026/7/8) Birgitta Böckeler
+- [面向代码任务的本地模型可行性](../tools/local/local-models-for-coding-factors.md) (2026/7/7) Birgitta Böckeler
 - [软件工程循环中的人与智能体](gen-ai/exploring-gen-ai-26.md) (2026/3/4) Kief Morris 撰写
 - [Harness 工程——初步思考](gen-ai/exploring-gen-ai-25.md) (2026/2/17)
 - [面向代码智能体的上下文工程](gen-ai/exploring-gen-ai-24.md) (2026/2/5)

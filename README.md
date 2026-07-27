@@ -33,6 +33,7 @@
 
 下面是 martinfowler.com 上，标签为：[generative AI](https://martinfowler.com/tags/generative%20AI.html) 的相关文章：
 
+- [探索生成式 AI ](tools/exploring-gen-ai.md) (系列文章：2023~2026) Birgitta Böckeler 等人
 - [构建可靠的智能体 AI 系统](./tools/reliable-llm-bayer.md) (2026/6/16) Sarang Sanjay Kulkarni
 - ❄ [VibeSec 的清算时刻](./tools/vibesec-reckoning.md) (2026/5/27) Gautam Koul, Lucian Moss, Neil Drew-Lopez 和 Daberechi Ruth Edeokoh
 - ❄ [编码智能体的可维护性传感器](tools/sensors-for-coding-agents.md) (2026/5/20) Birgitta Böckeler
@@ -47,7 +48,6 @@
 - ❄ [基于 LLM 的函数调用](tools/function-call-LLM.md) (2025/5/6) Kiran Prakash
 - ❄ [构建 GenAI 产品的新兴模式](tools/gen-ai-patterns.md) (2025/2/25) Bharani Subramaniam 和 Martin Fowler
 - ❄ [LLM 编程提示词示例](tools/2023-chatgpt-xu-hao.md) (2023/4/13) Martin Fowler
-- [探索生成式 AI ](tools/exploring-gen-ai.md) (系列文章：2023~2026) Birgitta Böckeler 等人
 
 下面是 来自互联网的关于 AI 及编程智能体的文章：
 
