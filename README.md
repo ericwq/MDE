@@ -3,7 +3,6 @@
 - [一种为 Web 应用构建基于 JSON 的 DSL 解决方案的方法](json-dsl-for-web.md)
 - [领域专用语言开发工具的系统性映射研究](sms3.md)
 - [模型驱动工程](mde2006.md)
-----
 
 ## 相关书籍
 - [模型驱动软件开发（中文版）](mdsd/README.md)
@@ -15,8 +14,7 @@
 - [整洁架构 - 软件结构与设计匠人指南（中文版）](clean/README.md) (2026/6/10~6/26)
 - [领域驱动设计精粹 (中文版)](./distalled/README.md) (2026/7/1~7/6)
 - [整洁代码：敏捷软件工匠手册（中文版）](./code/README.md) (2026/7/8~7/30)
-
-----
+- [敏捷软件开发：原则、模式与实践](ppp/README.md)（部分内容）(2026/7/30~)
 
 ## AI 及智能体相关文章
 这是个快速变化的领域，所以相关文章都标出了时间。
@@ -71,8 +69,6 @@
 - [大语言模型与软件设计：开启我的学习之旅](tools/evans-2024.md) (2024/1/26) Eric Evans
 - ❄ [领域模型验证](./kamil/domain-model-validation.md) (2019/3/4) Kamil Grzybek
 - ❄ [REST API 数据验证](./kamil/rest-api-data-validation.md) (2019/2/20) Kamil Grzybek
-
-----
 
 ## 编码智能体实践
 
