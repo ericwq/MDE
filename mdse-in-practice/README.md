@@ -1,6 +1,7 @@
-<img src="img/cover.png" width="50%">
+# 模型驱动软件工程实践：第二版
 
-----
+<img src="img/cover.png" width="40%"/><br/>
+
 ## 软件工程综合讲座
 
 编辑
@@ -17,16 +18,14 @@ Luciano Baresi，米兰理工大学
 
 - 《模型驱动软件工程实践》 Marco Brambilla, Jordi Cabot, and Manuel Wimmer, 2012 年
 
-----
-## 模型驱动软件工程实践：第二版
 
+## 摘要
 Marco Brambilla, 意大利米兰理工大学
 
 Jordi Cabot, 西班牙 ICREA 与加泰罗尼亚开放大学（UOC）
 
 Manuel Wimmer, 奥地利维也纳工业大学
 
-### 摘要
 本书探讨了基于模型的方法如何提升软件专业人员的日常实践水平。这种方法被称为模型驱动软件工程（Model-Driven Software Engineering, MDSE），或简称为模型驱动工程（Model-Driven Engineering, MDE）。
 
 大量定量与定性研究表明，MDSE 实践能显著提高软件开发的效率 (efficiency) 与成效 (effectiveness) 。鉴于软件开发与业务分析的融合趋势，预计未来软件行业对 MDSE 的采用将呈指数级增长。
@@ -45,10 +44,10 @@ Manuel Wimmer, 奥地利维也纳工业大学
 - 优化定义表述及概念间依赖关系阐释
 - 新增全书内容索引
 
-### 关键词
+## 关键词
 建模、软件工程、UML、领域特定语言、模型驱动工程、代码生成、逆向工程、模型转换、MDD、MDA、MDE、MDSE、OMG、DSL、EMF、Eclipse
 
-### 目录
+## 目录
 * [序言](foreword/0.md)
 * [感谢](ack/0.md)
 * [第 1 章 引言](ch1/0.md)

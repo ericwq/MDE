@@ -1,8 +1,8 @@
-## MDSD 模型驱动软件开发：中文版（非盈利，非官方）
-----
-<!-- ![cover](img/cover.png) -->
-<img src="img/cover.png" width="40%">
+# MDSD 模型驱动软件开发：中文版（非盈利，非官方）
 
+<img src="img/cover.png" width="40%"/><br/>
+
+## 目录
 * [序言](ch0/0.md)
 * [第一部分 简介](part1.md)
   - [1 引言](ch1/0.md)
