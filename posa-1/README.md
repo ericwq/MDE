@@ -1,5 +1,5 @@
 # 面向模式的软件架构：模式系统
----
+
 <img src="img/cover.webp" width="40%">
 
 ## 目录

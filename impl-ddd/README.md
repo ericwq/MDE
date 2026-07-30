@@ -1,5 +1,6 @@
 # 实现领域驱动设计（中文版）
-<img src="img/cover.jpg" width="40%" /></br>
+
+<img src="img/cover.jpg" width="40%" /><br/>
 
 Vaughn Vernon
 

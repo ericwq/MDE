@@ -1,8 +1,8 @@
 ## 领域驱动设计参考：定义和模式总结（非盈利，非官方）
----
-<img src="img/reference.jpg" width="40%" /></br>
 
-### 目录
+<img src="img/reference.jpg" width="40%" /><br/>
+
+## 目录
 
 - [致谢](ack.md)
 - [定义](definitions.md)
