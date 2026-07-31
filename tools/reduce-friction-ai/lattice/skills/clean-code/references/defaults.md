@@ -1,14 +1,14 @@
 # 整洁代码：默认原则
 
-内置的整洁代码默认值。带有偏好的护栏——通过 SKILL.md 配置解析进行覆盖。
+整洁代码的嵌入默认值。有主见的护栏——通过 SKILL.md 配置解析覆盖。
 
 ## 1. 单一职责
 
-函数只做一件事。类只有一个维度的内聚性——只有一个变更理由。
+一个函数做一件事。一个类有一个内聚轴——一个变更原因。
 
-**"和"测试**：用一句话描述函数目的。需要用到"和"这个词吗？说明函数做了不止一件事。将每个职责提取为命名函数——函数名本身就是文档。
+**"和"测试**：用一句话描述函数的目的。需要"和"这个词吗？函数做了不止一件事。将每个职责提取为命名函数——函数名就是文档。
 
-**类内聚性**：当大多数方法使用大多数实例变量时，类是内聚的。如果一组方法只触及一部分字段？那一部分可能属于另一个独立的类。
+**类内聚**：当大多数方法使用大多数实例变量时，类是内聚的。只有部分方法触及部分字段？那部分很可能属于另一个类。
 
 ---
 
@@ -16,17 +16,17 @@
 
 ### 阈值
 
-| 指标 | 指导原则 | 理由 |
-|--------|-----------|-----------|
-| **函数行数** | 约 20 行以内 | 函数在一屏内可见，无需滚动即可推理 |
-| **抽象层级** | 每个函数一个层级 | 混合高层编排与低层细节会迫使读者进行上下文切换 |
-| **缩进深度** | 最多 2 层 | 每个嵌套层级增加读者需要 mentally tracked 的条件 |
+| 指标 | 指导值 |
+|--------|-----------|
+| **每函数行数** | 约 20 行以下 |
+| **抽象层级** | 每个函数一个层级 |
+| **缩进深度** | 最多 2 层 |
 
-信号，而非硬性规则。25 行但目的明确的函数优于五个 5 行却模糊流程的函数。目标：可读性，而非行数统计。
+这些是信号，不是硬性规则。一个有明确目的 25 行的函数比五个模糊流程的 5 行函数更好。目标：可读性，不是数行数。
 
 ### 提取模式
 
-函数做了多件事？通过命名意图来提取：
+函数做多件事？通过命名意图来提取：
 
 ```
 // 之前：一个函数混合了不同抽象层级
@@ -38,7 +38,7 @@ function renderUserProfile(userId):
   displayName = user.nickname ?? user.firstName + " " + user.lastName
   return template.render("profile", { user, posts, avatar, displayName })
 
-// 之后：每个提取的函数通过其名称记录意图
+// 之后：每个提取出的函数通过名称来记录意图
 function renderUserProfile(userId):
   user = findUserOrFail(userId)
   posts = getRecentPosts(userId)
@@ -46,7 +46,7 @@ function renderUserProfile(userId):
   return template.render("profile", profile)
 ```
 
-提取的函数名替代了你原本会写的注释。`buildProfileViewModel` 记录了我们构建视图模型——函数名就是注释。
+提取出的函数名替代了原本要写的注释。`buildProfileViewModel` 记录了我们在构造视图模型——函数名就是注释。
 
 ---
 
@@ -54,18 +54,18 @@ function renderUserProfile(userId):
 
 ### 阈值
 
-| 复杂度 | 评估 | 行动 |
+| 复杂度 | 评估 | 操作 |
 |-----------|------------|--------|
-| **1-5** | 简单，易于测试 | 无需行动 |
-| **6-10** | 中等，可管理 | 如果可读性受损则考虑提取 |
-| **11-20** | 高，难以充分测试 | 将子决策提取为命名函数 |
-| **21+** | 非常高，可能做了多件事 | 激进分解；函数有多个职责 |
+| **1-5** | 简单，易于测试 | 无需操作 |
+| **6-10** | 中等，可管理 | 如果可读性受损，考虑提取 |
+| **11-20** | 高，难以彻底测试 | 将子决策提取为命名函数 |
+| **21+** | 非常高，可能做多件事 | 激进分解；此函数有多个职责 |
 
-### 展平技术
+### 扁平化技术
 
-1. **卫语句**：用提前返回替代嵌套条件——展平嵌套，减少缩进深度
+1. **Guard 子句**：用提前返回替换嵌套条件——扁平化嵌套，减少缩进深度
 2. **提取命名条件**：复杂布尔表达式 → 命名变量或函数（`canApproveOrder = isAdmin(user) or isManagerOfDepartment(user, order.department)`）
-3. **管道替代循环**：当语言支持时，用 filter/map 链替代带累积的循环——每一步都显式
+3. **管道优于循环**：当语言支持时，用 filter/map 链替换带累积的循环——每一步都显式
 
 ---
 
@@ -73,42 +73,42 @@ function renderUserProfile(userId):
 
 ### 命名模式
 
-| 类别 | 约定 | 良好示例 | 糟糕示例 |
+| 类别 | 约定 | 好的示例 | 差的示例 |
 |----------|-----------|---------------|---------------|
 | **布尔变量** | `is`、`has`、`can`、`should` 前缀 | `isActive`、`hasPermission`、`canRetry` | `active`、`permission`、`retry` |
-| **布尔函数** | 与布尔变量相同前缀 | `isExpired(token)`、`hasAccess(user, resource)` | `checkExpiry(token)`、`access(user, resource)` |
-| **函数（动作）** | 动词优先 | `calculateTotal`、`sendNotification`、`validateInput` | `totalCalculation`、`notification`、`inputCheck` |
+| **布尔函数** | 与布尔变量相同的前缀 | `isExpired(token)`、`hasAccess(user, resource)` | `checkExpiry(token)`、`access(user, resource)` |
+| **函数（动作）** | 动词开头 | `calculateTotal`、`sendNotification`、`validateInput` | `totalCalculation`、`notification`、`inputCheck` |
 | **函数（访问器）** | `get`、`find`、`fetch` 前缀 | `getUser`、`findByEmail`、`fetchLatestOrders` | `user()`、`email()`、`orders()` |
 | **类** | 名词或名词短语 | `OrderValidator`、`PaymentProcessor`、`UserRepository` | `ValidateOrder`、`ProcessPayment`、`HandleUser` |
-| **常量** | UPPER_SNAKE_CASE 或描述性名称 | `MAX_RETRY_COUNT`、`DEFAULT_PAGE_SIZE` | `MRC`、`n`、`val` |
+| **常量** | 大写蛇形命名或描述性名称 | `MAX_RETRY_COUNT`、`DEFAULT_PAGE_SIZE` | `MRC`、`n`、`val` |
 | **集合** | 复数名词 | `activeUsers`、`pendingOrders`、`validTokens` | `list`、`data`、`items`（当存在领域上下文时） |
 | **映射/字典** | `xByY` 模式 | `userById`、`priceByProductId` | `map`、`lookup`、`dict` |
 
-### 应避免的命名
+### 应避免的名称
 
-- **单字母**：循环计数器除外（`i`、`j`、`k` 在循环中可以；`d`、`x`、`t` 在业务逻辑中不行）
-- **缩写**：需要项目知识才能理解（`usr`、`txn`、`mgr`、`ctx`——除非是行业标准如 `HTTP`、`URL`、`ID`）
-- **泛化名称**：不携带任何信息（`data`、`info`、`temp`、`result`、`value`、`item`——除非作用域仅 2-3 行）
-- **类型编码名称**（`strName`、`intCount`、`arrItems`——类型系统会处理这个）
-- **否定布尔值**（`isNotActive`、`hasNoPermission`——使用肯定形式，在调用处取反）
+- **循环计数器以外的单字母**（循环中的 `i`、`j`、`k` 可以；业务逻辑中的 `d`、`x`、`t` 不行）
+- **需要项目知识的缩写**（`usr`、`txn`、`mgr`、`ctx`——除非是行业标准如 `HTTP`、`URL`、`ID`）
+- **不带信息的通用名称**（`data`、`info`、`temp`、`result`、`value`、`item`——除非作用域只有 2-3 行）
+- **编码类型的名称**（`strName`、`intCount`、`arrItems`——类型系统会处理这些）
+- **否定式布尔名称**（`isNotActive`、`hasNoPermission`——使用肯定形式，在调用处取反）
 
 ### 作用域-长度规则
 
-名称长度与作用域成正比。循环变量、2 行代码体可以用 `i`。模块级常量、跨函数使用则应为 `MAX_LOGIN_ATTEMPTS_BEFORE_LOCKOUT`。作用域越广，名称必须独自承载的上下文越多。
+名称长度应与作用域成正比。两行循环体的循环变量可以是 `i`。跨函数使用的模块级常量应为 `MAX_LOGIN_ATTEMPTS_BEFORE_LOCKOUT`。作用域越广，名称必须承载越多的上下文。
 
 ### 魔法数字和字符串
 
-提取测试：**读者是否停顿并问"为什么是这个特定值？"** 如果是，提取为命名常量。如果值从上下文中显而易见？保留内联——常量在不增加清晰度的情况下添加了间接层。
+提取测试：**读者是否停顿思考"为什么是这个特定值？"** 如果是，提取命名常量。值从上下文已不言自明？保持内联——添加常量只会增加间接性而不增加清晰度。
 
-| 场景 | 行动 | 示例 |
+| 场景 | 操作 | 示例 |
 |----------|--------|---------|
-| 含义不显而易见 | 提取命名常量 | `MAX_RETRIES = 3`、`SESSION_TIMEOUT_MS = 30_000`、`DEFAULT_PAGE_SIZE = 25` |
-| 多处出现 | 提取命名常量 | 阈值在三个不同的验证函数中使用 |
-| 空集合字面量 | 保留内联 | `return []`、`users = []`、`new Map()` |
-| 零作为起始索引 | 保留内联 | `startIndex = 0`、`offset = 0` |
-| 数学恒等式 | 保留内联 | `percentage / 100`、`radians * (180 / Math.PI)` |
-| 框架调用中的 HTTP 状态码 | 保留内联 | `res.status(404).json(...)`、`Response(data, status=200)` |
-| 布尔默认值 | 保留内联 | `enabled = false`、`verbose = true` 作为初始值 |
+| 含义不显然 | 提取命名常量 | `MAX_RETRIES = 3`、`SESSION_TIMEOUT_MS = 30_000`、`DEFAULT_PAGE_SIZE = 25` |
+| 在多处出现 | 提取命名常量 | 三个不同验证函数中使用的阈值 |
+| 空集合字面量 | 保持内联 | `return []`、`users = []`、`new Map()` |
+| 零作为起始索引 | 保持内联 | `startIndex = 0`、`offset = 0` |
+| 数学恒等式 | 保持内联 | `percentage / 100`、`radians * (180 / Math.PI)` |
+| 框架调用中的 HTTP 状态 | 保持内联 | `res.status(404).json(...)`、`Response(data, status=200)` |
+| 布尔默认值 | 保持内联 | `enabled = false`、`verbose = true` 作为初始值 |
 
 ---
 
@@ -116,21 +116,21 @@ function renderUserProfile(userId):
 
 ### 阈值
 
-| 参数数量 | 评估 | 行动 |
+| 参数数量 | 评估 | 操作 |
 |----------------|------------|--------|
 | **0-2** | 理想 | 无需分组 |
-| **3** | 可接受 | 如果参数相关则考虑分组 |
+| **3** | 可接受 | 如果参数相关，考虑分组 |
 | **4** | 边界 | 将相关参数分组为对象 |
-| **5+** | 过多 | 始终分组；函数可能也做了太多事情 |
+| **5+** | 过多 | 始终分组；函数也可能做了太多事 |
 
 ### 分组模式
 
 ```
-// 糟糕：六个参数——难以阅读，调用处容易顺序错误
+// 差：六个参数——难读，调用处容易搞错顺序
 function searchProducts(query, page, pageSize, sortBy, sortDirection, includeArchived):
   // ...
 
-// 良好：相关参数分组为对象
+// 好：相关参数分组为对象
 function searchProducts(query, options: SearchOptions):
   // ...
 
@@ -142,20 +142,20 @@ class SearchOptions:
   includeArchived: boolean = false
 ```
 
-### 布尔参数气味
+### 布尔参数异味
 
-布尔参数通常意味着函数做了两件事——true 时一种行为，false 时另一种行为。考虑拆分为两个具有描述性名称的函数：
+布尔参数通常意味着函数做了两件事——true 时一件，false 时一件。拆分为两个具有描述性名称的函数：
 
 ```
-// 糟糕：调用处的 `true` 是什么意思？
+// 差：调用处的 `true` 是什么意思？
 renderUser(user, true)
 
-// 良好：意图清晰
+// 好：意图清晰
 renderUserCompact(user)
 renderUserDetailed(user)
 ```
 
-布尔值确实代表选项（而非行为分支）？使用 Options 对象使调用处自文档化：
+布尔值真正代表选项（而非行为分支）？用选项对象使调用处自说明：
 
 ```
 // 可接受：布尔值作为命名选项
@@ -166,39 +166,39 @@ renderUser(user, { compact: true })
 
 ## 6. DRY 而不过早抽象
 
-### 三次法则
+### 三法则
 
-1. **第一次出现**：内联编写代码。不做抽象。
-2. **第二次出现**：注意重复。容忍。两个实例可能服务于不同目的，后续会分化。
-3. **第三次出现且具有相同变更理由**：现在提取。有足够的证据表明这是真正的模式，而非巧合。
+1. **第一次出现**：内联编写代码。不抽象。
+2. **第二次出现**：注意重复。容忍它。两个实例可能服务于不同目的，之后会分化。
+3. **第三次出现且有相同的变更原因**：现在提取。有足够证据表明这是真正的模式，而非巧合。
 
-### 相同变更理由
+### 相同的变更原因
 
-两段代码看起来相同但服务于不同业务目的，并非真正的重复。当各自的需求变更时，它们会分化。
+两个看起来相同的代码块但服务于不同的业务目的，**不是**真正的重复。它们会在各自的需求变更时分道扬镳。
 
 ```
-// 这些看起来相同但不应统一：
+// 这些看起来相同但不应被统一：
 
-// OrderService 中——计算订单折扣
+// 在 OrderService 中——计算订单折扣
 discount = subtotal > 1000 ? subtotal * 0.1 : 0
 
-// InvoiceService 中——计算发票调整
+// 在 InvoiceService 中——计算发票调整
 adjustment = lineTotal > 1000 ? lineTotal * 0.1 : 0
 
-// 原因：订单折扣和发票调整由不同的业务规则管理。
-// 当折扣策略变更时，你不希望发票逻辑随之改变。
-// 共享抽象会将不相关的关注点耦合在一起。
+// 原因：订单折扣和发票调整受不同的业务规则管理。
+// 当折扣策略变更时，你不希望发票逻辑跟着变。
+// 共享抽象会耦合不相关的关注点。
 ```
 
 ### 命名抽象
 
-提取时，为抽象命名以反映**它做什么**，而非因为它消除了重复：
+当提取时，以**它做什么**来命名抽象，而非以它消除了重复这一事实：
 
 ```
-// 糟糕：为提取动机命名
+// 差：以提取动机命名
 function commonCalculation(amount, threshold, rate): ...
 
-// 良好：为业务意图命名
+// 好：以业务意图命名
 function applyVolumeDiscount(amount, threshold, rate): ...
 ```
 
@@ -208,29 +208,29 @@ function applyVolumeDiscount(amount, threshold, rate): ...
 
 ### 注释决策框架
 
-| 场景 | 行动 |
+| 情况 | 操作 |
 |-----------|--------|
-| 代码不清晰，注释帮助解释**做了什么** | 重构代码使其自文档化（重命名、提取、简化） |
-| 非显而易见的**为什么**——业务规则、法律要求、变通方案 | 写注释解释原因 |
-| 性能优化使代码可读性降低 | 注释解释权衡，说明"显而易见"的方法会是什么 |
-| TODO 或已知限制 | 使用 `TODO:` 前缀的注释，附带简要上下文 |
-| 公共接口的 API 文档 | 使用 doc comments / docstrings，附带参数描述 |
-| 正则表达式或复杂算法 | 注释解释意图；正则表达式尤其受益于英文描述 |
+| 代码不清晰，注释有助于解释它做**什么** | 重构代码使其自说明（重命名、提取、简化） |
+| 不显然的**为什么**——业务规则、法律要求、变通方案 | 写注释解释为什么 |
+| 性能优化让代码可读性降低 | 注释解释权衡以及"显然"的做法会是什么 |
+| TODO 或已知限制 | 注释以 `TODO:` 前缀，附简短上下文 |
+| 公共接口的 API 文档 | 使用 doc 注释/docstring 附参数描述 |
+| 正则或复杂算法 | 注释解释意图；正则尤其受益于英文描述 |
 
 ### 示例
 
 ```
-// 良好：注释解释了一个非显而易见的业务规则
-// FTC 法规要求超过 $25 的购买必须有冷静期。
-// 在此期间，订单可以无惩罚取消。
+// 好：注释解释不显然的业务规则
+// FTC 法规要求对超过 25 美元的购买设置冷静期。
+// 在此窗口内，订单可以无罚金取消。
 if order.isWithinCoolingOffPeriod():
 
-// 良好：注释解释了一个变通方案
-// PostgreSQL 14 在分区表的 CTE 上存在查询计划器回归问题。
-// 使用子查询替代 CTE，直到升级到 15+。参见：postgresql.org/bugs/12345
+// 好：注释解释变通方案
+// PostgreSQL 14 在分区表上使用 CTE 时有查询计划器回归。
+// 在升级到 15+ 之前使用子查询代替 CTE。参见：postgresql.org/bugs/12345
 result = db.query("SELECT * FROM (SELECT ...)")
 
-// 良好：注释解释正则表达式的意图
+// 好：注释解释正则意图
 // 匹配带可选时区的 ISO 8601 日期：2024-01-15T10:30:00Z
 datePattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(Z|[+-]\d{2}:\d{2})?$/
 ```
@@ -241,68 +241,64 @@ datePattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(Z|[+-]\d{2}:\d{2})?$/
 
 ### 核心原则
 
-| 原则 | 理由 |
-|-----------|-----------|
-| **快速失败** | 在边界处验证；在数据传播到各层之前拒绝错误数据 |
-| **显式处理** | 每个可能失败的操作都应有可见的错误处理 |
-| **可操作** | 错误消息告诉调用者出了什么问题、该怎么办 |
-| **在合适的层级处理** | 不要太早（丢失上下文），也不要太晚（失去恢复能力） |
-| **不用异常控制流程** | 异常会模糊正常执行路径；仅用于真正异常情况 |
+- **快速失败**：在边界处验证；在坏数据传播到各层之前拒绝它
+- **保持显式**：每个可能失败的操作都有可见的错误处理
+- **保持可操作**：错误消息告诉调用者什么错了以及该做什么
+- **在正确的层级处理**：不太早（丢失上下文），不太晚（失去恢复能力）
+- **不用异常做控制流**：仅对真正的异常情况使用异常
 
 ### 模式
 
-**边界处的卫语句：**
+**边界处的 Guard 子句：**
 
 ```
 function createUser(input):
-  if not input.email: throw ValidationError("Email is required")
-  if not isValidEmail(input.email): throw ValidationError("Email format is invalid: expected user@domain.tld")
-  if not input.name: throw ValidationError("Name is required")
-  if input.name.length > 200: throw ValidationError("Name exceeds 200-character limit")
-  // 正常路径——所有卫语句已通过
+  if not input.email: throw ValidationError("邮箱是必填的")
+  if not isValidEmail(input.email): throw ValidationError("邮箱格式无效：期望 user@domain.tld")
+  if not input.name: throw ValidationError("名称是必填的")
+  if input.name.length > 200: throw ValidationError("名称超过 200 字符限制")
+  // 以下是快乐路径——所有 guard 通过
 ```
 
 **可操作的错误消息：**
 
 ```
-// 糟糕：调用者不知道该怎么办
-throw Error("Invalid input")
-throw Error("Something went wrong")
-throw Error("Database error")
+// 差：调用者不知道该做什么
+throw Error("无效输入")
+throw Error("出了点问题")
+throw Error("数据库错误")
 
-// 良好：调用者知道发生了什么以及该怎么办
-throw Error("Order total must be positive, got: -42.50")
-throw Error("User with email 'a@b.com' already exists. Use updateUser() to modify existing users.")
-throw Error("Connection to payments API timed out after 5s. Retry or check service status at status.payments.io")
+// 好：调用者知道发生了什么以及该做什么
+throw Error("订单总额必须为正数，实际得到：-42.50")
+throw Error("邮箱为 'a@b.com' 的用户已存在。使用 updateUser() 修改现有用户。")
+throw Error("连接支付 API 在 5 秒后超时。重试或检查服务状态 status.payments.io")
 ```
 
-> **信任边界说明**：这些可操作的消息适用于应用级错误（服务间通信、服务器端日志）。在信任边界处（HTTP 响应、面向用户的 UI），剥离内部细节（邮箱、方法名），返回泛化但可操作的消息并附带关联 ID。参见 `framework:secure-coding`。
+> **信任边界说明**：这些可操作的消息适用于应用级错误（服务间、服务端日志记录）。在信任边界（HTTP 响应、用户界面），剥离内部细节（邮箱、方法名），返回通用但可操作的消息附带关联 ID。参见 `framework:secure-coding`。
 
-**在合适的层级处理**——不要太早（丢失上下文，调用者无法决策），也不要太晚（失去恢复能力）。让错误传播到具有足够上下文以做出有意义决策的层级。捕获并返回 null 会隐藏失败是"未找到"、"连接错误"还是"权限不足"。
+**在正确的层级处理**——不太早（丢失上下文，调用者无法决策），不太晚（失去恢复能力）。让错误传播到有足够上下文做出有意义决策的层级。捕获并返回 null 隐藏了失败是"未找到"、"连接错误"还是"权限拒绝"。
 
-**不要吞没错误**——空的 catch 块使 bug 不可见。始终记录、重新抛出，或显式文档说明忽略是安全的：
+**不吞没错误**——空 catch 块使 bug 不可见。始终记录日志、重新抛出或显式记录为什么忽略是安全的：
 
 ```
 try:
   sendNotification(user)
 catch error:
-  logger.warn("Notification failed for user " + user.id + ": " + error.message)
-  // 通知是非关键的；继续而不使操作失败
+  logger.warn("用户 " + user.id + " 的通知发送失败：" + error.message)
+  // 通知是非关键的；继续执行而不让整个操作失败
 ```
 
 ---
 
-## 9. 测试友好代码
+## 9. 可测试代码
 
-难以测试的代码通常也难以维护。默认情况下为可测试性而设计：
+默认设计为可测试：
 
-1. **优先使用纯函数**——所有输入显式作为参数（无 `Date.now()`、无全局变量）。确定性输出。最容易测试。
-2. **注入依赖**——构造函数/参数注入优于方法内的 `new`。支持模拟、替换实现。
-3. **避免隐藏状态**——无模块级可变变量。将状态封装在具有重置能力的显式对象中。
-4. **将副作用推至边界**——分离纯业务逻辑（计算、验证）与 I/O（数据库、网络、文件系统）。纯核心 + 薄编排外壳。
+1. **偏好纯函数**——所有输入作为参数显式传入（不使用 `Date.now()`，不使用全局变量）。确定性输出。最容易测试。
+2. **注入依赖**——构造函数/参数注入优于在方法内部 `new`。使模拟、替换实现成为可能。
+3. **避免隐藏状态**——没有模块级可变变量。将状态封装在具有重置能力的显式对象中。
+4. **将副作用推到边界**——将纯业务逻辑（计算、验证）与 I/O（数据库、网络、文件系统）分离。纯核心 + 薄编排外壳。
 
-**反模式——带有内嵌 I/O 的上帝函数**：一个在单个代码体中从 DB 读取、应用业务逻辑、写入 DB 并发送通知的函数。提取纯计算，让编排层处理 I/O。
+**反模式——带嵌入式 I/O 的上帝函数**：一个函数从数据库读取、应用业务逻辑、写入数据库并发送通知。提取纯计算，让编排层处理 I/O。
 
 ---
-
-*默认值综合了 Robert Martin《整洁代码》（2008）、Martin Fowler《重构》（1999、2018）、Kent Beck《Smalltalk 最佳实践模式》（1996）的原则，以及软件工艺实践的集体智慧。*

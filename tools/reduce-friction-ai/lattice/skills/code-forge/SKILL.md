@@ -1,120 +1,137 @@
 ---
 name: code-forge
-description: "从批准的设计 blueprint 或口头需求生成实现代码。Compose context anchoring、architecture、clean code、DDD、security 和 test quality 为 inside-out implementation workflow。在从设计到代码时使用，实现 approved contracts，或当用户说'implement'、'code this'、'build it'、'forge the code'或'generate the code'时使用。"
+description: "从已批准的设计蓝图或口头需求生成实现代码。将上下文锚定、架构、整洁代码、DDD、安全性和测试质量组合成由内而外的实现工作流。在从设计转向代码、实现已批准的契约，或用户说'实现'、'编码这个'、'构建它'、'锻造代码'或'生成代码'时使用。"
 ---
 
-# Code Forge（代码锻造）
+# 代码锻造
 
-## 所需 Skills
+## 所需技能
 
 读取并应用：
 
-1. `framework:knowledge-priming` —— 加载 proj context（stack、arch、conventions）使 impl 匹配真实 proj（始终）
-2. `framework:context-anchoring` —— Load/find context anchor doc；enrich 作为 impl decisions made（始终）
-3. `framework:learning-harvest` —— 加载 prior operational learnings inform impl；在 session 结束时 harvest new patterns（始终）
-4. `framework:collaborative-judgment` —— Surface real judgment calls w/ structured opts vs silent assume（始终）
-5. `framework:architecture` —— Layer place、dep direction、struct valid（始终）
-6. `framework:clean-code` —— Craft rails：SRP、naming、complexity、err handle（始终）
-7. `framework:domain-driven-design` —— Aggregates、entities、VOs、domain svcs（条件性：仅当 touch domain folder 时）
-8. `framework:secure-coding` —— Trust bounds、injection prevent、secrets mgmt（条件性：仅 boundary-cross code 时）
-9. `framework:test-quality` —— AAA struct、isolation、assert quality、naming（write tests 时始终）
+1. `framework:knowledge-priming` -- 加载项目上下文（技术栈、架构、约定），使实现匹配真实项目（始终使用）
+2. `framework:context-anchoring` -- 加载/查找上下文锚定文档；在做出实现决策时丰富（始终使用）
+3. `framework:learning-harvest` -- 加载先前的操作经验指导实现；在会话结束时收获新模式（始终使用）
+4. `framework:collaborative-judgment` -- 用结构化选项呈现真正的判断决策，而非默默假设（始终使用）
+5. `framework:architecture` -- 层级位置、依赖方向、结构验证（始终使用）
+6. `framework:clean-code` -- 工艺护栏：单一职责、命名、复杂度、错误处理（始终使用）
+7. `framework:domain-driven-design` -- 聚合、实体、值对象、领域服务（条件使用：仅当触及领域文件夹时）
+8. `framework:secure-coding` -- 信任边界、注入防护、密钥管理（条件使用：仅限跨边界代码）
+9. `framework:test-quality` -- AAA 结构、隔离、断言质量、命名（编写测试时始终使用）
 
-## 工作流（Workflow）
+## 工作流程
 
-### 第 1 步：建立实现上下文（Establish Implementation Context）
+### 步骤 1：建立实现上下文
 
-使用 `framework:learning-harvest` Load Behavior。Focus hint："implementation session — focus: implementation craft、quality signals、reliability"。Prior learnings 关于 coding patterns、recurring quality issues 和 failure modes inform implementation 从一开始——例如，learnings 说"anemic domain models keep appearing"，push behavior into entities。Learnings flag"missing input validation on VOs"，validate in constructors 从一开始。
+使用 `framework:learning-harvest` 加载行为。关注提示："实现会话——关注：实现工艺、质量信号、可靠性"。
 
-使用 `framework:context-anchoring` Doc Discovery check existing context anchor doc for feature impl。
+使用 `framework:context-anchoring` 文档发现，检查是否存在功能实现的现有上下文锚定文档。
 
-- **如果找到** → Load（context-anchor Load Behavior）。呈现 struct ack——feature name、decision count、open Qs、constraints。Honor all logged decisions/constraints as active commits。
-- **如果未找到** → Nudge user："Have design doc/blueprint for feature？Or work from discussed？"Accept either graceful。
-  - User provides doc → load、follow。
-  - Proceed without → all atom rails still apply；just no struct blueprint ref。Work from verbal reqs in convo。
+- **如果找到** → 加载（context-anchoring 加载行为）。呈现结构确认——功能名称、**状态**、决策数量、未决问题、约束。尊重所有已记录的决策/约束作为活动承诺。
+- **如果未找到** → 提醒用户："有该功能的设计文档/蓝图吗？还是根据讨论的内容工作？"优雅地接受任何一种。
+  - 用户提供文档 → 加载，遵循。
+  - 继续而没有 → 所有原子护栏仍然适用；只是没有已批准的设计文档可供参考。根据对话中的口头需求工作。
 
-### 第 2 步：Plan Implementation Order（计划实现顺序）
+**设计完整性检查**——步骤 2 之前的停止关口：
 
-**With blueprint**：Extract component list、layer assigns from context anchor doc。使用 L2（Components）decisions for layer place，L3（Interactions）for dep flow。
+**检查 1 — 状态：** 读取前置元数据 `status`。
+- `approved` → 通过。
+- 其他任何值 → 停止："上下文文档未批准（`status: [value]`）。先运行 design-blueprint。仍然继续？" 确认 → 在决策日志中记录，以"无批准设计"继续。
 
-**Without blueprint**：Classify req components→arch layers using layer defs from `framework:architecture`。每个 component，确定：
+**检查 2 — 设计层级存在：** 扫描正文中的 `## Design: Level 3` 和 `## Design: Level 4`。
+- 两者都存在 → 通过。
+- 任一缺失 → 停止："缺少 [Level 3 / Level 4 / 两者]。仍然继续？" 确认 → 在决策日志中记录缺失层级，视为在实现过程中填补的空白。
 
-- Primary responsibility？（biz rules、data access、coord、external I/O）
-- Which layer in loaded arch doc matches responsibility？
-- Dep constraints for that layer？
+两项均通过 → 以"有批准设计"继续。
 
-如果 `framework:architecture` no loaded layer defs（neither defaults nor custom doc resolved），warn："No arch rules avail。Run `/architecture-refiner` define arch standards。Proceed w/o arch guidance。"Continue w/ only remaining atom rails。
+### 步骤 2：规划实现顺序
 
-Present proposed layer assigns→user for approval before proceed。
+**有批准设计**：从上下文锚定文档中提取组件列表和层级分配。使用 L2（组件）决策确定层级位置，使用 L3（交互）确定依赖流。
 
-Both cases，plan **inside-out impl order** following dep direction from loaded arch doc——start innermost layer（no outward deps），work outward。Each layer's deps should exist when built。
+**无批准设计**：使用 `framework:architecture` 的层级定义将需求组件分类到架构层级。对每个组件，确定：
 
-Classify each op per flow patterns in loaded arch doc（e.g., cmd vs query flows，或 equiv distinction your arch style）。
+- 主要职责？（业务规则、数据访问、协调、外部 I/O）
+- 已加载架构文档中的哪个层级匹配此职责？
+- 该层级的依赖约束是什么？
 
-Present impl plan——ordered component list、layer assigns、flow classifs——confirm w/ user before write code。
+如果 `framework:architecture` 没有已加载的层级定义（既未解析默认值也未解析自定义文档），警告："无架构规则可用。运行 `/architecture-refiner` 定义架构标准。在无架构指导的情况下继续。" 仅使用剩余的原子护栏继续。
 
-After plan approved，ask user choose **review mode**：
+两种情况下，在继续之前向用户呈现提议的层级分配以供批准。
 
-> "How review impl？"
-> 1. **Layer-by-layer**（rec）-- Impl each layer fully，pause for review before next。One review pt/layer。
-> 2. **Full autonomy** -- Impl everything end-to-end，present complete result。One review pt at end。（If blueprint exists，still pause any deviation from approved design。）
-> 3. **Component-by-component** -- Pause after each individual component for feedback。Max review pts。
+两种情况下，按照已加载架构文档中的依赖方向规划**由内而外的实现顺序**——从最内层（无向外依赖）开始，向外工作。每层的依赖应在构建该层时存在。
 
-Default **layer-by-layer** if user no preference。
+根据已加载架构文档中的流程模式对每个操作进行分类（例如，命令流 vs 查询流，或你的架构风格中的等效区分）。
 
-### 第 3 步：Implement Per Component（每个组件实现）
+呈现实现计划——有序的组件列表、层级分配、流程分类——在编写代码之前与用户确认。
 
-Each component in planned order，gen **code+tests together**——tests not afterthought。
+计划批准后，让用户选择**审查模式**：
 
-Every component：
+> "如何审查实现？"
+> 1. **逐层审查**（推荐）——完整实现每层，暂停审查后再进入下一层。每层一个审查点。
+> 2. **完全自主**——端到端实现所有内容，呈现完整结果。末尾一个审查点。（如果存在蓝图，任何偏离批准设计的地方仍暂停。）
+> 3. **逐组件审查**——每个组件完成后暂停以获取反馈。审查点最多。
 
-- **Place correct arch layer** per `framework:architecture`。Valid dep direction follows loaded arch rules。
-- **Apply `framework:clean-code` self-valid** during gen。Run inline checks：SRP comply、meaningful naming、low cyclomatic complexity、proper err handle、no magic vals、clean func sigs、no dead code、appropriate abstract level、clear control flow、minimal comments（code self-doc）。
-- **Write tests** using `framework:test-quality` self-valid。
+用户无偏好时默认**逐层审查**。
 
-Conditional checks per component：
+### 步骤 3：逐组件实现
 
-- **If domain layer** → Apply `framework:domain-driven-design` self-valid。
-- **If trust boundary**（HTTP handler、external API call、user input process、file I/O）→ Apply `framework:secure-coding` self-valid。
-- **If blueprint exists** → Verify component fulfills L4（Contracts）spec。Flag any deviation from agreed contract。
+按计划顺序对每个组件生成**代码+测试一起**——测试不是事后。
 
-**Post-Gen Verification**（applies every component，all review modes）：
+每个组件：
 
-After gen each component，before present→user：
+- **优先选择更简单的路径。** 在编写自定义代码之前：标准库函数、平台内置或现有依赖是否已覆盖此需求？如果是——使用它。能否用更短的代码表达？使用它。只有在更简单的选项真正不足时才编写自定义代码。
+- **置于正确的架构层级**，按 `framework:architecture`。验证依赖方向遵循已加载的架构规则。
+- **生成时应用 `framework:clean-code` 自检**。运行内联检查：单一职责合规、有意义的命名、低圈复杂度、适当的错误处理、无魔法值、清晰的函数签名、无死代码、适当的抽象级别、清晰的控制流、最少注释（代码自说明）。
+- **使用 `framework:test-quality` 自检编写测试**。
 
-1. Run **Self-Valid Checklist** from each applicable atom against every func/class this component。Atoms use imperative STOP-verify lang——follow literally。
-2. Run **Active Anti-Pattern Scan** from each applicable atom。Check every box scan list。
-3. Violations found → fix before present。Don't present code you know violates atom checklist。
-4. Judgment calls flagged（see each atom's Ambiguity Signals）→ collect。Present using `framework:collaborative-judgment` protocol before show code。Don't silent resolve。
-5. All checks pass，no flagged judgment calls → present w/ brief comply note（e.g., "All clean-code、DDD checks pass"）。Keep one line when clean——only verbose when report violations，fixes。
+每个组件的条件检查：
 
-**Pacing -- follow user's chosen review mode**：
+- **如果是领域层** → 应用 `framework:domain-driven-design` 自检。
+- **如果是信任边界**（HTTP 处理器、外部 API 调用、用户输入处理、文件 I/O）→ 应用 `framework:secure-coding` 自检。
+- **如果存在蓝图且在步骤 1 中确认 Level 4 存在** → 验证组件是否满足 L4（契约）规范。标记任何偏离约定契约之处。如果用户在无 L4 的情况下继续（步骤 1 检查 2 失败），跳过此检查——没有契约可供验证。
 
-- **Layer-by-layer**：Impl all components within layer，present full layer（code+tests）for review before next layer。
-- **Full autonomy**：Impl all layers continuous。Present complete impl（all code+tests）at end。Skip→Step 4（Cross-Component Verif）after all components done。
-- **Component-by-component**：Present each component w/ tests individually。Wait approval before next。
-- **Exception（all modes）**：Component needs significant deviation from plan（new dep、changed contract、unexpected complexity），pause immediately，discuss before continue——regardless chosen review mode。
+**生成后验证**（适用于每个组件，所有审查模式）：
 
-### 第 4 步：Cross-Component Verification（跨组件验证）
+生成每个组件后，在呈现给用户之前：
 
-Step checks **arch coherence**——not code quality（verified per-component Step 3）。After all components impl：
+1. 对每个适用的原子，对组件中的每个函数/类运行**自检清单**。原子使用命令式 STOP-验证语言——按字面遵循。
+2. 对每个适用的原子运行**主动反模式扫描**。检查扫描列表中的每个复选框。
+3. 发现违规 → 在呈现之前修复。不要呈现你知道违反原子清单的代码。
+4. 标记的判断决策（见每个原子的歧义信号）→ 收集。在展示代码之前使用 `framework:collaborative-judgment` 协议呈现。不默默解决。
+5. 所有检查通过，无标记的判断决策 → 以简短合规说明呈现（例如，"所有整洁代码、DDD 检查通过"）。通过时保持一行——仅在报告违规和修复时详细说明。
 
-- **With blueprint**：Verify interaction flows match L3（Interactions）design。Every designed interaction traceable in code。
-- **Dep direction**：Apply `framework:architecture` verif across all components——verify inter-component dep direction follows loaded arch rules。No layer import from layer not permitted depend。
-- **Zero Impl Rule**：Check no new components、interactions、contracts intro beyond planned Step 2。Something added，flag——may be necessary，but should be conscious decision，not scope creep。
-- **Final security scan**：Apply `framework:secure-coding` across component boundaries。Check data flowing between components crosses trust bounds safely。
-- **Learnings check**：If operational learnings loaded Step 1，verify previously-flagged patterns not recur this impl。Past insight said"anemic domain models keep appearing"——check entities this impl have behavior。
+**节奏——遵循用户选择的审查模式**：
 
-### 第 5 步：Enrich Context（丰富上下文）
+- **逐层审查**：实现层内所有组件，呈现完整层级（代码+测试）供审查，然后再进入下一层。
+- **完全自主**：连续实现所有层。在末尾呈现完整实现（所有代码+测试）。所有组件完成后跳至步骤 4（跨组件验证）。
+- **逐组件审查**：单独呈现每个组件及测试。等待批准后再进入下一个。
+- **例外（所有模式）**：组件需要与计划显著偏离（新依赖、变更契约、意外复杂性），立即暂停，讨论后再继续——无论选择哪种审查模式。
 
-Throughout Steps 3-4，use `framework:context-anchoring` Enrich behavior keep living doc current：
+### 步骤 4：跨组件验证
 
-- **Add key files** as created——path、purpose、layer assign。
-- **Capture impl decisions**——lib choices、pattern selects、deviations from blueprint、tradeoffs made。
-- **Resolve open Qs**——Qs from design phase answered during impl，log resolution。
-- **If no context doc exists**，significant impl decisions made → suggest create。Decisions worth preserve future sessions。
+此步骤检查**架构一致性**——而非代码质量（已在步骤 3 中逐组件验证）。所有组件实现后：
 
-Use `framework:learning-harvest` Harvest Behavior。Session context："implementation session — code generation from design contracts"。Synthesize 和 propose cross-cutting patterns from this session——implementation gotchas、design-to-reality gaps、library/framework lessons that could inform future implementations。User confirms what enters the document。
+- **有蓝图**：验证交互流匹配 L3（交互）设计。每个设计的交互在代码中可追溯。
+- **依赖方向**：跨所有组件应用 `framework:architecture` 验证——验证组件间依赖方向遵循已加载的架构规则。没有从不被允许依赖的层级导入。
+- **零实现规则**：检查没有引入超出步骤 2 计划的新组件、交互、契约。如添加了某项，标记——可能必要，但应是有意识的决策，而非范围蔓延。
+- **最终安全扫描**：跨组件边界应用 `framework:secure-coding`。检查在组件间流动的数据是否安全地跨越信任边界。
+- **经验检查**：如果步骤 1 中加载了操作经验，验证之前标记的模式未在本次实现中重现。
 
-After enrich context doc，recommend review：
+### 步骤 5：丰富上下文
 
-> "Impl complete。Recommend run `/review` on gen code before consider feature done——provides independent quality assess against same atom standards，catches issues generator may blind to，captures learnings future sessions。"
+在步骤 3-4 中，使用 `framework:context-anchoring` 丰富行为保持活动文档最新：
+
+- **添加关键文件**——创建时附路径、目的、层级分配。
+- **捕获实现决策**——库选择、模式选择、偏离蓝图之处、做出的权衡。
+- **解决未决问题**——设计阶段的问题在实现过程中回答，记录解决方案。
+- **如果不存在上下文文档**，做出了重大实现决策 → 建议创建。值得在未来会话中保留的决策。
+
+**收获经验。** 使用 `framework:learning-harvest` 收获行为。会话上下文："实现会话——从设计契约生成代码"。综合并提出本次会话的横切模式——实现陷阱、设计到现实的差距、库/框架经验。用户确认哪些内容进入文档。**停止：在下面关闭功能生命周期之前运行此步骤。**
+
+**关闭功能生命周期**：将 `status: complete` 写入上下文文档前置元数据。**停止：必需。**
+
+**停止：不要将状态写入 `requirement_doc`。** 功能文件的状态由管理需求的人或可能存在的系统所拥有。此分子仅管理自己的上下文文档。
+
+丰富上下文文档后，推荐审查：
+
+> "实现完成。推荐在认为功能完成之前对生成的代码运行 `/review`——提供针对相同原子标准的独立质量评估，捕获生成器可能盲点的问题，为未来会话捕获经验。"

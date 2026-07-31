@@ -1,32 +1,30 @@
 ---
-feature: <Feature Name>
+feature: <功能名称>
 requirement_doc: null
 created: <YYYY-MM-DD>
+status: draft
 ---
 
-# <Feature Name>
+# <功能名称>
 
-> One-line description of the feature and its purpose.
+> 功能及其目的的单行描述。
 
-## Decisions Log（决策日志）
+## 决策日志
 
-<!-- Add new at bottom. Never remove. -->
-<!-- 在底部添加新条目。永不删除。-->
+<!-- 在底部添加新条目。绝不删除。 -->
 
-| Date | Decision | Reasoning | Alternatives Considered |
+| 日期 | 决策 | 推理 | 考虑过的替代方案 |
 |------|----------|-----------|------------------------|
 
-## Open Questions（开放问题）
+## 未决问题
 
-<!-- When resolved, capture as decision above and remove from here. -->
-<!-- 当问题解决时，在上面作为决策捕获并从此处移除。-->
+无。
 
-## Constraints（约束）
+## 约束
 
-<!-- Non-negotiable once recorded. Add only when confirmed. -->
-<!-- 一旦记录即不可协商。仅在确认后添加。-->
+无。
 
-## Key Files（关键文件）
+## 关键文件
 
-<!-- Add as dev progresses. List paths with brief role note. -->
-<!-- 随着开发进展添加。列出路径和简要角色说明。-->
+| 路径 | 角色 |
+|---|---|

@@ -1,136 +1,47 @@
 ---
 name: learning-harvest
-description: "管理 operational learnings 生命周期——加载 prior learnings 以 inform current work、harvest new patterns worth preserving，并保持文档随时间推移保持精简。提供从实践中积累可操作模式的协议，补充标准和默认值。当 workflow session 完成并产生值得持久化的洞察、开始应该从 prior patterns 受益的 session，或当用户说'harvest learnings'、'what have we learned'、'capture this pattern'、'tighten learnings'或'operational learnings'时使用。"
+description: "管理操作经验的生命周期——加载先前经验以指导当前工作，收获值得保留的新模式，并随时间保持文档精简。提供从实践中积累可操作模式的协议，以补充标准和默认值。当工作流会话完成并产生了值得持久化的洞察，当开始一个应受益于先前模式的会话，或用户说'收获经验'、'我们学到了什么'、'捕获这个模式'、'精简经验'、'压缩经验'或'操作经验'时使用。"
 ---
 
-# Learning Harvest（学习收获）
+# 经验收获
 
-## 目的（Purpose）
+## 范围边界
 
-Standards define how a team intends to work。Operational learnings capture what the team discovers while doing the work——experiential knowledge that only emerges from practice。
+操作经验不是规则。它们是你在应用规则时学到的东西。
 
-This atom helps the user curate a single living document of cross-cutting project patterns。The AI synthesizes and proposes; the user decides what enters。Every entry is user-confirmed。Not a log。Not a report。Not auto-generated。A user-curated collection of experiential patterns。
-
-## 范围边界（Scope Boundary）
-
-Operational learnings are NOT rules。They are what you learn while applying rules。
-
-| Standards (refiner output, atom defaults) | Operational Learnings (this document) |
+| 标准（精炼器输出、原子默认值） | 操作经验（本文档） |
 |---|---|
-| "Domain layer must not import from infrastructure" | "When adding a new aggregate, we keep forgetting to define the repository interface first — design interface before implementation" |
-| "Functions should have single responsibility" | "Service classes that start small grow past 500 lines within 3 features — split by command type proactively at ~200 lines" |
-| "Value objects must validate in constructor" | "Date range VOs without explicit inclusive/exclusive documentation cause boundary bugs every time — document semantics alongside validation" |
+| "领域层不得从基础设施导入" | "添加新聚合时，我们总是忘记先定义仓库接口——先设计接口再实现" |
+| "函数应具有单一职责" | "从小开始的服务类在 3 个功能内增长到超过 500 行——在约 200 行时按命令类型主动拆分" |
+| "值对象必须在构造函数中验证" | "没有显式 inclusive/exclusive 文档的日期范围值对象每次都会导致边界 bug——在验证的同时记录语义" |
 
-**The standard is the rule。The operational learning is what we discovered while applying the rule on this project。**
+**标准是规则。操作经验是我们在本项目上应用规则时发现的东西。**
 
-If an entry reads like a rule that should always be followed, it belongs in a standards document (run the relevant refiner)。If it reads like "here's what we keep learning the hard way" or "here's an approach that keeps working for us" — it belongs here。
-
-Patterns that recur frequently may graduate to standards via a refiner。That promotion path is part of the Tighten behavior。
-
-## 配置解析（Config Resolution）
-
-1. Check `.lattice/config.yaml` for `paths.operational_learnings`
-2. If found, use that file path
-3. If not, use default `.lattice/learnings/operational-learnings.md`
-
-**Backward compatibility**: If default path not found but `.lattice/learnings/review-insights.md` exists, suggest migration to the new unified format。If user declines, read legacy file as flat input but do not write to it。
-
-## 文档结构（Document Structure）
+## 文档结构
 
 ```markdown
-# Operational Learnings
+# 操作经验
 
-Experiential patterns from practice。Complements standards (what should be) with experience (what we keep learning)。
+来自实践的体验模式。用经验（我们不断学到的东西）补充标准（应该是什么）。
 
-## Design Patterns
-<!-- Decomposition, architecture choices, scope decisions that proved good or bad -->
+## 设计模式
+<!-- 分解、架构选择、被证明好或坏的范围决策 -->
 
-## Implementation Craft
-<!-- Coding approaches, library gotchas, design-to-reality gaps -->
+## 实现工艺
+<!-- 编码方法、库陷阱、设计到现实的差距 -->
 
-## Quality Signals
-<!-- Recurring quality issues that keep appearing despite rules -->
+## 质量信号
+<!-- 尽管有规则仍不断出现的质量问题的重复出现 -->
 
-## Reliability
-<!-- Bug root causes, failure modes, fragile areas, boundary condition gaps -->
+## 可靠性
+<!-- Bug 根本原因、故障模式、脆弱区域、边界条件缺口 -->
 
-## Structural Health
-<!-- Architectural drift, debt accumulation, coupling issues, migration lessons -->
+## 结构健康
+<!-- 架构偏差、债务积累、耦合问题、迁移教训 -->
 ```
 
-**Entry format**: `- YYYY-MM-DD [context] Pattern — actionable takeaway`
+**条目格式**：`- YYYY-MM-DD [上下文] 模式 — 可操作的收获`
 
-- `context`: type of session (e.g.、"design"、"implementation"、"review"、"bug fix"、"refactoring")。Not a feature name——learnings are cross-cutting。
-- Each entry ONE bullet, max 2 lines, scannable in under 10 seconds。
+## 加载行为、收获行为与精简行为
 
-## Load Behavior（加载行为）
-
-Invoked at session start。Composing workflow passes a **focus hint** (relevant categories)。
-
-1. Resolve file path per Config Resolution。
-2. If file not found——"No operational learnings yet。" Continue。Non-blocking。
-3. If found——surface relevant entries (3-5 most recent from matching categories) as brief context。Treat as soft guidance, not hard constraints。
-
-## Harvest Behavior（收获行为）
-
-Invoked at session end。Composing workflow passes a **session context** (what kind of work happened)。
-
-**Governing principle:** The atom NEVER writes autonomously。It recommends。The user decides。Prefer omission over speculation。Most sessions will not produce learnings——empty harvest is normal and expected。
-
-**Steps**：
-
-1. **Synthesize。** Review session decisions, trade-offs, outcomes。Identify candidates that would help a *different* future session on a *different* feature。
-
-2. **Filter — hard evidence gate。** Each candidate must pass ALL five。If any fails, drop silently。
-
-   | Filter | Drop if... |
-   |--------|------------|
-   | **Evidence** | No concrete session event produced this——just prior knowledge |
-   | **Cross-cutting** | Only relevant to this feature's specific context |
-   | **Actionable** | Requires this conversation's context to understand |
-   | **Recurrence** | No structural reason it will happen again |
-   | **Confidence** | Below 80%——mere possibility, not grounded insight |
-
-   No candidates pass? Say so and stop。Do NOT force output。Do NOT lower the bar。
-
-3. **Propose to user。** Present filtered candidates with category and wording。Frame as conversation：
-
-   > I noticed these cross-cutting patterns that might help future sessions:
-   > 1. [Category] Pattern — takeaway
-   >
-   > Worth capturing? Accept, edit, add your own, or skip entirely。
-
-4. **User decides。** Accept, edit wording, reject some, add their own, or skip all。Do NOT argue for rejected entries。User judgment is final。
-
-5. **Write confirmed entries only。** Dedup against existing entries (update with recurrence note if same pattern exists)。Create file/dir if needed。
-
-6. **Assess health。** If document growing dense or entries overlap: suggest Tighten。If pattern recurred 4+ times: suggest promoting to standards。User decides——never auto-prune。
-
-## Tighten Behavior（精简行为）
-
-Triggered during Harvest (when bloat detected) or invoked standalone。
-
-1. Read full document。
-2. Identify: consolidation opportunities (same pattern, different words), noise (one-off, never recurred), promotion candidates (recurred 4+ times——suggest refiner), stale entries (project has changed)。
-3. Present proposals to user。Apply only what user confirms。
-
-## 自我验证清单（Self-Validation Checklist）
-
-Before writing any entry, verify ALL。If any fails, do not write。
-
-1. **User confirmed**——STOP: Explicit user approval for every entry。No exceptions。
-2. **Evidence grounded**——STOP: Produced by a specific session event, not prior knowledge。
-3. **Experiential, not prescriptive**——STOP: Reads like "what we learned" not "what the rule should be。" If it's a rule, it belongs in standards via a refiner。
-4. **Cross-cutting**——STOP: Applies beyond this feature。Feature-specific decisions belong in context anchor doc。
-5. **Confident and actionable**——STOP: 80%+ confident, future session can act on it without this conversation's context。
-6. **Not redundant**——STOP: Not already in standards, atom defaults, or existing learnings。At most, add recurrence note。
-7. **Concise**——STOP: Scannable in 10 seconds。Two lines max。
-
-## 与其他 Skills 的集成（Integration with Other Skills）
-
-Workflows invoke **Load** at session start (with focus hint) and **Harvest** at session end (with session context)。The atom never references specific workflows——it applies the protocol uniformly to whatever composes it。
-
-Relationship to other infrastructure atoms:
-- `context-anchoring`——per-feature decisions (specific)。This atom——cross-feature patterns (general)。
-- `knowledge-priming`——project identity (static)。This atom——accumulated experience (growing)。
-- `collaborative-judgment`——surfaces decisions in-session。This atom——preserves patterns across sessions。
+（完整流程详见 SKILL.md 原文。涵盖：会话开始时加载相关条目作为软指导、通过横切测试的静默收获队列、会话结束时的批量提案与过滤、以及独立运行的精简行为用于合并重复项和移除噪音。）
