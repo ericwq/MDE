@@ -13,6 +13,7 @@
 
 ---
 2026
+- [重构的经济效益](./gen-ai/refactoring-economic-benefit.md) (2026/7/30) Giles Edwards-Alexander
 - [本地模型用于编码的体验](../tools/local/local-models-for-coding-experiences.md) (2026/7/8) Birgitta Böckeler
 - [面向代码任务的本地模型可行性](../tools/local/local-models-for-coding-factors.md) (2026/7/7) Birgitta Böckeler
 - [软件工程循环中的人与智能体](gen-ai/exploring-gen-ai-26.md) (2026/3/4) Kief Morris 撰写
