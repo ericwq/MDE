@@ -2,11 +2,11 @@
 
 2023-04-06 📂 测试 📂 架构和设计 [原文](https://www.kamilgrzybek.com/blog/posts/automated-tests-testability)
 
-<img src="./imgs/hero (1).png" width="100%"/><br/>
+<img src="./imgs/hero (1).png" width="60%"/><br/>
 
 ## 引言
 
-在关于自动化测试系列文章的 [第一篇](./the-way.md) 中，我阐述了在我们的软件工程过程中实施自动化测试的原因。
+在关于自动化测试系列文章的 [第一篇](./the-why.md) 中，我阐述了在我们的软件工程过程中实施自动化测试的原因。
 
 在深入探讨测试策略之前，讨论 **可测试性** 是很重要的，它是 [演进式架构（evolutionary architecture）](https://www.thoughtworks.com/insights/books/building-evolutionary-architectures) 以及一般可测试架构中较为重要的方面之一。
 
@@ -280,3 +280,12 @@ public async Test()
 
 <img src="./imgs/testability_summary.jpg" width="100%"/><br/>
 *可测试性——总结*
+
+## 本系列更多内容
+
+本文是 “自动化测试” 系列的一部分：
+
+- [自动化测试：为什么](./the-why.md)
+- [自动化测试：可测试性](./testability.md)（本文）
+- [自动化测试：策略](./strategy.md)
+

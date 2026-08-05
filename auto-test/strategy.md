@@ -2,7 +2,7 @@
 
 2023-12-05 📂 测试 📂 架构和设计 [原文](https://www.kamilgrzybek.com/blog/posts/automated-tests-strategy)
 
-<img src="./imgs/hero (2).png" width="100%"/><br/>
+<img src="./imgs/hero (2).png" width="60%"/><br/>
 
 ## 引言
 
@@ -478,3 +478,11 @@ GUI 测试的主要优点是，它们提供了更大的信心，确信我们的�
 - [《Unit Testing Principles, Practices, and Patterns》](https://www.amazon.com/Unit-Testing-Principles-Practices-Patterns/dp/1617296279)
 - [《Agile Testing: A Practical Guide for Testers and Agile Teams》](https://www.amazon.com/Agile-Testing-Practical-Guide-Testers/dp/0321534468)
 - [《xUnit Test Patterns: Refactoring Test Code》](https://www.amazon.com/xUnit-Test-Patterns-Refactoring-Addison-Wesley-ebook/dp/B004X1D36K)
+
+## 本系列更多内容
+
+本文是 “自动化测试” 系列的一部分：
+
+- [自动化测试：为什么](./the-why.md)
+- [自动化测试：可测试性](./testability.md)
+- [自动化测试：策略](./strategy.md)（本文）
