@@ -75,13 +75,14 @@
   - [Lattice 技能](./tools/reduce-friction-ai/lattice/skills/README.md)
   - [Lattice 开发技能](./tools/reduce-friction-ai/lattice/dev-skills/INDEX.md)
 
-## 测试相关
+## 自动化测试
 
 - [验收测试：类型、工具与搭建](./auto-test/acceptance-testing.md) (2026/8/3) Nithya Mani
 - ❄ [自动化测试：策略](./auto-test/strategy.md) (2023/12/5) Kamil Grzybek
 - ❄ [自动化测试：可测试性](./auto-test/testability.md) (2023/4/6) Kamil Grzybek
 - ❄ [自动化测试：为什么？](./auto-test/the-why.md) (2023/3/30) Kamil Grzybek
-- [Given When Then](./auto-test/given-wen-then.md) (2013/8/21)
-- [皮下测试（Subcutaneous Test）](./auto-test/subcutaneous-test.md) (2011/2/14)
-- [测试替身（Test Double）](./auto-test/test-double.md) (2006/1/17)
-- [内存测试数据库（In Memory Test Database）](./auto-test/test-database.md) (2005/11/22)
+- ❄ [单元测试（Unit Test）](./auto-test/unit-test.md) (2014/5/5)
+- ❄ [Given When Then](./auto-test/given-wen-then.md) (2013/8/21)
+- ❄ [皮下测试（Subcutaneous Test）](./auto-test/subcutaneous-test.md) (2011/2/14)
+- ❄ [测试替身（Test Double）](./auto-test/test-double.md) (2006/1/17)
+- ❄ [内存测试数据库（In Memory Test Database）](./auto-test/test-database.md) (2005/11/22)
