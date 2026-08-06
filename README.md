@@ -84,5 +84,6 @@
 - ❄ [单元测试（Unit Test）](./auto-test/unit-test.md) (2014/5/5)
 - ❄ [Given When Then](./auto-test/given-wen-then.md) (2013/8/21)
 - ❄ [皮下测试（Subcutaneous Test）](./auto-test/subcutaneous-test.md) (2011/2/14)
+- ❄ [Mocks 不是 Stubs](./auto-test/mocks-arent-stubs.md) (2007/1/2)
 - ❄ [测试替身（Test Double）](./auto-test/test-double.md) (2006/1/17)
 - ❄ [内存测试数据库（In Memory Test Database）](./auto-test/test-database.md) (2005/11/22)

@@ -35,4 +35,4 @@ Gerard 列出了几种不同类型的替身：
 
 ## 延伸阅读
 
-我在 [Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) 一文中进一步阐述了 Mocks、Doubles 等的使用。
+我在 [Mocks Aren't Stubs](./mocks-arent-stubs.md) 一文中进一步阐述了 Mocks、Doubles 等的使用。
