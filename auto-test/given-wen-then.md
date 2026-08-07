@@ -55,7 +55,7 @@ Feature: User trades stocks
 他的四个阶段是 Setup（Given）、Exercise（When）、Verify（Then）和 Teardown ⁵。
 Bill Wake 则提出了 [Arrange、Act、Assert](http://xp123.com/articles/3a-arrange-act-assert/) 的表述。
 
-## 注释：
+### 注释：
 
 ¹ 在对此的审阅评论中，Dan 提到 Ivan Moore 在提出这一方法时给予了大量灵感。
 
