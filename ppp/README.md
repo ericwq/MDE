@@ -18,3 +18,4 @@
   - [11 DIP：依赖反转原则](ch11/0.md)
   - [12 ISP：接口隔离原则](ch12/0.md)
 * [第 3 部分 薪资案例研究](section3.md)
+  - [13 COMMAND 与 ACTIVE OBJECT](ch13/0.md)
