@@ -19,3 +19,4 @@
   - [12 ISP：接口隔离原则](ch12/0.md)
 * [第 3 部分 薪资案例研究](section3.md)
   - [13 COMMAND 与 ACTIVE OBJECT](ch13/0.md)
+  - [14 TEMPLATE METHOD & STRATEGY: 继承与委托](ch14/0.md)
