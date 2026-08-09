@@ -21,3 +21,4 @@
   - [13 COMMAND 与 ACTIVE OBJECT](ch13/0.md)
   - [14 TEMPLATE METHOD & STRATEGY: 继承与委托](ch14/0.md)
   - [15 FACADE 和 MEDIATOR](ch15/0.md)
+  - [16 SINGLETON 和 MONOSTATE](ch16/0.md)
