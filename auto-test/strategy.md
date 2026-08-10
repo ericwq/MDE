@@ -111,11 +111,11 @@ public void GenerateOffer(OfferData offerData)
 如果我们在手动测试期间跳过或犯了一个错误，那么可能会发现某个功能不起作用。
 这可能是因为不同地方的错误导致的，例如：
 
-- 可用性检查——我们期望从外部系统获得 `true` 或 `false` 值，但收到了 `0` 或 `1`。
-- 检索用于报价计算的数据——我们在编写 SQL 脚本时犯了错误。
-- 报价计算——我们在计算中犯了逻辑错误。
-- 保存报价——我们在 ORM 中将报价对象错误地映射到了数据库中的表。
-- 电子邮件发送——在发送过程中，我们将消息的主题与内容弄混了。
+- 可用性检查 —— 我们期望从外部系统获得 `true` 或 `false` 值，但收到了 `0` 或 `1`。
+- 检索用于报价计算的数据 —— 我们在编写 SQL 脚本时犯了错误。
+- 报价计算 —— 我们在计算中犯了逻辑错误。
+- 保存报价 —— 我们在 ORM 中将报价对象错误地映射到了数据库中的表。
+- 电子邮件发送 —— 在发送过程中，我们将消息的主题与内容弄混了。
 
 <img src="./imgs/generate_offer_user_case_no_automation.png" width="40%"/><br/>
 *生成报价用例——无自动化*
@@ -138,10 +138,10 @@ public void GenerateOffer(OfferData offerData)
 在测试期间，我们将能够替换这些对象，从而将自己与真实的依赖关系隔离开来。
 尽管这是 Mockist 学派，但在此情况下，区分两种类型的中间对象是值得的，正如 Gerard Meszaros 在他的 [书中](https://www.amazon.com/xUnit-Test-Patterns-Refactoring-Addison-Wesley-ebook/dp/B004X1D36K) 所写的那样：
 
-- **Stub** —— 允许我们隔离依赖关系并启用测试，但不是验证的对象。
+- **Stub** —— 允许我们隔离依赖关系并启用测试，但不是验证 (verification) 的对象。
 我们在准备被测系统 (SUT)（GIVEN 部分）时设置它们，但 **不在断言中使用它们** （THEN 部分）。
 
-- **Mock** —— 允许我们隔离依赖关系、启用测试，并且是验证的对象。
+- **Mock** —— 允许我们隔离依赖关系、启用测试，并且是验证 (verification) 的对象。
 我们将在准备 SUT（GIVEN 部分）时设置它们，并 **在断言中使用它们** （THEN 部分）。
 
 在示例中，`_availabilityService` 和 `_dataProvider` 是 stubs，而 `_offerRepository` 和 `_emailService` 是 mocks：
@@ -189,7 +189,7 @@ public void Test()
 此外，在发生错误的情况下，我们将立即知道哪个组件不能正常工作。
 
 <img src="./imgs/generate_offer_user_case_middlemen-stub_mocks.png" width="60%"/><br/>
-*生成报价用例——中间人：桩和模拟*
+*生成报价用例——中间人：stubs 和 mocks*
 
 然而，采用这样的测试策略，我们能确定我们的系统按照预期工作吗？
 我们能将它部署到生产环境吗？
@@ -215,9 +215,9 @@ public void Test()
 
 ## 策略 2——经典方法（Classical）具备数据库种子
 
-由于模拟（mocking）方法没有产生最佳结果，让我们尝试所谓的经典方法（即芝加哥学派）。
+由于 mocking 方法没有产生最佳结果，让我们尝试所谓的经典方法（即芝加哥学派）。
 
-<ins>**对于我们可以控制的依赖项，我们不会使用桩（stubs）和模拟（mocks）** 。
+<ins>**对于我们可以控制的依赖项，我们不会使用 stubs 和 mocks** 。
 相反，我们将在真实的依赖项上进行测试，仅对那些我们无法控制的依赖项进行 stubbing 和 mocking</ins>。
 
 <img src="./imgs/generate_offer_user_case_strategy_2.png" width="60%"/><br/>
@@ -226,7 +226,9 @@ public void Test()
 这种方法将允许我们在 [模块](../mmonolith/primer.md) 级别执行测试。
 我将这类测试称为集成测试（integration tests）。
 
-*PS：集成测试是另一个非常宽泛、不统一的定义。有些人称之为组件测试。你怎么称呼它们都行，只要保持一致——它们是测试一个内聚逻辑整体的测试。*
+<i>PS：集成测试是另一个非常宽泛、不统一的定义。
+  有些人称之为组件测试。
+  你怎么称呼它们都行，只要保持一致 —— 它们是测试一个内聚逻辑整体的测试。</i>
 
 <ins>为了测试的确定性和更容易的运行与维护，与外部系统隔离是必要的</ins>。
 
@@ -380,7 +382,7 @@ public void Test()
 
 在某些情况下，<ins>如果我们优先考虑测试速度而不是系统正常工作的确定性，我们可以修改策略 4，引入内存数据库而不是真实数据库</ins>。
 
-*「什么情况下使用内存数据库没有说明！」*
+*「译注：什么情况下使用内存数据库没有说明！」*
 
 <img src="./imgs/strategy_4_classical_api_domain_inmemory.png" width="80%"/><br/>
 *策略 4 备选方案——使用 API + 领域 (Domain) + 内存数据库的经典方法*
