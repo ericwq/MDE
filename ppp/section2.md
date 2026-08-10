@@ -60,6 +60,6 @@
 原则不是可以随意洒在系统上的香水。
 过度遵守原则会导致不必要的复杂性的设计坏味。
 
-### 参考书目
+## 参考书目
 
 1. Martin, Fowler. Refactoring. Addison–Wesley. 1999.
