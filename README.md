@@ -78,6 +78,7 @@
 ## 自动化测试
 
 - [验收测试：类型、工具与搭建](./auto-test/acceptance-testing.md) (2026/8/3) Nithya Mani
+- [什么是契约测试，为什么我应该尝试它？](./auto-test/what-is-contract-testing.md) (2023/9/2) Matt Fellows
 - ❄ [自动化测试：策略](./auto-test/strategy.md) (2023/12/5) Kamil Grzybek
 - ❄ [自动化测试：可测试性](./auto-test/testability.md) (2023/4/6) Kamil Grzybek
 - ❄ [自动化测试：为什么？](./auto-test/the-why.md) (2023/3/30) Kamil Grzybek
