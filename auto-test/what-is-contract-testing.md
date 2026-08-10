@@ -3,7 +3,9 @@
 <img src="./imgs/IMG_5457-blurred-small.jpg" width="10%"/>
 Matt Fellows
 
-更新于 2023/9/2
+[原文](https://pactflow.io/blog/what-is-contract-testing/) 更新于 2023/9/2
+
+---
 
 <img src="./imgs/screenshot-25-1-.png" width="90%"/><br/>
 

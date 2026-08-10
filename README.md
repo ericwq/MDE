@@ -82,6 +82,7 @@
 - ❄ [自动化测试：策略](./auto-test/strategy.md) (2023/12/5) Kamil Grzybek
 - ❄ [自动化测试：可测试性](./auto-test/testability.md) (2023/4/6) Kamil Grzybek
 - ❄ [自动化测试：为什么？](./auto-test/the-why.md) (2023/3/30) Kamil Grzybek
+- ❄ [实用测试金字塔](./auto-test/practical-test-pyramid.md) (2018/1/26) Ham Vocke
 - [单元测试（Unit Test）](./auto-test/unit-test.md) (2014/5/5)
 - [Tell Don't Ask](./auto-test/tell-dont-ask.md) (2013/9/5)
 - [Given When Then](./auto-test/given-wen-then.md) (2013/8/21)
