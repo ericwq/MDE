@@ -70,7 +70,7 @@ Mike Cohn 在他的著作《Succeeding with Agile》中提出了这一概念。
 它是一个很好的视觉隐喻，告诉你要考虑不同层次的测试，并告诉你在每一层应该进行多少测试。
 
 <img src="./imgs/testPyramid.png" width="70%" /><br/>
-*图2：测试金字塔*
+*Fig 2：测试金字塔*
 
 Mike Cohn 最初的测试金字塔由三个层次组成，你的测试套件应该包含（从下到上）：
 
@@ -92,6 +92,8 @@ Mike Cohn 最初的测试金字塔由三个层次组成，你的测试套件应�
 编写一些较粗粒度的测试，以及极少量的从端到端测试应用程序的高层测试。
 注意不要最终得到一个 [测试冰淇淋蛋筒](https://alisterscott.github.io/TestingPyramids.html)，那将是一场维护噩梦，并且运行时间过长。
 
+<img src="https://alisterscott.github.io/media/pyramids/icecream.jpg" width="10%"/>*「译注：ice-cream cone」*<br/>
+
 不要过于拘泥于 Cohn 测试金字塔中各个层的名称。
 事实上，它们可能相当误导：“服务测试” 是一个难以把握的术语（Cohn 自己也谈到观察到 [许多开发人员完全忽略这一层](https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid) ）。
 在像 react、angular、ember.js 等单页应用框架盛行的时代，很明显 UI 测试不一定要放在金字塔的最高层 —— 你在所有这些框架中都可以完美地对 UI 进行单元测试。
@@ -103,8 +105,8 @@ Mike Cohn 最初的测试金字塔由三个层次组成，你的测试套件应�
 - [JUnit](http://junit.org/) ：我们的测试运行器
 - [Mockito](http://site.mockito.org/) ：用于 mocking 依赖项
 - [Wiremock](http://wiremock.org/) ：用于 stubbing 外部服务
-- [Pact](https://docs.pact.io/) ：用于编写CDC（消费者驱动契约）测试
-- [Selenium](http://docs.seleniumhq.org/) ：用于编写UI驱动的端到端测试
+- [Pact](https://docs.pact.io/) ：用于编写 CDC（消费者驱动契约）测试
+- [Selenium](http://docs.seleniumhq.org/) ：用于编写 UI 驱动的端到端测试
 - [REST-assured](https://github.com/rest-assured/rest-assured) ：用于编写 REST API 驱动的端到端测试
 
 ## 示例应用程序
@@ -143,7 +145,7 @@ README 中包含在你自己的机器上运行应用程序及其自动化测试�
 在内部，Spring Service 具有典型的 Spring 架构：
 
 <img src="./imgs/testArchitecture.png" width="70%" /><br/>
-*图4：我们微服务的内部结构*
+*Fig 4：我们微服务的内部结构*
 
 - **Controller 类**：提供 REST 端点，处理 HTTP 请求和响应
 - **Repository 类**：与数据库交互，负责将数据写入持久存储或从持久存储读取数据
