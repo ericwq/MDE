@@ -658,7 +658,7 @@ public WeatherClient(final RestTemplate restTemplate,
 6. 希望两个团队永远遵守接口定义，不会搞砸
 
 更现代的软件开发团队已经用更自动化的方式取代了步骤 5 和 6：
-自动化 [契约测试](https://martinfowler.com/bliki/ContractTest.html) 确保消费方和提供方的实现仍然遵守定义的契约。
+自动化 [契约测试](contract-test.md) 确保消费方和提供方的实现仍然遵守定义的契约。
 它们作为一个良好的回归测试套件，并确保偏差能及早被发现。
 
 在一个更敏捷的组织中，你应该采取更高效、更少浪费的路径。
