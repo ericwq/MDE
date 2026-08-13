@@ -24,3 +24,4 @@
   - [15 FACADE 和 MEDIATOR](ch15/0.md)
   - [16 SINGLETON 和 MONOSTATE](ch16/0.md)
   - [17 NULL OBJECT](ch17/0.md)
+  - [18 薪资案例研究：第一次迭代开始](ch18/0.md)
