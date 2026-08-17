@@ -13,6 +13,7 @@
 
 ---
 2026
+- [在 Agent 循环内部执行 TDD —— 是 “作秀” 还是 “实际价值”？](./gen-ai/tdd-in-the-agent-loop.md) (2026/8/11) Birgitta Böckeler
 - [重构的经济效益](./gen-ai/refactoring-economic-benefit.md) (2026/7/30) Giles Edwards-Alexander
 - [本地模型用于编码的体验](../tools/local/local-models-for-coding-experiences.md) (2026/7/8) Birgitta Böckeler
 - [面向代码任务的本地模型可行性](../tools/local/local-models-for-coding-factors.md) (2026/7/7) Birgitta Böckeler
