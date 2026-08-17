@@ -49,10 +49,10 @@ George Fairbanks 在他的著作 [Just Enough Software Architecture: A Risk-Driv
 模型则因应挑战或规划需求而演变。
 当其中一方或另一方的演变产生不一致时，分歧就会发生。
 
-从长远来看，我们是否注定以这样的结局收场？
+<ins>从长远来看，我们是否注定以这样的结局收场？
 嗯，并非如此。
 这当然需要我们自身具备大量的纪律性，但纪律并非全部。
-我们需要应用适当的实践和方法来保持架构的可控性。
+我们需要应用适当的实践和方法来保持架构的可控性</ins>。
 那么，这些方法是什么呢？
 
 ## 架构实施
@@ -76,12 +76,12 @@ George Fairbanks 在他的著作 [Just Enough Software Architecture: A Risk-Driv
 **编译器是你最好的朋友**。
 它能够快速为你检查许多事情，这些事情如果由你来做会花费很长时间。
 此外，编译器不会出错，而人会。
-既然如此，为什么我们很少利用编译器来负责遵守我们所选择的架构呢？
-为什么我们不想最大限度地利用它的能力呢？
+<ins>既然如此，为什么我们很少利用编译器来负责遵守我们所选择的架构呢？
+为什么我们不想最大限度地利用它的能力呢？</ins>
 
-第一个主要的罪过是 “一切都是 public” 原则。
+<ins>第一个主要的罪过是 “一切都是 public” 原则。
 根据模块化的定义，模块应该通过定义良好的接口进行通信，这意味着它们应该被封装。
-如果一切都是 public，就没有封装。
+如果一切都是 public，就没有封装</ins>。
 
 不幸的是，编程社区通过以下方式助长了这种现象：
 
@@ -101,11 +101,11 @@ George Fairbanks 在他的著作 [Just Enough Software Architecture: A Risk-Driv
 是的，但既然我们没有其他方法来封装我们的模块，将项目拆分似乎是一个合理的解决方案。
 此外，通过检查引用，添加不正确的依赖关系（例如从领域层到基础设施层）将变得困难甚至不可能。
 
-缺乏封装是我看到的最常见的错误之一，但不是唯一的错误。
-其他例子还包括不使用不可变性（不必要的 setter）或强类型（基本类型偏执）。
+<ins>缺乏封装是我看到的最常见的错误之一，但不是唯一的错误。
+其他例子还包括不使用不可变性（不必要的 setter）或强类型（基本类型偏执）。</ins>
 
-总的来说，我们应该使用我们的编程语言，让编译器能够为我们捕获尽可能多的错误。
-这是强制实施系统架构的最高效的方法。
+<ins>总的来说，我们应该使用我们的编程语言，让编译器能够为我们捕获尽可能多的错误。
+这是强制实施系统架构的最高效的方法。</ins>
 
 <img src="./imgs/Modular-Monolith_-Architecture-Enforcement-Compile-time-1024x555.jpg" width="100%"/><br/>
 *架构实施 —— 编译时*
@@ -120,8 +120,8 @@ George Fairbanks 在他的著作 [Just Enough Software Architecture: A Risk-Driv
 ### 静态代码分析
 
 我将从一种更为熟悉和常见的方法开始 —— 静态代码分析器。
-当然，大多数人都听说过像 SonarQube 或 NDepend 这样的工具。
-这些工具会自动对代码进行静态分析，并根据分析结果提供可能对我们非常有用的度量信息。
+<ins>当然，大多数人都听说过像 SonarQube 或 NDepend 这样的工具。
+这些工具会自动对代码进行静态分析，并根据分析结果提供可能对我们非常有用的度量信息</ins>。
 当然，我们可以将静态代码分析器连接到 CI 流程中，并定期获得反馈。
 
 <img src="./imgs/Modular-Monolith_-Architecture-Enforcement-Copy-of-Compile-time-1024x292.jpg" width="100%"/><br/>
@@ -129,9 +129,9 @@ George Fairbanks 在他的著作 [Just Enough Software Architecture: A Risk-Driv
 
 ### 架构测试
 
-架构测试是另一种方式，知名度较低但越来越受欢迎。
+<ins>架构测试是另一种方式，知名度较低但越来越受欢迎。
 它们是单元测试，但不是测试业务功能，而是在架构的上下文中测试我们的代码库。
-大多数情况下，这类测试是基于专用于此类型测试的库编写的。这样的测试可能如下所示：
+大多数情况下，这类测试是基于专用于此类型测试的库编写的。这样的测试可能如下所示：</ins>
 
 ```csharp
 // Architecture test - value object should be immutable
@@ -161,9 +161,9 @@ public void DomainLayer_DoesNotHaveDependency_ToInfrastructureLayer()
 }
 ```
 
-我们可以通过这些测试检查很多事情。
+<ins>我们可以通过这些测试检查很多事情。
 用于此目的的库（例如 [NetArchTests](https://github.com/BenMorris/NetArchTest) 或 [ArchUnit](https://www.archunit.org/) ）功能强大，编写其他测试也不是一项困难的任务。
-使用此类测试的完整示例可以在 [这里](https://github.com/kgrzybek/modular-monolith-with-ddd/tree/master/src/Modules/Meetings/Tests/ArchTests) 找到。
+使用此类测试的完整示例可以在 [这里](https://github.com/kgrzybek/modular-monolith-with-ddd/tree/master/src/Modules/Meetings/Tests/ArchTests) 找到。</ins>
 
 <img src="./imgs/Modular-Monolith_-Architecture-Enforcement-Architecture-tests-1024x620.jpg" width="100%"/><br/>
 *架构实施 —— 架构测试*
