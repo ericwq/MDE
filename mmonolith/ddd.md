@@ -18,8 +18,8 @@
 ## 以领域为中心的设计
 
 正如模块化单体架构的名称所示，我们的架构设计必须面向高 [模块化](https://en.wikipedia.org/wiki/Modularity) 。
-由此可知，系统必须具有能够提供 **完整业务功能** 的 **自包含** 模块。
-这就是为什么以领域为中心的架构和设计在这种情况下是自然的选择。
+<ins>由此可知，系统必须具有能够提供 **完整业务功能** 的 **自包含** 模块。
+这就是为什么以领域为中心的架构和设计在这种情况下是自然的选择。</ins>
 
 此外，我们知道，模块必须具有 **定义良好的接口**。
 模块之间的所有通信应仅通过这些接口进行，这意味着每个模块必须高度 **封装**。
@@ -56,21 +56,21 @@
 API 是我们系统的入口点。
 主要实现为 Web 服务（SOAP/REST/GraphQL），接受 HTTP 请求并返回 HTTP 响应。
 
-API 的主要且唯一的职责是将请求转发给适当的模块。
-它相当于微服务架构中的 [API 网关](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern)，只不过不是通过网络调用服务，而是进行 *内存中的模块调用* 。
+<ins>API 的主要且唯一的职责是将请求转发给适当的模块。
+它相当于微服务架构中的 [API 网关](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern)，只不过不是通过网络调用服务，而是进行 *内存中的模块调用* 。</ins>
 
-API 应该非常薄。
+<ins>API 应该非常薄。
 其中不应包含任何逻辑 —— 无论是应用逻辑还是业务逻辑。
-我们放在那里的所有内容都应仅与处理 HTTP 请求和路由相关。
+我们放在那里的所有内容都应仅与处理 HTTP 请求和路由相关。</ins>
 
 ### 模块
 
-**每个模块都应被视为一个独立的应用**。
+<ins>**每个模块都应被视为一个独立的应用**。
 换句话说，它是我们系统的一个子系统。
 通过这种方式，它将拥有自治性。
 它将与其他模块（子系统）松散耦合，甚至不耦合。
 这意味着每个模块可以由独立的团队开发。
-这与微服务架构中的 [架构驱动因素](https://www.informit.com/articles/article.aspx?p=2738304&seqNum=4) 相同。
+这与微服务架构中的 [架构驱动因素](https://www.informit.com/articles/article.aspx?p=2738304&seqNum=4) 相同。</ins>
 
 此外，我们将能够轻松地将特定模块提取到单独的运行时组件中（单体拆分）。
 当然，这仅在必要时才进行 —— 这不是我们架构的目标，只是模块化带来的一个很好的副作用。
@@ -85,29 +85,29 @@ API 应该非常薄。
 
 ### Module Startup API
 
-*Module Startup API* 是一个 port/interface，通过它，给定模块可以被初始化。
+<ins>*Module Startup API* 是一个 port/interface，通过它，给定模块可以被初始化。
 由于给定模块必须是自包含的，它应该能够初始化自身，只获取其操作所需的适当配置参数。
 这意味着我们 **不在** API（或其他模块宿主）中配置给定模块。
-我们只在启动时触发其初始化。
+我们只在启动时触发其初始化。</ins>
 
 ### Composition Root
 
 支持模块自治也意味着给定模块必须能够 *自己创建对象依赖图*，即它应该有自己的 [组合根 (Composition Root)](https://blog.ploeh.dk/2011/07/28/CompositionRoot/) 。
 
-这通常意味着它将拥有自己的 [IoC](https://en.wikipedia.org/wiki/Inversion_of_control) 容器。
+<ins>这通常意味着它将拥有自己的 [IoC](https://en.wikipedia.org/wiki/Inversion_of_control) 容器。
 这是非常重要的一点。
 不幸的是，最常见的方法是整个运行时组件定义一个 IoC 容器。
-这对于小型系统来说是好的方法，但对于更复杂和模块化的系统则不然。
+这对于小型系统来说是好的方法，但对于更复杂和模块化的系统则不然。</ins>
 
 ### Module API
 
-Module API 是与给定模块通信（初始化除外 —— 请参阅 [Module Startup API](#module-startup-api) ）的接口（ primary port ）。
-这样的模块 API 可以通过两种方式创建：
+<ins>Module API 是与给定模块通信（初始化除外 —— 请参阅 [Module Startup API](#module-startup-api) ）的接口（ primary port ）。
+这样的模块 API 可以通过两种方式创建：</ins>
 
-- 传统方法：一系列方法（`CustomerService.GetCustomer`、`OrderService.AddOrder`）
-- CQRS 风格方法：一组要发送的查询和命令（`GetCustomerQuery`、`AddOrderCommand`）
+- <ins>传统方法：一系列方法（`CustomerService.GetCustomer`、`OrderService.AddOrder`）</ins>
+- <ins>CQRS 风格方法：一组要发送的查询和命令（`GetCustomerQuery`、`AddOrderCommand`）</ins>
 
-我绝对是第二种 CQRS 风格方法的粉丝，但在我看来，第一种方法也是可以接受的。
+<ins>我绝对是第二种 CQRS 风格方法的粉丝，但在我看来，第一种方法也是可以接受的。</ins>
 
 根据 [模块化的关键属性](https://en.wikipedia.org/wiki/Modular_programming) ，这个模块 API 应该尽可能小 —— 只暴露所需的内容（不多不少）。
 这将使其更加 [稳定](https://wiki.c2.com/?StableDependenciesPrinciple) 。
@@ -148,12 +148,12 @@ Module API 是与给定模块通信（初始化除外 —— 请参阅 [Module S
 有些人喜欢有非常清晰的层次划分（例如使用单独的库/包或其他语言技术）。
 另一些人则喜欢将所有内容放在一起，而不进行逻辑分解。
 
-首先，请注意每个模块都是不同的。
+<ins>首先，请注意每个模块都是不同的。
 一个模块可能有更复杂的领域，而另一个模块可能只实现 CRUD 操作。
-在这种情况下，这些模块的应用架构将是不同的。
+在这种情况下，这些模块的应用架构将是不同的。</ins>
 
-此外，**即使在同一个模块内，也可能同时存在更复杂和不太复杂的功能**。
-在这种情况下，我们也应该分别对待每个功能。
+<ins>此外，**即使在同一个模块内，也可能同时存在更复杂和不太复杂的功能**。
+在这种情况下，我们也应该分别对待每个功能。</ins>
 
 <ins>总之，层的应用不应是给定模块的全局决策 —— 每个用例都应该被单独考虑</ins>。
 这种方法接近于 [垂直切片](https://jimmybogard.com/vertical-slice-architecture) 架构，在模块级别应用，而不是在整个应用程序级别。
@@ -166,11 +166,11 @@ Module API 是与给定模块通信（初始化除外 —— 请参阅 [Module S
 
 ### 模块数据
 
-每个模块必须拥有自己的状态，这意味着其数据必须是私有的。
+<ins>每个模块必须拥有自己的状态，这意味着其数据必须是私有的。
 我们不希望使用 [共享数据库模式](https://www.enterpriseintegrationpatterns.com/patterns/messaging/SharedDataBaseIntegration.html) 。
 这是实现模块自治和模块化的关键属性。
 如果我们想了解模块的状态或更改它 —— 我们必须通过其接口来进行。
-没有捷径。
+没有捷径。</ins>
 
 然而，有时我们出于报表目的希望共享一些数据。
 在这种情况下，我们可以使用单独的 [报表数据库](https://martinfowler.com/bliki/ReportingDatabase.html) ，
