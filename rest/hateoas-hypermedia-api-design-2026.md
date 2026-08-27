@@ -6,7 +6,7 @@
 2026年3月8日 · APIScout 团队 · [原文](https://apiscout.dev/guides/hateoas-hypermedia-api-design-2026) 
 
 ---
-![top](./img/hateoas-hypermedia-api-design-2026.avif)
+<img src="./img/hateoas-hypermedia-api-design-2026.avif" width="100%"/><br/>
 
 HATEOAS（Hypermedia as the Engine of Application State）是 REST 约束中争议最大的一个。
 理论上，API 响应包含链接，告知客户端接下来可以执行哪些操作。
@@ -48,23 +48,23 @@ HATEOAS（Hypermedia as the Engine of Application State）是 REST 约束中争�
 
 ## 为什么大多数 API 忽略 HATEOAS
 
-1. 客户端仍然硬编码
+### 1. 客户端仍然硬编码
 
 在实践中，前端开发者构建的组件会调用特定的端点。
 他们不会编写通用的链接跟随代码。
 无论 UI 是从链接中发现 URL 还是自行构造 URL，它都需要知道 `/api/orders/order_123/cancel` 是做什么的。
 
-2. 类型安全 > 可发现性
+### 2. 类型安全 > 可发现性
 
 TypeScript、基于 OpenAPI 规范的代码生成，以及类型安全的 API 客户端（tRPC、orval、openapi-typescript）提供了编译时安全性。
 硬编码的、带类型的 API 调用比动态的链接跟随更加安全。
 
-3. 带宽开销
+### 3. 带宽开销
 
 链接给每个响应增加了字节数。
 在一个发起数百次 API 调用的移动应用中，包含客户端从未使用过的导航链接会浪费带宽。
 
-4. 复杂性且回报不明确
+### 4. 复杂性且回报不明确
 
 实现 HATEOAS 需要构建链接生成系统、维护链接关系，以及处理链接驱动的状态机。
 对于大多数团队来说，很难证明为仅供自己前端使用的 API 承担这些开销是合理的。
