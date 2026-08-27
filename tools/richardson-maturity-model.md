@@ -348,7 +348,7 @@ ATOM 规定，知名 linkrel 的定义在 [链接关系注册表](http://www.ian
 ## 各层级的含义
 
 我应该强调，RMM 虽然是思考 REST 各元素的好方法，但它本身并不是 REST 层级的定义。
-Roy Fielding 已经明确指出，RMM Level 3 是 REST 的一个前置条件。
+Roy Fielding 已经明确指出，[RMM Level 3 是 REST 的一个前置条件](http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven) 。
 像软件中的许多术语一样，REST 有很多定义，但由于 Roy Fielding 创造了这个术语，他的定义应该比大多数更有分量。
 
 我发现 RMM 有用的地方在于，它提供了一种逐步理解 RESTful 思想背后基本概念的好方法。

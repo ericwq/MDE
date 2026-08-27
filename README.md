@@ -96,4 +96,6 @@
 
 ## REST API
 
-- [Richardson 成熟度模型](./tools/richardson-maturity-model.md)
+- [Richardson 成熟度模型](./tools/richardson-maturity-model.md) (2010/3/18)
+- [HATEOAS — REST API 中的超媒体链接（何时值得使用）](./rest/dotnet-rest-hateoas.md) (2026/4/15)
+- [HATEOAS 在 2026 年：超媒体 API 设计已死？](./rest/hateoas-hypermedia-api-design-2026.md) (2026/3/8)
