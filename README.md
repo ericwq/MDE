@@ -15,6 +15,7 @@
 - [领域驱动设计精粹 (中文版)](./distalled/README.md) (2026/7/1~7/6)
 - [整洁代码：敏捷软件工匠手册（中文版）](./code/README.md) (2026/7/8~7/30)
 - ∂ [敏捷软件开发：原则、模式与实践](ppp/README.md) (2026/7/30~)
+- ∂ [RESTful Web Services](./rest/restful-web-services/README.md) (2026/8/28~)
 
 ## AI 及智能体相关文章
 这是个快速变化的领域，所以相关文章都标出了时间。
