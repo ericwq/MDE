@@ -10,11 +10,11 @@
 - [领域驱动设计 —— 处理软件核心复杂性（中文版）](ddd/README.md) (2025/11/18~2026/1/12)
 - [领域驱动设计参考：定义和模式总结（中文版）](ddd-ref/README.md) (2025/12/25~12/31)
 - [实现领域驱动设计（中文版）](impl-ddd/README.md) (2026/1/8~2/11)
-- [面向模式的软件架构：模式系统](./posa-1/README.md)（部分内容）(2026/3/24~4/7)
+- ∂ [面向模式的软件架构：模式系统](./posa-1/README.md) (2026/3/24~4/7)
 - [整洁架构 - 软件结构与设计匠人指南（中文版）](clean/README.md) (2026/6/10~6/26)
 - [领域驱动设计精粹 (中文版)](./distalled/README.md) (2026/7/1~7/6)
 - [整洁代码：敏捷软件工匠手册（中文版）](./code/README.md) (2026/7/8~7/30)
-- [敏捷软件开发：原则、模式与实践](ppp/README.md)（部分内容）(2026/7/30~)
+- ∂ [敏捷软件开发：原则、模式与实践](ppp/README.md) (2026/7/30~)
 
 ## AI 及智能体相关文章
 这是个快速变化的领域，所以相关文章都标出了时间。
@@ -98,5 +98,6 @@
 
 - [Richardson 成熟度模型](./tools/richardson-maturity-model.md) (2010/3/18)
 - [HATEOAS — REST API 中的超媒体链接（何时值得使用）](./rest/dotnet-rest-hateoas.md) (2026/4/15)
-- [HATEOAS 在 2026 年：超媒体 API 设计已死？](./rest/hateoas-hypermedia-api-design-2026.md) (2026/3/8)
-- [为什么 API 优先是快速开发和可扩展 AI 集成的关键](./rest/what-is-api-first.md) (2025/1/13)
+- ❄ [HATEOAS 在 2026 年：超媒体 API 设计已死？](./rest/hateoas-hypermedia-api-design-2026.md) (2026/3/8)
+- ❄ [为什么 API 优先是快速开发和可扩展 AI 集成的关键](./rest/what-is-api-first.md) (2025/1/13)
+- ❄ [REST API 设计 - 资源建模](./rest/rest-api-design-resource-modeling.md) (2014/8/14)
