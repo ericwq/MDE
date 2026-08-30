@@ -386,7 +386,7 @@ Ruby 代码 `REXML::XPath.each(doc, '//photo')` 是一种遍历每个 `photo` �
 相比之下，典型的 SOAP 服务将其方法信息放在实体主体和 HTTP 首部中。
 示例 1-8 是一个 Ruby 脚本，它使用 Google 基于 SOAP 的 API 搜索 Web。
 
-*示例 1-8. 使用 Google 的搜索服务搜索 Web*
+*示例 1-8. 使用 Google 的搜索服务搜索 Web* <a id="example-1-8"></a>
 
 ```ruby
 #!/usr/bin/ruby -w
@@ -501,3 +501,366 @@ Flickr 就是其中之一：Flickr API URI 中的大多数查询变量都是范�
 在 Google 网站上，“search” 和 “q” 的值都是范围信息。
 方法信息是 HTTP 标准的 GET。
 （如果 Google SOAP API 提供了一个名为 `doGoogleSearchForREST` 的方法，那它就是在如此宽泛地定义方法信息，以至于你不需要任何范围信息来执行对 REST 的搜索。）
+
+## 竞争架构
+
+现在我已经确定了 Web 服务回答方式不同的两个主要问题，我可以根据它们对这些问题的回答来对 Web 服务进行分组。
+在我的研究中，我识别出了三种常见的 Web 服务架构：RESTful 面向资源型、RPC 风格型和 REST-RPC 混合型。
+我将依次介绍每一种。
+
+### RESTful、面向资源的架构
+
+本书的主要主题是可以被视为 RESTful 的 Web 服务架构：即那些在 Roy Fielding 论文中提出的标准下获得高分的架构。
+当然，很多架构在技术上都是 RESTful 的，‡
+但我想专注于那些最适合 Web 服务的架构。
+所以当我谈论 RESTful Web 服务时，我指的是看起来像 Web 的服务。
+我将这类服务称为 *面向资源*（resource-oriented）的。
+在 [第 3 章](ch3.md) 中，我将在一个真实的 Web 服务 ——Amazon 的 Simple Storage Service（S3）—— 的上下文中介绍面向资源的 REST 的基本概念。
+从 [第 5 章](ch5.md) 开始，我将向你讲解 REST 的定义性特征，并为 RESTful Web 服务定义一个良好的架构：面向资源架构（Resource-Oriented Architecture）。
+
+‡ 比你想象的要多。
+Google 用于 Web 搜索的 SOAP API 在技术上具有 RESTful 架构。
+许多其他只读的 SOAP 和 XML-RPC 服务也是如此。
+但这些对于 Web 服务来说是不良架构，因为它们看起来一点也不像 Web。
+
+<ins>在 RESTful 架构中，方法信息放在 HTTP 方法中。
+在面向资源架构中，范围信息放在 URI 中。</ins>
+这种组合非常强大。
+给定一个面向资源的 RESTful Web 服务 HTTP 请求的第一行（“GET /reports/open-bugs HTTP/1.1”），你基本上应该能理解客户端想要做什么。
+请求的其余部分只是细节；事实上，你可以仅使用一行 HTTP 来发起许多请求。
+如果 HTTP 方法与方法信息不匹配，则该服务就不是 RESTful 的。
+如果范围信息不在 URI 中，则该服务就不是面向资源的。
+这些不是唯一的要求，但它们是很好的经验法则。
+
+一些众所周知的 RESTful、面向资源 Web 服务示例包括：
+
+- 暴露 Atom Publishing Protocol（ http://www.ietf.org/html.charters/atompub-charter.html ）及其变体（如 GData，http://code.google.com/apis/gdata/ ）的服务
+- Amazon 的 Simple Storage Service（S3，http://aws.amazon.com/s3 ）
+- Yahoo! 的大部分 Web 服务（ http://developer.yahoo.com/ ）
+- 大多数不使用 SOAP 的只读 Web 服务
+- 静态网站
+- 许多 Web 应用，特别是像搜索引擎这样的只读应用
+
+每当我介绍非 RESTful 架构以及非面向资源架构时，我都有一些潜在动机。
+在本章中，我想在可编程 Web 的更大背景下，将 RESTful Web 服务放在一个适当的位置。
+在 [第 2 章](ch2.md) 中，我将扩大本书对真实 Web 服务的覆盖范围，并展示无论服务是否完全符合我偏好的架构，你都可以使用相同的客户端工具。
+在 [第 10 章](ch10.md) 中，我将就一场关于可编程 Web 应该是什么样子的长期争论提出论点。
+
+### RPC 风格架构
+
+RPC 风格的 Web 服务接收来自客户端装满数据的信封，并返回一个类似的信封。
+方法和范围信息保存在信封内部，或贴在信封上的标签中。
+信封的类型对我的分类来说并不重要，但 HTTP 是一种流行的信封格式，因为任何配得上“Web 服务” 名称的服务无论如何都必须使用 HTTP。
+SOAP 是另一种流行的信封格式（通过 HTTP 传输 SOAP 文档是将 SOAP 信封放在 HTTP 信封内部）。
+每个 RPC 风格的服务都定义一套全新的词汇表。
+计算机程序也是这样工作的：每次你编写一个程序，你都会定义具有不同名称的函数。
+相比之下，所有 RESTful Web 服务共享一套标准的 HTTP 方法词汇表。
+RESTful 服务中的每个对象都响应相同的统一接口。
+
+XML-RPC 协议是 RPC 架构最明显的例子。
+XML-RPC 如今基本上是一种遗留协议，但我打算以它作为起点，因为它相对简单且易于解释。
+示例 1-11 展示了一个 XML-RPC 服务的 Ruby 客户端，该服务允许你查找任何带有通用产品代码（UPC）的商品。
+
+*示例 1-11. XML-RPC 示例：按 UPC 查找产品*
+
+```ruby
+#!/usr/bin/ruby -w
+# xmlrpc-upc.rb
+require 'xmlrpc/client'
+
+def find_product(upc)
+  server = XMLRPC::Client.new2('http://www.upcdatabase.com/rpc')
+  begin
+    response = server.call('lookupUPC', upc)
+  rescue XMLRPC::FaultException => e
+    puts "Error: "
+    puts e.faultCode
+    puts e.faultString
+  end
+end
+
+puts find_product("001441000055")['description']
+# "Trader Joe's Thai Rice Noodles"
+```
+
+XML-RPC 服务模拟像 C 这样的编程语言。
+你使用一些参数（“001441000055”）调用一个函数（`lookupUPC`），并得到一个返回值。
+方法数据（函数名）和范围数据（参数）被放入一个 XML 文档中。
+示例 1-12 给出了一个示例文档。
+
+*示例 1-12. 描述 XML-RPC 请求的 XML 文档*
+
+```xml
+<?xml version="1.0" ?>
+<methodCall>
+  <methodName>lookupUPC</methodName>
+  <params>
+    <param><value><string>001441000055</string></value></param>
+  </params>
+</methodCall>
+```
+
+这个 XML 文档被放入一个信封中以便传输到服务器。
+信封是一个带有方法、URI 和首部的 HTTP 请求（见示例 1-13）。
+XML 文档成为 HTTP 信封内部的实体主体。
+
+*示例 1-13. 包含描述 XML-RPC 请求的 XML 文档的 HTTP 信封*
+
+```http
+POST /rpc HTTP/1.1
+Host: www.upcdatabase.com
+User-Agent: XMLRPC::Client (Ruby 1.8.4)
+Content-Type: text/xml; charset=utf-8
+Content-Length: 158
+Connection: keep-alive
+
+<?xml version="1.0" ?>
+<methodCall>
+  <methodName>lookupUPC</methodName>
+  ...
+</methodCall>
+```
+
+XML 文档根据你调用的方法而变化，但 HTTP 信封始终相同。
+无论你对 UPC 数据库服务执行什么操作，URI 始终是 `http://www.upcdatabase.com/rpc`，HTTP 方法始终是 POST。
+简而言之，XML-RPC 服务忽略了 HTTP 的大部分特性。
+它只暴露一个 URI（“端点”），并且在该 URI 上只支持一种方法（POST）。
+
+对于范围信息的不同值，RESTful 服务会暴露不同的 URI，而 RPC 风格服务通常为每个 “文档处理器” 暴露一个 URI：即能够打开信封并将其转换为软件命令的东西。
+为了进行比较，示例 1-14 展示了如果 UPC 数据库是一个 RESTful Web 服务，代码可能的样子。
+
+*示例 1-14. 假设的代码示例：RESTful UPC 查找服务*
+
+```ruby
+require 'open-uri'
+upc_data = open('http://www.upcdatabase.com/upc/00598491').read()
+...
+```
+
+在此，方法信息包含在 HTTP 方法中。
+默认的 HTTP 方法是 GET，在此场景中相当于 `lookupUPC`。
+范围信息包含在 URI 中。
+该假设服务暴露了大量的 URI：每个可能的 UPC 都有一个 URI。
+相比之下，HTTP 信封是空的：HTTP GET 请求根本不包含实体主体。
+
+关于 RPC 风格服务客户端的另一个示例，请回顾 [示例 1-8](#example-1-8)。
+Google 的 SOAP 搜索 API 是一个使用 SOAP 作为其信封格式的 RPC 风格服务。
+
+大量或专门使用 HTTP POST 的服务很可能是 RPC 风格服务。
+同样，这不是一个确定的标志，但这是一个提示，表明该服务不太倾向于将其方法信息放在 HTTP 方法中。
+一个大量使用 HTTP POST 的、原本是 RESTful 的服务往往会趋向于 REST-RPC 混合架构。
+
+一些知名的 RPC 风格 Web 服务示例：
+
+- 所有使用 XML-RPC 的服务
+- 几乎所有的 SOAP 服务（关于这一有争议说法的辩护，请参见本章后面的 “可编程 Web 上的技术” 部分）
+- 少数 Web 应用（通常是设计不良的）
+
+### REST-RPC 混合架构
+
+这是我创造的一个术语，用于描述介于 RESTful Web 服务和纯 RPC 风格服务之间的 Web 服务。这些服务通常由熟悉现实世界 Web 应用、但对 REST 理论了解不多的程序员创建。
+
+再来看一下 Flickr Web 服务使用的这个 URI：`http://www.flickr.com/services/rest?api_key=xxx&method=flickr.photos.search&tags=penguin`。
+尽管 URI 中包含 “rest”，但这显然是设计为 RPC 风格服务，使用 HTTP 作为其信封格式。
+它像 RESTful 面向资源服务一样，将范围信息（ “标记为‘penguin’的照片” ）放在 URI 中。
+但方法信息（ “搜索照片” ）也放在 URI 中。
+在 RESTful 服务中，方法信息应放在 HTTP 方法（GET）中，剩下的内容则成为范围信息。
+实际上，该服务只是将 HTTP 用作信封格式，随意地将方法和范围信息放在任何地方。
+这是一个 RPC 风格服务。结案。
+
+不过……请看示例 1-15。
+
+*示例 1-15. 对 Flickr Web 服务的 HTTP 请求示例*
+
+```http
+GET services/rest?api_key=xxx&method=flickr.photos.search&tags=penguin HTTP/1.1
+Host: www.flickr.com
+```
+
+这是客户端远程调用该过程时发起的 HTTP 请求。
+现在看起来方法信息似乎在 HTTP 方法中。
+我发送了一个 GET 请求来获取某些东西。
+我在获取什么？
+一个针对标记为 “penguin” 照片的搜索结果列表。
+曾经看起来像方法信息（ “photoSearch()” ）的东西，现在看起来像范围信息（ “photos/tag/penguin” ）。
+现在这个 Web 服务看起来是 RESTful 的了。
+
+当一个 RPC 风格服务使用纯 HTTP 作为其信封格式，并且方法和范围信息恰巧都位于 HTTP 请求的 URI 部分时，就会产生这种视觉错觉。
+如果 HTTP 方法是 GET，并且 Web 服务请求的目的是 “获取” 信息，就很难判断方法信息是在 HTTP 方法中还是在 URI 中。
+查看在线路上传输的 HTTP 请求，你会看到与 RESTful Web 服务相同的请求。
+它们可能包含像 `method=flickr.photos.search` 这样的元素，但这可以被解释为范围信息，就像 “photos/” 和 “search/” 是范围信息一样。
+这些 RPC 风格服务或多或少偶然地具有了 RESTful Web 服务的元素。
+它们只是将 HTTP 用作方便的信封格式，但使用方式与 RESTful 服务可能做的有所重叠。
+
+许多只读 Web 服务完全符合 RESTful 和面向资源的要求，即使它们是以 RPC 风格设计的！
+但如果服务允许客户端写入数据集，就会出现客户端使用的 HTTP 方法与真实方法信息不匹配的情况。
+这会使服务无法达到应有的 RESTful 程度。
+这类服务就是我所说的 REST-RPC 混合型。
+
+举一个例子。Flickr Web API 要求客户端即使要修改数据集也使用 HTTP GET。
+要删除一张照片，你需要向一个包含 `method=flickr.photos.delete` 的 URI 发起 GET 请求。
+正如我将在 “将数据集拆分为资源 [115]” 中展示的，这根本不是 GET 的用途。
+Flickr Web API 是一个 REST-RPC 混合体：当客户端通过 GET 检索数据时是 RESTful 的，当客户端修改数据集时则是 RPC 风格的。
+
+一些知名的 REST-RPC 混合服务示例包括：
+
+- del.icio.us API
+- “RESTful” 的 Flickr Web API
+- 许多其他号称 RESTful 的 Web 服务
+- 大多数 Web 应用
+
+从设计角度来看，我认为没有人会特意将服务设计成 REST-RPC 混合体。
+由于 HTTP 的工作方式，任何使用纯 HTTP 并暴露多个 URI 的 RPC 风格服务都倾向于最终变成 RESTful 或混合型。
+许多程序员设计 Web 服务的方式与他们设计 Web 应用的方式完全相同，最终得到的是混合型服务。
+
+混合架构的存在引起了很多混淆。
+这种风格对于设计过 Web 应用的人来说很自然，而且人们常常声称混合架构是 RESTful 的：毕竟，它们的工作方式与人类 Web “相同”。
+人们花了大量时间试图区分 RESTful Web 服务和这些神秘的 “其他” 服务。
+我将这些 “其他” 服务归类为 REST-RPC 混合体，这只是一长串新词中最新的一个。
+我认为这个特定的新词是看待这些常见但令人困惑的服务最准确、最有用的方式。
+如果你遇到过其他描述它们的方式（在撰写本文时，“HTTP+POX” 是最流行的），你可能想继续阅读，我会用本书的观点来解释这些其他说法。
+
+## 人类 Web 就在可编程 Web 上
+
+在前面的章节中，我声称所有静态网站都是 RESTful 的。
+我声称 Web 应用属于三类中的一类，其中大多数是 REST-RPC 混合型。
+由于人类 Web 完全由静态网站和 Web 应用组成，这意味着整个人类 Web 也都在可编程 Web 上！
+至此，这应该不会让你感到惊讶了。
+Web 浏览器是一个软件程序，它发起 HTTP 请求并以某种方式处理响应（通过向人类展示）。
+这正是 Web 服务客户端所做的。
+如果它在 Web 上，它就是 Web 服务。
+
+我写本书的目标不是让可编程 Web 变得更大。
+这几乎是不可能的：可编程 Web 已经涵盖了几乎所有带有 HTTP 接口的东西。
+<ins>我的目标是帮助让可编程 Web 变得更好：更统一、结构更清晰，并最大限度地利用 HTTP 的特性。</ins>
+
+### 可编程 Web 上的技术
+
+我已经根据底层架构对 Web 服务进行了分类，区分了鱼和鲸鱼。
+现在我可以检查它们所使用的技术，而不会混淆技术和架构。
+
+### HTTP
+
+所有 Web 服务都使用 HTTP，但使用方式不同。
+对 RESTful Web 服务的请求将方法信息放在 HTTP 方法中，将范围信息放在 URI 中。
+RPC 风格 Web 服务倾向于忽略 HTTP 方法，在 URI、HTTP 首部或实体主体中寻找方法和范围信息。
+一些 RPC 风格 Web 服务将 HTTP 用作包含文档的信封，而另一些则仅将其用作包含另一个信封的未标记信封。
+
+### URI
+
+同样，所有 Web 服务都使用 URI，但方式不同。
+我接下来要说的是一种概括，但相当准确。
+RESTful 面向资源服务为客户端可能想要操作的每一条数据都暴露一个 URI。
+REST-RPC 混合服务为客户端可能执行的每个操作都暴露一个 URI：一个用于获取数据的 URI，另一个用于删除相同数据的 URI。
+RPC 风格服务为每个能够处理远程过程调用（RPC）的进程暴露一个 URI。
+通常只有一个这样的 URI：服务 “端点”。
+
+### XML-RPC
+
+少数（主要是遗留的）Web 服务在 HTTP 之上使用 XML-RPC。
+XML-RPC 是一种用于表示函数调用及其返回值的数据结构格式。
+顾名思义，它明确设计为使用 RPC 风格。
+
+### SOAP
+
+许多 Web 服务在 HTTP 之上使用 SOAP。
+SOAP 是一种信封格式，与 HTTP 类似，但它是基于 XML 的信封格式。
+
+现在我要说一些有争议的话。
+粗略地说，目前所有使用 SOAP 的 Web 服务都具有 RPC 架构。
+这之所以有争议，是因为许多 SOAP 程序员认为 RPC 架构已经过时，更倾向于称其服务为 “面向消息” 或 “面向文档” 的服务。
+
+好吧，所有 Web 服务都是面向消息的，因为 HTTP 本身是面向消息的。
+HTTP 请求只是一个消息：一个内含文档的信封。
+问题在于该文档说了什么。
+基于 SOAP 的服务要求客户端在 HTTP 信封内部再放入一个信封（SOAP 文档）。
+同样，真正的问题在于信封内部说了什么。
+SOAP 信封可以包含任何 XML 数据，就像 HTTP 信封可以在其实体主体中包含任何数据一样。
+但在现有的每一个 SOAP 服务中，SOAP 信封都包含一个类似 XML-RPC 格式的 RPC 调用描述。
+
+有多种方式可以重新排列这个 RPC 描述并赋予它不同的标签 ——“document/literal” 或 “wrapped/literal”—— 但无论如何切分，你得到的都是一个具有大量方法信息词汇表的服务，一个在文档内部而非信封上查找范围信息的服务。
+这些是 RPC 架构的定义性特征。
+
+我要强调的是，这不是关于 SOAP 本身的事实，而是关于它当前使用方式的事实。
+SOAP 和 HTTP 一样，只是将数据放入信封的一种方式。
+然而目前，放入该信封的唯一数据是类似 XML-RPC 的、关于如何调用远程函数或该函数返回值的数据。
+我将在 [第 10 章](ch10.md) 更详细地论证这一点。
+
+### WS-*
+
+这些标准为 SOAP 信封定义了特殊的 XML “标签”。
+这些标签类似于 HTTP 首部。
+
+### WSDL
+
+Web 服务描述语言（WSDL）是一种用于描述基于 SOAP 的 Web 服务的 XML 词汇表。
+客户端可以加载 WSDL 文件，并确切知道它可以调用哪些 RPC 风格方法、这些方法期望哪些参数，以及它们返回哪些数据类型。
+几乎所有现有的 SOAP 服务都暴露一个 WSDL 文件，并且大多数 SOAP 服务如果没有其 WSDL 文件作为指南，将很难使用。
+正如我在 [第 10 章](ch10.md) 中所讨论的，WSDL 在维持 SOAP 与 RPC 风格的关联方面，比其他任何技术都负有更大的责任。
+
+### WADL
+
+Web 应用描述语言（WADL）是一种用于描述 RESTful Web 服务的 XML 词汇表。
+与 WSDL 类似，通用客户端可以加载 WADL 文件，并立即能够访问相应 Web 服务的全部功能。
+我将在 [第 9 章](ch9.md) 讨论 WADL。
+
+由于 RESTful 服务具有更简单的接口，WADL 对这些服务的必要性远不如 WSDL 对 RPC 风格 SOAP 服务那样重要。
+这是一件好事，因为截至撰写本文时，几乎没有真正的 Web 服务提供官方的 WADL 文件。
+Yahoo! 的 Web 搜索服务是其中之一。
+
+## 剩余术语
+
+信不信由你，在关于 REST 的讨论中，还有一些常见的术语我尚未提及。
+我没有提及它们，是因为我认为它们不准确或完全超出了本书的范围。
+但我有责任解释我为什么这么认为，以便你决定是否同意。
+如果你没有听说过这些术语，可以跳过本节。
+
+**面向服务架构（Service-Oriented Architecture，SOA）**
+
+这是一个行业流行词。
+我不打算在此赘述，原因有二。
+首先，这个术语定义得不太明确。
+其次，就它被定义的程度而言，它大致意思是：“一种基于 Web 服务生产和消费的软件架构。”
+在本书中，我讨论的是单个服务的设计。
+一本关于面向服务架构的书应该在稍高的层面上展开，展示如何将服务用作软件组件，如何将它们集成到一个连贯的整体中。我不在本书中涵盖这类内容。
+
+**SOAP 作为 REST 的竞争对手**
+
+如果你参与 Web 服务辩论，你会经常听到这种说法。
+你不会在这里听到，因为它给人错误的印象。
+RESTful 架构的主要竞争对手是 RPC 架构，而不是像 SOAP 这样的特定技术。
+诚然，基本上每一个现存的 SOAP 服务都具有 RPC 架构，但 SOAP 只是像 HTTP 一样，将文档放入带有标签的信封中的一种方式。
+SOAP 与 RPC 架构的关联主要是历史偶然性和当前一代自动化工具的结果。
+
+这里确实存在一种紧张关系，但这不是我将在本书中过多讨论的内容。
+大致来说，这是将文档放入 SOAP 信封再放入 HTTP 信封的服务，与仅使用 HTTP 信封的服务之间的紧张关系。
+
+**HTTP+POX**
+
+代表 HTTP 加上纯旧 XML（Plain Old XML）。
+这个术语大致涵盖了我称之为 REST-RPC 混合服务的那些服务。
+它们与 RESTful 设计有重叠，尤其是在检索数据方面，但其基本架构是面向 RPC 的。
+
+我不喜欢这个术语，因为 “纯旧 XML” 不准确。
+这些服务的有趣之处不在于它们生成纯旧 XML 文档（而非包裹在 SOAP 信封中的 XML 文档）。
+有些这类服务根本不提供 XML：它们提供 JSON、纯文本或二进制文件。
+不，这些服务的有趣之处在于它们的 RPC 架构。
+这才是它们与 REST 对立的原因。
+
+**STREST**
+
+指 Service-Trampled REST。
+这是 REST-RPC 混合架构的另一个术语。
+它比 HTTP+POX 更准确，因为它传达了 RESTful 架构被其他东西（在此例中为 RPC 风格）接管的概念。
+这是一个巧妙的缩写，但我不喜欢它，因为它认同了一个迷思，即唯一真正的 Web 服务是 RPC 风格的服务。
+毕竟，践踏你的 REST 的那个 “服务” 是一个 RPC 服务。
+如果你认为 REST 服务是真正的服务，那么喊 “救命！我本来有一些 REST，然后这个 Service 掺和进来了！”
+就没有意义。RPC-Trampled REST 会更准确，但那是个糟糕的缩写。
+
+**高 REST 与低 REST（High and low REST）**
+
+这是区分真正 RESTful 服务和那些我称之为 REST-RPC 混合服务的另一种方式。
+高 REST 服务就是那些严格遵循 Fielding 论文的服务。
+除其他方面外，它们将方法信息放在 HTTP 方法中，将范围信息放在 URI 中。
+低 REST 服务则被认为偏离了正统。
+由于低 REST 服务倾向于向特定方向（朝向 RPC 风格）偏离正统，我更倾向于使用更具体的术语。
