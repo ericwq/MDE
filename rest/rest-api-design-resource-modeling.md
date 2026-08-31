@@ -204,11 +204,10 @@ Reification 的词典含义是 “使（某抽象事物）更具体或更真实�
 这涉及更新两个底层资源（ “from” 账户和 “to” 账户），还涉及业务验证、创建交易记录、发送通知等。
 如果 “to” 账户在另一家银行，转账可能需要通过中央银行或外部机构进行。
 这里的抽象概念是 “转账” 交易。
-要进行转账，我们可以向 `/transactions` 或 `/accounts/343/transactions` 发起 POST 请求，创建一个新的 “Transaction”（或 “MoneyTransfer” ）资源。
-需要注意的是，创建新的 “Transaction” 资源并不自动意味着为 “Transaction” 创建数据库表。
-API 设计应独立于 API 实现和数据持久化方面的底层设计考量。
+要进行转账，我们可以向 `/transactions` 或 `/accounts/343/transactions` 发起 POST 请求，创建一个新的 “Transaction”（或 “MoneyTransfer” ）资源。<ins>需要注意的是，创建新的 “Transaction” 资源并不自动意味着为 “Transaction” 创建数据库表。
+API 设计应独立于 API 实现和数据持久化方面的底层设计考量</ins>。
 
-在这两种情况下，我们使用的不是 Account 资源，而是一个相当于存款或转账命令的资源 —— Transaction 资源（类似于前面提到的 CustomerEnrollment）。
+<ins>在这两种情况下，我们使用的不是 Account 资源，而是一个相当于存款或转账命令的资源 —— Transaction 资源（类似于前面提到的 CustomerEnrollment）。</ins>
 这是一个好主意，特别是当这可能是一个长时间运行的流程时（例如：转账可能在完成之前涉及多个阶段）。
 当然，这并不排除你同时拥有 Account 资源 —— 它可能作为 “Transaction” 被处理的结果而更新。
 此外，也可能存在向 “Account” 资源发起 API 请求的合理用例。
