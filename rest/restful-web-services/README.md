@@ -8,3 +8,4 @@ Leonard Richardson and Sam Ruby · 2007
 * [前言](preface.md)
 * [第 1 章 可编程 Web 及其居民](ch1.md)
 * [第 2 章 编写 Web 服务客户端](ch2.md)
+* [第 3 章 RESTful 服务有何不同？](ch3.md)
