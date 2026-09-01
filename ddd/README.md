@@ -1,6 +1,7 @@
 # 领域驱动设计 —— 处理软件核心复杂性：（中文版）
 
 <img src="img/cover.webp" width="40%"/><br/>
+Eric Evans · 2004
 
 ## 目录
 * [对《领域驱动设计》的赞誉](praise.md)

@@ -1,6 +1,7 @@
 # 敏捷软件开发：原则、模式与实践
 
 <img src="imgs/cover.jpg" width="40%"/><br/>
+Robert C. Martin  · 2014
 
 ## 目录
 

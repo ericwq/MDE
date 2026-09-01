@@ -2,7 +2,7 @@
 
 <img src="imgs/cover.webp" width="40%"/><br/>
 
-Robert C. Martin (2025)
+Robert C. Martin · 2025
 
 ## 目录
 * [序言](./foreword.md)

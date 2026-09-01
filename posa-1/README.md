@@ -1,6 +1,7 @@
 # 面向模式的软件架构：模式系统
 
-<img src="img/cover.webp" width="40%">
+<img src="img/cover.webp" width="40%"/><br/>
+Frank Buschmann etc. ・1996
 
 ## 目录
 
