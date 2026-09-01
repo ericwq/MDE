@@ -809,7 +809,7 @@ x-amz-metadata:Here's some metadata for the myobject object.
 
 示例 3-18 展示了生成规范字符串的代码。
 
-*示例 3-18. S3 Ruby 客户端：`Authorized#canonical_string` 方法*
+*示例 3-18. S3 Ruby 客户端：`Authorized#canonical_string` 方法* <a id="example-3-18"></a>
 
 ```ruby
 # 将 HTTP 请求的元素转换为一个字符串，该字符串可被签名以证明请求来自你的 Web 服务账户。
@@ -875,3 +875,456 @@ def sign(str)
   return Base64.encode64(digest).strip
 end
 ```
+
+### 签名 URI
+
+我的 S3 库还有一项功能尚未实现。
+我之前多次提到，S3 允许你对 HTTP 请求进行签名，并将 URI 交给他人，让他们以你的身份发起该请求。
+以下就是实现此功能的方法：`signed_uri`（参见示例 3-20）。
+与使用 `open` 发起 HTTP 请求不同，你将 `open` 的参数传入此方法，它会返回一个已签名的 URI，任何人都可以以你的身份使用它。
+为防止滥用，已签名的 URI 仅在有限时间内有效。
+你可以通过传入一个 `Time` 对象作为关键字参数 `:expires` 来自定义该时间。
+
+*示例 3-20. S3 Ruby 客户端：`Authorized#signed_uri` 方法*
+
+```ruby
+# 给定关于 HTTP 请求的信息，返回一个你可以交给任何人的 URI，
+# 以便让他们以你的身份发起该特定的 HTTP 请求。
+# 该 URI 将在 15 分钟内有效，或直到作为 :expires 选项传入的 Time 所指定的时间。
+def signed_uri(headers_and_options={})
+  expires = headers_and_options[:expires] || (Time.now.to_i + (15 * 60))
+  expires = expires.to_i if expires.respond_to? :to_i
+  headers_and_options.delete(:expires)
+
+  signature = URI.escape(signature(uri, headers_and_options[:method],
+                                   headers_and_options, nil))
+  q = (uri.index("?")) ? "&" : "?"
+  "#{uri}#{q}Signature=#{signature}&Expires=#{expires}&AWSAccessKeyId=#{@@public_key}"
+end
+end
+end # 还记得那个包罗万象的 S3 模块吗？这是它的结束。
+```
+
+其工作原理如下。
+假设我想让客户访问我托管的文件 `https://s3.amazonaws.com/BobProductions/KomodoDragon.avi`。
+我可以运行示例 3-21 中的代码来为客户生成一个 URI。
+
+*示例 3-21. 生成已签名的 URI*
+
+```ruby
+#!/usr/bin/ruby1.9
+# s3-signed-uri.rb
+require 'S3lib'
+
+bucket = S3::Bucket.new("BobProductions")
+object = S3::Object.new(bucket, "KomodoDragon.avi")
+puts object.signed_uri
+# "https://s3.amazonaws.com/BobProductions/KomodoDragon.avi
+# ?Signature=J%2Fu6kxT3j0zHaFXjsLbowgpzExQ%3D
+# &Expires=1162156499&AWSAccessKeyId=0F9DBXKB5274JKTJ8DG2"
+```
+
+该 URI 将在 15 分钟内有效，这是我对 `signed_uri` 实现的默认设置。
+它包含我的公钥（`AWSAccessKeyId`）、过期时间（`Expires`）以及加密签名（`Signature`）。
+我的客户可以访问此 URI 并下载电影文件 `KomodoDragon.avi`。
+Amazon 将因客户使用其带宽而向我收费。
+如果我的客户修改了 URI 的任何部分（例如，他们可能试图也下载第二部电影），S3 服务将拒绝他们的请求。
+一个不可信的客户可以将此 URI 发送给所有朋友，但它会在 15 分钟后失效。
+
+你可能已经注意到这里有一个问题。
+规范字符串通常包含 `Date` 标头的值。
+当我的客户访问你签名的 URI 时，他们的 Web 浏览器一定会发送一个不同的 `Date` 标头值。
+这就是为什么当你生成一个交给他人使用的规范字符串时，你设置的是过期时间而不是请求日期。
+请回顾 [示例 3-18](#example-3-18) 中 `canonical_string` 的实现，其中过期时间（如果提供的话）会覆盖 `Date` 标头的任何值。
+
+### 设置访问策略
+
+如果我想让一个对象可公开访问呢？
+我想向全世界提供我的文件，并让 Amazon 来处理服务器管理的麻烦。
+那么，我可以将过期时间设置得非常遥远，并将那个长长的已签名 URI 分发给所有人。
+但有一种更简单的方法可以达到同样的效果：允许匿名访问。
+你可以通过为存储桶或对象设置访问策略来实现这一点，告诉 S3 回应针对它的未签名请求。
+你可以在创建存储桶或对象的 PUT 请求中附带 `x-amz-acl` 标头来完成此设置。
+
+这就是 `Bucket#put` 和 `Object#put` 中 `acl_policy` 参数的作用。
+如果你想让存储桶或对象可公开读取或写入，你可以为 `acl_policy` 传入一个适当的值。
+我的客户端会将该值作为自定义 HTTP 请求标头 `X-amz-acl` 的一部分发送。
+Amazon S3 会读取此请求标头，并相应地设置存储桶或对象的访问规则。
+
+示例 3-22 中的客户端创建了一个 S3 对象，任何人都可以通过访问其 URI `https://s3.amazonaws.com/BobProductions/KomodoDragon-Trailer.avi` 来读取它。
+在这种场景下，我并不是在销售我的电影，而只是将 Amazon 用作托管服务，这样我就不必从自己的网站上提供电影服务了。
+
+*示例 3-22. 创建可公开读取的对象*
+
+```ruby
+#!/usr/bin/ruby -w
+# s3-public-object.rb
+require 'S3lib'
+
+bucket = S3::Bucket.new("BobProductions")
+object = S3::Object.new(bucket, "KomodoDragon-Trailer.avi")
+object.put("public-read")
+```
+
+S3 支持四种访问策略：
+
+- `private`
+  默认值。只接受由你的“私有”密钥签名的请求。
+
+- `public-read`
+  接受未签名的 GET 请求：任何人都可以下载对象或列出存储桶。
+
+- `public-write`
+  接受未签名的 GET 和 PUT 请求。任何人都可以修改对象，或向存储桶中添加对象。
+
+- `authenticated-read`
+  拒绝未签名的请求，但读取请求可以由任何 S3 用户的 “私有” 密钥签名，而不仅限于你自己的。
+基本上，任何拥有 S3 账户的人都可以下载你的对象或列出你的存储桶。
+
+此外，还有一些更细粒度的方式来授予对存储桶或对象的访问权限，我不会在此展开。
+如果你感兴趣，请参阅 S3 技术文档中 “Setting Access Policy with REST” 一节。
+该节揭示了一个额外资源的平行宇宙。
+每个存储桶 `/{name-of-bucket}` 都有一个对应的影子资源 `/{name-of-bucket}?acl`，对应到该存储桶的访问控制规则；
+每个对象 `/{name-of-bucket}/{name-of-object}` 也有一个对应的影子 ACL 资源 `/{name-of-bucket}/{name-of-object}?acl`。
+通过向这些 URI 发送 PUT 请求，并在请求实体主体中包含访问控制列表的 XML 表述，你可以设置特定的权限并将访问限制在特定的 S3 用户范围内。
+
+## 使用 S3 客户端库
+
+现在我已经向你展示了一个 Ruby 客户端库，它几乎可以访问 Amazon S3 服务的全部功能。
+当然，如果没有使用它的客户端，库本身是无用的。
+在上一节中，我展示了几个小型客户端来演示有关安全性的要点，但现在我想展示一些更实质性的内容。
+
+示例 3-23 是一个简单的命令行 S3 客户端，它可以创建存储桶和对象，然后列出存储桶的内容。
+该客户端应该能让你从高层次上了解 S3 的资源是如何协同工作的。
+我通过在右侧注释中描述 HTTP 请求，对触发 HTTP 请求的代码行进行了标注。
+
+**示例 3-23. 一个示例 S3 客户端**
+
+```ruby
+#!/usr/bin/ruby -w
+# s3-sample-client.rb
+require 'S3lib'
+
+# 收集命令行参数
+bucket_name, object_name, object_value = ARGV
+unless bucket_name
+  puts "Usage: #{$0} [bucket name] [object name] [object value]"
+  exit
+end
+
+# 查找或创建存储桶。
+buckets = S3::BucketList.new.get   # GET /
+bucket = buckets.detect { |b| b.name == bucket_name }
+if bucket
+  puts "Found bucket #{bucket_name}."
+else
+  puts "Could not find bucket #{bucket_name}, creating it."
+  bucket = S3::Bucket.new(bucket_name)
+  bucket.put                     # PUT /{bucket}
+end
+
+# 创建对象。
+object = S3::Object.new(bucket, object_name)
+object.metadata['content-type'] = 'text/plain'
+object.value = object_value
+object.put                       # PUT /{bucket}/{object}
+
+# 对于存储桶中的每个对象...
+bucket.get[0].each do |o|         # ...打印输出对象的信息。
+  puts "Name: #{o.name}"
+  puts "Value: #{o.value}"
+  puts "Metadata hash: #{o.metadata.inspect}"
+  puts
+end
+```
+
+## 使用 ActiveResource 使客户端透明化
+
+<ins>由于所有 RESTful Web 服务基本上都暴露相同简单的接口，为每个 Web 服务编写自定义客户端并不是一项繁重的任务。
+不过，这确实有点浪费，而且有两种替代方案。
+你可以使用 WADL 文件（在上一章中介绍，并在 [第 9 章](ch9.md) 中详细讨论）来描述服务，然后使用通用的 WADL 客户端访问它。
+此外，还有一个名为 ActiveResource 的 Ruby 库，它使得为某些类型的 Web 服务编写客户端变得非常简单。</ins>
+
+<ins>ActiveResource 被设计用于针对暴露关系数据库行和表的 Web 服务。
+WADL 可以描述几乎任何类型的 Web 服务，但 ActiveResource 仅作为遵循特定约定的 Web 服务的客户端才能工作。</ins>
+目前，Ruby on Rails 是唯一遵循这些约定的框架。
+但任何 Web 服务都可以响应 ActiveResource 客户端的请求：它只需像 Rails 一样通过相同的 RESTful 接口暴露其数据库即可。
+
+在撰写本文时，很少有公开可用的 Web 服务可以与 ActiveResource 客户端一起使用（我在 [附录 A](appendix-b.md) 中列出了几个）。
+为了向你展示一个示例，我将自己创建一个小的 Rails Web 服务。
+我将能够使用 ActiveResource 客户端驱动我的服务，而无需编写任何 HTTP 客户端或 XML 解析代码。
+
+### 创建简单服务
+
+我的 Web 服务将是一个简单的笔记本：一种为自己保留带时间戳笔记的方式。
+我的计算机上已安装 Rails 1.2，因此我可以像这样创建笔记本服务：
+
+```bash
+$ rails notebook
+$ cd notebook
+```
+
+我在系统上创建一个名为 `notebook_development` 的数据库，并编辑 Rails 文件 `notebook/config/database.yml`，为 Rails 提供连接数据库所需的信息。
+任何通用的 Rails 指南都会对这些初始步骤有更详细的说明。
+
+现在我已经创建了一个 Rails 应用程序，但它还没有任何功能。
+我将使用 `scaffold_resource` 生成器为一个简单的 RESTful Web 服务生成代码。
+我希望我的笔记包含一个时间戳和一段文本正文，因此我运行以下命令：
+
+```bash
+$ ruby script/generate scaffold_resource note date:date body:text
+```
+
+```
+create  app/views/notes
+create  app/views/notes/index.rhtml
+create  app/views/notes/show.rhtml
+create  app/views/notes/new.rhtml
+create  app/views/notes/edit.rhtml
+create  app/views/layouts/notes.rhtml
+create  public/stylesheets/scaffold.css
+create  app/models/note.rb
+create  app/controllers/notes_controller.rb
+create  test/functional/notes_controller_test.rb
+create  app/helpers/notes_helper.rb
+create  test/unit/note_test.rb
+create  test/fixtures/notes.yml
+create  db/migrate
+create  db/migrate/001_create_notes.rb
+route  map.resources :notes
+```
+
+Rails 已为我的 “note” 对象生成了一整套 Web 服务代码 —— 模型、视图和控制器。
+在 `db/migrate/001_create_notes.rb` 中有用于创建名为 `notes` 的数据库表的代码，该表包含三个字段：一个唯一 ID、一个日期（`date`）和一段文本（`body`）。
+
+<a id="fig-3-1"></a>
+
+<img src="./img/fig-3-1.png" width="90%"/><br/>
+*图 3-1. 已输入若干条笔记的 notebook Web 应用程序*
+
+`app/models/note.rb` 中的模型代码提供了对数据库表的 ActiveResource 接口。
+`app/controllers/notes_controller.rb` 中的控制器代码通过 HTTP 将该接口暴露给外部世界，而 `app/views/notes` 中的视图则定义了用户界面。
+这些合起来构成了一个 RESTful Web 服务 —— 虽然不算特别花哨，但足以用于演示或作为起点。
+
+在启动服务之前，我需要初始化数据库：
+
+```bash
+$ rake db:migrate
+== CreateNotes: migrating =====================================================
+-- create_table(:notes)
+   -> 0.0119s
+== CreateNotes: migrated (0.0142s) ============================================
+```
+
+现在我可以启动笔记本应用程序并开始使用我的服务了：
+
+```bash
+$ script/server
+=> Booting WEBrick...
+=> Rails application started on http://0.0.0.0:3000
+=> Ctrl-C to shutdown server; call with --help for options
+```
+
+### 一个 ActiveResource 客户端
+
+我刚刚生成的应用程序除了作为演示之外并没有太大用处，但它展示了一些相当令人印象深刻的功能。
+首先，它既是一个 Web 服务，也是一个 Web 应用程序。
+我可以在 Web 浏览器中访问 `http://localhost:3000/notes`，并通过 Web 界面创建笔记。
+一段时间后，`http://localhost:3000/notes` 的视图可能看起来像 [图 3-1](#fig-3-1)。
+
+如果你曾经编写过 Rails 应用程序或看过 Rails 演示，这应该看起来并不陌生。
+但在 Rails 1.2 中，生成的模型和控制器也可以充当 RESTful Web 服务。
+编程客户端可以像 Web 浏览器一样轻松地访问它。
+
+不幸的是，ActiveResource 客户端本身并未与 Rails 1.2 一同发布。
+在撰写本文时，它仍在 Rails 开发树的主干上开发中。
+为了获取代码，我需要从 Subversion 版本控制仓库中检出它：
+
+```bash
+$ svn co http://dev.rubyonrails.org/svn/rails/trunk activeresource_client
+$ cd activeresource_client
+```
+
+现在我准备好为 nootbook 的 Web 服务编写 ActiveResource 客户端了。
+示例 3-24 是一个客户端，它创建一条笔记、修改它、列出现有笔记，然后删除它刚刚创建的笔记。
+
+*示例 3-24. 笔记本服务的 ActiveResource 客户端* <a id="example-3-24"></a>
+
+```ruby
+#!/usr/bin/ruby -w
+# activeresource-notebook-manipulation.rb
+require 'activesupport/lib/active_support'
+require 'activeresource/lib/active_resource'
+
+# 为站点暴露的对象定义模型
+class Note < ActiveResource::Base
+  self.site = 'http://localhost:3000/'
+end
+
+def show_notes
+  notes = Note.find :all
+  puts "I see #{notes.size} note(s):"
+  notes.each do |note|
+    puts "  #{note.date}: #{note.body}"
+  end
+end
+
+# GET /notes.xml
+new_note = Note.new(:date => Time.now, :body => "A test note")
+new_note.save   # POST /notes.xml
+new_note.body = "This note has been modified."
+new_note.save   # PUT /notes/{id}.xml
+show_notes
+new_note.destroy   # DELETE /notes/{id}.xml
+puts
+show_notes
+```
+
+示例 3-25 显示了运行该程序时的输出：
+
+*示例 3-25. `activeresource-notebook-manipulation.rb` 的一次运行*
+
+```
+I see 3 note(s):
+  2006-06-05: What if I wrote a book about REST?
+  2006-12-18: Pasta for lunch maybe?
+  2006-12-18: This note has been modified.
+I see 2 note(s):
+  2006-06-05: What if I wrote a book about REST?
+  2006-12-18: Pasta for lunch maybe?
+```
+
+如果你熟悉 ActiveRecord（Rails 连接数据库的对象关系映射器），你会注意到 ActiveResource 的接口看起来几乎完全相同。
+这两个库都为各种各样的对象提供了面向对象的接口，每个对象都暴露出一致的接口。
+对于 ActiveRecord，对象存在于数据库中，并通过 SQL（及其 `SELECT`、`INSERT`、`UPDATE` 和 `DELETE`）暴露。
+对于 ActiveResource，它们存在于 Rails 应用程序中，并通过 HTTP（及其 `GET`、`POST`、`PUT` 和 `DELETE`）暴露。
+
+示例 3-26 是我运行 ActiveResource 客户端时 Rails 服务器日志的摘录。
+GET、POST、PUT 和 DELETE 请求对应于示例 3-24 中带注释的代码行。
+
+*示例 3-26. `activeresource-notebook-manipulation.rb` 发出的 HTTP 请求*
+
+```
+"POST /notes.xml HTTP/1.1" 201
+"PUT /notes/5.xml HTTP/1.1" 200
+"GET /notes.xml HTTP/1.1" 200
+"DELETE /notes/5.xml HTTP/1.1" 200
+"GET /notes.xml HTTP/1.1" 200
+```
+
+这些请求中发生了什么？
+与对 S3 的请求相同：通过 HTTP 的统一接口进行资源访问。
+我的笔记本服务暴露了两种资源：
+
+- 笔记列表（`/notes.xml`）。类似于 S3 存储桶，它是一个对象列表。
+- 单条笔记（`/notes/{id}.xml`）。类似于 S3 对象。
+
+这些资源像 S3 资源一样暴露 GET、PUT 和 DELETE。
+笔记列表还支持 POST 来创建新笔记。
+这与 S3 略有不同，在 S3 中对象是使用 PUT 创建的，但这同样符合 RESTful 风格。
+
+当客户端运行时，XML 文档在客户端和服务器之间无形地传输。
+它们看起来像示例 3-27 或 3-28 中的文档：对底层数据库行的简单描述。
+
+*示例 3-27. 对 `/notes.xml` 发起 GET 请求的响应实体主体*
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<notes>
+  <note>
+    <body>What if I wrote a book about REST?</body>
+    <date type="date">2006-06-05</date>
+    <id type="integer">2</id>
+  </note>
+  <note>
+    <body>Pasta for lunch maybe?</body>
+    <date type="date">2006-12-18</date>
+    <id type="integer">3</id>
+  </note>
+</notes>
+```
+
+*示例 3-28. 作为对 `/notes/5.xml` 发起 PUT 请求的一部分发送的请求实体主体*
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<note>
+  <body>This note has been modified.</body>
+</note>
+```
+
+### 简单服务的 Python 客户端
+
+目前，唯一的 ActiveResource 客户端库是 Ruby 库，而 Rails 是唯一暴露兼容 ActiveResource 服务的框架。
+但这里所发生的一切无非是 HTTP 请求将 XML 文档传入特定 URI 并取回 XML 文档。
+没有理由不能用其他语言的客户端发送这些 XML 文档，也没有理由不能用其他框架暴露相同的 URI。
+
+示例 3-29 是 [示例 3-24](#example-3-24) 中客户端程序的 Python 实现。
+它比 Ruby 程序更长，因为它不能依赖 ActiveResource。
+它必须自己构建 XML 文档并自己发起 HTTP 请求，但其结构与 Ruby 版本几乎完全相同。
+
+*示例 3-29. 面向 ActiveResource 服务的 Python 客户端*
+
+```python
+#!/usr/bin/python
+# activeresource-notebook-manipulation.py
+from elementtree.ElementTree import Element, SubElement, tostring
+from elementtree import ElementTree
+import httplib2
+import time
+
+BASE = "http://localhost:3000/"
+client = httplib2.Http(".cache")
+
+def showNotes():
+    headers, xml = client.request(BASE + "notes.xml")
+    doc = ElementTree.fromstring(xml)
+    for note in doc.findall('note'):
+        print "%s: %s" % (note.find('date').text, note.find('body').text)
+
+newNote = Element("note")
+date = SubElement(newNote, "date")
+date.attrib['type'] = "date"
+date.text = time.strftime("%Y-%m-%d", time.localtime())
+body = SubElement(newNote, "body")
+body.text = "A test note"
+
+headers, ignore = client.request(BASE + "notes.xml", "POST",
+                                 body=tostring(newNote),
+                                 headers={'content-type' : 'application/xml'})
+newURI = headers['location']
+
+modifiedBody = Element("note")
+body = SubElement(modifiedBody, "body")
+body.text = "This note has been modified"
+client.request(newURI, "PUT",
+               body=tostring(modifiedBody),
+               headers={'content-type' : 'application/xml'})
+
+showNotes()
+client.request(newURI, "DELETE")
+print
+showNotes()
+```
+
+## 结语
+
+由于 RESTful Web 服务具有简单且定义良好的接口，因此克隆它们或将一种实现替换为另一种实现并不困难。
+Park Place（ http://code.whytheluckystiff.net/parkplace ）是一个 Ruby 应用程序，它暴露了与 S3 相同的 HTTP 接口。
+你可以使用 Park Place 来托管你自己的 S3 版本。
+S3 库和客户端程序将能够像现在针对 `https://s3.amazonaws.com/` 那样，在你的 Park Place 服务器上正常工作。
+
+同样，克隆 ActiveResource 也是可能的。
+目前还没有人这样做，但为 Python 或任何其他动态语言编写一个通用的 ActiveResource 客户端应该并不困难。
+与此同时，为兼容 ActiveResource 的服务编写一次性客户端，并不比为任何其他 RESTful 服务编写客户端更困难。
+
+到目前为止，你应该已经对为任何 RESTful 或 REST-RPC 混合服务编写客户端的前景感到自如了，无论它提供的是 XML、HTML、JSON 还是某种混合格式。
+这一切都只是 HTTP 请求和文档解析。
+
+你还应该开始体会到，像 S3 和 Yahoo! 搜索服务这样的 RESTful Web 服务，与像 Flickr 和 del.icio.us API 这样的 RPC 风格及混合服务之间有何不同。
+这不是对服务内容的评判，而只是对其架构的评判。
+在木工技艺中，顺应木材的纹理非常重要。
+Web 也有其纹理，而 RESTful Web 服务就是与之协同工作的服务。
+
+在接下来的章节中，我将展示如何创建更像 S3 而不那么像 del.icio.us API 的 Web 服务。
+这将在 [第 7 章](ch7.md) 达到高潮，该章将 del.icio.us 重新发明为一个 RESTful Web 服务。
