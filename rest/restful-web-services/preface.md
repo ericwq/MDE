@@ -45,6 +45,7 @@ Web 是一个简单、无处不在，但却被忽视的分布式编程平台。
 我们的示例包括真实世界的 RESTful 服务，如 Amazon 的 Simple Storage Service（S3）、Atom Publishing Protocol 的各种实现，以及 Google Maps。
 我们还选取了一些未能完全达到 RESTful 标准的流行服务，如 del.icio.us 的社会书签 API，并对它们进行改造使其符合 REST 风格。
 
+<a id="web-is-simple"></a>
 ## Web 是简单的
 
 为什么我们如此痴迷于 Web，以至于认为它可以做任何事情？
@@ -90,6 +91,7 @@ HTTP 0.9 中缺失的许多特性后来被证明是不必要的，甚至是适�
 我们只需要做出一些调整。
 计算机程序擅长构建和解析复杂的数据结构，但在解释文档方面，它们并不像人类那样灵活。
 
+<a id="big-web-services"></a>
 ## Big Web Services 并不简单
 
 有许多协议和标准（大多构建于 HTTP 之上）是为构建 Web Services（注意大小写）而设计的。
@@ -132,6 +134,7 @@ Big Web Services 确实有一个优势：现代工具可以通过一次点击从
 成功提供服务还意味着成为 Web 的一部分，而不仅仅是 “在” Web 上：使你的信息在管辖优秀网站设计的相同规则下可用。
 你离基础 Web 协议越近，这就越容易实现。
 
+<a id="the-story-of-REST"></a>
 ## REST 的故事
 
 REST 是简单的，但它有明确的定义，并不是以 “它们是一样的” 为借口，将 Web 服务实现为半吊子网站。
@@ -168,6 +171,7 @@ RPC 架构通过一个复杂的、类似编程语言的接口暴露内部算法�
 ROA 则通过一个简单的、始终如一的文档处理接口暴露内部数据。
 在 [第 10 章](ch10.md) 中，我们比较了这两种架构，并展示了如何为 ROA 进行辩护。
 
+<a id="reuniting-the-webs"></a>
 ## 重新统一两个 Web
 
 多年来，程序员们一直将网站当作 Web 服务来使用 —— 当然，这是非官方的。§
@@ -190,6 +194,7 @@ ROA 则通过一个简单的、始终如一的文档处理接口暴露内部数�
 我们认为，是时候认真开始将其规则应用于分布式编程，将这些信息和流程向自动化客户端开放了。
 如果你同意，本书将向你展示如何做到这一点。
 
+<a id="what-is-in-this-book"></a>
 ## 本书内容
 
 <ins>在本书中，我们聚焦于实际问题：如何设计和实现 RESTful Web 服务，以及这些服务的客户端。
@@ -301,6 +306,7 @@ JavaScript 和 Ajax 将在第 11 章单独介绍。
 
 </div><br/>
 
+<a id="administrative-notes"></a>
 ## 管理说明
 
 本书有两位作者（Leonard 和 Sam），但在本书的其余部分，我们将把我们的身份合并为单一的叙述者 “我”。
@@ -320,6 +326,7 @@ Ruby 的标准 Web 框架 Ruby on Rails 也是 RESTful Web 服务的领先实现
 如果你更熟悉 Java 而非 Ruby，这些实现可能会帮助你理解代码背后的概念。
 最值得注意的是，其中包含了 [第 3 章](./ch3.md) 中 Amazon S3 客户端的完整 Java 实现。
 
+<a id="conventions-used-in-this-book"></a>
 ## 本书使用的约定
 
 本书使用以下排版约定：
@@ -340,6 +347,7 @@ Ruby 的标准 Web 框架 Ruby on Rails 也是 RESTful Web 服务的领先实现
 
 ⚠️ 此图标表示警告或注意。
 
+<a id="using-code-examples"></a>
 ## 使用代码示例
 
 本书旨在帮助你完成工作。
@@ -356,6 +364,7 @@ Ruby 的标准 Web 框架 Ruby on Rails 也是 RESTful Web 服务的领先实现
 
 如果你认为你对代码示例的使用超出了合理使用范围或上述许可范围，请随时通过 permissions@oreilly.com 联系我们。
 
+<a id="safari-enabled"></a>
 ## Safari® Enabled
 
 当你在喜爱的技术书籍封面上看到 Safari® Enabled 图标时，这意味着该书可通过 O'Reilly Network Safari Bookshelf 在线获取。
@@ -364,6 +373,7 @@ Safari 提供了一种比电子书更好的解决方案。
 它是一个虚拟图书馆，让你可以轻松搜索数千本顶级技术书籍、剪切和粘贴代码示例、下载章节，并在你需要最准确、最新信息时快速找到答案。
 免费试用请访问 http://safari.oreilly.com。
 
+<a id="how-to-contact-us"></a>
 ## 如何联系我们
 
 有关本书的意见和问题，请寄往出版商：
@@ -387,6 +397,7 @@ bookquestions@oreilly.com
 
 http://www.oreilly.com
 
+<a id="acknowledgments"></a>
 ## 致谢
 
 我们最终要感谢那些让我们认识到可以直接使用 HTTP 进行编程的人们。

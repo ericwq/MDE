@@ -17,6 +17,7 @@ Amazon E-Commerce Service（见 [示例 1-2](ch1.md#example-1-2) ）也相当简
 这就是为什么我在本书早期就介绍了它们，当时我唯一想展示的是可编程 Web 上有什么以及如何编写 HTTP 客户端。
 现在我们即将进入一个重要的设计章节，我需要向你展示当一个服务是 RESTful 且面向资源时，它是什么样子的。
 
+ <a id="intoroduce-s3"></a>
 ## 介绍 Simple Storage Service
 
 有两个流行的 Web 服务可以满足这一需求：Atom Publishing Protocol（APP）和 Amazon 的 Simple Storage Service（S3）。
@@ -54,6 +55,7 @@ S3 仅用于编程用途。
 Amazon 提供了 Ruby、Python、Java、C# 和 Perl 的示例库（参见 http://developer.amazonwebservices.com/connect/kbcategory.jspa?categoryID=47 ）。
 还有第三方库，如 Ruby 的 AWS::S3（ http://amazon.rubyforge.org/ ），其中包含我在 [示例 1-4](ch1.md#example-1-4) 中演示的 `s3sh` shell。
 
+<a id="ood-s3"></a>
 ## S3 的面向对象设计
 
 S3 基于两个概念：S3 “存储桶” 和 S3 “对象”。
@@ -123,6 +125,7 @@ class S3Object
 end
 ```
 
+<a id="resources"></a>
 ## 资源
 
 Amazon 将 S3 暴露为两种不同的 Web 服务：
@@ -188,6 +191,7 @@ S3 是一个相当通用的服务。
 在 RESTful 服务中，URI 指定一个对象（在面向对象的意义上），方法名称是标准化的。
 同样的一些方法在资源和服务之间以相同的方式工作。
 
+<a id="http-response-code"></a>
 ## HTTP 响应码
 
 <ins>RESTful 架构的另一个定义性特征是它对 HTTP 响应码的使用</ins>。
@@ -241,6 +245,7 @@ S3 还使用其他几种，包括 400（“Bad Request”），表示服务器�
 我在 [附录 B](appendix-b.md) 中描述了每个 HTTP 响应码，重点关注它们在 Web 服务中的应用。
 共有 41 个官方 HTTP 响应码，但日常使用中只有大约 10 个是重要的。
 
+<a id="a-s3-client"></a>
 ## 一个 S3 客户端
 
 Amazon 的示例库以及像 AWS::S3 这样的第三方贡献，大大减少了自定义 S3 客户端库的需求。
@@ -447,7 +452,7 @@ S3 存储桶的永久 ID 是其 URI，而 URI 包含了名称。
 我不会详细展开这些过滤选项。
 如果你感兴趣，可以参阅 S3 技术文档中关于 “Listing Keys” 的部分。
 
-*示例 3-7. S3 Ruby 客户端：`S3::Bucket` 类（完结）*
+*示例 3-7. S3 Ruby 客户端：`S3::Bucket` 类（完结）* <a id="example-3-7"></a>
 
 ```ruby
 # 获取此存储桶中的对象：全部对象，或某个子集。
@@ -696,6 +701,7 @@ RELEVANT_HEADERS = ['content-type', 'content-disposition', 'content-range',
 end
 ```
 
+<a id="request-signing-and-access-control"></a>
 ## 请求签名与访问控制
 
 我已经尽可能推迟这个话题，现在是时候处理 S3 认证问题了。
@@ -988,6 +994,7 @@ S3 支持四种访问策略：
 每个对象 `/{name-of-bucket}/{name-of-object}` 也有一个对应的影子 ACL 资源 `/{name-of-bucket}/{name-of-object}?acl`。
 通过向这些 URI 发送 PUT 请求，并在请求实体主体中包含访问控制列表的 XML 表述，你可以设置特定的权限并将访问限制在特定的 S3 用户范围内。
 
+<a id="using-s3-client"></a>
 ## 使用 S3 客户端库
 
 现在我已经向你展示了一个 Ruby 客户端库，它几乎可以访问 Amazon S3 服务的全部功能。
@@ -1038,6 +1045,7 @@ bucket.get[0].each do |o|         # ...打印输出对象的信息。
 end
 ```
 
+<a id="clients-made-transparent-with-activeresource"></a>
 ## 使用 ActiveResource 使客户端透明化
 
 <ins>由于所有 RESTful Web 服务基本上都暴露相同简单的接口，为每个 Web 服务编写自定义客户端并不是一项繁重的任务。
@@ -1307,6 +1315,7 @@ print
 showNotes()
 ```
 
+<a id="parting-words"></a>
 ## 结语
 
 由于 RESTful Web 服务具有简单且定义良好的接口，因此克隆它们或将一种实现替换为另一种实现并不困难。

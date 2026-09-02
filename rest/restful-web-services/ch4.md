@@ -23,6 +23,7 @@ HTTP 方法只有少数几个，并且每个人都预先知道它们的作用。
 希望到现在我已经让你相信，网站就是 Web 服务，而且许多 Web 应用程序（如搜索引擎）就是 RESTful Web 服务。
 当我讨论像可寻址性这样的抽象概念时，向你展示真实的 URI 是很有用的，你可以将它们输入到你的 Web 浏览器中，以查看这些概念的实际作用。
 
+<a id="resource-oriented-what"></a>
 ## 面向资源——什么？
 
 为什么要提出一个新术语 “面向资源的架构” ？
@@ -67,6 +68,7 @@ REST 的传统定义留下了很多开放空间，从业者们用民间传说填
 Alex Bunardzic 在 2006 年 8 月使用了 “Resource-Oriented Architecture”，早于本书的宣布：http://jooto.com/blog/index.php/2006/08/08/replacing-service-oriented-architecture-with-resource-oriented-architecture/ 。
 我并不同意这些文章中的全部观点，但我承认它们在术语使用上的优先性。
 
+<a id="what-is-a-resource"></a>
 ## 什么是资源？
 
 <ins>资源是任何重要到足以被作为事物本身来引用的东西。
@@ -93,6 +95,7 @@ Alex Bunardzic 在 2006 年 8 月使用了 “Resource-Oriented Architecture”�
 - 两位熟人 Alice 和 Bob 之间的关系
 - 缺陷数据库中的未关闭缺陷列表
 
+<a id="uri"></a>
 ## URI
 
 <ins>是什么让一个资源成为资源？
@@ -199,7 +202,7 @@ Web 上的每个资源至少有一个 URI。
 当你获取一个网页时，它通常传达一些自身的信息，但它也有指向其他网页的链接。</ins>
 当你使用 Amazon S3 客户端检索一个 S3 存储桶时，你会得到一份包含该存储桶信息以及相关资源（存储桶中的对象）信息的文档。
 
-## 可寻址性
+## 可寻址性 <a id="addressability"></a>
 
 现在我已经介绍了资源和它们的 URI，我可以深入探讨 ROA 的两个特性：可寻址性和无状态性。
 
@@ -274,6 +277,7 @@ Gmail Web 服务是可寻址的，但使用它的 Gmail Web 应用程序却不�
 
 § 该 Web 服务的其他消费者包括适用于 Python 的 libgmail 库（ http://libgmail.sourceforge.net/ ）。
 
+<a id="statelessness"></a>
 ## 无状态性
 
 可寻址性是 ROA 的四个主要特性之一。
@@ -437,6 +441,7 @@ API 密钥就像 Rails 的 `_session_id` cookie，是服务器端客户端会话
 无状态性消除了这一要求。
 作为服务设计者，只有当你的资源状态需要跨多台机器拆分时，你才需要开始考虑数据复制的问题。
 
+<a id="representation"></a>
 ## 表述
 
 当你将应用程序拆分为资源时，你增加了它的表面积。
@@ -540,7 +545,7 @@ URI 会在人与人之间、程序与程序之间传递。
 我认为自动化 Web 客户端应该尽可能明确地说明它想要的表述。
 这几乎总是意味着在 URL 中指定表述。
 
-## 链接与连通性
+## 链接与连通性 <a id="links-and-connectedness"></a>
 
 有时，表述仅仅是序列化的数据结构。它们的用途就是提取出其中的数据，之后便被丢弃。
 但在最具 RESTful 风格的服务中，表述是超媒体：文档不仅包含数据，还包含指向其他资源的链接。
@@ -623,6 +628,7 @@ S3 的表述从不包含 URI。
 </ListAllMyBucketsResult>
 ```
 
+<a id="uniform-interface"></a>
 ## 统一接口
 
 在整个 Web 上，你能对资源执行的基本操作只有少数几种。
@@ -935,6 +941,7 @@ GET、PUT 等并非适用于所有时代的完美接口。
 这个接口刚好足以区分安全和不安全的操作。
 一个面向资源的 Web 应用程序会使用这个接口，因为当今的 HTML 表单只支持 GET 和 POST。
 
+<a id="that-is-it"></a>
 ## 就是这样！
 
 这就是面向资源的架构（ROA）。

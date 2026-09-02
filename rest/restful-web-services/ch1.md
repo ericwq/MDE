@@ -147,6 +147,7 @@ $ s3sh
 我将展示一些真实的代码和真实的 HTTP 会话，
 但本章的主要目标是让你开始将万维网视为一种将计算机程序相互连接的方式，其条件与它将人类相互连接的方式相同。
 
+<a id="kinds-of-things"></a>
 ## 可编程 Web 上的事物类型
 
 可编程 Web 基于 HTTP 和 XML。
@@ -176,6 +177,7 @@ $ s3sh
 <ins>我将呈现一个基于架构的分类法，展示技术选择是如何从底层设计原则中衍生出来的。
 我将揭示一些后续全书都会反复提及的划分，但我的主要目的是聚焦于可编程 Web 中那些可以合理地与 “REST” 一词相关联的部分。</ins>
 
+<a id="documents-in-envelopes"></a>
 ## HTTP：信封中的文档
 
 如果我要对海洋动物进行分类，我会从它们共同的特性开始：DNA、细胞结构、胚胎发育规律。
@@ -285,6 +287,7 @@ Connection: Keep-Alive
   最常见的媒体类型包括文本文档（`text/html`）、结构化数据文档（`application/xml`）和图像（`image/jpeg`）。
   在其他关于 REST 或 HTTP 的讨论中，你可能会看到媒体类型被称为 “MIME type”、“内容类型” 或 “数据类型”。
 
+<a id="method-info"></a>
 ## 方法信息
 
 HTTP 是可编程 Web 上所有 “动物” 唯一的共同点。
@@ -461,7 +464,8 @@ SOAPAction: urn:GoogleSearchAction
 要使用你的 Web 浏览器在 Google 的数据集中搜索 “REST”，你会向 `http://www.google.com/search?q=REST` 发送一个 GET 请求，并收到一个 HTML 响应。
 方法信息保存在 HTTP 方法中：你是在 GET（获取）一个搜索结果列表。
 
-## 范围信息（Scoping Information）
+<a id="scoping-info"></a>
+## 范围信息
 
 <ins>Web 服务回答方式不同的另一个大问题是：客户端如何告诉服务器要操作数据集的哪一部分？
 假设服务器理解客户端想要（比如）删除某些数据，它如何知道客户端想要删除哪些数据？
@@ -502,6 +506,7 @@ Flickr 就是其中之一：Flickr API URI 中的大多数查询变量都是范�
 方法信息是 HTTP 标准的 GET。
 （如果 Google SOAP API 提供了一个名为 `doGoogleSearchForREST` 的方法，那它就是在如此宽泛地定义方法信息，以至于你不需要任何范围信息来执行对 REST 的搜索。）
 
+<a id="competing-architecture"></a>
 ## 竞争架构
 
 现在我已经确定了 Web 服务回答方式不同的两个主要问题，我可以根据它们对这些问题的回答来对 Web 服务进行分组。
@@ -720,7 +725,7 @@ Flickr Web API 是一个 REST-RPC 混合体：当客户端通过 GET 检索数�
 我认为这个特定的新词是看待这些常见但令人困惑的服务最准确、最有用的方式。
 如果你遇到过其他描述它们的方式（在撰写本文时，“HTTP+POX” 是最流行的），你可能想继续阅读，我会用本书的观点来解释这些其他说法。
 
-## 人类 Web 就在可编程 Web 上
+### 人类 Web 就在可编程 Web 上
 
 在前面的章节中，我声称所有静态网站都是 RESTful 的。
 我声称 Web 应用属于三类中的一类，其中大多数是 REST-RPC 混合型。
@@ -734,7 +739,8 @@ Web 浏览器是一个软件程序，它发起 HTTP 请求并以某种方式处�
 这几乎是不可能的：可编程 Web 已经涵盖了几乎所有带有 HTTP 接口的东西。
 <ins>我的目标是帮助让可编程 Web 变得更好：更统一、结构更清晰，并最大限度地利用 HTTP 的特性。</ins>
 
-### 可编程 Web 上的技术
+<a id="tech-on-the-programming-web"></a>
+## 可编程 Web 上的技术
 
 我已经根据底层架构对 Web 服务进行了分类，区分了鱼和鲸鱼。
 现在我可以检查它们所使用的技术，而不会混淆技术和架构。
@@ -808,6 +814,7 @@ Web 应用描述语言（WADL）是一种用于描述 RESTful Web 服务的 XML 
 这是一件好事，因为截至撰写本文时，几乎没有真正的 Web 服务提供官方的 WADL 文件。
 Yahoo! 的 Web 搜索服务是其中之一。
 
+<a id="leftover-terminology"></a>
 ## 剩余术语
 
 信不信由你，在关于 REST 的讨论中，还有一些常见的术语我尚未提及。

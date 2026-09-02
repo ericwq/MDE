@@ -1,5 +1,6 @@
 # 第 2 章 编写 Web 服务客户端
 
+<a id="web-services-are-web-sites"></a>
 ## Web 服务就是网站
 
 在 [第 1 章](ch1.md) 中，我展示了一些针对现有公共 Web 服务的客户端快速示例。
@@ -118,6 +119,7 @@ ActiveResource 使得为使用 Ruby on Rails 框架编写的多种 Web 服务编
 <img src="./img/fig-2-1.png" width="90%"/><br/>
 *图 2-1. del.icio.us 截图*
 
+<a id="the-sample-application"></a>
 ## del.icio.us：示例应用
 
 在本章中，我将从客户端的角度，逐步讲解 Web 服务请求的生命周期。
@@ -244,6 +246,7 @@ Amphibian Mania: http://amphibians.com/
 
 </div><br/>
 
+<a id="making-the-request"></a>
 ## 发起请求：HTTP 库
 
 每种现代编程语言都有一个或多个用于发起 HTTP 请求的库。
@@ -633,6 +636,7 @@ Perl 的标准 HTTP 库是 `libwww-perl`（也称为 LWP），可从 CPAN 或大
 `libwww-perl` 历史悠久，是最受好评的 Perl 库之一。
 要获得 HTTPS 支持，你还应安装 `Crypt::SSLeay` 模块（可从 CPAN 获得）。
 
+<a id="processing-the-response"></a>
 ## 处理响应：XML 解析器
 
 实体主体通常是 HTTP 响应中最重要的部分。
@@ -880,6 +884,7 @@ Expat（http://expat.sourceforge.net/）是最流行的 SAX 风格解析器。GN
 对于拉式解析，使用 `XML::LibXML::Reader`。
 Perl XML FAQ（ http://perl-xml.sourceforge.net/faq/ ）概述了最流行的 Perl XML 库。
 
+<a id="json-parsers"></a>
 ## JSON 解析器：处理序列化数据
 
 大多数 Web 服务返回 XML 文档，但越来越多的服务返回序列化为 JSON 格式字符串的简单数据结构（数字、数组、哈希等）。
@@ -1010,6 +1015,7 @@ XML 和 HTML 专门用于表示文档。
 网页的 JSON 表示会难以阅读，就像 [示例 2-12](#example-2-12) 中数组的 XML 表示难以阅读一样。
 当你需要描述不适合文档范例的数据结构时，JSON 很有用：例如，一个简单列表或一个哈希。
 
+<a id="clients-with-wadl"></a>
 ## 使用 WADL 轻松开发客户端
 
 到目前为止，我展示的代码使用了多种语言，但它们始终遵循相同的三步模式。
