@@ -62,3 +62,7 @@ Leonard Richardson and Sam Ruby · 2007
   - [将资源相互链接](ch5.md#link-resources)
   - [HTTP 响应](ch5.md#http-response)
   - [结论](ch5.md#conclusion)
+* [第 6 章 设计读写面向资源服务](ch6.md)
+  - [将用户账户作为资源](ch6.md#user-accounts-as-resources)
+  - [自定义地点](ch6.md#custom-places)
+  - [回顾地图服务](ch6.md#lookback-at-the-map-service)

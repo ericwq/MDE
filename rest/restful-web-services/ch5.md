@@ -665,6 +665,7 @@ HTML 表单的目标地址被硬编码为 `http://www.google.com/search/`，当�
 我这里有点超前了，因为本章中的所有资源都是只读的。
 现在，我将创建暴露应用状态杠杆的表述。
 
+<a id="represent-planet-list"></a>
 ### 表示行星列表
 
 我的地图服务的 “主页” 是一个很好的起点，也是引入选择表述格式背后问题的好地方。
@@ -984,7 +985,7 @@ Web 服务就是为机器人设计的网站。
 
 示例 5-9 显示了另一种表述：地图上某个点的表述。
 
-*示例 5-9. 地球上 43.9°N 103.46°W 点的 XHTML 表述*
+*示例 5-9. 地球上 43.9°N 103.46°W 点的 XHTML 表述* <a id="example-5-9"></a>
 
 ```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
@@ -1118,7 +1119,7 @@ HTML 通过表单解决了这个问题。
 <img src="./img/fig-5-4.png" width="90%"/><br/>
 *图 5-4. 从服务根目录到拉什莫尔山附近餐馆的路径*
 
-*示例 5-11. 用于搜索地点的 HTML 表单*
+*示例 5-11. 用于搜索地点的 HTML 表单* <a id="example-5-11"></a>
 
 ```html
 <form id="searchPlace" method="get" action="">
