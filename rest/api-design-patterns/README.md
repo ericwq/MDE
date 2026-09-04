@@ -1,0 +1,31 @@
+# API 设计模式
+
+<img src="./img/cover.avif" width="40%"><br/>
+JJ Geewax · 2021
+
+## 目录
+- [序言](./foreword.md)
+- [前言](./preface.md)
+- [致谢](./ack.md)
+- [关于本书](./book.md)
+  - [谁应该阅读这本书](book.md#who)
+  - [本书的组织方式：路线图](./book.md#roadmap)
+  - [关于代码](./book.md#code)
+  - [在线图书讨论论坛](./book.md#forum)
+  - [其他在线资源](./book.md#online)
+- [关于作者](./author.md)
+- [关于封面插图](./cover.md)
+- [第 1 部分 引言](./part1.md)
+  - [第 1 章 API 简介](ch1.md)
+    - [1.1 什么是 Web API？](ch1.md#what)
+    - [1.2 为什么 API 很重要？](ch1.md#why)
+    - [1.3 什么是面向资源的 API？](ch1.md#resource)
+    - [1.4 什么使 API 变得 “好”？](ch1.md#good)
+    - [本章小结](ch1.md#summary)
+  - [第 2 章 API 设计模式简介](ch2.md)
+    - [2.1 什么是 API 设计模式？](ch2.md#what)
+    - [2.2 为什么 API 设计模式很重要？](ch2.md#why)
+    - [2.3 API 设计模式的组成部分](ch2.md#anatomy)
+    - [2.4 案例研究：Twapi，一个类似 Twitter 的 API](ch2.md#case-study)
+    - [本章小结](ch2.md#summary)
+- [第 2 部分 设计原则](part2.md)
