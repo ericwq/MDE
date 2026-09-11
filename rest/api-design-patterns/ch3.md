@@ -247,7 +247,7 @@ Octopus 资源的集合应该是什么？
 另一方面，在 Open API 规范标准中，字段名采用驼峰式，如 firstName。
 
 <ins>如前所述，只要在整个 API 中一致地使用所选的大小写形式，具体选择哪种并不那么重要。</ins>
-例如，如果你将 Protocol Buffer（https://developers.google.com/protocol-buffers）消息命名为 user_settings，那么很容易让人认为这实际上是一个字段名而不是消息名。
+例如，如果你将 Protocol Buffer（ https://developers.google.com/protocol-buffers ）消息命名为 user_settings，那么很容易让人认为这实际上是一个字段名而不是消息名。
 因此，这很可能会给任何使用该 API 的人带来困惑。
 说到类型，让我们花点时间看看保留字。
 
