@@ -141,4 +141,12 @@ JJ Geewax · 2021
     - [17.3 实现](ch17.md#implementation)
     - [17.4 权衡](ch17.md#trade-offs)
     - [17.5 练习](ch17.md#exercises)
-    - [本章小结](ch16.md#summary)
+    - [本章小结](ch17.md#summary)
+  - [第 18 章 批量操作](ch18.md)
+    - [18.1 动机](ch18.md#motivation)
+    - [18.2 概述](ch18.md#overview)
+    - [18.3 实现](ch18.md#implementation)
+    - [18.4 权衡](ch18.md#trade-offs)
+    - [18.5 练习](ch18.md#exercises)
+    - [本章小结](ch18.md#summary)
+
