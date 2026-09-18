@@ -149,4 +149,11 @@ JJ Geewax · 2021
     - [18.4 权衡](ch18.md#trade-offs)
     - [18.5 练习](ch18.md#exercises)
     - [本章小结](ch18.md#summary)
+  - [第 19 章 基于条件的删除](ch19.md)
+    - [19.1 动机](ch19.md#motivation)
+    - [19.2 概述](ch19.md#overview)
+    - [19.3 实现](ch19.md#implementation)
+    - [19.4 权衡](ch19.md#trade-offs)
+    - [19.5 练习](ch19.md#exercises)
+    - [本章小结](ch19.md#summary)
 
