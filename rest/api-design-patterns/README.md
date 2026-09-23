@@ -3,6 +3,34 @@
 <img src="./img/cover.avif" width="40%"><br/>
 JJ Geewax · 2021
 
+| 主题 | 本主题涵盖… |
+| --- | --- |
+| [资源标识](ch6.md) | 如何在 API 中标识资源 |
+| [标准方法](ch7.md)| 用于面向资源 API 的一组标准方法 |
+| [部分更新与检索](ch8.md) | 如何与资源的部分内容交互 |
+| [自定义方法](ch9.md) | 在面向资源 API 中使用自定义（非标准）方法 |
+| [长时间运行的操作](ch10.md) | 如何处理非即时完成的方法 |
+| [可重复运行作业](ch11.md) | 在 API 中运行重复的自定义功能 |
+| [单例子资源](ch12.md) | 隔离资源数据的部分内容 |
+| [交叉引用](ch13.md) | 如何在 API 中引用其他资源 |
+| [关联资源](ch14.md) | 如何使用元数据管理多对多关系 |
+| [添加和移除自定义方法](ch15.md) | 如何在不使用元数据的情况下管理多对多关系 |
+| [多态](ch16.md) | 设计具有动态类型属性的资源 |
+| [复制和移动](ch17.md) | 在 API 中复制和重新定位资源 |
+| [批量操作](ch18.md) | 扩展方法以原子方式应用于资源组 |
+| [基于条件的删除](ch19.md) | 基于一组过滤条件删除多个资源 |
+| [匿名写入](ch20.md) | 将不可寻址的数据摄取到 API 中 |
+| [分页](ch21.md) | 以小块形式消费大量数据 |
+| [过滤](ch22.md) | 根据用户指定的过滤器限制结果集 |
+| [导入与导出](ch23.md) | 通过与存储系统直接交互将数据移入或移出 API |
+| [版本控制与兼容性](ch24.md) | 定义 API 的兼容性和版本控制策略 |
+| [软删除](ch25.md) | 将资源移入 “API 回收站” |
+| [请求去重](ch26.md) | 防止 API 中因网络中断导致的重复工作 |
+| [请求验证](ch27.md) | 允许以 “安全模式” 调用 API 方法 |
+| [资源修订版本](ch28.md) | 跟踪资源更改历史 |
+| [请求重试](ch29.md) | 安全重试 API 请求的算法 |
+| [请求认证](ch30.md) | 验证请求真实且未被篡改 |
+
 ## 目录
 - [序言](./foreword.md)
 - [前言](./preface.md)
@@ -70,7 +98,7 @@ JJ Geewax · 2021
     - [7.4 权衡](ch7.md#trade-offs)
     - [7.5 练习](ch7.md#exercises)
     - [本章小结](ch7.md#summary)
-  - [第 8 章 部分更新与部分检索](ch8.md)
+  - [第 8 章 部分更新与检索](ch8.md)
     - [8.1 动机](ch8.md#motivation)
     - [8.2 概述](ch8.md#overview)
     - [8.3 实现](ch8.md#implementation)
@@ -91,7 +119,7 @@ JJ Geewax · 2021
     - [10.4 权衡](ch10.md#trade-offs)
     - [10.5 练习](ch10.md#exercises)
     - [本章小结](ch10.md#summary)
-  - [第 11 章 可重运行作业](ch11.md)
+  - [第 11 章 可重复运行作业](ch11.md)
     - [11.1 动机](ch11.md#motivation)
     - [11.2 概述](ch11.md#overview)
     - [11.3 实现](ch11.md#implementation)
@@ -214,7 +242,7 @@ JJ Geewax · 2021
     - [27.4 权衡](ch27.md#trade-offs)
     - [27.5 练习](ch27.md#exercises)
     - [本章小结](ch27.md#summary)
-  - [第 28 章 资源修订](ch28.md)
+  - [第 28 章 资源修订版本](ch28.md)
     - [28.1 动机](ch28.md#motivation)
     - [28.2 概述](ch28.md#overview)
     - [28.3 实现](ch28.md#implementation)
@@ -228,3 +256,10 @@ JJ Geewax · 2021
     - [29.4 权衡](ch29.md#trade-offs)
     - [29.5 练习](ch29.md#exercises)
     - [本章小结](ch29.md#summary)
+  - [第 30 章 请求认证](ch30.md)
+    - [30.1 动机](ch30.md#motivation)
+    - [30.2 概述](ch30.md#overview)
+    - [30.3 实现](ch30.md#implementation)
+    - [30.4 权衡](ch30.md#trade-offs)
+    - [30.5 练习](ch30.md#exercises)
+    - [本章小结](ch30.md#summary)

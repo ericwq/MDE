@@ -1,4 +1,4 @@
-# 第 8 章 部分更新与部分检索
+# 第 8 章 部分更新与检索
 
 <div style="background:#f7f5e6; padding:24px; border-radius:4px; color:#405a73;">
 

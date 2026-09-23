@@ -56,7 +56,7 @@
 
 *清单 9.1 使用标准 update 方法将电子邮件标记为已发送*
 
-```javascript
+```typescript
 // 初始状态下，邮件的状态为草稿
 const email = GetEmail({id: 'email id here'});
 
