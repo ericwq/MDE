@@ -9,7 +9,7 @@
 - 确定自定义方法的目标（资源还是集合）
 </div><br/>
 
-通常，我们需要对 API 资源执行一些操作，这些操作并不完全适合标准方法中的任何一种。
+<ins>通常，我们需要对 API 资源执行一些操作，这些操作并不完全适合标准方法中的任何一种。</ins>
 虽然从技术上讲，这些行为可以通过资源的标准 update 方法来处理，但许多此类操作的行为要求对于标准方法来说会非常不合适，从而导致一个令人惊讶、令人困惑且过于复杂的接口。
 为了解决这个问题，本章将探讨如何在 Web API 中安全地支持对资源的这些操作，同时使用我们称之为自定义方法的方式来维护一个简单、可预测且功能完整的 API。
 
@@ -39,7 +39,7 @@
 <a id="why-not-just-standard-method"></a>
 ### 9.1.1 为什么不用标准方法？
 
-虽然我们在 [第 7 章] 中了解到的标准方法通常足以对 API 执行几乎任何操作，但有时它们会感觉不太对劲。
+虽然我们在 [第 7 章](ch7.md) 中了解到的标准方法通常足以对 API 执行几乎任何操作，但有时它们会感觉不太对劲。
 <ins>在这些情况下，我们常常感觉像是在遵守法律的字面规定，而非其精神实质：标准方法的行为与预期大相径庭，从而导致意外，因此也就不是一个很好的 API。</ins>
 简而言之，仅仅因为我们可以用标准方法执行某个操作，并不意味着我们应该执行该操作。
 但决定因素是什么呢？
@@ -50,8 +50,8 @@
 例如，一封电子邮件可能以草稿状态开始，然后进入已发送状态，并且可能（如果我们使用某种高级电子邮件服务）进入已撤回状态。
 这显然是我们可能使用标准 update 方法的场景之一，但这样做似乎不太合适。
 
-<ins>为什么状态变更不太适合用 update 方法呢？</ins>
-第一个原因很简单：大多数状态变更都是某种形式的转换，因此转换到新状态（恰好存储在某个 state 字段中）与设置标量 (scalar) 字段的值（例如设置电子邮件的主题）有根本区别。
+<ins>为什么状态变更不太适合用 update 方法呢？
+第一个原因很简单：大多数状态变更都是某种形式的转换，因此转换到新状态（恰好存储在某个 state 字段中）与设置标量 (scalar) 字段的值（例如设置电子邮件的主题）有根本区别。</ins>
 因此，设置状态以指示此转换发生可能既令人困惑又令人意外，这两者都不利于构建一个好的 API。
 
 *清单 9.1 使用标准 update 方法将电子邮件标记为已发送*
@@ -145,11 +145,13 @@ interface Email {
 标准方法为我们提供了一些极好的构建块，可用于我们的 API，但这种非常广泛的范围的代价是标准方法的大量指南、规则和限制的集合。
 另一方面，自定义方法几乎没有限制，这意味着它们可以自由地为场景做最好的事情，而不是强迫场景去适应标准方法的结构和规则。
 
-这也带来了一些缺点，特别是 API 的用户不能像对标准方法列表那样对自定义方法做出那么多假设。
+<ins>这也带来了一些缺点，特别是 API 的用户不能像对标准方法列表那样对自定义方法做出那么多假设。</ins>
 这并不是说 API 中的自定义方法都应该是矛盾或不一致的。
 相反，自定义方法应该在整个 API 中保持一致。
 然而，关键在于，通常没有现成的硬性规则适用于自定义方法。
-相反，选择权留给了 API 设计者，由他们决定一套规则和先例，然后这些规则应在该 API 中保持一致。
+<ins>相反，选择权留给了 API 设计者，由他们决定一套规则和先例，然后这些规则应在该 API 中保持一致。</ins>
+
+*「译注：下面的 [实现](#implementation) 章节中，列出了一套规则，供 API 设计者参考」*
 
 虽然这种模式的概念很简单（参见清单 9.3 中的自定义方法示例），但当我们不得不处理许多不同的场景及其背后的细微差别时，这种模式很快就会变得复杂。
 例如，如果状态变更需要额外的上下文或参数化，那么这些额外信息应如何提供？
@@ -162,8 +164,8 @@ interface Email {
 abstract class RocketApi {
   // 自定义方法使用POST HTTP动词以及特殊的“:”分隔符来声明该操作本身
   @post("/{id=rockets/*}:launch")
-  LaunchRocket(LaunchRocketRequest req): Rocket;
   // 自定义方法遵循与标准方法类似的命名规范（<动词><名词>）
+  LaunchRocket(LaunchRocketRequest req): Rocket;
 }
 
 interface Rocket {
@@ -189,7 +191,7 @@ HTTP 动词非常有限。
 让我们以图 9.2 中所示的示例为基础，逐部分介绍这种格式。
 
 *图 9.2 自定义火箭发射方法的 HTTP 请求组成部分* <br/>
-<img src="./img/fig-9-2.png" width="40%"/><br/>
+<img src="./img/fig-9-2.png" width="50%"/><br/>
 
 <ins>首先，自定义方法的 HTTP 方法几乎总是 POST。
 使用 GET HTTP 方法作为自定义方法可能在某些情况下有意义，但单例资源（参见 [第 12 章](ch12.md) ）很可能是更合适的选择。
@@ -222,17 +224,17 @@ HTTP 动词非常有限。
 使用如图 9.3 所示的流程，意味着标准方法（在本例中为 CreateEmail 方法）保持纯粹和简单，只有一个职责：在某处的数据库中保存一条记录。
 然后，为了执行更复杂、更花哨的操作（例如与远程 SMTP 服务器通信），我们依赖自定义方法，它可以自由执行任何必要的操作来完成方法的目标。
 
+*图 9.3 演示使用自定义方法发送电子邮件的序列图* <br/>
+<img src="./img/fig-9-3.png" width="80%"/><br/>
+
 <ins>到目前为止，我们已经暗示自定义方法可以像标准方法一样应用于资源和集合，但这值得进一步探讨。</ins>
 让我们看看何时使用以资源为目标的自定义方法（例如 SendEmail 示例）更合理，何时使用以集合为目标的自定义方法更合理。
 
 <a id="resources-vs-collection"></a>
 ### 9.3.2 资源 vs. 集合
 
-在我们列出的标准方法中，有些操作针对单个资源（例如更新资源），有些操作针对父集合（例如列出资源），如表 9.1 所示。
-然而，由于自定义方法根据定义是针对具体情况进行定制的，在确定自定义方法应该操作单个资源还是父集合时，这可能会带来一些困惑。
-
-*图 9.3 演示使用自定义方法发送电子邮件的序列图* <br/>
-<img src="./img/fig-9-3.png" width="80%"/><br/>
+<ins>在我们列出的标准方法中，有些操作针对单个资源（例如更新资源），有些操作针对父集合（例如列出资源），如表 9.1 所示。
+然而，由于自定义方法根据定义是针对具体情况进行定制的，在确定自定义方法应该操作单个资源还是父集合时，这可能会带来一些困惑。</ins>
 
 *表 9.1 导入和导出数据的不同方面* <br/>
 <img src="./img/tab-9-1.png" width="90%"/><br/>
@@ -250,7 +252,7 @@ HTTP 动词非常有限。
 <ins> 最后，如果你要操作跨越多个不同父级的资源集合，该怎么办？
 例如，我们可能需要归档一组属于许多不同用户的电子邮件（例如 `users/1/emails/2` 和 `users/2/emails/4`）。
 在这种场景下，同样适用相同的格式，但需要注意的是，父标识符将保留为通配符。
-换句话说，这个操作作为 HTTP 请求看起来类似于 POST /users/-/emails:archive，依赖连字符来表示通配符，并在请求体中指明哪些电子邮件 ID 应该被归档。</ins>
+换句话说，这个操作作为 HTTP 请求看起来类似于 `POST /users/-/emails:archive`，依赖连字符来表示通配符，并在请求体中指明哪些电子邮件 ID 应该被归档。</ins>
 
 ### 9.3.3 无状态自定义方法
 
@@ -258,7 +260,7 @@ HTTP 动词非常有限。
 <ins>然而，由于自定义方法在技术上可以做任何它们想做的事情，
 我们可能还没有考虑到一种可能性：如果自定义方法没有任何状态需要处理，并且不需要附加到资源或集合上，该怎么办？</ins>
 
-这种类型的方法称为无状态方法，相对常见，并且随着对数据存储的限制越来越多，它甚至可能成为关键的功能组成部分。
+<ins>这种类型的方法称为无状态方法，相对常见，并且随着对数据存储的限制越来越多，它甚至可能成为关键的功能组成部分。</ins>
 例如，不同的数据隐私法规，如《General Data Protection Regulation》（GDPR），对数据必须存放在何处以及如何存储施加了一些相当具体的规定。
 像这样的要求意味着，拥有一个无状态方法来即时处理数据并返回结果 ——尤其是不存储任何提供的数据—— 是一个有价值的工具，可以添加到工具箱中。
 而自定义方法是处理此类需求的理想方式。
@@ -285,21 +287,22 @@ interface TranslateTextResponse {
 }
 ```
 
-纯粹的无状态方法相对少见。
+<ins>纯粹的无状态方法相对少见。
 毕竟，许多 API 至少需要知道用于对 API 请求收费的计费详细信息。
-因此，很常见的情况是，将某个父资源（例如项目、计费账户或组织）作为权限或计费容器，作为自定义方法的目标资源，将原本无状态的方法附加到该容器资源上。
+因此，很常见的情况是，将某个父资源（例如项目、计费账户或组织）作为权限或计费容器，作为自定义方法的目标资源，将原本无状态的方法附加到该容器资源上。</ins>
 例如，翻译文本可能不是可以免费提供的东西，因此 API 可能需要用户创建一个项目资源来跟踪所有翻译活动的计费详细信息。
 
 *清单 9.5 以父资源为锚点的有状态自定义方法*
 
 ```typescript
-// 在这个示例中，我们将自定义方法挂载到父级项目资源上
 abstract class TranslationApi {
+  // 在这个示例中，我们将自定义方法挂载到父级项目资源上
   @post("/{parent=projects/*}/text:translate")
   TranslateText(req: TranslateTextRequest): TranslateTextResponse;
 }
 
 interface TranslateTextRequest {
+  // 在这个示例中，我们将自定义方法挂载到父级项目资源上
   parent: string;
   sourceLanguageCode: string;
   targetLanguageCode: string;
@@ -324,13 +327,13 @@ interface TranslateTextResponse {
 *清单 9.6 附加到 TranslationModel 资源的无状态自定义方法*
 
 ```typescript
-// TranslationModel 资源拥有普通资源的全部标准方法
 abstract class TranslationApi {
+  // TranslationModel 资源拥有普通资源的全部标准方法
   @post("/translationModels")
   CreateTranslationModel(req: CreateTranslationModelRequest): TranslationModel;
 
-  // ...
   // 管理 TranslationModel 资源的其他标准方法写在此处
+  // ...
 
   // TranslateText 方法作用于某个指定的 TranslationModel 资源
   @post("/{id=translationModels/*}/text:translate")
@@ -338,6 +341,7 @@ abstract class TranslationApi {
 }
 
 interface TranslateTextRequest {
+  // TranslateText 方法作用于某个指定的 TranslationModel 资源
   id: string;
   sourceLanguageCode: string;
   targetLanguageCode: string;
@@ -364,29 +368,29 @@ abstract class EmailApi {
   static version = "v1";
   static title = "Email API";
 
-  // ...
   // 所有常规标准方法（例如，CreateEmail、DeleteEmail等）都写在这里。
+  // ...
 
+  // 用于发送邮件的自定义方法，会将邮件切换为发送状态，延迟数秒，连接SMTP服务并返回结果。
   @post("/{id=users/*emails/*}:send")
   SendEmail(req: SendEmailRequest): Email;
-  // 用于发送邮件的自定义方法，会将邮件切换为发送状态，延迟数秒，连接SMTP服务并返回结果。
 
+  // 撤回发送方法，支持在send方法引入的延迟窗口期内中止发送操作。
   @post("/{id=users/*emails/*}:unsend")
   UnsendEmail(req: UnsendEmailRequest): Email;
-  // 撤回发送方法，支持在send方法引入的延迟窗口期内中止发送操作。
 
+  // 恢复删除方法，更新Email.deleted属性，是标准删除方法的逆操作（第25章会详细介绍软删除）。
   @post("/{id=users/*emails/*}:undelete")
   UndeleteEmail(req: UndeleteEmailRequest): Email;
-  // 恢复删除方法，更新Email.deleted属性，是标准删除方法的逆操作（第25章会详细介绍软删除）。
 
+  // 导出方法会提取全部邮件数据，并推送至远程存储位置（第23章会详细介绍导入与导出）。
   @post("/{parent=users/*}/emails:export")
   ExportEmails(req: ExportEmailsRequest): ExportEmailsResponse;
-  // 导出方法会提取全部邮件数据，并推送至远程存储位置（第23章会详细介绍导入与导出）。
 
+  // 这个无状态的邮箱地址校验方法是完全独立的，不绑定任何父资源。
   @post("/emailAddress:validate")
   ValidateEmailAddress(req: ValidateEmailAddressRequest):
     ValidateEmailAddressResponse;
-  // 这个无状态的邮箱地址校验方法是完全独立的，不绑定任何父资源。
 }
 
 interface Email {
@@ -429,7 +433,7 @@ interface Email {
 - 自定义方法几乎总是应使用 HTTP POST 方法，绝不应使用 PATCH 方法。
 如果自定义方法是幂等且安全的，它们可能使用 GET 方法。
 
-- 自定义方法使用冒号（:）字符将资源目标与正在执行的操作分隔开（例如 ``/missiles/1234:launch` ）。
+- 自定义方法使用冒号（`:`）字符将资源目标与正在执行的操作分隔开（例如 `/missiles/1234:launch` ）。
 
 - 虽然标准方法禁止副作用，但自定义方法允许副作用。
 应谨慎使用并彻底记录，以避免用户混淆。
