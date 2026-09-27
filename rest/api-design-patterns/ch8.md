@@ -13,7 +13,7 @@
 </div><br/>
 
 正如我们在 [第 7 章](ch7.md) 中所学的，我们能够以零碎方式更新资源，而不是总是依赖完全替换，这一点很重要。
-在本模式中，我们将探讨使用字段掩码作为工具，仅更新给定资源中我们感兴趣的特定字段。
+<ins>在本模式中，我们将探讨使用字段掩码 (field masks) 作为工具，仅更新给定资源中我们感兴趣的特定字段。</ins>
 此外，我们还将介绍如何将字段掩码应用于相反方向的相同问题：仅检索资源上的特定字段。
 虽然不太常见，但检索部分资源而非整个资源的能力，在内存敏感型应用中尤为重要，例如消费 API 输出的物联网设备。
 
@@ -121,8 +121,8 @@ console.log(chatRoom);
 <a id="overview"></a>
 ## 8.2 概述
 
-为了实现这两个目标（支持部分检索和部分更新），我们实际上可以依赖一个单一的工具：字段掩码 (field mask)。
-<ins>从根本上说，字段掩码只是一个字符串集合，但这些字符串表示给定资源上我们感兴趣的字段列表。</ins>
+<ins>为了实现这两个目标（支持部分检索和部分更新），我们实际上可以依赖一个单一的工具：字段掩码 (field mask)。
+从根本上说，字段掩码只是一个字符串集合，但这些字符串表示给定资源上我们感兴趣的字段列表。</ins>
 当检索资源时，如果我们想要更具体地指定希望检索哪些字段，我们可以简单地提供一个字段掩码，表明应返回哪些字段，如图 8.1 所示。
 
 *图 8.1 检索资源时使用字段掩码* <br/>
@@ -131,17 +131,17 @@ console.log(chatRoom);
 <ins>正如我们可以使用字段掩码来控制我们感兴趣检索的字段一样，我们也可以依赖相同的工具来控制服务应更新资源上的哪些字段。</ins>
 在这种情况下，在更新资源时，我们可以提供我们打算更新的字段列表，并确保仅修改这些特定字段，如图 8.2 所示。
 
-<ins>此外，由于 JSON 恰好是一种动态数据结构，如果 PATCH 请求中缺少字段掩码本身，我们可以从 JSON 对象中存在的属性推断出字段掩码（如图 8.3 所示）。</ins>
-虽然在处理 API 中的动态数据结构时，这可能变得更加复杂，但在大多数情况下，这种字段掩码推断提供了最符合预期的结果。
-
-这看起来可能很简单，但有许多边缘情况和棘手场景比看起来要复杂得多。
-在下一节中，我们将探讨如何在 API 中实现字段掩码支持。
-
 *图 8.2 替换整个资源与更新单个字段的对比* <br/>
 <img src="./img/fig-8-2.png" width="50%"/><br/>
 
+<ins>此外，由于 JSON 恰好是一种动态数据结构，如果 PATCH 请求中缺少字段掩码本身，我们可以从 JSON 对象中存在的属性推断出字段掩码（如图 8.3 所示）。</ins>
+虽然在处理 API 中的动态数据结构时，这可能变得更加复杂，但在大多数情况下，这种字段掩码推断提供了最符合预期的结果。
+
 *图 8.3 使用从提供的数据中推断出的隐式字段掩码来更新单个字段* <br/>
 <img src="./img/fig-8-3.png" width="40%"/><br/>
+
+这看起来可能很简单，但有许多边缘情况和棘手场景比看起来要复杂得多。
+在下一节中，我们将探讨如何在 API 中实现字段掩码支持。
 
 <a id="implementation"></a>
 ## 8.3 实现
@@ -195,21 +195,26 @@ Content-Type: application/json
 *表 8.2 不同系统如何处理多值查询参数的示例* <br/>
 <img src="./img/tab-8-2.png" width="90%"/><br/>
 
-这意味着我们必须为标准的 update 方法和标准的 get 方法扩充请求消息。
-如你所见，这只是在请求消息上添加一个新的 fieldMask 属性的问题。
+<ins>这意味着我们必须为标准的 update 方法和标准的 get 方法扩充请求消息。
+如你所见，这只是在请求消息上添加一个新的 fieldMask 属性的问题。</ins>
 
 *清单 8.3 包含字段掩码的标准 get 和 update 请求示例*
 
 ```typescript
-type FieldMask = string[]; // FieldMask 类型本质就是路径数组
+// FieldMask 类型本质就是路径数组
+type FieldMask = string[];
 
 interface GetChatRoomRequest {
   id: string;
-  fieldMask: FieldMask; // 我们只需在获取资源和更新资源的请求接口中添加 fieldMask 属性
+
+  // 我们只需在获取资源和更新资源的请求接口中添加 fieldMask 属性
+  fieldMask: FieldMask;
 }
 
 interface UpdateChatRoomRequest {
   resource: ChatRoom;
+
+  // 我们只需在获取资源和更新资源的请求接口中添加 fieldMask 属性
   fieldMask: FieldMask;
 }
 ```
@@ -231,10 +236,14 @@ interface UpdateChatRoomRequest {
 <ins>为了了解这是如何工作的，让我们从一组简单的规则开始，我们可以将这些规则组合成一个强大的工具箱来应对大多数场景。</ins>
 别担心，我们马上会看例子。
 
-1. <ins>字段规范的各个部分必须使用点字符（.）作为分隔符。</ins>
-2. <ins>嵌套消息的所有字段可以使用星号字符（*）来指代。</ins>
+1. <ins>字段规范的各个部分必须使用点字符（`.`）作为分隔符。</ins>
+
+2. <ins>嵌套消息的所有字段可以使用星号字符（`*`）来指代。</ins>
+
 3. <ins>Map 键应始终为字符串。</ins>
+
 4. <ins>字段规范的所有部分（字段名或 map 键），如果无法表示为不带引号的字符串字面量，则必须使用反引号字符（`）进行引用。</ins>
+
 5. <ins>字面量反引号字符可以通过使用两个反引号字符（``）进行转义。</ins>
 
 如果这些规则让你感到害怕，请坚持住。
@@ -250,8 +259,12 @@ interface ChatRoom {
   id: string;
   title: string;
   description: string;
-  loggingConfig: LoggingConfig; // 这里是嵌套字段，属于结构固定、字段定义明确的静态结构
-  settings: Object; // settings 字段是任意键值 map，值可以是不同类型
+
+  // 这里是嵌套字段，属于结构固定、字段定义明确的静态结构
+  loggingConfig: LoggingConfig;
+
+  // settings 字段是任意键值 map，值可以是不同类型
+  settings: Object;
 }
 
 interface LoggingConfig {
@@ -282,7 +295,7 @@ interface LoggingConfig {
 如果重复字段本身是一个嵌套接口呢？
 我们如何寻址给定书籍所有作者的姓氏？
 幸运的是，有一种明确的方法可以做到这一点。
-<ins>但在我们讨论这个方法之前，必须先讨论一个重要限制：按索引寻址重复字段中的条项。</ins>
+<ins>但在我们讨论这个方法之前，必须先讨论一个重要限制：按索引寻址重复字段中的条目。</ins>
 
 我们都熟悉在编程语言中如何寻址数组中的单个条项。
 几乎总是这样，例如 `item[0]` 用于获取名为 item 的数组中的第一个条目。
@@ -306,7 +319,7 @@ interface LoggingConfig {
 幸运的是，这并不意味着我们完全不能与重复字段中的条目进行交互。
 相反，我们可能想对这些字段做一件非常有用的操作，为了实现这一点，我们当然需要一种表达该意图的方式。
 假设我们的 ChatRoom 资源包含一个类型为 User 的 administrator 字段。
-我们已经学会了如何只获取管理员的姓名（例如 `fieldMask=admin.name` ），但如果有多个管理员呢？
+我们已经学会了如何只获取管理员的姓名（例如 `fieldMask=administrators.name` ），但如果有多个管理员呢？
 我们如何获取每个管理员的姓名？
 
 *清单 8.5 具有多个管理员的 ChatRoom 表示*
@@ -316,7 +329,9 @@ interface ChatRoom {
   id: string;
   title: string;
   description: string;
-  administrators: User[]; // 在这个示例中，administrators 是 User 接口的重复字段（数组）
+
+  // 在这个示例中，administrators 是 User 接口的重复字段（数组）
+  administrators: User[];
 }
 
 interface User {
@@ -327,8 +342,8 @@ interface User {
 ```
 
 在这种情况下，我们可以再次依赖星号 `*` 来表示某种意义上的 “foreach” 循环。
-换句话说，我们可以将前缀 "administrators.*." 视为 “对于每个管理员，只提供列出的字段” 的一种方式。
-在这种情况下，为了只获取管理员的姓名，我们可以使用字段掩码值 "administrators.*.name"。
+换句话说，我们可以将前缀 `administrators.*.` 视为 “对于每个管理员，只提供列出的字段” 的一种方式。
+在这种情况下，为了只获取管理员的姓名，我们可以使用字段掩码值 `administrators.*.name`。
 然而，请记住，这种额外功能并不妨碍我们使用（简单的）字段掩码 administrators 来请求所有管理员。
 
 不幸的是，虽然这种能力确实使我们能够跨重复字段中的条目选择特定字段，但它并不能使我们更新这些字段。
@@ -341,11 +356,11 @@ PATCH /chatRooms/1?fieldMask=administrators.*.name HTTP/1.1
 Content-Type: application/json
 
 {
+  // 在没有强一致性与顺序保证的前提下，无法保证该操作只会修改我们想要更新的管理员
   "administrators": [
     { "name": "New name for Index 0" },
     { "name": "New name for Index 1" }
   ]
-  // 在没有强一致性与顺序保证的前提下，无法保证该操作只会修改我们想要更新的管理员
 }
 ```
 
@@ -358,7 +373,7 @@ Content-Type: application/json
 这是因为将某些字段留空是 API 用户表达他们对 API 的这一方面不一定有意见，并且信任 API 为他们提供最适合大多数其他用户的行为的一种方式。
 对于字段掩码来说，所使用的标准方法（标准 get 与标准 update）的默认值略有不同。
 
-在标准 get 方法中，默认值几乎总是资源上可用字段的完整列表。
+<ins>在标准 get 方法中，默认值几乎总是资源上可用字段的完整列表。</ins>
 这意味着，除非指定了字段掩码，否则应返回资源接口上存在的每个字段。
 这确保了支持部分检索的标准 get 方法的行为与完全不支持部分检索时相同（我们将在 [第 8.4.1 节](#universal-support) 中更详细地探讨这一点）。
 
@@ -368,7 +383,8 @@ Content-Type: application/json
 在这种情况下，将这些有问题的字段从默认返回的字段集中排除可能更合理。
 这意味着对这些字段感兴趣的用户需要通过显式指定字段掩码来表达他们的兴趣。
 
-这种情况应该相对少见，但至关重要的是，如果某个字段确实属于这个例外（即默认情况下不会包含，必须明确请求），则该字段的文档本身必须包含这一事实。
+这种情况应该相对少见，但至关重要的是，如果某个字段确实属于这个例外（即默认情况下不会包含，必须明确请求），
+则该字段的文档本身必须包含这一事实。
 如果文档中某处没有这样的说明，可能会导致极其令人困惑的行为，并迫使 API 消费者在试错之后才发现这一事实，这当然是不理想的。
 
 这引出了最后一个值得考虑的场景：如果我们需要检索所有字段，但我们不想逐一列出每一个字段，该怎么办？
@@ -385,8 +401,8 @@ Content-Type: application/json
 毕竟，如果我们默认提供所有字段，那么它实际上更像是一个标准 replace 方法，而不是一个标准 update 方法。
 我们应该怎么办？
 
-一个方便的选择是尝试根据提供的数据推断字段掩码。
-换句话说，我们可以遍历输入数据，并且仅当字段指定了值时才更新字段。
+<ins>一个方便的选择是尝试根据提供的数据推断字段掩码。
+换句话说，我们可以遍历输入数据，并且仅当字段指定了值时才更新字段。</ins>
 在下一节中，我们将更详细地探讨这个想法。
 
 <a id="implicit-field-masks"></a>
@@ -408,8 +424,8 @@ Content-Type: application/json
 *清单 8.7 从资源对象推断字段掩码的函数*
 
 ```typescript
-type FieldMask = string[];
 // 首先，我们将 FieldMask 类型定义为字符串类型的字段名数组
+type FieldMask = string[];
 
 function inferFieldMask(resource: Object): FieldMask {
   const fieldMask: FieldMask = [];
@@ -417,11 +433,13 @@ function inferFieldMask(resource: Object): FieldMask {
   // 接着遍历传入资源对象的所有键值对
   for (const [key, value] of Object.entries(resource)) {
     if (value instanceof Object) {
+
       // 使用递归查找嵌套对象中的字段，并用 "." 作为分隔符，在原有字段前拼接前缀
       for (const field of inferFieldMask(value)) {
         fieldMask.push(`${key}.${field}`);
       }
     } else if (value !== undefined) {
+
       // 只要值有设置（包括 null），我们就认为它隐式属于字段掩码的一部分
       fieldMask.push(key);
     }
@@ -461,9 +479,9 @@ function inferFieldMask(resource: Object): FieldMask {
 此外，大多数其他编程语言没有用于 map 中缺失键的标记值。
 因此，我们需要另一种机制来从动态数据结构中移除键。
 
-虽然可能在我们的 API 中使用特殊符号来表示 `undefined`，但这容易出错，并且以后可能会引入更多复杂性。
+<ins>虽然可能在我们的 API 中使用特殊符号来表示 `undefined`，但这容易出错，并且以后可能会引入更多复杂性。
 它要么会与 JSON 值的范围冲突，要么会违反 JSON 规范。
-简而言之，这种表示 `undefined` 的特殊标志不太可能是一个非常健壮的策略。
+简而言之，这种表示 `undefined` 的特殊标志不太可能是一个非常健壮的策略。</ins>
 
 另一种选择是依赖字段的完全替换。
 也就是说，我们将检索资源，移除有问题的键，并通过替换整个 map 字段来更新资源。
@@ -473,7 +491,7 @@ function inferFieldMask(resource: Object): FieldMask {
 <ins>相反，下一个最佳解决方案是依赖带有请求体中缺失值的显式字段掩码。
 换句话说，我们明确声明我们想要更新特定字段，但我们完全省略了该字段。</ins>
 例如，清单 8.8 中的请求将确保从 ChatRoom 资源的 settings 字段中移除 "test" 键。
-请注意，这不是将值设置为 null，而是实际上完全移除该值。
+<ins>请注意，这不是将值设置为 null，而是实际上完全移除该值。</ins>
 
 清单 8.8 从动态数据结构中移除字段的示例方法
 
@@ -481,8 +499,8 @@ function inferFieldMask(resource: Object): FieldMask {
 PATCH /chatRooms/1?fieldMask=settings.test HTTP/1.1
 Content-Type: application/json
 
-{}
 // 由于我们只需要将 settings.test 设置为未定义状态，完全不需要传入任何数据！
+{}
 ```
 
 给定此请求，当需要确定要更新什么时，我们将输入值赋给资源的值（`resource["settings"]["test"] = input["settings"]["test"]`），在本例中，这将等同于 undefined，并产生从字典中移除键的期望结果。
@@ -557,6 +575,8 @@ interface UpdateChatRoomRequest {
 这样做的原因是为了保持一致性。
 标准 get 方法的目标是跨资源保持一致，因此引入任何取决于你正在与哪个资源交互的可变性都会导致意外，最终使 API 对消费者来说变得更差。</ins>
 
+*「译注：注意对部分更新的支持度和对部分检索的支持度完全不一样。」*
+
 ### 8.4.2 替代实现
 
 <ins>同样重要的是要注意，还有几种其他实现可用于支持使用 HTTP PATCH 方法进行资源的部分更新。</ins>
@@ -591,8 +611,14 @@ JSON Patch 并不是唯一的选择。
 ## 本章小节
 
 - 在资源较大或消费资源数据的客户端硬件受限的情况下，部分检索尤为重要。
+
 - 部分更新对于避免冲突的同时进行细粒度更新至关重要。
+
 - 字段掩码应被用来指示应检索或更新的字段，它支持寻址字段、接口中的嵌套字段以及 map 键。
+
 - 字段掩码不应提供按位置或索引寻址数组字段中条目的机制。
-- 默认情况下，对于部分检索，字段掩码应假定值为 “全部字段”；对于部分更新，应假定为隐式字段掩码（即根据字段是否存在来推断指定的字段）。
+
+- 默认情况下，对于部分检索，字段掩码应假定值为 “全部字段”；
+对于部分更新，应假定为隐式字段掩码（即根据字段是否存在来推断指定的字段）。
+
 - 如果字段无效，应将其视为存在但值为 undefined。
