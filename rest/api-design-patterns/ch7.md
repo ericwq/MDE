@@ -402,7 +402,7 @@ interface DeleteChatRoomRequest {
 *图 7.2 命令式视角下的标准 delete 方法导致非幂等行为。* <br/>
 <img src="./img/fig-7-2.png" width="40%"/><br/>
 
-<ins>虽然有很多声明式 API（例如 Kubernetes），但面向资源的 API 本质上通常是指令式的。
+<ins>虽然有很多声明式 API（例如 Kubernetes），但面向资源的 API 本质上通常是命令式的。
 因此，标准 delete 方法应以非幂等的方式行事。
 换句话说，尝试删除一个不存在的资源应导致失败。</ins>
 当你担心网络连接中断和响应丢失时，这可能会带来很多复杂的问题，但我们将在 [第 26 章](ch26.md) 中更详细地探讨 API 请求的可重复性。
