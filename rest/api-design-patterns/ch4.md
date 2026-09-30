@@ -21,6 +21,8 @@
 此外，我们还会介绍在规划 API 资源集合时的若干反模式（即应当避免的做法）。
 我们先从基础概念入手，明确资源布局的具体含义。
 
+*「译注：https://google.aip.dev/122 ,https://google.aip.dev/123 ,https://google.aip.dev/124 中有更新的内容。」*
+
 <a id="what"></a>
 ## 4.1 什么是资源布局？
 

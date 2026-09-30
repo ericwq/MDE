@@ -17,6 +17,8 @@
 这与提供一个空名称（例如 `{ "name": "" }`）有何不同？
 在本章中，我们将探讨在设计或使用 API 时几乎肯定会遇到的各种数据类型，如何最好地理解其底层数据表示，以及如何以合理且直接的方式处理各种类型的默认值。
 
+*「译注：https://google.aip.dev/126 ,https://google.aip.dev/129 ,https://google.aip.dev/144 ,https://google.aip.dev/147 ,https://google.aip.dev/149 ,https://google.aip.dev/202 中有更新的内容。」*
+
 <a id="introduce"></a>
 ## 5.1 数据类型简介
 

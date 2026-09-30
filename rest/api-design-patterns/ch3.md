@@ -17,6 +17,8 @@
 在本章中，我们将探讨 API 中需要命名的不同组成部分，一些可以用来选择好名称的策略，区分好名称与坏名称的高层属性，
 最后是一些通用原则，以帮助我们在面临不可避免的艰难命名决策时做出选择。
 
+*「译注：https://google.aip.dev/140 ,https://google.aip.dev/141 ,https://google.aip.dev/142 ,https://google.aip.dev/143 ,https://google.aip.dev/190 中有更新的内容。」*
+
 <a id="why"></a>
 ## 3.1 为什么命名很重要？
 

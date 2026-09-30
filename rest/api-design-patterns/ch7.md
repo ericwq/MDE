@@ -16,6 +16,8 @@
 否则，当相同的操作应用于多个资源时表现不一致，可预测性就会完全丧失。
 本章探讨了在 API 的资源中实现这些标准方法时应遵循的具体规则。
 
+*「译注：https://google.aip.dev/130 ,https://google.aip.dev/131 ,https://google.aip.dev/132 ,https://google.aip.dev/133 ,https://google.aip.dev/134 ,https://google.aip.dev/135 中有更新的内容。」*
+
 <a id="motivation"></a>
 ## 7.1 动机
 

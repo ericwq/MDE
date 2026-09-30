@@ -15,6 +15,8 @@
 这包括它们是什么、什么因素造就了好的标识符（以及坏的标识符），以及它们如何在你的 API 中使用。
 我们还将深入了解当今常用的一些标识符格式（例如通用唯一标识符或 UUID；https://tools.ietf.org/html/rfc4122 ），以及专门为 Web API 使用而设计的新的自定义格式。
 
+*「译注：https://google.aip.dev/122 ,https://google.aip.dev/210 中有更新的内容。」*
+
 <a id="what"></a>
 ## 6.1 什么是标识符？
 

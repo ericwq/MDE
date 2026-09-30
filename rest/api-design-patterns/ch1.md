@@ -14,6 +14,8 @@
 此外，你可能已经知道 API 代表应用程序编程接口（Application Programming Interface），因此本章的重点将更详细地介绍这些基础知识实际意味着什么，以及它们为何重要。
 让我们从仔细研究 API 这个概念开始。
 
+*「译注：https://google.aip.dev/121 中有更新的内容。」*
+
 <a id="what"></a>
 ## 1.1 什么是 Web API？
 
