@@ -22,6 +22,10 @@
 这是个快速变化的领域，所以相关文章都标出了时间。
 
 下面是 martinfowler.com 上，Martin Fowler 的随笔 和 bliki 。
+- [片段：10月4日](tools/fragments/2026-10-04.md) (2026/10/04) Martin Fowler
+- [片段：9月29日](tools/fragments/2026-09-29.md) (2026/09/29) Martin Fowler
+- [片段：9月24日](tools/fragments/2026-09-24.md) (2026/09/24) Martin Fowler
+- [片段：9月16日](tools/fragments/2026-09-16.md) (2026/09/16) Martin Fowler
 - [片段：8月18日](tools/fragments/2026-08-18.md) (2026/8/18) Martin Fowler
 - [片段：8月4日](tools/fragments/2026-08-04.md) (2026/8/4) Martin Fowler
 - [片段：7月21日](tools/fragments/2026-07-21.md) (2026/7/21) Martin Fowler
@@ -55,6 +59,7 @@
 
 下面是 来自互联网的关于 AI 及编程智能体的文章：
 
+- [我不喜欢 LLM](./tools/2026-dont-like-llms.md) (2026/9/17) Martin Fowler
 - ❄ [模块化单体](./modular-monolith.md) (系列文章：2019~2020) Kamil Grzybek
 - [FastAPI 中的整洁架构与领域驱动设计（DDD）](./tools/clean-architecture-and-ddd-in-fastapi.md) (2026/6/14) Berkay Sonel
 - [开放与封闭：前沿模型的追逐](./tools/open-ai-models.md) (2026/5/15) Stephen O'Grady
