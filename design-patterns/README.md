@@ -11,3 +11,4 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
     - [Builder](ch3/2.md)
     - [Factory Method](ch3/3.md)
     - [Prototype](ch3/4.md)
+    - [Singleton](ch3/5.md)
