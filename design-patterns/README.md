@@ -10,3 +10,4 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
     - [Abstract Factory](ch3/1.md)
     - [Builder](ch3/2.md)
     - [Factory Method](ch3/3.md)
+    - [Prototype](ch3/4.md)
