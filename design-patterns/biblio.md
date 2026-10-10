@@ -62,7 +62,7 @@ Benjamin/Cummings, Redwood City, CA, 1994. Second Edition.
 <a id="bor81"></a>
 ### Bor81
 A. Borning.<br/>
-The programming language aspects of ThingLab—aconstraint-oriented simulation laboratory.<br/>
+The programming language aspects of ThingLab—a constraint-oriented simulation laboratory.<br/>
 ACM Transactions on Programming Languages and Systems, 3(4):343-387, October 1981.
 
 <a id="bor94"></a>
