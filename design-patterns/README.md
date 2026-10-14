@@ -29,3 +29,4 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
     - [4.1 Adapter](ch4/1.md)
     - [4.2 Bridge](ch4/2.md)
     - [4.3 Composite](ch4/3.md)
+    - [4.4 Decorator](ch4/4.md)
