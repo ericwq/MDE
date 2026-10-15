@@ -33,3 +33,4 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
     - [4.5 Facade](ch4/5.md)
     - [4.6 Flyweight](ch4/6.md)
     - [4.7 Proxy](ch4/7.md)
+    - [4.8 结构型模式讨论](ch4/8.md)
