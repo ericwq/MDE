@@ -34,3 +34,5 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
     - [4.6 Flyweight](ch4/6.md)
     - [4.7 Proxy](ch4/7.md)
     - [4.8 结构型模式讨论](ch4/8.md)
+  - [第 5 章 行为型模式](ch5/0.md)
+    - [5.1 Chain of Responsibility](ch5/1.md)
