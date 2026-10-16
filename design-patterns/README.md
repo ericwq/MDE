@@ -37,3 +37,4 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
   - [第 5 章 行为型模式](ch5/0.md)
     - [5.1 Chain of Responsibility](ch5/1.md)
     - [5.2 Command](ch5/2.md)
+    - [5.3 Interpreter](ch5/3.md)
