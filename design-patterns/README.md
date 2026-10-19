@@ -39,3 +39,4 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
     - [5.2 Command](ch5/2.md)
     - [5.3 Interpreter](ch5/3.md)
     - [5.4 Iterator](ch5/4.md)
+    - [5.5 Mediator](ch5/5.md)
