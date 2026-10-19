@@ -1,6 +1,11 @@
 # pi.dev 安装步骤
 
 这里简要描述了如何安装 [nono.sh](https://nono.sh/docs/cli/getting_started/installation) 以及 [pi.dev](https://pi.dev) ，同时集成云端 LLM 或本地 [LM Studio](https://lmstudio.ai/) 中运行的 LLM 。
+
+## pi agent 镜像
+
+参考 [这里](../../nvide/build.md)，获得一个安装好 pi agent 和 nono 的 docker 镜像。
+
 ## 安装 Nono
 
 nono 将限制 coding harness 的权限，同时只占用很少的系统资源（CPU，内存），比容器方式更加高效。
@@ -11,54 +16,53 @@ nono 将限制 coding harness 的权限，同时只占用很少的系统资源�
 
 3. 为 pi 准备一个 nono profile，细节请参考 [官方文档](https://nono.sh/docs/cli/features/profiles-groups#creating-user-profiles) 。
 
-```sh
-# 创建一个继承 default 配置、并启用 node_runtime 组的 profile。
-nono profile init pi-mono --extends default --groups node_runtime
-
-# 验证生成的 profile
-nono profile validate ~/.config/nono/profiles/pi-mono.json
-
-# 使用 profile
-nono run --profile pi-mono -- pi
-```
-
+   ```sh
+   # 创建一个继承 default 配置、并启用 node_runtime 组的 profile。
+   nono profile init pi-mono --extends default --groups node_runtime
+   
+   # 验证生成的 profile
+   nono profile validate ~/.config/nono/profiles/pi-mono.json
+   
+   # 使用 profile
+   nono run --profile pi-mono -- pi
+   ```
+   
 4. 将 [pi-mono.json](./pi-mono.json) 添加至目录 `~/.config/nono/profiles/`
-  - 这是个 pi.mono 的 profile 文件，
-  - 保持文件名不变
-  - 运行 `nono profile list` 确保配置文件没有错误
+   - 这是个 pi.mono 的 profile 文件，
+   - 保持文件名不变
+   - 运行 `nono profile list` 确保配置文件没有错误
 
-请参考下图
+   请参考下图
+   <img src="./img/nono-profile-list.png" width="100%"/>
 
-![Nono profile list](./img/nono-profile-list.png)
+   这是 pi-mono.json 文件的内容说明：
 
-这是 pi-mono.json 文件的内容说明：
-
-```json
-{
-  "extends": "default",
-  "meta": {
-    "name": "pi-mono"
-  },
-  "groups": {
-    "include": [
-      "node_runtime"
-    ]
-  },
-  "workdir": {
-    "access": "readwrite"
-  },
-  "filesystem": {
-    "allow": [
-      "$HOME/.pi/agent/", // 这个是 pi 的默认安装路径
-      "$HOME/dev/projects/" // 把这个换成你自己的项目目录
-    ],
-    "read": [
-    ]
-  },
-  // 下面是运行 nono run --profile pi-mono -- pi后， MacOS 系统提示添加的内容
-  "unsafe_macos_seatbelt_rules": ["(allow user-preference-read)"]
-}
-```
+   ```json
+   {
+     "extends": "default",
+     "meta": {
+       "name": "pi-mono"
+     },
+     "groups": {
+       "include": [
+         "node_runtime"
+       ]
+     },
+     "workdir": {
+       "access": "readwrite"
+     },
+     "filesystem": {
+       "allow": [
+         "$HOME/.pi/agent/", // 这个是 pi 的默认安装路径
+         "$HOME/dev/projects/" // 把这个换成你自己的项目目录
+       ],
+       "read": [
+       ]
+     },
+     // 下面是运行 nono run --profile pi-mono -- pi后， MacOS 系统提示添加的内容
+     "unsafe_macos_seatbelt_rules": ["(allow user-preference-read)"]
+   }
+   ```
 
 ## 安装 pi.dev
 
