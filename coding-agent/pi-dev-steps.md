@@ -4,11 +4,35 @@
 
 ## pi agent 镜像
 
-参考 [这里](../../nvide/build.md)，获得一个安装好 pi agent 和 nono 的 docker 镜像。
+参考 [这里](../../nvide/build.md)，获得一个安装好 pi agent 和 nono 的 docker 镜像，并启动容器。
 
 > 注意：镜像只安装了 pi agent 及相关工具：nono, git, fd, rg, proppler。
+> 并且对 nono, pi, lattice 进行了默认配置，使用如下命令安全运行 pi agent
+> ```
+> np
+> ```
+> `np` 命令等价于：`nono run --profile pi-mono -- pi`
+
+> 启动容器后，目录如下：
+> - lattice: 这是 lattice git 仓库
+> - develop: 这是你本地硬盘的挂载点
+> - proj: 这是你容器硬盘的挂载点
+> - .config/nono/profiles: 这是你 pi-mono.json 文件所在
 >
-> 下面还需要对 nono, pi, lattice 进行配置，才能安全运行 pi agent
+> 按照配置，你可进入自己的工作目录，比如敲入命令 `cd develop/projects/run`
+> 然后运行 `np` 命令。接下来，可以准备连接你的 LLM 供应商，比如 deepseek 。
+> - 进入正确的工作目录对你来说很重要，
+>   - 除了 `./.pi/agent/`
+>   - 和 `./develop/projects` 目录外，
+>
+>   其他目录 LLM 没有读写权限。
+> - 现在有了proppler 工具，你的大模型可以读取 pdf 文件了。
+
+> 让 LLM 帮你配置本地 LLM
+>
+> ```
+> 通过 host.docker.internal 可访问本级 lm studio 服务，请帮我配置本地 LLM，请使用一个最小规模的 LLM 进行连接性测试。
+> ```
 
 ## 安装 Nono
 
