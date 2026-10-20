@@ -42,3 +42,4 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
     - [5.5 Mediator](ch5/5.md)
     - [5.6 Memento](ch5/6.md)
     - [5.7 Observer](ch5/7.md)
+    - [5.8 State](ch5/8.md)
