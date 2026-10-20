@@ -6,6 +6,10 @@
 
 参考 [这里](../../nvide/build.md)，获得一个安装好 pi agent 和 nono 的 docker 镜像。
 
+> 注意：镜像只安装了 pi agent 及相关工具：nono, git, fd, rg, proppler。
+>
+> 下面还需要对 nono, pi, lattice 进行配置，才能安全运行 pi agent
+
 ## 安装 Nono
 
 nono 将限制 coding harness 的权限，同时只占用很少的系统资源（CPU，内存），比容器方式更加高效。
@@ -13,6 +17,8 @@ nono 将限制 coding harness 的权限，同时只占用很少的系统资源�
 1. 访问 [nono.sh](https://nono.sh/docs/cli/getting_started/installation)
 
 2. 使用 brew 进行安装 `brew install nono`
+
+## 配置 Nono
 
 3. 为 pi 准备一个 nono profile，细节请参考 [官方文档](https://nono.sh/docs/cli/features/profiles-groups#creating-user-profiles) 。
 
@@ -35,7 +41,7 @@ nono 将限制 coding harness 的权限，同时只占用很少的系统资源�
    请参考下图
    <img src="./img/nono-profile-list.png" width="100%"/>
 
-   这是 pi-mono.json 文件的内容说明：
+    这是 pi-mono.json 文件的内容说明：
 
    ```json
    {
@@ -54,7 +60,7 @@ nono 将限制 coding harness 的权限，同时只占用很少的系统资源�
      "filesystem": {
        "allow": [
          "$HOME/.pi/agent/", // 这个是 pi 的默认安装路径
-         "$HOME/dev/projects/" // 把这个换成你自己的项目目录
+         "$HOME/develop/projects/" // 把这个换成你自己的项目目录
        ],
        "read": [
        ]
@@ -66,13 +72,13 @@ nono 将限制 coding harness 的权限，同时只占用很少的系统资源�
 
 ## 安装 pi.dev
 
-- 访问 [pi.dev](https://pi.dev/)
-- 运行安装程序 `curl -fsSL https://pi.dev/install.sh | sh`
-- 进入授权的工作目录 `cd $HOME/dev/projects` 
-  - `dev/projects` 是示例工作目录，你可进入自己的工作目录
+1. 访问 [pi.dev](https://pi.dev/)
+2. 运行安装程序 `curl -fsSL https://pi.dev/install.sh | sh`
+3. 进入授权的工作目录 `cd $HOME/develop/projects`
+  - `develop/projects` 是示例工作目录，你可进入自己的工作目录
   - 如果你的工作目录不同，则要修改 [pi-mono.json](./pi-mono.json) 中的 `filesystem` 部分。
   - 若在任意目录中启动，nono 会询问你是否授权读写当前目录
-- 在 nono 沙箱中运行 pi，同时检查授权访问情况
+4. 在 nono 沙箱中运行 pi，同时检查授权访问情况
   - 运行 pi： `nono run -v --profile pi-mono pi` 
   - -v 选项，打印所有授权内容 
   - 此时你可以检查 nono 授权了对哪些资源的访问
@@ -96,6 +102,8 @@ pi 支持各种 provider， 详情参阅 [官方文档](https://pi.dev/docs/late
 
 - 始终用中文回答（包括代码注释、文档说明）
 - 除非用户明确要求使用其他语言
+- 除非得到明确授权，请不要修改本地文件
+- 除非得到明确授权，请不要在本地安装软件
  ```
 
 ## 安装 Lattice
@@ -121,7 +129,7 @@ cd lattice
   - 能返回模型列表 → 正常
 - 请参考下图
 
-![LM Studios developer panel](./img/lm-studios.png)
+<img src="./img/lm-studios.png" width="100%"/>
 
 ## 本地 LLM：配置 LLM 并运行 Pi
 - 为 pi 运行，配置 LLM
@@ -133,16 +141,16 @@ cd lattice
   - 运行 pi： `nono run --profile pi-mono pi`
 - 请参考下图
 
-![pi.dev start](./img/nono-pi-dev.png)
+  <img src="./img/nono-pi-dev.png" width="100%"/>
 
-```
-curl https://api.deepseek.com/v1/chat/completions \
--H "Authorization: Bearer sk-YOURKEY" \
--H "Content-Type: application/json" \
--d '{
-  "model": "deepseek-v4-pro",
-  "messages": [{"role":"user","content":"hi"}]
-}'
+  ```
+  curl https://api.deepseek.com/v1/chat/completions \
+  -H "Authorization: Bearer sk-YOURKEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "deepseek-v4-pro",
+    "messages": [{"role":"user","content":"hi"}]
+  }'
 
-nono run --profile pi-mono -- zsh -c "curl -v https://api.deepseek.com/v1/chat/completions -H 'Authorization: Bearer sk-YOURKEY' -H 'Content-Type: application/json' -d '{\"model\":\"deepseek-v4-pro\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}]}'"
-```
+  nono run --profile pi-mono -- zsh -c "curl -v https://api.deepseek.com/v1/chat/completions -H 'Authorization: Bearer sk-YOURKEY' -H 'Content-Type: application/json' -d '{\"model\":\"deepseek-v4-pro\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}]}'"
+  ```

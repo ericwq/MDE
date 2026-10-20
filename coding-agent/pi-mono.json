@@ -14,7 +14,8 @@
   "filesystem": {
     "allow": [
       "$HOME/.pi/agent/",
-      "$HOME/dev/projects/"
+      "$HOME/develop/projects/",
+      "$HOME/develop/MDE/"
     ],
     "read": [
     ]
