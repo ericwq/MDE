@@ -127,6 +127,7 @@ cd lattice
 - 检查 LM Studio 服务器运行在 1234 端口
   - 运行 `curl http://127.0.0.1:1234/v1/models`
   - 能返回模型列表 → 正常
+  - 在容器中可利用 host.docker.internal 访问宿主机的端口
 - 请参考下图
 
 <img src="./img/lm-studios.png" width="100%"/>
