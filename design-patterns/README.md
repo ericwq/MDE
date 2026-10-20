@@ -43,3 +43,4 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
     - [5.6 Memento](ch5/6.md)
     - [5.7 Observer](ch5/7.md)
     - [5.8 State](ch5/8.md)
+    - [5.9 Strategy](ch5/9.md)
