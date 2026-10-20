@@ -4,7 +4,7 @@
 
 ## pi agent 镜像
 
-参考 [这里](../../nvide/build.md)，获得一个安装好 pi agent 和 nono 的 docker 镜像，并启动容器。
+参考 [这里](https://github.com/ericwq/nvide/blob/main/build.md)，获得一个安装好 pi agent 和 nono 的 docker 镜像，并启动容器。
 
 > 注意：镜像只安装了 pi agent 及相关工具：nono, git, fd, rg, proppler。
 > 并且对 nono, pi, lattice 进行了默认配置，使用如下命令安全运行 pi agent
