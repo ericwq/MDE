@@ -56,3 +56,4 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
 - [附录 A 术语表](appendix-a.md)
 - [附录 B 记法指南](appendix-b.md)
 - [附录 C 基础库](appendix-c.md)
+- [参考书目](./biblio.md)
