@@ -46,3 +46,5 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
     - [5.9 Strategy](ch5/9.md)
     - [5.10 Template Method](ch5/10.md)
     - [5.11 Visitor](ch5/11.md)
+    - [5.12 行为型模式讨论](ch5/12.md)
+  - [第 6 章 结论](ch6/0.md)
