@@ -45,3 +45,4 @@ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides · 1995
     - [5.8 State](ch5/8.md)
     - [5.9 Strategy](ch5/9.md)
     - [5.10 Template Method](ch5/10.md)
+    - [5.11 Visitor](ch5/11.md)
