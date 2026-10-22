@@ -22,10 +22,12 @@
 
 如果你不是经验丰富的面向对象设计者，那么从最简单、最常见的模式开始：
 
-• Abstract Factory（第 87 页） • Factory Method（107）<br/>
-• Adapter（139） • Observer（293）<br/>
-• Composite（163） • Strategy（315）<br/>
-• Decorator（175） • Template Method（325）<br/>
+| | |
+|---|---|
+|• [Abstract Factory (87)](ch3/1.md) |• [Factory Method (107)](ch3/3.md)<br/>|
+|• [Adapter (139)](ch4/1.md) |• [Observer (293)](ch5/7.md)<br/>|
+|• [Composite (163)](ch4/3.md) |• [Strategy (315)](ch5/9.md)<br/>|
+|• [Decorator (175)](ch4/4.md) |• [Template Method (325)](ch5/10.md)<br/>|
 
 很难找到一个不使用其中至少几个模式的面向对象系统，而大型系统几乎会使用所有这些模式。
 这个子集会帮助你理解具体的设计模式，以及总体上良好的面向对象设计。
