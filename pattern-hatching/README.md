@@ -1,0 +1,71 @@
+## 模式孵化：应用设计模式
+
+<img src="img/cover.webp" width="40%"/><br/>
+John Vlissides · 1998
+
+## 目录
+
+- [序言](./foreword.md)
+- [前言](./preface.md)
+- [第 1 章 引言（Introduction）](ch1/0.md)
+  - [1.1 十大误解（The Top Ten Misconceptions）](ch1/1.md)
+  - [1.2 几点观察（Observations）](ch1/2.md)
+- [第 2 章 用模式做设计（Designing with Patterns）](ch2/0.md)
+  - [2.1 基础（Fundamentals）](ch2/1.md)
+  - [2.2 孤儿、收养与替身（Orphans, Adoption, and Surrogates）](ch2/2.md)
+  - [2.3 "那替身到底归到哪一类？"（"But Where Do Surrogates Fit into This?"）](ch2/3.md)
+  - [2.4 访问权（Visiting Rights）](ch2/4.md)
+  - [2.5 VISITOR 的告诫（VISITOR Caveats）](ch2/5.md)
+  - [2.6 单用户保护（Single-User Protection）](ch2/6.md)
+  - [2.7 多用户保护（Multiuser Protection）](ch2/7.md)
+  - [2.8 收尾（Wrapping Up）](ch2/8.md)
+- [第 3 章 主题与变奏（Themes and Variations）](ch3/0.md)
+  - [3.1 杀死一只单例（To Kill a Singleton）](ch3/1.md)
+  - [3.2 OBSERVER 的麻烦（The Trouble with OBSERVER）](ch3/2.md)
+  - [3.3 再访 VISITOR（VISITOR Revisited）](ch3/3.md)
+  - [3.4 代沟（GENERATION GAP）](ch3/4.md)
+  - [3.5 类型洗白（Type Laundering）](ch3/5.md)
+  - [3.6 多谢内存泄漏（Thanks for the Memory Leaks）](ch3/6.md)
+  - [3.7 推我-拉你（Pushme-Pullyu）](ch3/7.md)
+- [第 4 章 热爱之作（Labor of Love）](ch4/0.md)
+- [第 5 章 高效模式写作者的七个习惯（Seven Habits of Effective Pattern Writers）](ch5/0.md)
+  - [5.1 习惯 1：留出反思的时间（Habit 1: Taking Time to Reflect）](ch5/1.md)
+  - [5.2 习惯 2：遵循一套结构（Habit 2: Adhering to a Structure）](ch5/2.md)
+  - [5.3 习惯 3：尽早且频繁地具体化（Habit 3: Being Concrete Early and Often）](ch5/3.md)
+  - [5.4 习惯 4：保持模式互不重叠、彼此互补（Habit 4: Keeping Patterns Distinct and Complementary）](ch5/4.md)
+  - [5.5 习惯 5：有效地表达（Habit 5: Presenting Effectively）](ch5/5.md)
+  - [5.6 习惯 6：不知疲倦地迭代（Habit 6: Iterating Tirelessly）](ch5/6.md)
+  - [5.7 习惯 7：收集并采纳反馈（Habit 7: Collecting and Incorporating Feedback）](ch5/7.md)
+  - [5.8 没有银弹（No Silver Bullet）](ch5/8.md)
+- [参考书目](./biblio.md)
+
+## 关于本译本
+
+**底本**
+
+- John Vlissides, *Pattern Hatching: Design Patterns Applied*, Addison-Wesley, 1998（The Software Patterns Series），ISBN 0-201-43293-5，xvi + 172 页。
+- 电子底本为 Internet Archive 扫描件（带 OCR 文本层，共 196 页）。**PDF 页码 = 印刷页码 + 20**，据此可回查原文。
+- 扫描件缺页检查已做过：正文 1–172、前件 i–xvi、书目与索引均完整。
+  空白页属正常排版：前件 **xii**（目录标 "Preface xii"，但 xii 是空白页，Preface 实际起于 **xiii**），正文 **12、60、122**（各章末尾）。
+- 注意：OCR 文本层对**页眉、装饰性小体大写标题、图注**识别较差（如页眉 "To Kill a Singleton" 被识成 "To Killa Singleton"），引用原文时以扫描图像为准。
+
+**文件约定**（与 [design-patterns](../design-patterns/) 译本保持一致）
+
+- 每章一个目录 `chN/`；`0.md` 存**章首**（章题与导语），`N.md` 存该章第 N 节。
+- 前件（序言、前言）、书目放在顶层：`foreword.md`、`preface.md`、`biblio.md`。
+- 图片统一放 `img/`，按 `fig-<章>-<节>-<序号>.png` 命名（如 `fig-2-1-1.png`）；封面为 `img/cover.webp`。
+- 参考书目条目保留**英文原文**，每条带锚点，锚点名为标签小写、去掉 `+`（`BCC+96` → `id="bcc96"`）。
+  章节正文引用写作 `[GoF95](./biblio.md#gof95)`（同一文件内用 `[MRB98](#mrb98)`）。
+
+**原书特殊之处**
+
+- 第 3 章的章首与 3.1 起于同一页（p.61），`ch3/0.md` 仅含章首导语。
+- 第 4 章「热爱之作」原书**没有小节**（p.123–142，共 20 页），整章即 `ch4/0.md` 一个文件。
+- 原书**索引**（p.157–172）按页码组织，译文页码必然失效，故暂不翻译、不设文件。
+- 原书无附录；「参考书目」（p.153–156）对应 `biblio.md`。
+
+**待定**
+
+- 书名：暂作「模式孵化」，候选「模式孵育」「模式孕育」；定稿后需同步 `README.md` 标题行与 `foreword.md` 中"孵化的类比"一句。
+- `Foreword` 的中文叫法：现作「序言」（与 design-patterns 一致），备选「推荐序」。
+- 书名双关的译者注（`Pattern Hatching` ↔ `Pattern Matching`、蛋盒比喻）应放在 `ch1/0.md`（原书 p.2），不在前言。
