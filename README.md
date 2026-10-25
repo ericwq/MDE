@@ -18,6 +18,7 @@
 - ∂ [RESTful Web Services](./rest/restful-web-services/README.md) (2026/8/28~9/4)
 - [API 设计模式](./rest/api-design-patterns/README.md) (2026/9/4~9/23)
 - [设计模式：可复用面向对象软件的基础](./design-patterns/README.md) (2026/10/8~10/22)
+- ∂ [模式孵化：应用设计模式](./pattern-hatching/README.md) (2026/10/25~)
 
 ## AI 及智能体相关文章
 这是个快速变化的领域，所以相关文章都标出了时间。
