@@ -7,9 +7,9 @@ John Vlissides · 1998
 
 - [序言](./foreword.md)
 - [前言](./preface.md)
-- [第 1 章 引言（Introduction）](ch1/0.md)
-  - [1.1 十大误解（The Top Ten Misconceptions）](ch1/1.md)
-  - [1.2 几点观察（Observations）](ch1/2.md)
+- [第 1 章 引言](ch1/0.md)
+  - [1.1 十大误解](ch1/1.md)
+  - [1.2 几点观察](ch1/2.md)
 - [第 2 章 用模式做设计（Designing with Patterns）](ch2/0.md)
   - [2.1 基础（Fundamentals）](ch2/1.md)
   - [2.2 孤儿、收养与替身（Orphans, Adoption, and Surrogates）](ch2/2.md)
@@ -55,15 +55,17 @@ John Vlissides · 1998
 - 前件（序言、前言）、书目放在顶层：`foreword.md`、`preface.md`、`biblio.md`。
 - 图片统一放 `img/`，按 `fig-<章>-<节>-<序号>.png` 命名（如 `fig-2-1-1.png`）；封面为 `img/cover.webp`。
 - 参考书目条目保留**英文原文**，每条带锚点，锚点名为标签小写、去掉 `+`（`BCC+96` → `id="bcc96"`）。
-  章节正文引用写作 `[GoF95](./biblio.md#gof95)`（同一文件内用 `[MRB98](#mrb98)`）。
+  章节正文引用写作 `[GoF95](../biblio.md#gof95)`（子目录文件用 `../`；同一文件内的锚点用 `[MRB98](#mrb98)`）。
 
 **译文落笔规则**（ch1–ch5 按此执行）
 
 - 书名、模式名保留原文：`《Design Patterns》`、`VISITOR`、`GENERATION GAP`，不译也不加注。
-- 破折号统一为 `——`，**紧排、两侧不留空格**（与 design-patterns 一致）。
+- 破折号统一为 `——`，**紧排、两侧不留空格**。注：`design-patterns` 译本目前多写作空格式 ` —— `（75 处）而非紧排（5 处），本书不跟随，一律紧排。
 - 缩写仅在全书**首次出现**处括注一次，此后一律用缩写：`GoF（Gang of Four，四人组）`。
-- `<ins>` 沿用 design-patterns 的划线体例，但**不主动添加**：原文有强调时才用，且成对闭合、不跨段。
-- 引号沿用「直引号 + 两侧留半角空格」写法（如 ` "模式" `）；与 design-patterns 是否完全一致尚未比对，待定。
+- 原文斜体（句内强调、被当作词谈论的术语、书名内文）一律译作 `*斜体*`；本书**不使用** `<ins>`。
+  `design-patterns` 译本里的 `<ins>` 是该译本**译者自选的重点句**标记，与原文是否强调无关，本书不沿用这一做法。
+- 引号沿用「直引号 + 两侧留半角空格」写法（如 ` "模式" `），与 design-patterns 正文的主流写法一致（其正文直引号 812 处、弯引号 181 处）。
+- 原书的分节装饰符 `❖ ❖ ❖` 写成 `<p align="center">❖ ❖ ❖</p>`，**前后各留一个空行**；章末与章节内的话题转折处均保留，不删。
 
 **原书特殊之处**
 
