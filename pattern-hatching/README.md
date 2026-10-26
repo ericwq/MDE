@@ -44,7 +44,7 @@ John Vlissides · 1998
 **底本**
 
 - John Vlissides, *Pattern Hatching: Design Patterns Applied*, Addison-Wesley, 1998（The Software Patterns Series），ISBN 0-201-43293-5，xvi + 172 页。
-- 电子底本为 Internet Archive 扫描件（带 OCR 文本层，共 196 页）。**PDF 页码 = 印刷页码 + 20**，据此可回查原文。
+- 电子底本为 Internet Archive 扫描件（带 OCR 文本层，共 196 页）。**正文：PDF 页码 = 印刷页码 + 20；前件（罗马数字页）：PDF 页码 = 印刷页码 + 2**，据此可回查原文。
 - 扫描件缺页检查已做过：正文 1–172、前件 i–xvi、书目与索引均完整。
   空白页属正常排版：前件 **xii**（目录标 "Preface xii"，但 xii 是空白页，Preface 实际起于 **xiii**），正文 **12、60、122**（各章末尾）。
 - 注意：OCR 文本层对**页眉、装饰性小体大写标题、图注**识别较差（如页眉 "To Kill a Singleton" 被识成 "To Killa Singleton"），引用原文时以扫描图像为准。
@@ -57,10 +57,18 @@ John Vlissides · 1998
 - 参考书目条目保留**英文原文**，每条带锚点，锚点名为标签小写、去掉 `+`（`BCC+96` → `id="bcc96"`）。
   章节正文引用写作 `[GoF95](./biblio.md#gof95)`（同一文件内用 `[MRB98](#mrb98)`）。
 
+**译文落笔规则**（ch1–ch5 按此执行）
+
+- 书名、模式名保留原文：`《Design Patterns》`、`VISITOR`、`GENERATION GAP`，不译也不加注。
+- 破折号统一为 `——`，**紧排、两侧不留空格**（与 design-patterns 一致）。
+- 缩写仅在全书**首次出现**处括注一次，此后一律用缩写：`GoF（Gang of Four，四人组）`。
+- `<ins>` 沿用 design-patterns 的划线体例，但**不主动添加**：原文有强调时才用，且成对闭合、不跨段。
+- 引号沿用「直引号 + 两侧留半角空格」写法（如 ` "模式" `）；与 design-patterns 是否完全一致尚未比对，待定。
+
 **原书特殊之处**
 
 - 第 3 章的章首与 3.1 起于同一页（p.61），`ch3/0.md` 仅含章首导语。
-- 第 4 章「热爱之作」原书**没有小节**（p.123–142，共 20 页），整章即 `ch4/0.md` 一个文件。
+- 第 4 章「热爱之作」原书**没有小节**（p.123–144，共 22 页），整章即 `ch4/0.md` 一个文件。
 - 原书**索引**（p.157–172）按页码组织，译文页码必然失效，故暂不翻译、不设文件。
 - 原书无附录；「参考书目」（p.153–156）对应 `biblio.md`。
 
