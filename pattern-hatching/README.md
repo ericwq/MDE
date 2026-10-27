@@ -10,15 +10,15 @@ John Vlissides · 1998
 - [第 1 章 引言](ch1/0.md)
   - [1.1 十大误解](ch1/1.md)
   - [1.2 几点观察](ch1/2.md)
-- [第 2 章 用模式做设计（Designing with Patterns）](ch2/0.md)
-  - [2.1 基础（Fundamentals）](ch2/1.md)
-  - [2.2 孤儿、收养与替身（Orphans, Adoption, and Surrogates）](ch2/2.md)
-  - [2.3 "那替身到底归到哪一类？"（"But Where Do Surrogates Fit into This?"）](ch2/3.md)
-  - [2.4 访问权（Visiting Rights）](ch2/4.md)
-  - [2.5 VISITOR 的告诫（VISITOR Caveats）](ch2/5.md)
-  - [2.6 单用户保护（Single-User Protection）](ch2/6.md)
-  - [2.7 多用户保护（Multiuser Protection）](ch2/7.md)
-  - [2.8 收尾（Wrapping Up）](ch2/8.md)
+- [第 2 章 用模式做设计](ch2/0.md)
+  - [2.1 基础](ch2/1.md)
+  - [2.2 孤儿、收养与替身](ch2/2.md)
+  - [2.3 "那替身到底归到哪一类？"](ch2/3.md)
+  - [2.4 访问权](ch2/4.md)
+  - [2.5 VISITOR 的告诫](ch2/5.md)
+  - [2.6 单用户保护](ch2/6.md)
+  - [2.7 多用户保护](ch2/7.md)
+  - [2.8 收尾](ch2/8.md)
 - [第 3 章 主题与变奏（Themes and Variations）](ch3/0.md)
   - [3.1 杀死一只单例（To Kill a Singleton）](ch3/1.md)
   - [3.2 OBSERVER 的麻烦（The Trouble with OBSERVER）](ch3/2.md)
@@ -53,7 +53,9 @@ John Vlissides · 1998
 
 - 每章一个目录 `chN/`；`0.md` 存**章首**（章题与导语），`N.md` 存该章第 N 节。
 - 前件（序言、前言）、书目放在顶层：`foreword.md`、`preface.md`、`biblio.md`。
-- 图片统一放 `img/`，按 `fig-<章>-<节>-<序号>.png` 命名（如 `fig-2-1-1.png`）；封面为 `img/cover.webp`。
+- 图片统一放 `img/`，**有图号的图直接用书中图号**：`fig-<章>-<图号>.png`（如 FIGURE 2.1 → `fig-2-1.png`）；
+  **原书无编号的插图**按所在小节加字母后缀：`fig-<章>-<节><a|b>.png`（如 2.1 节的文件树示意图 → `fig-2-1a.png`）。封面为 `img/cover.webp`。
+- 图注写在图片下一行的斜体里，沿用原书图号：`*图 2.1：COMPOSITE 结构*`；原书无编号的插图不加图注。
 - 参考书目条目保留**英文原文**，每条带锚点，锚点名为标签小写、去掉 `+`（`BCC+96` → `id="bcc96"`）。
   章节正文引用写作 `[GoF95](../biblio.md#gof95)`（子目录文件用 `../`；同一文件内的锚点用 `[MRB98](#mrb98)`）。
 
@@ -70,6 +72,11 @@ John Vlissides · 1998
 - `> 译注：……` 引用块用于译者的补充说明或小节要点，**按内容需要自行增加**，不强制每节都有；冒号后不留空格。
 - 引号沿用「直引号 + 两侧留半角空格」写法（如 ` "模式" `），与 design-patterns 正文的主流写法一致（其正文直引号 812 处、弯引号 181 处）。
 - 原书的分节装饰符 `❖ ❖ ❖` 写成 `<p align="center">❖ ❖ ❖</p>`，**前后各留一个空行**；章末与章节内的话题转折处均保留，不删。
+- 章、节的一级标题**只写中文，不附英文原文**（如 `# 2.1 基础`，不写 `# 2.1 基础（Fundamentals）`）。
+
+**每章完成后的收尾动作**
+
+- 每译完或校对完一章，同步更新 `README.md` 的「目录」：该章各条目同样**只留中文**，去掉英文括注。
 
 **原书特殊之处**
 
