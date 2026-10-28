@@ -19,14 +19,14 @@ John Vlissides · 1998
   - [2.6 单用户保护](ch2/6.md)
   - [2.7 多用户保护](ch2/7.md)
   - [2.8 收尾](ch2/8.md)
-- [第 3 章 主题与变奏（Themes and Variations）](ch3/0.md)
-  - [3.1 杀死一只单例（To Kill a Singleton）](ch3/1.md)
-  - [3.2 OBSERVER 的麻烦（The Trouble with OBSERVER）](ch3/2.md)
-  - [3.3 再访 VISITOR（VISITOR Revisited）](ch3/3.md)
-  - [3.4 代沟（GENERATION GAP）](ch3/4.md)
-  - [3.5 类型洗白（Type Laundering）](ch3/5.md)
-  - [3.6 多谢内存泄漏（Thanks for the Memory Leaks）](ch3/6.md)
-  - [3.7 推我-拉你（Pushme-Pullyu）](ch3/7.md)
+- [第 3 章 主题与变奏](ch3/0.md)
+  - [3.1 杀死一只单例](ch3/1.md)
+  - [3.2 OBSERVER 的麻烦](ch3/2.md)
+  - [3.3 再访 VISITOR](ch3/3.md)
+  - [3.4 代沟](ch3/4.md)
+  - [3.5 类型洗白](ch3/5.md)
+  - [3.6 多谢内存泄漏](ch3/6.md)
+  - [3.7 推我-拉你](ch3/7.md)
 - [第 4 章 热爱之作（Labor of Love）](ch4/0.md)
 - [第 5 章 高效模式写作者的七个习惯（Seven Habits of Effective Pattern Writers）](ch5/0.md)
   - [5.1 习惯 1：留出反思的时间（Habit 1: Taking Time to Reflect）](ch5/1.md)
@@ -81,6 +81,8 @@ John Vlissides · 1998
 **原书特殊之处**
 
 - 第 3 章的章首与 3.1 起于同一页（p.61），`ch3/0.md` 仅含章首导语。
+- 第 3 章分节与页码对照：`0.md`=p.61（章首）、`1.md`=p.61–72、`2.md`=p.72–79（p.79 上半页两段属 3.2）、`3.md`=p.79–85（p.85 上三段属 3.3）、`4.md`=p.85–101（GENERATION GAP 按模式模板分节：模式名称至相关模式）、`5.md`=p.102–110、`6.md`=p.110–114、`7.md`=p.114–121。
+- 3.4 的「结构」一节带一张**无编号**结构图，按命名规则作 `img/fig-3-4a.png`；3.7 的 p.118 有**三张无编号**图，作 `img/fig-3-7a.png`、`fig-3-7b.png`、`fig-3-7c.png`，均不加图注。
 - 第 4 章「热爱之作」原书**没有小节**（p.123–144，共 22 页），整章即 `ch4/0.md` 一个文件。
 - 原书**索引**（p.157–172）按页码组织，译文页码必然失效，故暂不翻译、不设文件。
 - 原书无附录；「参考书目」（p.153–156）对应 `biblio.md`。
