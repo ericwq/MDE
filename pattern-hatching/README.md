@@ -23,22 +23,23 @@ John Vlissides · 1998
   - [3.1 杀死一只单例](ch3/1.md)
   - [3.2 OBSERVER 的麻烦](ch3/2.md)
   - [3.3 再访 VISITOR](ch3/3.md)
-  - [3.4 代沟](ch3/4.md)
+  - [3.4 GENERATION GAP](ch3/4.md)
   - [3.5 类型洗白](ch3/5.md)
   - [3.6 多谢内存泄漏](ch3/6.md)
   - [3.7 推我-拉你](ch3/7.md)
-- [第 4 章 热爱之作（Labor of Love）](ch4/0.md)
-- [第 5 章 高效模式写作者的七个习惯（Seven Habits of Effective Pattern Writers）](ch5/0.md)
-  - [5.1 习惯 1：留出反思的时间（Habit 1: Taking Time to Reflect）](ch5/1.md)
-  - [5.2 习惯 2：遵循一套结构（Habit 2: Adhering to a Structure）](ch5/2.md)
-  - [5.3 习惯 3：尽早且频繁地具体化（Habit 3: Being Concrete Early and Often）](ch5/3.md)
-  - [5.4 习惯 4：保持模式互不重叠、彼此互补（Habit 4: Keeping Patterns Distinct and Complementary）](ch5/4.md)
-  - [5.5 习惯 5：有效地表达（Habit 5: Presenting Effectively）](ch5/5.md)
-  - [5.6 习惯 6：不知疲倦地迭代（Habit 6: Iterating Tirelessly）](ch5/6.md)
-  - [5.7 习惯 7：收集并采纳反馈（Habit 7: Collecting and Incorporating Feedback）](ch5/7.md)
-  - [5.8 没有银弹（No Silver Bullet）](ch5/8.md)
+- [第 4 章 热爱之作](ch4/0.md)
+- [第 5 章 高效模式写作者的七个习惯](ch5/0.md)
+  - [5.1 习惯 1：留出反思的时间](ch5/1.md)
+  - [5.2 习惯 2：遵循一套结构](ch5/2.md)
+  - [5.3 习惯 3：尽早且频繁地具体化](ch5/3.md)
+  - [5.4 习惯 4：保持模式互不重叠、彼此互补](ch5/4.md)
+  - [5.5 习惯 5：有效地表达](ch5/5.md)
+  - [5.6 习惯 6：不知疲倦地迭代](ch5/6.md)
+  - [5.7 习惯 7：收集并采纳反馈](ch5/7.md)
+  - [5.8 没有银弹](ch5/8.md)
 - [参考书目](./biblio.md)
 
+<!--
 ## 关于本译本
 
 **底本**
@@ -84,6 +85,10 @@ John Vlissides · 1998
 - 第 3 章分节与页码对照：`0.md`=p.61（章首）、`1.md`=p.61–72、`2.md`=p.72–79（p.79 上半页两段属 3.2）、`3.md`=p.79–85（p.85 上三段属 3.3）、`4.md`=p.85–101（GENERATION GAP 按模式模板分节：模式名称至相关模式）、`5.md`=p.102–110、`6.md`=p.110–114、`7.md`=p.114–121。
 - 3.4 的「结构」一节带一张**无编号**结构图，按命名规则作 `img/fig-3-4a.png`；3.7 的 p.118 有**三张无编号**图，作 `img/fig-3-7a.png`、`fig-3-7b.png`、`fig-3-7c.png`，均不加图注。
 - 第 4 章「热爱之作」原书**没有小节**（p.123–144，共 22 页），整章即 `ch4/0.md` 一个文件。
+- 第 4 章有两张**无编号**的结构图（p.129 的 MULTICAST 结构、p.140 的 TYPED MESSAGE 结构，因本章无小节，不能按节号加后缀）：作 `img/fig-4-5.png`、`img/fig-4-6.png`，均不加图注；有编号的 FIGURE 4.1–4.4 依次为 `fig-4-1.png`–`fig-4-4.png`。
+- 第 4 章 p.140 起 TYPED MESSAGE 的各字段（意图、动机、适用性、结构……）在原书中与 MULTICAST 的同名字段同级排印；中译把前者降为三级标题，以免与后者混淆。p.141–142 的「效果」「实现」各条目在原书中即以省略号收尾（作者当时未写完），照原样保留。
+- 第 5 章分节与页码对照（本章节短、页界跨节）：`0.md`=p.145（章首）、`1.md`=p.146–147（p.147 前两段属习惯 1）、`2.md`=p.147–148、`3.md`=p.148–149（p.149 首段属习惯 3）、`4.md`=p.149、`5.md`=p.150、`6.md`=p.151（前两段）、`7.md`=p.151–152（p.152 首段属习惯 7）、`8.md`=p.152。
+- 第 5 章无插图。
 - 原书**索引**（p.157–172）按页码组织，译文页码必然失效，故暂不翻译、不设文件。
 - 原书无附录；「参考书目」（p.153–156）对应 `biblio.md`。
 
@@ -92,3 +97,5 @@ John Vlissides · 1998
 - 书名：暂作「模式孵化」，候选「模式孵育」「模式孕育」；定稿后需同步 `README.md` 标题行与 `foreword.md` 中"孵化的类比"一句。
 - `Foreword` 的中文叫法：现作「序言」（与 design-patterns 一致），备选「推荐序」。
 - 书名双关的译者注（`Pattern Hatching` ↔ `Pattern Matching`、蛋盒比喻）应放在 `ch1/0.md`（原书 p.2），不在前言。
+
+-->
