@@ -5,20 +5,33 @@
 - [模型驱动工程](mde2006.md)
 
 ## 相关书籍
+
+#### MDE
 - [模型驱动软件开发（中文版）](mdsd/README.md)
 - [模型驱动软件工程实践：第二版](mdse-in-practice/README.md)
-- [领域驱动设计 —— 处理软件核心复杂性（中文版）](ddd/README.md) (2025/11/18~2026/1/12)
+
+#### DDD
+- ❄ [领域驱动设计 —— 处理软件核心复杂性（中文版）](ddd/README.md) (2025/11/18~2026/1/12)
 - [领域驱动设计参考：定义和模式总结（中文版）](ddd-ref/README.md) (2025/12/25~12/31)
 - [实现领域驱动设计（中文版）](impl-ddd/README.md) (2026/1/8~2/11)
-- ∂ [面向模式的软件架构：模式系统](./posa-1/README.md) (2026/3/24~4/7)
-- [整洁架构 - 软件结构与设计匠人指南（中文版）](clean/README.md) (2026/6/10~6/26)
 - [领域驱动设计精粹 (中文版)](./distalled/README.md) (2026/7/1~7/6)
-- [整洁代码：敏捷软件工匠手册（中文版）](./code/README.md) (2026/7/8~7/30)
-- ∂ [敏捷软件开发：原则、模式与实践](ppp/README.md) (2026/7/30~)
-- ∂ [RESTful Web Services](./rest/restful-web-services/README.md) (2026/8/28~9/4)
-- [API 设计模式](./rest/api-design-patterns/README.md) (2026/9/4~9/23)
-- [设计模式：可复用面向对象软件的基础](./design-patterns/README.md) (2026/10/8~10/22)
-- [模式孵化：应用设计模式](./pattern-hatching/README.md) (2026/10/25~11/1)
+
+#### Clean Architecture / Clean Code
+- ❄ [整洁架构 - 软件结构与设计匠人指南（中文版）](clean/README.md) (2026/6/10~6/26)
+- ❄ [整洁代码：敏捷软件工匠手册（中文版）](./code/README.md) (2026/7/8~7/30)
+
+#### Design Patterns
+- [面向模式的软件架构：模式系统](./posa-1/README.md) (2026/3/24~4/7) ∂
+- [敏捷软件开发：原则、模式与实践](ppp/README.md) (2026/7/30~) ∂
+- ❄ [设计模式：可复用面向对象软件的基础](./design-patterns/README.md) (2026/10/8~10/22)
+- ❄ [模式孵化：应用设计模式](./pattern-hatching/README.md) (2026/10/25~11/1)
+
+#### Rest API
+- [RESTful Web Services](./rest/restful-web-services/README.md) (2026/8/28~9/4) ∂
+- ❄ [API 设计模式](./rest/api-design-patterns/README.md) (2026/9/4~9/23)
+
+标 * 的书是我推荐的必读书目，需要反复研读，最好熟记于心。<br/>
+标 ∂ 的书暂未翻译完成。
 
 ## AI 及智能体相关文章
 这是个快速变化的领域，所以相关文章都标出了时间。
