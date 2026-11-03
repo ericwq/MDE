@@ -20,7 +20,7 @@ John Vlissides · 1998
   - [2.7 多用户保护](ch2/7.md)
   - [2.8 收尾](ch2/8.md)
 - [第 3 章 主题与变奏](ch3/0.md)
-  - [3.1 杀死一只单例](ch3/1.md)
+  - [3.1 杀死一个单例](ch3/1.md)
   - [3.2 OBSERVER 的麻烦](ch3/2.md)
   - [3.3 再访 VISITOR](ch3/3.md)
   - [3.4 GENERATION GAP](ch3/4.md)
