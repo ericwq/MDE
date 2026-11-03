@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 280" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .stroke { stroke:#000; fill:none; }
+    .box { fill:#fff; stroke:#000; }
+    .txt { font-size:15px; }
+    .bold { font-size:16px; font-weight:bold; }
+    .label { font-size:15px; font-style:italic; }
+    .arrow { fill:#000; }
+  </style>
+
+  <!-- observer frame -->
+  <rect class="stroke" x="40" y="30" width="220" height="60" stroke-dasharray="6 4" stroke-width="1.4"/>
+
+  <!-- text entry field -->
+  <rect class="box" x="52" y="42" width="66" height="36" stroke-width="1.6"/>
+  <text class="bold" x="85" y="66" text-anchor="middle">8.25</text>
+
+  <!-- spin buttons -->
+  <rect class="box" x="118" y="42" width="16" height="18" stroke-width="1.4"/>
+  <rect class="box" x="118" y="60" width="16" height="18" stroke-width="1.4"/>
+  <polygon class="arrow" points="122,55 130,55 126,47"/>
+  <polygon class="arrow" points="122,65 130,65 126,73"/>
+
+  <text class="bold" x="142" y="67">percent</text>
+  <text class="label" x="285" y="58">observer</text>
+
+  <!-- subject -->
+  <ellipse class="box" cx="150" cy="215" rx="56" ry="32" stroke-width="1.6"/>
+  <text class="txt" x="150" y="221" text-anchor="middle">8.25</text>
+  <text class="label" x="285" y="212">subject</text>
+
+  <!-- bidirectional arrow -->
+  <line class="stroke" x1="150" y1="102" x2="150" y2="170" stroke-width="2"/>
+  <polygon class="arrow" points="144,102 156,102 150,90"/>
+  <polygon class="arrow" points="144,170 156,170 150,183"/>
+</svg>

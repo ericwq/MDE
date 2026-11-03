@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .area { fill:#dcdcdc; stroke:none; }
+    .frame { fill:none; stroke:#000; stroke-width:1.3; stroke-dasharray:6 4; }
+    .box { fill:#fff; stroke:#000; stroke-width:1.5; }
+    .bold { font-size:16px; font-weight:bold; }
+    .mid { font-size:16px; font-weight:bold; text-anchor:middle; }
+    .ell { font-size:16px; text-anchor:middle; }
+    .label { font-size:16px; font-style:italic; }
+    .arrow { fill:#000; }
+    .arrline { stroke:#000; stroke-width:1.8; }
+  </style>
+
+  <!-- loan observer label -->
+  <text class="label" x="20" y="28">loan observer</text>
+
+  <!-- dashed frames: one per field -->
+  <rect class="frame" x="20" y="50" width="340" height="100"/>
+  <rect class="frame" x="20" y="150" width="340" height="100"/>
+  <rect class="frame" x="20" y="250" width="340" height="100"/>
+
+  <!-- row 1: Loan Amount -->
+  <rect class="box" x="40" y="72" width="150" height="50"/>
+  <text class="mid" x="115" y="104">200000.00</text>
+  <text class="bold" x="205" y="104">dollars</text>
+
+  <!-- row 2: Rate -->
+  <rect class="box" x="40" y="172" width="100" height="50"/>
+  <text class="mid" x="90" y="204">8.25</text>
+  <rect class="box" x="140" y="172" width="30" height="25"/>
+  <rect class="box" x="140" y="197" width="30" height="25"/>
+  <polygon class="arrow" points="147,193 163,193 155,178"/>
+  <polygon class="arrow" points="147,201 163,201 155,216"/>
+  <text class="bold" x="180" y="204">percent</text>
+
+  <!-- row 3: Pay Period -->
+  <rect class="box" x="40" y="272" width="100" height="50"/>
+  <text class="mid" x="90" y="304">30</text>
+  <rect class="box" x="140" y="272" width="30" height="25"/>
+  <rect class="box" x="140" y="297" width="30" height="25"/>
+  <polygon class="arrow" points="147,293 163,293 155,278"/>
+  <polygon class="arrow" points="147,301 163,301 155,316"/>
+  <rect class="box" x="180" y="272" width="110" height="50"/>
+  <text class="bold" x="192" y="304">years</text>
+  <rect class="box" x="265" y="272" width="25" height="50"/>
+  <polygon class="arrow" points="270,304 285,304 277,290"/>
+
+  <!-- loan subject area (L shape) -->
+  <rect class="area" x="440" y="35" width="300" height="525" rx="25"/>
+  <rect class="area" x="10" y="395" width="730" height="165" rx="25"/>
+
+  <!-- subject ellipses -->
+  <ellipse class="box" cx="560" cy="100" rx="72" ry="38"/>
+  <text class="ell" x="560" y="106">200000</text>
+
+  <ellipse class="box" cx="560" cy="210" rx="72" ry="38"/>
+  <text class="ell" x="560" y="216">8.25</text>
+
+  <ellipse class="box" cx="90" cy="500" rx="60" ry="36"/>
+  <text class="ell" x="90" y="506">30</text>
+
+  <ellipse class="box" cx="280" cy="500" rx="75" ry="36"/>
+  <text class="ell" x="280" y="506">years</text>
+
+  <!-- associations -->
+  <!-- 200000 <-> amount field -->
+  <line class="arrline" x1="360" y1="100" x2="488" y2="100"/>
+  <polygon class="arrow" points="372,94 372,106 360,100"/>
+  <polygon class="arrow" points="476,94 476,106 488,100"/>
+
+  <!-- 8.25 <-> rate field -->
+  <line class="arrline" x1="360" y1="210" x2="488" y2="210"/>
+  <polygon class="arrow" points="372,204 372,216 360,210"/>
+  <polygon class="arrow" points="476,204 476,216 488,210"/>
+
+  <!-- 30 <-> pay period field -->
+  <line class="arrline" x1="90" y1="350" x2="90" y2="464"/>
+  <polygon class="arrow" points="84,362 96,362 90,350"/>
+  <polygon class="arrow" points="84,452 96,452 90,464"/>
+
+  <!-- years <-> combo field -->
+  <line class="arrline" x1="280" y1="350" x2="280" y2="464"/>
+  <polygon class="arrow" points="274,362 286,362 280,350"/>
+  <polygon class="arrow" points="274,452 286,452 280,464"/>
+
+  <!-- diagonal link -->
+  <line class="arrline" x1="352" y1="352" x2="452" y2="428"/>
+  <polygon class="arrow" points="352,352 358.0,364.1 365.2,354.5"/>
+  <polygon class="arrow" points="452,428 438.8,425.5 446.1,415.9"/>
+
+  <!-- loan subject label -->
+  <text class="label" x="630" y="548">loan subject</text>
+</svg>
