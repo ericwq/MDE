@@ -20,7 +20,7 @@
 
 *[MODEL-DRIVEN DESIGN](ch3/1.md) 语言的导航图*
 
-![part 2.1](img/part2.1.png)
+<img src="img/part2.1.png" width="100%" /></br>
 
 复杂的模型只有在基础工作做好时才能应对复杂性，从而产生团队可以自信组合的详细元素。
 
