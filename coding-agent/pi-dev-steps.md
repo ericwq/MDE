@@ -48,7 +48,7 @@
 }
 ```
 
-2. 安装动态发现扩展 `pi install npm:pi-models-discovery`
+2. 安装动态发现扩展 `pi install npm:pi-models-discovery` （使用 pi-agent 镜像不用做这一步）
 
 3. 进入 pi, 执行 `/login` 命令
 
