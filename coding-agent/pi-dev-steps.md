@@ -34,6 +34,24 @@
 > 通过 host.docker.internal 可访问本级 lm studio 服务，请帮我配置本地 LLM，请使用一个最小规模的 LLM 进行连接性测试。
 > ```
 
+### ucloud provider
+1. 增加文件 `~/.pi/agent/models.json`
+```
+{
+  "providers": {
+    "Ucloud-modelverse": {
+      "baseUrl": "https://api.modelverse.cn/v1",
+      "api": "openai-completions",
+      "discoverModels": true
+    }
+  }
+}
+```
+
+2. 安装动态发现扩展 `pi install npm:pi-models-discovery`
+
+3. 进入 pi, 执行 `/login` 命令
+
 ## 安装 Nono
 
 nono 将限制 coding harness 的权限，同时只占用很少的系统资源（CPU，内存），比容器方式更加高效。
