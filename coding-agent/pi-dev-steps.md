@@ -6,36 +6,74 @@
 
 参考 [这里](https://github.com/ericwq/nvide/blob/main/build.md)，获得一个安装好 pi agent 和 nono 的 docker 镜像，并启动容器。
 
-> 注意：镜像只安装了 pi agent 及相关工具：nono, git, fd, rg, proppler。
-> 并且对 nono, pi, lattice 进行了默认配置，使用如下命令安全运行 pi agent
-> ```
-> np
-> ```
-> `np` 命令等价于：`nono run --profile pi-mono -- pi`
+### 启动容器
+下面的命令假定你的 $HOME 目录下有一个 dev 子目录，可以建立 dev 子目录。 也可以更改下面的命令参数，调整为自己的子目录。 最后的效果就是：你宿主机的指定目录（dev 子目录）在容器中被挂载到了 /home/ide/develop 目录下。
 
-> 启动容器后，目录如下：
-> - lattice: 这是 lattice git 仓库
-> - develop: 这是你本地硬盘的挂载点
-> - proj: 这是你容器硬盘的挂载点
-> - .config/nono/profiles: 这是你 pi-mono.json 文件所在
->
-> 按照配置，你可进入自己的工作目录，比如敲入命令 `cd develop/projects/run`
-> 然后运行 `np` 命令。接下来，可以准备连接你的 LLM 供应商，比如 deepseek 。
-> - 进入正确的工作目录对你来说很重要，
->   - 除了 `./.pi/agent/`
->   - 和 `./develop/projects` 目录外，
->
->   其他目录 LLM 没有读写权限。
-> - 现在有了proppler 工具，你的大模型可以读取 pdf 文件了。
+```
+# 后台启动
+docker run -d -ti --name pi-agent -h pi-agent  \
+    --env TZ=Asia/Shanghai --platform linux/amd64 \
+    --mount type=bind,source=${HOME}/dev,target=/home/ide/develop \
+    pi-agent:0.4
+```
 
-> 让 LLM 帮你配置本地 LLM
->
-> ```
-> 通过 host.docker.internal 可访问本级 lm studio 服务，请帮我配置本地 LLM，请使用一个最小规模的 LLM 进行连接性测试。
-> ```
+### 进入
 
-### ucloud provider
-1. 增加文件 `~/.pi/agent/models.json`
+```
+# root 身份进入
+docker exec -u root -it pi-agent /bin/bash
+# ide 身份进入（主账号）
+docker exec -u ide -it pi-agent /bin/bash
+```
+
+> 注意：镜像安装了 pi agent 及相关工具：nono, git, fd, rg, proppler, python-docx。
+并且对 nono, pi, lattice 进行了配置，使用如下命令，安全运行 pi agent
+```
+np
+```
+`np` 命令等价于：`nono run --profile pi-mono -- pi`
+
+### 简介
+启动容器后，目录如下：
+- lattice: 这是 lattice git 仓库
+- develop: 这是你本地硬盘的挂载点
+- ~/.config/nono/profiles: 这是你 pi-mono.json 文件所在
+
+按照配置，你可进入自己的工作目录，比如敲入命令 `cd develop/projects/run`
+然后运行 `np` 命令。接下来，可以准备连接你的 LLM 供应商，比如 deepseek 等。
+- 进入正确的工作目录对你来说很重要，
+  - 除了 `./.pi/agent/`
+  - 和 `tmp`, `./develop/projects` 目录外，pi agent 无法读取其他目录的内容（
+  - 除非 pi-mono.json 文件允许
+- 现在有了proppler, python-docx 工具，你在 pi-agent 里，可以读取 pdf 和 word 文件了。
+- 现在也有了相应的 open-jdk-17, maven, gradle 工具，你在 pi-agent 里可以指挥 LLM 生成代码了。
+- 容器中的 pi-agent 增加了对 ucloud provider 的支持。
+
+### 配置本地 LLM
+
+```
+通过 host.docker.internal 可访问宿主机的 lm studio 服务，请帮我配置本地 LLM，请使用一个最小规模的 LLM 进行连接性测试。
+```
+
+### 检查 Java 环境
+
+```
+若要生成 java 代码，现在的环境还缺少什么？如果遇到权限问题，请告诉我需要什么权限。不要试图自己想办法，另外，未经过我的同意不要安装任何软件。
+```
+
+### 检查 Rust 环境
+
+```
+若要生成 rust 代码，现在的环境还缺少什么？如果遇到权限问题，请告诉我需要什么权限。不要试图自己想办法，另外，未经过我的同意不要安装任何软件。
+
+```
+### JDK 切换
+- 显式控制：如果你希望明确保证某个版本是默认的，而不是依赖优先级数值的隐式规则，可以在 USER ide 之前，用 root 身份执行 `update-alternatives --set java /usr/lib/jvm/java-21-openjdk-$(dpkg --print-architecture)/bin/java`（对 javac 同理），将其固定为手动模式。
+
+- 保持一致性：如果未来需要切换默认 JDK 版本，记得同时更新 update-alternatives 和 JAVA_HOME 环境变量，确保两者始终指向同一版本。
+
+### Ucloud provider
+1. 增加文件 `~/.pi/agent/models.json`（使用 pi-agent 镜像不用做这一步）
 ```
 {
   "providers": {
