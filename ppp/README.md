@@ -17,7 +17,7 @@ Robert C. Martin  · 2014
   - [8 SRP：单一职责原则](ch8/0.md)
   - [9 OCP：开闭原则](ch9/0.md)
   - [10 LSP：里氏替换原则](ch10/0.md)
-  - [11 DIP：依赖反转原则](ch11/0.md)
+  - [11 DIP：依赖倒置原则](ch11/0.md)
   - [12 ISP：接口隔离原则](ch12/0.md)
 * [第 3 部分 薪资案例研究](section3.md)
   - [13 COMMAND 与 ACTIVE OBJECT](ch13/0.md)
