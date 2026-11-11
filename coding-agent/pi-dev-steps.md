@@ -37,14 +37,14 @@ np
 启动容器后，目录如下：
 - lattice: 这是 lattice git 仓库
 - develop: 这是你本地硬盘的挂载点
-- ~/.config/nono/profiles: 这是你 pi-mono.json 文件所在
+- `~/.config/nono/profiles`: 这是你 `pi-mono.json` 文件所在
 
 按照配置，你可进入自己的工作目录，比如敲入命令 `cd develop/projects/run`
 然后运行 `np` 命令。接下来，可以准备连接你的 LLM 供应商，比如 deepseek 等。
 - 进入正确的工作目录对你来说很重要，
-  - 除了 `./.pi/agent/`
-  - 和 `tmp`, `./develop/projects` 目录外，pi agent 无法读取其他目录的内容（
-  - 除非 pi-mono.json 文件允许
+  - 除了 `~/.pi/agent/`
+  - 和 `tmp`, `~/develop/projects` 目录外，pi agent 无法读取其他目录的内容
+  - 除非 pi-mono.json 文件允许访问的目录和文件，详情请参阅 `~/.config/nono/profiles/pi-mono.json`
 - 现在有了proppler, python-docx 工具，你在 pi-agent 里，可以读取 pdf 和 word 文件了。
 - 现在也有了相应的 open-jdk-17, maven, gradle 工具，你在 pi-agent 里可以指挥 LLM 生成代码了。
 - 容器中的 pi-agent 增加了对 ucloud provider 的支持。
