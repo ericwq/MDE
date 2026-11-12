@@ -148,5 +148,5 @@ Fig 8-4 展示了一个常见的 SRP 违规。
 
 ## 参考文献
 
-1. DeMarco, Tom.《Structured Analysis and System Specification》。Yourdon Press Computing Series。Englewood Cliff, NJ：1979 年。
-2. Page-Jones, Meilir.《The Practical Guide to Structured Systems Design》，第二版。Englewood Cliff, NJ：Yourdon Press Computing Series，1988 年。
+1. DeMarco, Tom. Structured Analysis and System Specification. Yourdon Press Computing Series. Englewood Cliff, NJ: 1979.
+2. Page-Jones, Meilir. The Practical Guide to Structured Systems Design, 2d ed. Englewood Cliff, NJ: Yourdon Press Computing Series, 1988.
