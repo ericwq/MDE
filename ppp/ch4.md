@@ -332,5 +332,5 @@ Verify Paycheck EmpId 1429 GrossPay 3215.88
 
 ## 参考文献
 
-1. Mackinnon, Tim, Steve Freeman, and Philip Craig. Endo-Testing: Unit Testing with Mock Objects. Extreme Programming Examined. Addison–Wesley, 2001.
-2. Jeffries, Ron, et al., Extreme Programming Installed. Upper Saddle River, NJ: Addison–Wesley, 2001.
+1. Mackinnon, Tim, Steve Freeman, and Philip Craig. *Endo-Testing: Unit Testing with Mock Objects*. *Extreme Programming Examined*. Addison–Wesley, 2001.
+2. Jeffries, Ron, et al., *Extreme Programming Installed*. Upper Saddle River, NJ: Addison–Wesley, 2001.

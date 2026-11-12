@@ -64,4 +64,4 @@
 
 ## 参考文献
 
-1. Martin, Fowler. Refactoring. Addison–Wesley. 1999.
+1. Martin, Fowler. *Refactoring*. Addison–Wesley. 1999.

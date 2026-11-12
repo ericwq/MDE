@@ -536,5 +536,5 @@ bool Shape::Precedes(const Shape& s) const
 
 ## 参考文献
 
-1. Jacobson, Ivar, et al. Object-Oriented Software Engineering. Reading, MA: Addison–Wesley, 1992.
-2. Meyer, Bertrand. Object-Oriented Software Construction, 2d ed. Upper Saddle River, NJ: Prentice Hall, 1997.
+1. Jacobson, Ivar, et al. *Object-Oriented Software Engineering*. Reading, MA: Addison–Wesley, 1992.
+2. Meyer, Bertrand. *Object-Oriented Software Construction*, 2d ed. Upper Saddle River, NJ: Prentice Hall, 1997.

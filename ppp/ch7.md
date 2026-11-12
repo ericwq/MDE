@@ -434,6 +434,6 @@ void Copy(Reader& reader = GdefaultReader)
 
 ## 参考文献
 
-1. Reeves, Jack. What Is Software Design? C++ Journal, Vol. 2, No. 2. 1992. Available at http://www.bleading-edge.com/Publications/C++Journal/Cpjour2.htm.
+1. Reeves, Jack. *What Is Software Design?* C++ Journal, Vol. 2, No. 2. 1992. Available at http://www.bleading-edge.com/Publications/C++Journal/Cpjour2.htm.
 
 

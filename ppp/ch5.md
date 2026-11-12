@@ -632,4 +632,4 @@ public class TestGeneratePrimes extends TestCase
 
 ## 参考文献
 
-1. Fowler, Martin. Refactoring: Improving the Design of Existing Code. Reading, MA: Addison–Wesley, 1999.
+1. Fowler, Martin. *Refactoring: Improving the Design of Existing Code*. Reading, MA: Addison–Wesley, 1999.
