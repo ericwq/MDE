@@ -1,6 +1,6 @@
 # 9 OCP：开闭原则
 
-<center><img src="../imgs/fig-ch9-0.png" width="40%"/></center><br/>
+<center><img src="imgs/fig-ch9-0.png" width="40%"/></center><br/>
 
 > **荷兰门**——（名词）一种在水平方向上一分为二的门，因此任一部分都可以打开或关闭。
 > <p align="right">——《美国传统英语词典》第四版：2000年。</p>
@@ -59,7 +59,7 @@ Fig 9-1 显示了一个不符合 OCP 的简单设计。
 `Client` 类使用 `Server` 类。
 如果我们希望一个 `Client` 对象使用一个不同的服务器对象，那么 `Client` 类必须被更改以命名新的服务器类。
 
-<img src="../imgs/fig-ch9-1.png" width="40%"/><br/>
+<img src="imgs/fig-ch9-1.png" width="40%"/><br/>
 *Fig 9-1 Client 不是开闭的*
 
 Fig 9-2 显示了相应的符合 OCP 的设计。
@@ -72,7 +72,7 @@ Fig 9-2 显示了相应的符合 OCP 的设计。
 `ClientInterface` 的子类型可以以任何他们选择的方式来实现该接口。
 因此，通过创建 `ClientInterface` 的新子类型，`Client` 中指定的行为可以被扩展和修改。
 
-<img src="../imgs/fig-ch9-2.png" width="40%"/><br/>
+<img src="imgs/fig-ch9-2.png" width="40%"/><br/>
 *Fig 9-2 STRATEGY 模式：Client 既是开放的又是封闭的*
 
 你可能想知道为什么我给 `ClientInterface` 起了这样的名字。
@@ -88,7 +88,7 @@ Fig 9-3 显示了另一种结构。
 这些函数在 `Policy` 的子类型中实现。
 因此，通过创建 `Policy` 类的新派生类，`Policy` 中指定的行为可以被扩展或修改。
 
-<img src="../imgs/fig-ch9-3.png" width="20%"/><br/>
+<img src="imgs/fig-ch9-3.png" width="20%"/><br/>
 *Fig 9-3 模板方法模式：基类是开放且封闭的*
 
 这两种模式是满足 OCP 的最常见方式。
@@ -207,7 +207,7 @@ void DrawAllShapes(ShapePointer list[], int n)
 它是 *不可移动的* ，因为任何试图在另一个程序中复用 `DrawAllShapes` 的人都被迫带上 `Square` 和 `Circle`，即使那个新程序不需要它们。
 因此，Listing 9-1 展示了许多糟糕设计的坏味。
 
-<img src="../imgs/fig-ch9-4.png" width="30%"/><br/>
+<img src="imgs/fig-ch9-4.png" width="30%"/><br/>
 
 ### 符合 OCP
 
@@ -264,7 +264,7 @@ void DrawAllShapes(vector<Shape*>& list)
 实际创建 `Shape` 新派生类实例的模块必须被修改。
 通常，这要么由 `main` 完成，在 `main` 调用的某个函数中完成，要么在 `main` 创建的某个对象的方法中完成。⁵
 
-⁵ 这样的对象被称为工厂，我们将在 [第 21 章](../ch21/0.md) 第 269 页更多地讨论它们。
+⁵ 这样的对象被称为工厂，我们将在 [第 21 章](ch21.md) 第 269 页更多地讨论它们。
 
 最后，这个解决方案不是 *不可移动的* 。
 `DrawAllShapes` 可以被任何应用程序复用，而不需要带上 `Square` 或 `Circle`。
@@ -295,7 +295,7 @@ void DrawAllShapes(vector<Shape*>& list)
 一般来说，无论一个模块多么 “封闭”，总会有某种变化是它没有对其封闭的。
 *没有一种模型对所有上下文都是自然的！*</ins>
 
-<img src="../imgs/fig-ch9-5.png" width="30%"/><br/>
+<img src="imgs/fig-ch9-5.png" width="30%"/><br/>
 
 <ins>由于封闭不可能是完全的，它必须是 *战略性的* 。
 也就是说，设计者必须选择他的设计要对哪种变化关闭。
@@ -348,7 +348,7 @@ void DrawAllShapes(vector<Shape*>& list)
 我们等待发现哪些类型的变化是可能的时间越长，创建适当抽象就越困难。
 
 因此，我们需要 *刺激变化* 。
-我们通过我们在 [第 2 章](../ch2/0.md) 中讨论的几种方法来实现这一点。
+我们通过我们在 [第 2 章](ch2.md) 中讨论的几种方法来实现这一点。
 
 - 我们首先编写测试。
 测试是系统的一种使用方式。
@@ -444,9 +444,9 @@ bool Circle::Precedes(const Shape& s) const
 没有办法使它们对新派生类 `Shape` 关闭。
 每次创建一个新的 `Shape` 派生类时，所有 `Precedes()` 函数都将需要被更改。⁶
 
-⁶ 使用 [第 29 章](../ch29/0.md) 中描述的 *ACYCLIC VISITOR* 模式可以解决这个问题。
+⁶ 使用 [第 29 章](ch29.md) 中描述的 *ACYCLIC VISITOR* 模式可以解决这个问题。
 现在展示那个解决方案有点早了。
-我会在 [第 29 章](../ch29/0.md) 结束时提醒你回到这里。
+我会在 [第 29 章](ch29.md) 结束时提醒你回到这里。
 
 当然，如果从未创建新的 `Shape` 派生类，这无关紧要。
 另一方面，如果它们被频繁创建，这种设计将导致大量的波动。

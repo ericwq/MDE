@@ -1,6 +1,6 @@
 # 4 测试
 
-<center><img src="../imgs/fig-ch4-0.png" width="40%"/></center><br/>
+<center><img src="imgs/fig-ch4-0.png" width="40%"/></center><br/>
 
 > 火是黄金的试金石；逆境，是强者的试金石。
 >
@@ -105,7 +105,7 @@ public void testMove()
 然后它将这笔薪资传递给 `CheckWriter` 对象以生成一张支票。
 最后，它将这笔支付记录过账到 `Employee` 对象，并将该对象写回数据库。
 
-<img src="../imgs/fig-ch4-1.png" width="50%"/><br/>
+<img src="imgs/fig-ch4-1.png" width="50%"/><br/>
 *Fig 4-1 耦合的薪资模型*
 
 假设我们还没有编写任何这些代码。
@@ -134,7 +134,7 @@ Listing 4-2 显示了测试的意图。
 它创建了适当的模拟对象，将它们传递给 `Payroll` 对象，告诉 `Payroll` 对象支付所有员工，
 然后要求模拟对象验证所有支票是否正确开具以及所有支付是否正确过账。
 
-<img src="../imgs/fig-ch4-2.png" width="60%"/><br/>
+<img src="imgs/fig-ch4-2.png" width="60%"/><br/>
 *Fig 4-2 使用模拟对象进行测试的解耦薪资系统*
 
 Listing 4-2 TestPayroll
@@ -176,7 +176,7 @@ public void testPayroll()
 
 ## 验收测试
 
-<img src="../imgs/fig-ch4-3.png" width="20%"/><br/>
+<img src="imgs/fig-ch4-3.png" width="20%"/><br/>
 
 单元测试是必要的，但作为验证工具是不够的。
 单元测试验证系统的小元素按预期工作，但它们不验证系统作为一个整体是否正常工作。

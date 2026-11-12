@@ -1,6 +1,6 @@
 # 6 编程片段
 
-<center><img src="../imgs/fig-ch17-0.png" width="60%"/></center><br/>
+<center><img src="imgs/fig-ch17-0.png" width="60%"/></center><br/>
 
 > 设计和编程是人类的活动；忘记这一点，一切尽失。
 > <p align="right">——Bjarne Stroustrup, 1991</p>
@@ -57,14 +57,14 @@ assertEquals(9, getScore());
 RSK：好的，我们需要一些测试数据。
 让我画一张计分卡的草图（见 Fig 6-1）。
 
-<img src="../imgs/fig-ch6-1.png" width="70%"/><br/>
+<img src="imgs/fig-ch6-1.png" width="70%"/><br/>
 *Fig 6-1 典型的保龄球计分卡*
 
 RCM：那个家伙相当不稳定。
 
 RSK：或者是喝醉了，但它可以作为一个不错的验收测试。
 
-<img src="../imgs/fig-ch6-1a.png" width="60%"/><br/>
+<img src="imgs/fig-ch6-1a.png" width="60%"/><br/>
 
 RCM：我们还需要其他的测试数据，但稍后再处理。
 我们应该如何开始？
@@ -78,7 +78,7 @@ RCM：（戴上他强大的对象设计师帽子）好的，显然一个 `Game` 
 
 RSK：英雄所见略同。这正是我在想的。让我快速画出来（见 Fig 6-2）。
 
-<img src="../imgs/fig-ch6-2.png" width="70%"/><br/>
+<img src="imgs/fig-ch6-2.png" width="70%"/><br/>
 *Fig 6-2 保龄球计分卡的 UML 图*
 
 RSK：<ins>好吧，选一个类……随便哪个类。我们从依赖链的末端开始，向后工作如何？那样会使测试更容易</ins>。
@@ -503,7 +503,7 @@ RSK：哎呀。
 它接受投球，并且它知道如何为每格计分。
 你觉得一个 `Scorer` 对象怎么样？
 
-¹ 参见 [第 95 页](../ch8/0.md) 的 “SRP：单一职责原则”。
+¹ 参见 [第 95 页](ch8.md) 的 “SRP：单一职责原则”。
 
 RCM：（做了一个粗鲁的摇摆手势）我不知道这些函数现在应该住在哪里；
 现在我感兴趣的是让计分功能工作起来。
@@ -677,7 +677,7 @@ if ( frameScore == 10 )
     score += frameScore + itsThrows[ball];
 ```
 
-<img src="../imgs/fig-ch6-2a.png" width="60%"/><br/>
+<img src="imgs/fig-ch6-2a.png" width="60%"/><br/>
 
 RCM：呃……它还是失败……会不会是 `score` 方法错了？
 我通过修改测试用例使用 `scoreForFrame(2)` 来测试一下。
@@ -981,7 +981,7 @@ RCM：是的，我明白你的意思。
 现在，我们最好处理 strike 测试用例。
 毕竟，我们想看到所有那些 `Frame` 对象被构建成一个链表，不是吗？（窃笑）
 
-<img src="../imgs/fig-ch6-2b.png" width="50%"/><br/>
+<img src="imgs/fig-ch6-2b.png" width="50%"/><br/>
 
 ```java
 public void testSimpleStrike()
@@ -1062,7 +1062,7 @@ public class Game
 
 RCM：好的，那并不太难。让我们看看它能否计算一场完美比赛。
 
-<img src="../imgs/fig-ch6-2c.png" width="50%"/><br/>
+<img src="imgs/fig-ch6-2c.png" width="50%"/><br/>
 
 ```java
 public void testPerfectGame()
@@ -1210,7 +1210,7 @@ RSK：好吧，这能工作。你还能想到其他测试用例吗？
 
 RCM：是的，让我们测试更多的边界条件 —— 比如那个可怜的倒霉蛋投了 11 个 strike 然后最后投了 9 个？
 
-<img src="../imgs/fig-ch6-2d.png" width="50%"/><br/>
+<img src="imgs/fig-ch6-2d.png" width="50%"/><br/>
 
 ```java
 public void testHeartBreak()
@@ -2326,7 +2326,7 @@ RSK：不客气，很有趣。
 >
 > 因此，第十格可能有三球而非两球。
 >
-> <img src="../imgs/fig-ch6-1.png" width="70%"/><br/>
+> <img src="imgs/fig-ch6-1.png" width="70%"/><br/>
 >
 > 上述计分卡显示的是一场典型但相当糟糕的比赛。
 >

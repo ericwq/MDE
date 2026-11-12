@@ -1,6 +1,6 @@
 # 8 SRP：单一职责原则
 
-<center><img src="../imgs/fig-ch8-0.png" width="40%"/></center><br/>
+<center><img src="imgs/fig-ch8-0.png" width="40%"/></center><br/>
 
 > 除了佛陀本人，无人有权承担泄露秘教秘密的责任……
 > <p align="right">——E. Cobham Brewer 1810–1897.</p>
@@ -37,7 +37,7 @@
 `Rectangle` 类显示了两个方法。
 一个在屏幕上绘制矩形，另一个计算矩形的面积。
 
-<img src="../imgs/fig-ch8-1.png" width="80%"/><br/>
+<img src="imgs/fig-ch8-1.png" width="80%"/><br/>
 *Fig 8-1 多个职责*
 
 两个不同的应用程序使用了 `Rectangle` 类。
@@ -65,7 +65,7 @@
 这个设计将 `Rectangle` 的计算部分移到了 `GeometricRectangle` 类中。
 现在，对矩形渲染方式的更改不会影响到 `ComputationalGeometryApplication`。
 
-<img src="../imgs/fig-ch8-2.png" width="80%"/><br/>
+<img src="imgs/fig-ch8-2.png" width="80%"/><br/>
 *Fig 8-2 分离的职责*
 
 ### 什么是职责？
@@ -102,7 +102,7 @@ interface Modem
 在这种情况下，这两个职责应该像 Fig 8-3 所示的那样分离。
 这可以防止客户端应用程序将这两个职责耦合在一起。
 
-<img src="../imgs/fig-ch8-3.png" width="60%"/><br/>
+<img src="imgs/fig-ch8-3.png" width="60%"/><br/>
 *Fig 8-3 分离的 Modem 接口*
 
 另一方面，如果应用程序的变化方式不会导致这两个职责在不同时间发生变化，那么就没有必要将它们分离。
@@ -133,7 +133,7 @@ Fig 8-4 展示了一个常见的 SRP 违规。
 业务规则倾向于频繁变化，虽然持久化可能不会那么频繁地变化，但它变化的理由完全不同。
 将业务规则与持久化子系统绑定在一起，是在自找麻烦。
 
-<img src="../imgs/fig-ch8-4.png" width="60%"/><br/>
+<img src="imgs/fig-ch8-4.png" width="60%"/><br/>
 *Fig 8-4 耦合的持久化*
 
 幸运的是，正如我们在 [第 4 章](#todo) 中所看到的，测试驱动开发的实践通常会在设计开始出现坏味之前，就迫使这两个职责被分离。

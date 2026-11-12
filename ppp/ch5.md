@@ -400,7 +400,7 @@ private static int numberOfUncrossedIntegers()
 
 ### 最后的重读
 
-<img src="../imgs/fig-ch5-1.png" width="50%"/><br/>
+<img src="imgs/fig-ch5-1.png" width="50%"/><br/>
 
 接下来，我对整个程序做了最后一次检查，从头到尾读了一遍，就像阅读几何证明一样。
 这是一个重要的步骤。

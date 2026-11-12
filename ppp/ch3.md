@@ -1,6 +1,6 @@
 # 3 规划
 
-<center><img src="../imgs/fig-ch3-0.png" width="40%"/></center><br/>
+<center><img src="imgs/fig-ch3-0.png" width="40%"/></center><br/>
 
 > 当你能衡量你所谈论的东西，并能用数字加以表达时，你就对它有所了解；但当你无法衡量它，无法用数字表达它时，你的知识就是贫乏且不令人满意的。”
 > <p align="right">——Lord Kelvin，1883 年</p>
@@ -136,7 +136,7 @@ GUI 人员如果愿意，也可以认领数据库任务。
 
 ### 中途检查点
 
-<img src="../imgs/fig-ch3-1a.png" width="40%"/><br/>
+<img src="imgs/fig-ch3-1a.png" width="40%"/><br/>
 
 在迭代进行到一半时，团队召开一次会议。
 此时，计划在该迭代中完成的故事应该已经完成了一半。
