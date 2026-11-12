@@ -38,6 +38,7 @@ Robert C. Martin  · 2014
 - `<ins>…</ins>` 标记**译者自选的重点句**，与原文是否斜体、加粗无关；多行重点句可用一对 `<ins>` 跨行包裹。
 - `*斜体*` 用于照应原书的斜体强调。
 - `> 译注：……` 引用块用于译者的补充说明；冒号后不留空格。
+- 代码清单（listing）中的注释不翻译，保留英文原文。
 
 ## 目录结构
 
@@ -47,5 +48,5 @@ Robert C. Martin  · 2014
 ## 待办
 
 - **未译**：第 5 部分（23 Composite、24 Observer、25 Abstract Server/Adapter/Bridge、26 Proxy、27 Weather Station）、第 6 部分（28 Visitor、29 State、30 The ETS Framework）、附录 A（UML I）、附录 B（UML II）、附录 C（A Satire of Two Companies）。
-- **悬空链接**：`ch1.md` → `appendix-c.md`（待附录 C 译完）；`ch9.md` → `ch29.md`；`ch19.md` → `ch28.md`；`ch21.md` → `ch26.md`。
+- **悬空链接**：`ch1.md` → `appendix-c.md`（待附录 C 译完）；`ch9.md` → `ch29.md`；`ch19.md` → `ch28.md`；`ch21.md` → `ch26.md`；`ch15.md` → `ch26.md`。
 - 注：`ch8.md` 原有的 `#todo` 占位链接已改为指向 `ch6.md`/`ch4.md`。

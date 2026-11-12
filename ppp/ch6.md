@@ -1164,8 +1164,8 @@ public void testEndOfArray()
         g.add(0);
     }
     g.add(2);
-    g.add(8); // 第10帧 spare
-    g.add(10); // 数组最后位置上的 strike
+    g.add(8); // 10th frame spare
+    g.add(10); // Strike in last position of array.
     assertEquals(20, g.score());
 }
 ```
@@ -2202,8 +2202,8 @@ public class TestGame extends TestCase
             g.add(0);
         }
         g.add(2);
-        g.add(8); // 第10帧 spare
-        g.add(10); // 数组最后位置上的 strike
+        g.add(8); // 10th frame spare
+        g.add(10); // Strike in last position of array.
         assertEquals(20, g.score());
     }
 
