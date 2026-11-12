@@ -48,4 +48,4 @@ Robert C. Martin  · 2014
 
 - **未译**：第 5 部分（23 Composite、24 Observer、25 Abstract Server/Adapter/Bridge、26 Proxy、27 Weather Station）、第 6 部分（28 Visitor、29 State、30 The ETS Framework）、附录 A（UML I）、附录 B（UML II）、附录 C（A Satire of Two Companies）。
 - **悬空链接**：`ch1.md` → `appendix-c.md`（待附录 C 译完）；`ch9.md` → `ch29.md`；`ch19.md` → `ch28.md`；`ch21.md` → `ch26.md`。
-- **占位锚点**：`ch8.md:22` 的 `#todo` 指向不存在的页面，待补页码。
+- 注：`ch8.md` 原有的 `#todo` 占位链接已改为指向 `ch6.md`/`ch4.md`。
