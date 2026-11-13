@@ -52,7 +52,7 @@ np
 ### 配置本地 LLM
 
 ```
-通过 host.docker.internal 可访问宿主机的 lm studio 服务，请帮我配置本地 LLM，请使用一个最小规模的 LLM 进行连接性测试。
+通过 host.docker.internal 可访问宿主机的 lm studio 服务，请帮我配置本地所有的 LLM (发现模式)，请使用一个最小规模的 LLM 进行连接性测试，不必测试所有的本地 LLM。
 ```
 
 ### 检查 Java 环境
