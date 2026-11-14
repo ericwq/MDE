@@ -11,10 +11,9 @@
 
 ```
 # 后台启动
-docker run -d -ti --name pi-agent -h pi-agent  \
-    --env TZ=Asia/Shanghai --platform linux/amd64 \
+docker run -d -ti --name pi-agent -h pi-agent --env TZ=Asia/Shanghai \
     --mount type=bind,source=${HOME}/dev,target=/home/ide/develop \
-    pi-agent:0.4
+    pi-agent:0.5
 ```
 
 ### 进入
