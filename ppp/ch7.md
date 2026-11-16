@@ -174,6 +174,7 @@ Lilly 是第一个对 arvadent 进行 fravle 操作的人，但她意识到对 a
 在过程评审会议开始之前，你有一点时间，所以你决定为这个程序规划一个设计。
 使用结构化设计，你得到了 Fig 7-1 中的结构图。
 
+<a id="example-ch7-1"></a><br/>
 <img src="imgs/fig-ch7-1.png" width="60%"/><br/>
 *Fig 7-1 复制程序结构图*
 
