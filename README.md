@@ -102,6 +102,7 @@
 
 ## 自动化测试
 
+- [测试即数据](./auto-test/tests-as-data.md) (2026/11/11) Matteo Vaccari
 - [验收测试：类型、工具与搭建](./auto-test/acceptance-testing.md) (2026/8/3) Nithya Mani
 - [什么是契约测试，为什么我应该尝试它？](./auto-test/what-is-contract-testing.md) (2023/9/2) Matt Fellows
 - ❄ [自动化测试：策略](./auto-test/strategy.md) (2023/12/5) Kamil Grzybek
