@@ -43,11 +43,11 @@
 * [重要修订](#重要修订)
 
 边栏
-- [用测试表格取代一次性场景](#用测试表格取代一次性场景)
-- [表格拯救一切](#表格拯救一切)
-- [内部资源与侧信道](#内部资源与侧信道)
-- [这不就是 Gherkin 和 Cucumber 吗？](#这不就是-gherkin-和-cucumber-吗)
-- [内部 DSL](#内部-dsl)
+- [用测试表格取代一次性场景](#side-bar-1)
+- [表格拯救一切](#side-bar-2)
+- [内部资源与侧信道](#side-bar-3)
+- [这不就是 Gherkin 和 Cucumber 吗？](#side-bar-4)
+- [内部 DSL](#side-bar-5)
 
 ## 引言
 
@@ -73,9 +73,8 @@
 我无法确定这种被广泛报告的外部质量下降的确切原因，
 但我认为，其中一个可能的原因就是自动化功能测试质量的下降。
 
-### ⟡边栏⟡
-
 <div style="background-color: #4d4d4d; color: #ffffff; padding: 8px; border: 1px solid #999999;">
+⟡边栏⟡
 
 * [Faros AI Engineering Report 2026](https://www.faros.ai/research/ai-acceleration-whiplash) 指出，每个拉取请求的缺陷数上升了 28.7%，每位开发者的缺陷数上升了 54%
 * [DX AI-assisted engineering: Q1 impact report](https://getdx.com/report/ai-assisted-engineering-Q1-impact-report/) 指出，部分公司的缺陷数增加了 50%
@@ -322,9 +321,8 @@ not whitespace,        /hello,   " ",  null,             Name must not be entire
 为什么用表格？
 因为**表格让人一眼就能看出覆盖了哪些用例、可能缺少哪些用例。此外，表格让添加新测试用例变得更容易。**
 
-### ⟡边栏⟡
-
 <div style="background-color: #4d4d4d; color: #ffffff; padding: 8px; border: 1px solid #999999;">
+⟡边栏⟡
 
 人们可能会有一种冲动，想把状态或行为编码进表格，比如下面这个例子：
 
@@ -351,9 +349,9 @@ not whitespace,        /hello,   " ",  null,             Name must not be entire
 当应用的输入、初始设置状态和期望输出都是单一的标量值时，表格效果很好。
 当这些内容都是结构化数据时，我们需要使用下面介绍的结构化场景。
 
-### 用测试表格取代一次性场景
-
 <div style="background-color: #0a2463; color: #ffffff; padding: 8px; border: 1px solid #1e3a8a;">
+<a id="side-bar-1"></a>
+<b>用测试表格取代一次性场景</b><br/><br/>
 
 有时，人们会用测试框架来定义测试场景，如下面这个 Gherkin 例子（由 David Farley 提供）：
 
@@ -397,9 +395,9 @@ And no security event should be generated
 
 </div></br>
 
-### 表格拯救一切
-
 <div style="background-color: #0a2463; color: #ffffff; padding: 8px; border: 1px solid #1e3a8a;">
+<a id="side-bar-2"></a>
+<b>表格拯救一切</b><br/><br/>
 
 [Max Kanat-Alexander](https://maxkanatalexander.com/) 跟我讲过他写过的最复杂的测试，
 它覆盖 Bugzilla 的查询表达式语言：20 个操作符作用于 50 个字段，必须被编译成自定义 SQL，而 SQL 又会随涉及的字段而变化。
@@ -498,9 +496,8 @@ THEN model:
 -- **2** items left
 ```
 
-### ⟡边栏⟡
-
 <div style="background-color: #4d4d4d; color: #ffffff; padding: 8px; border: 1px solid #999999;">
+⟡边栏⟡
 
 这个把 HTML 转成可读、可 diff 文本的打印器，正是 [Esko Luontola 为测试 HTML 模板推荐的](https://martinfowler.com/articles/tdd-html-templates.html#BonusLevelStringlyAsserted)。
 </div></br>
@@ -524,10 +521,9 @@ THEN model:
 
 上述所有机制都在一个测试运行器里配合使用，而编程智能体可以轻松生成这样的运行器。
 
-
-### 内部资源与侧信道
-
 <div style="background-color: #0a2463; color: #ffffff; padding: 8px; border: 1px solid #1e3a8a;">
+<a id="side-bar-3"></a>
+<b>内部资源与侧信道</b><br/><br/>
 
 为什么要通过一条侧信道来设置应用状态的初始值？
 另一种选择是通过应用公开的 UI 来驱动它。
@@ -540,9 +536,9 @@ THEN model:
 
 </div></br>
 
-### 这不就是 Gherkin 和 Cucumber 吗？
-
 <div style="background-color: #0a2463; color: #ffffff; padding: 8px; border: 1px solid #1e3a8a;">
+<a id="side-bar-4"></a>
+<b>这不就是 Gherkin 和 Cucumber 吗？</b><br/><br/>
 
 Gherkin 是一种流行的编写客户测试的语言，与上面提出的方法一样，它的测试写在文本文件中，由测试运行器解释。
 它能用，但有一些需要注意的问题：
@@ -639,9 +635,9 @@ var fmtTests = []struct {
 一个简短的测试运行器把表格中的每一行都作用到 fmt 函数上。
 Go 标准库中的许多函数都以类似方式被测试。
 
-### ⟡边栏⟡
-
 <div style="background-color: #4d4d4d; color: #ffffff; padding: 8px; border: 1px solid #999999;">
+
+⟡边栏⟡
 
 Russ Cox 的 [Go Testing By Example](https://research.swtch.com/testing) 是一座想法宝库，其中许多也在本文中讨论过。
 
@@ -721,9 +717,9 @@ Ivett Ördög 一段时间以来一直在推广我在本文中描述的技术。
 >译注：内部 DSL 指直接用宿主语言（如 Java、JavaScript）写成的领域语言，本质上是一组函数或方法调用，例如此处 `anUnlockedDeviceWithAutoLockEnabled()` 那样的写法，不需要额外的解析器；外部 DSL 则有自己独立的语法和解析器，测试写在 YAML、CSV、Gherkin 这类独立文本中，由测试运行器解析后执行。
 >本文之所以推崇外部 DSL，是因为它的语法可以把 “必须给出断言” 变成强制要求，使编程智能体难以写出没有断言或断言很弱的测试。
 
-### 内部 DSL
-
 <div style="background-color: #0a2463; color: #ffffff; padding: 8px; border: 1px solid #1e3a8a;">
+<a id="side-bar-5"></a>
+<b>内部 DSL</b><br/><br/>
 
 一些开发者更愿意把客户测试写成内部 DSL。一个例子可能是
 
