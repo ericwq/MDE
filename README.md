@@ -74,6 +74,10 @@
 - ❄ [构建 GenAI 产品的新兴模式](tools/gen-ai-patterns.md) (2025/2/25) Bharani Subramaniam 和 Martin Fowler
 - ❄ [LLM 编程提示词示例](tools/2023-chatgpt-xu-hao.md) (2023/4/13) Martin Fowler
 
+下面是 martinfowler.com 上，标签为：[process theory](https://martinfowler.com/tags/process%20theory.html) 的相关文章：
+
+- [当软件遇上硬件 —— 发现新的"合理默认值"](tools/software-meets-hardware.md) (2026/10/15) Kuldeep Singh
+
 下面是 来自互联网的关于 AI 及编程智能体的文章：
 
 - [我不喜欢 LLM](./tools/2026-dont-like-llms.md) (2026/9/17) Martin Fowler
