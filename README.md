@@ -3,6 +3,7 @@
 - [一种为 Web 应用构建基于 JSON 的 DSL 解决方案的方法](json-dsl-for-web.md)
 - [领域专用语言开发工具的系统性映射研究](sms3.md)
 - [模型驱动工程](mde2006.md)
+- [AgentOnto：本体引导的面向企业数据分析的 LLM Agent](ontology/agentonto.md) (KDD '27)
 
 ## 相关书籍
 
