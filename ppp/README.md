@@ -31,6 +31,12 @@ Robert C. Martin  · 2014
   - [20 包设计原则](ch20.md)
   - [21 FACTORY](ch21.md)
   - [22 薪资案例研究（第二部分）](ch22.md)
+* [第 5 部分 气象站案例研究](section5.md)
+  - [23 COMPOSITE](ch23.md)
+  - [24 OBSERVER：演化出模式](ch24.md)
+  - [25 ABSTRACT SERVER、ADAPTER 与 BRIDGE](ch25.md)
+  - [26 PROXY 与 STAIRWAY TO HEAVEN：管理第三方 API](ch26.md)
+  - [27 案例研究：气象站](ch27.md)
 * [附录 D 什么是软件设计？](appendix-d.md)
 
 ## 排版约定
@@ -63,6 +69,8 @@ Robert C. Martin  · 2014
 
 ## 待办
 
-- **未译**：第 5 部分（23 Composite、24 Observer、25 Abstract Server/Adapter/Bridge、26 Proxy、27 Weather Station）、第 6 部分（28 Visitor、29 State、30 The ETS Framework）、附录 A（UML I）、附录 B（UML II）、附录 C（A Satire of Two Companies）。
-- **悬空链接**：`ch1.md` → `appendix-c.md`（待附录 C 译完）；`ch9.md` → `ch29.md`；`ch19.md` → `ch28.md`；`ch21.md` → `ch26.md`；`ch15.md` → `ch26.md`。
+- **未译**：第 6 部分（28 Visitor、29 State、30 The ETS Framework）；附录 A（UML I）、附录 B（UML II）、附录 C（A Satire of Two Companies）。
+- **已译、待复核**（按上文「复核清单」逐项对照纸书）：`ch1.md`～`ch6.md`、`ch18.md`、`ch19.md`、`ch22.md`、`section1.md`、`section3.md`、`appendix-d.md`。
+  已完成复核：`section2.md`、`ch7.md`～`ch17.md`、`ch20.md`、`ch21.md`、`ch23.md`～`ch27.md`。
+- **悬空链接**：`ch1.md` → `appendix-c.md`（待附录 C 译完）；`ch9.md` → `ch29.md`；`ch19.md` → `ch28.md`。
 - 注：`ch8.md` 原有的 `#todo` 占位链接已改为指向 `ch6.md`/`ch4.md`。
