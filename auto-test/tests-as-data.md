@@ -706,10 +706,10 @@ Ivett Ördög 一段时间以来一直在推广我在本文中描述的技术。
 这与 Dan Terhorst-North 所描述的 [Spike and Stabilize](https://dannorth.net/blog/the-art-of-misdirection/) 模式有些相似。
 如果是从零开始，另一种做法可能是把第一个测试用于生成[可走通的骨架（Walking Skeleton）](https://www.thoughtworks.com/insights/blog/first-story-every-project)。
 
-这两个模式是 Ördög 所称的[受约束的测试（Constrained Tests）](https://lexler.github.io/augmented-coding-patterns/patterns/constrained-tests/)模式的实例：
+<ins>这两个模式是 Ördög 所称的[受约束的测试（Constrained Tests）](https://lexler.github.io/augmented-coding-patterns/patterns/constrained-tests/)模式的实例：
 在这种模式中，编程智能体无法轻易地通过编写比预期更弱的测试来 “作弊”。
 已认可场景与已认可日志通过把断言作为 DSL 语法中强制的一部分，降低了作弊的可能性，
-而这要求 DSL 是用解析器实现的，即[外部 DSL](https://martinfowler.com/dsl.html)。
+而这要求 DSL 是用解析器实现的，即[外部 DSL](https://martinfowler.com/dsl.html)。</ins>
 
 Ördög 认为，如果我们实现的是[内部测试 DSL](https://martinfowler.com/bliki/InternalDslStyle.html)，
 它不过是用我们所用编程语言定义的一组函数，
@@ -769,14 +769,17 @@ test("an unattended device locks itself", async () => {
 ### 不必总是端到端
 
 把客户测试做成经由 UI 的端到端测试，这种做法很常见。这样做可以，但它不是唯一的方式。
-所有客户测试都端到端的一个问题是，测试会变得更慢、更脆弱。
+<ins>所有客户测试都端到端的一个问题是，测试会变得更慢、更脆弱。
 避免这个问题的一个好办法，是让大多数测试绕过 UI 执行。
 许多业务应用都有一个[服务层（service layer）](https://martinfowler.com/eaaCatalog/serviceLayer.html)，
 它是一组类或函数，由 UI 和系统中的其他入口点调用来执行业务操作。
-测试可以调用服务层，完全绕过 UI。
+测试可以调用服务层，完全绕过 UI。</ins>
 在许多领域这是合理的，例如在金融领域，逻辑比 UI 复杂得多，也难做对得多。
 我经历过的一个例子是在保险领域：我们拿到了一套复杂的规则，用于把索赔与律师匹配起来。
 编写客户测试帮助我们确保准确理解了客户想要达成什么，然后我们把它实现为服务层测试。
+
+>译注：上面这种「绕过 UI、调用服务层」的做法，就是 Martin Fowler 所说的 [皮下测试（Subcutaneous Test）](./subcutaneous-test.md)——在 UI 之下、直接穿过服务层来测试，既保留了接近端到端的信心，又避开了表示层技术带来的缓慢与脆弱。
+>注意它的边界：皮下测试仍然是「端到端的行为路径，只是入口下沉」；而紧接着的下一段要解决的是另一个问题——当入口离目标逻辑太远时，就直接对那个组件写客户测试，那已不是皮下测试，而是组件级的客户测试。
 
 另一个问题是：按函数调用的次数算，测试的入口点离你想演练的逻辑太远。
 
