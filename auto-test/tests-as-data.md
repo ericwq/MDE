@@ -15,32 +15,32 @@
 
 ---
 内容
-* [引言](#引言)
-  - [AI 生成代码的问题](#ai-生成代码的问题)
-  - [AI 生成测试的问题](#ai-生成测试的问题)
-  - [AI 生成规约的问题](#ai-生成规约的问题)
-  - [我的提议](#我的提议)
-* [核心技术](#核心技术)
-  - [客户测试](#客户测试)
-  - [关注真正重要的部分](#关注真正重要的部分)
-  - [并非所有测试都能放进表格](#并非所有测试都能放进表格)
-* [建立在既有传统之上](#建立在既有传统之上)
-  - [Fit 与实例化需求](#fit-与实例化需求)
-  - [Go 中的测试实践](#go-中的测试实践)
-  - [认可测试](#认可测试)
-  - [已认可场景与已认可日志](#已认可场景与已认可日志)
-* [实现提示](#实现提示)
-  - [不必总是端到端](#不必总是端到端)
-  - [面向 UI 的客户测试](#面向-ui-的客户测试)
-  - [应对外部系统](#应对外部系统)
-  - [保护测试 Harness](#保护测试-harness)
-  - [验证测试](#验证测试)
-  - [超越基于示例的测试](#超越基于示例的测试)
-* [适用性的局限](#适用性的局限)
-* [结论](#结论)
-* [免责声明](#免责声明)
-* [致谢](#致谢)
-* [重要修订](#重要修订)
+* [引言](#introduction)
+  - [AI 生成代码的问题](#ai-generated-code)
+  - [AI 生成测试的问题](#ai-generated-tests)
+  - [AI 生成规约的问题](#ai-generated-specs)
+  - [我的提议](#my-proposal)
+* [核心技术](#core-technique)
+  - [客户测试](#customer-tests)
+  - [关注真正重要的部分](#focus-on-what-matters)
+  - [并非所有测试都能放进表格](#not-all-tests-fit-tables)
+* [建立在既有传统之上](#building-on-traditions)
+  - [Fit 与实例化需求](#fit-and-example-mapping)
+  - [Go 中的测试实践](#go-table-tests)
+  - [认可测试](#approval-testing)
+  - [已认可场景与已认可日志](#approved-scenarios-and-logs)
+* [实现提示](#implementation-tips)
+  - [不必总是端到端](#not-always-end-to-end)
+  - [面向 UI 的客户测试](#customer-tests-ui)
+  - [应对外部系统](#external-systems)
+  - [保护测试 Harness](#protect-the-harness)
+  - [验证测试](#verify-the-tests)
+  - [超越基于示例的测试](#beyond-example-based)
+* [适用性的局限](#limitations)
+* [结论](#conclusion)
+* [免责声明](#disclaimer)
+* [致谢](#ack)
+* [重要修订](#revisions)
 
 边栏
 - [用测试表格取代一次性场景](#side-bar-1)
@@ -49,8 +49,10 @@
 - [这不就是 Gherkin 和 Cucumber 吗？](#side-bar-4)
 - [内部 DSL](#side-bar-5)
 
+<a id="introduction"></a>
 ## 引言
 
+<a id="ai-generated-code"></a>
 ### AI 生成代码的问题
 
 2026 年初，我对某家大力投入 “使用 AI 编程智能体进行开发” 的组织中的 26 名开发者做了一系列访谈。
@@ -82,6 +84,7 @@
 
 </div></br>
 
+<a id="ai-generated-tests"></a>
 ### AI 生成测试的问题
 
 当我们放手让 AI 自主生成代码时，我们就需要信任 AI 能写出好的测试，
@@ -117,6 +120,7 @@ AI 为什么要重构测试？
 而且考虑到软件工程的发展方向，这也不现实。
 但假如有一种写测试的方式，对人类来说读写都容易得多，那会怎样？这正是下文要讨论的内容。
 
+<a id="ai-generated-specs"></a>
 ### AI 生成规约的问题
 
 很多 AI 辅助开发都采用了某种形式的[规约驱动开发（spec-driven development）](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html)：
@@ -136,6 +140,7 @@ AI 为什么要重构测试？
 尽管我们可以尽可能精确地描述我们想要的东西，但自然语言无法提供编程语言那样的精确度。
 简而言之，散文式规约无法被执行；测试可以。
 
+<a id="my-proposal"></a>
 ### 我的提议
 
 我们的目标是让测试具备这些性质：
@@ -168,8 +173,10 @@ AI 为什么要重构测试？
 一般来说，步子迈得小一些会让开发更安全；
 而本文的目标，正是讨论如何安全地迈出更大的步子。
 
+<a id="core-technique"></a>
 ## 核心技术
 
+<a id="customer-tests"></a>
 ### 客户测试
 
 开发者编写测试，是极限编程最早期的实践之一。
@@ -200,6 +207,7 @@ AI 为什么要重构测试？
 特别是当它们被实现为端到端测试时，可能又慢又不稳定（flaky）。
 有办法克服这些问题，我们将在接下来的章节中讨论。
 
+<a id="focus-on-what-matters"></a>
 ### 关注真正重要的部分
 
 让我们看看如何解决测试难以阅读的问题。考虑下面这个简单的例子：
@@ -408,6 +416,7 @@ And no security event should be generated
 
 </div></br>
 
+<a id="not-all-tests-fit-tables"></a>
 ### 并非所有测试都能放进表格
 
 当测试的输入不是简单的值时，表格形式就不够用了。这时我们可以转向更结构化的场景。
@@ -553,8 +562,10 @@ Gherkin 是一种流行的编写客户测试的语言，与上面提出的方法
 
 </div></br>
 
+<a id="building-on-traditions"></a>
 ## 建立在既有传统之上
 
+<a id="fit-and-example-mapping"></a>
 ### Fit 与实例化需求
 
 Ward Cunningham 被认为是许多后来被极限编程普及的想法的源头。
@@ -594,6 +605,7 @@ James Shore 是 Fit 的早期采用者，并维护过它的许多实现。
 通过让这些测试成为规约不可分割的一部分，我们让规约变得可执行，并使编程智能体无法绕过它。
 而且这些规约不会过期，因为它们在 CI 中运行。
 
+<a id="go-table-tests"></a>
 ### Go 中的测试实践
 
 一种相关的方法来自 Go 编程语言的传统，在 Go 中大多数测试都是表格化的。
@@ -663,6 +675,7 @@ func main() { println("hello world") }
 这个测试演练了 `go run` 子命令。
 该 DSL 允许测试作者定义环境变量、准备文件、执行命令，并检查标准错误通道上的输出结果。
 
+<a id="approval-testing"></a>
 ### 认可测试
 
 第三种相关的传统是 [认可测试（Approval Tests）](https://approvaltests.com/)，它由 Llewellyn Falco 推广。
@@ -683,6 +696,7 @@ Llewellyn Falco 和 Lada Kesseler 对认可测试的实践做了[精彩的讲解
 >后者指的是从客户或用户角度编写的、具有验收性质的测试，也就是前一节里的客户测试。
 >“认可” 强调的是 *人类批准了这份输出*，而不是 “人类认可的测试用例”。
 
+<a id="approved-scenarios-and-logs"></a>
 ### 已认可场景与已认可日志
 
 Ivett Ördög 一段时间以来一直在推广我在本文中描述的技术。
@@ -764,8 +778,10 @@ test("an unattended device locks itself", async () => {
 
 >译注：本节介绍两个认可模式，并论证为何外部 DSL 是防止 AI 作弊的关键。
 
+<a id="implementation-tips"></a>
 ## 实现提示
 
+<a id="not-always-end-to-end"></a>
 ### 不必总是端到端
 
 把客户测试做成经由 UI 的端到端测试，这种做法很常见。这样做可以，但它不是唯一的方式。
@@ -829,6 +845,7 @@ tests:
 >译注：要注意，客户测试（customer test）说的是测试的视角和语言——从客户或使用者的角度看、用领域语言表达、黑盒而不涉及实现细节——而不是测试的运行层级。
 >因此客户测试既可以是系统级的端到端测试，也可以是针对某个组件的测试，如上一节那个以单元测试形式实现、自带自定义 DSL 的 IP 允许列表示例。
 
+<a id="customer-tests-ui"></a>
 ### 面向 UI 的客户测试
 
 测试 UI 是出了名的困难，但与此同时，UI 中往往包含我们想要测试的重要逻辑。
@@ -842,6 +859,7 @@ Playwright 这类工具可以自动等待组件渲染完成，从而减少测试
 
 关于如何获得[低于 1 毫秒（sub-millisecond）的端到端测试](https://www.youtube.com/watch?v=sUclXYMDI94)的更多提示，来自 Aslak Hellesøy。
 
+<a id="external-systems"></a>
 ### 应对外部系统
 
 业务应用经常依赖外部服务；一个电商应用很可能需要与支付网关、邮件服务器、库存服务以及许多其他服务通信。
@@ -878,6 +896,7 @@ Uberto Barbini [解释过](https://medium.com/javarevisited/beyond-traditional-a
 如何用外部依赖做黑盒测试，是一个丰富而深刻的话题，本文只能略作涉猎。
 更多细节可以在 [Martin Fowler](https://martinfowler.com/bliki/TestPyramid.html) 或 [Ham Vocke](https://martinfowler.com/articles/practical-test-pyramid.html) 的文章中找到。
 
+<a id="protect-the-harness"></a>
 ### 保护测试 Harness
 
 编程智能体的一个问题，是它们有时可能 “作弊”；为了急于宣称任务完成，它们可能走捷径，比如削弱或禁用测试。
@@ -906,6 +925,7 @@ Uberto Barbini [解释过](https://medium.com/javarevisited/beyond-traditional-a
 DSL 的实现也为 AI 引发的混乱留出了空间。
 为了进一步增强我们对 “测试仍在保护我们” 的信心，我们可以研究一些额外的技术，比如下一节提到的那些。
 
+<a id="verify-the-tests"></a>
 ### 验证测试
 
 当 AI 编写部分或大部分测试时，我们仍然面临审查问题。
@@ -939,6 +959,7 @@ DSL 的实现也为 AI 引发的混乱留出了空间。
 <ins>这是测试即数据的另一个优势：通过让 AI 编写另一个测试运行器，你可以在不止一个环境中运行同一个测试。</ins>
 例如在重写一个系统时，这很方便：我们可以编写特征测试（characterization tests），让它在旧环境和新环境中都能运行。
 
+<a id="beyond-example-based"></a>
 ### 超越基于示例的测试
 
 到目前为止我们讨论的测试都是基于示例的（example-based），也就是说，它们通过检查某个具体的行为示例来演练系统。
@@ -954,6 +975,7 @@ DSL 的实现也为 AI 引发的混乱留出了空间。
 <ins>如果它是一个 Web 应用，让 AI 模拟用户，通过 [agent-browser](https://agent-browser.dev/) 之类的工具驱动浏览器来尝试各种工作流。</ins>
 问问你的编程智能体；它可能会想出更多办法。
 
+<a id="limitations"></a>
 ## 适用性的局限
 
 本文描述的技术适用于测试生产系统。
@@ -977,6 +999,7 @@ DSL 的实现也为 AI 引发的混乱留出了空间。
 如上所述，还可以使用其他自动化测试技术。
 最重要的是，始终推荐人工探索式测试。
 
+<a id="conclusion"></a>
 ## 结论
 
 <ins>我们的出发点是这样一个问题：许多把高度自主权交给 AI 的开发者，并不相信自己得到的测试覆盖。
@@ -1000,14 +1023,16 @@ DSL 的实现也为 AI 引发的混乱留出了空间。
 <ins>这一点在今天格外重要：往后大部分代码都将由机器编写，测试代码也不例外。
 我们需要有意识地塑造这些测试的形态，让人始终掌握控制权。</ins>
 
-要开始应用这些想法，我们可以用客户的语言来表达测试，并遵循[上文所述的受约束测试流程](#已认可场景与已认可日志)。
+要开始应用这些想法，我们可以用客户的语言来表达测试，并遵循[上文所述的受约束测试流程](#approved-scenarios-and-logs)。
 
+<a id="disclaimer"></a>
 ## 免责声明
 
 本文是一位实践者的观点，不一定代表其雇主的观点。
 我并不处在你的位置，你的经验与处境会有所不同：
 从本文中取走你觉得有用的部分，并留意发生了什么、以及你的系统试图告诉你什么。
 
+<a id="ack"></a>
 ## 致谢
 
 Ben O'Mahony、Birgitta Böckeler、David Farley、David Lucas、Gabriele Lana、Ivett Ördög、James Shore、
@@ -1016,6 +1041,7 @@ Valentina Servile 和 Wei Zhang 对本文的草稿提出了意见。
 
 在撰写本文的过程中，我使用 AI 进行头脑风暴、研究、批评和校对。所有文字均为我本人所写。
 
+<a id="revisions"></a>
 ## 重要修订
 
 2026 年 11 月 11 日：发布
