@@ -1,13 +1,14 @@
 # AgentOnto：本体引导的面向企业数据分析的 LLM Agent
 
-**AgentOnto: Ontology-Guided LLM Agents for Enterprise Data Analytics**
+原文：[AgentOnto: Ontology-Guided LLM Agents for Enterprise Data Analytics](https://arxiv.org/abs/2610.23317)
 
 Dayan Pan¹, Bincheng Zuo², Xiaojian Wang², Daogang Zhang², Jingyuan Wang¹
 
 ¹ 北京航空航天大学计算机学院，中国北京
 ² Omaha AIGC，中国上海
 
-> 原文发表于 KDD '27（The 33rd ACM SIGKDD Conference on Knowledge Discovery and Data Mining），2026 年 10 月 16 日 arXiv 预印本 v1（arXiv:2610.23317v1 [cs.AI]）。
+> 原文发表于 KDD '27（The 33rd ACM SIGKDD Conference on Knowledge Discovery and Data Mining），
+2026 年 10 月 16 日 arXiv 预印本 v1（arXiv:2610.23317v1 [cs.AI]）。
 
 ## 摘要
 
@@ -27,7 +28,8 @@ AgentOnto 将异构的企业知识组织为一个本体，由该本体直接引�
 
 ## 关键词
 
-企业数据分析（Enterprise Data Analytics）、大语言模型 Agent（Large Language Model Agents）、基于本体的分析（Ontology-Based Analysis）
+企业数据分析（Enterprise Data Analytics）、大语言模型 Agent（Large Language Model Agents）、
+基于本体的分析（Ontology-Based Analysis）
 
 ## 1 引言
 
@@ -35,11 +37,14 @@ AgentOnto 将异构的企业知识组织为一个本体，由该本体直接引�
 随着企业数据源、业务知识和分析需求不断增长，预定义仪表盘与固定工作流已无法满足分析需求在广度与复杂度上的要求。
 
 大语言模型（LLM）Agent 结合了语言理解、推理、数据库访问与工具调用能力，提供了一种灵活的分析接口。
-近期的企业商业智能系统，包括 SiriusBI [[11]](#ref11) 与 CoeusBI [[14]](#ref14)，已经展示了这种基于 Agent 的方法在企业分析中的实用价值。
+近期的企业商业智能系统，包括 SiriusBI [[11]](#ref11) 与 CoeusBI [[14]](#ref14)，
+已经展示了这种基于 Agent 的方法在企业分析中的实用价值。
 然而，准确的企业分析要求 Agent 识别相关的业务实体与关系，并把它们正确地应用到可用数据上。
 本体提供了显式的概念模型，用于组织这类业务知识并将其与企业数据库连接。
-诸如 SODA [[2]](#ref2) 与 ATHENA [[23]](#ref23) [[24]](#ref24) 这类基于本体的数据访问（OBDA）系统，利用这些模型与映射把用户问题翻译为数据库操作 [[32]](#ref32)。
-与此并行，LLM 数据分析 Agent 把自然语言查询扩展到包含规划、工具调用与执行反馈的能力，并且近期工作已开始使用 LLM 构建本体或可复用知识 [[8]](#ref8) [[21]](#ref21)。
+诸如 SODA [[2]](#ref2) 与 ATHENA [[23]](#ref23) [[24]](#ref24) 这类基于本体的数据访问（OBDA）系统，
+利用这些模型与映射把用户问题翻译为数据库操作 [[32]](#ref32)。
+与此并行，LLM 数据分析 Agent 把自然语言查询扩展到包含规划、工具调用与执行反馈的能力，
+并且近期工作已开始使用 LLM 构建本体或可复用知识 [[8]](#ref8) [[21]](#ref21)。
 这些研究把本体与企业数据连接起来，为 Agent 提供了更广泛的分析能力。
 尽管如此，为企业分析构建本体引导的 Agent 仍存在三个关键挑战。
 
@@ -48,7 +53,8 @@ AgentOnto 将异构的企业知识组织为一个本体，由该本体直接引�
 然而现有方法通常只关注单一来源 [[18]](#ref18) 或单一本体构件 [[15]](#ref15)，对整合异构证据的支持有限。
 
 **（2）本体集成不足制约 Agent 的分析能力。** 把本体提供给 Agent 并不保证其分析行为正确。
-现有方法用本体支持查询生成或结果检查 [[1]](#ref1) [[24]](#ref24)，但高答案覆盖率并不能保证正确性，因为 Agent 可能返回错误结果，或执行本不应被执行的请求，从而造成**静默语义错误（silent semantic error）**。
+现有方法用本体支持查询生成或结果检查 [[1]](#ref1) [[24]](#ref24)，但高答案覆盖率并不能保证正确性，
+因为 Agent 可能返回错误结果，或执行本不应被执行的请求，从而造成**静默语义错误（silent semantic error）**。
 因此，有效的本体引导应同时支持正确的分析决策与准确的执行结果。
 
 **（3）静态本体限制了持续适应能力。** 企业知识随时间演化，分析反馈会揭示本体中缺失或错误的部分。
@@ -74,7 +80,8 @@ AgentOnto 把本体构建、数据分析与本体更新整合为统一工作流�
 
 在这些方法之上，AgentOnto 还引入**迭代式本体准备（Iterative Ontology Preparation）**：它在处理真实分析任务之前，利用自生成的分析任务来检查并改进本体。
 
-我们使用两个公开数据源评估 AgentOnto：世界发展指标（World Development Indicators, WDI）与美国环保署空气质量系统（U.S. EPA Air Quality System, AQS）。
+我们使用两个公开数据源评估 AgentOnto：世界发展指标（World Development Indicators, WDI）
+与美国环保署空气质量系统（U.S. EPA Air Quality System, AQS）。
 我们将其与基于静态本体、多阶段 SQL 生成、数据库 Agent 工具使用的方法进行比较。
 AgentOnto 取得 **87.5%** 的分析准确率，而最强基线为 **55.0%**。
 对三个核心方法的评估进一步表明，AgentOnto 在两个领域上都改进了本体构建、分析与更新。
@@ -153,7 +160,9 @@ AgentOnto 通过把企业知识组织为式 1 所定义的企业分析本体，�
 迭代式本体准备则在真实请求到来之前，先通过分析性使用来考察本体。
 以下各小节描述这些方法与完整的 AgentOnto 工作流。
 
+<!-- markdownlint-disable MD033 -->
 <img src="img/fig2.png" alt="图 2：AgentOnto 总览" width="100%" />
+<!-- markdownlint-disable MD033 -->
 
 **图 2：AgentOnto 总览。** 本体构建把企业资源整合为企业分析本体。
 本体引导的分析在整个请求处理过程中使用该本体，而本体更新通过有针对性的修改与行为检查来吸收经过确认的反馈。
@@ -188,10 +197,12 @@ AgentOnto 通过识别业务实体与关系、组织可复用的指标定义、�
 **本体引导的分析（Ontology-Guided Analysis）。** 本体引导的分析在对一个分析请求的处理全过程中应用企业分析本体。
 给定请求 $\text{req}_i$、接收该请求时可用的本体 $O_t$ 与企业数据库 DB，AgentOnto 执行：
 
+<!-- markdownlint-disable MD013 -->
 $$
 (\text{action}_i, \text{plan}_i, \text{result}_i) = \text{Analyze}(\text{req}_i, O_t, \text{DB})
 \tag{3}
 $$
+<!-- markdownlint-disable MD013 -->
 
 其中 Analyze 表示完整的分析过程。
 下标 $i$ 标识请求及其对应输出，下标 $t$ 标识用于本次分析的本体状态。
@@ -222,14 +233,16 @@ $$
 \tag{5}
 $$
 
-算子 Compile 使用 $G_t$ 中的数据库映射把 $\text{plan}_i$ 翻译为数据库查询 $\text{query}_i$；算子 Execute 在 DB 上运行该查询以产出 $\text{result}_i$。
+算子 Compile 使用 $G_t$ 中的数据库映射把 $\text{plan}_i$ 翻译为数据库查询 $\text{query}_i$；
+算子 Execute 在 DB 上运行该查询以产出 $\text{result}_i$。
 只有通过基于本体的检查的计划才会进入编译与执行。
 
 通过这一过程，同一个企业分析本体引导计划形成、计划检查与数据库执行。
 显式的分析计划把请求的解释与在企业数据上执行的查询连接起来，使本体知识能够直接影响分析决策与结果。
 
 **本体更新（Ontology Updating）。** 本体更新把经过确认的分析反馈纳入企业分析本体。
-给定当前本体 $O_t$、经过确认的反馈 $\text{Feedback}_t$、更新检查 $\text{Checks}_t$ 以及企业数据库 DB，AgentOnto 执行：
+给定当前本体 $O_t$、经过确认的反馈 $\text{Feedback}_t$、
+更新检查 $\text{Checks}_t$ 以及企业数据库 DB，AgentOnto 执行：
 
 $$
 O_{t+1} = \text{Update}(O_t, \text{Feedback}_t, \text{Checks}_t, \text{DB})
@@ -251,12 +264,14 @@ $$
 \tag{7}
 $$
 
-上标 corr 表示**修正检查（correction checks）**，指定更新后应当发生变化的分析行为；上标 ret 表示**保持检查（retention checks）**，指定应当保持不变的分析行为。
+上标 corr 表示**修正检查（correction checks）**，指定更新后应当发生变化的分析行为；
+上标 ret 表示**保持检查（retention checks）**，指定应当保持不变的分析行为。
 每项检查包含一个分析请求及其期望结果，包括期望的分析决策，以及（对于可执行请求）期望的结果。
 
 AgentOnto 应用针对性修改以产出候选本体 $\tilde{O}_{t+1}$，并通过本体引导的分析评估两组检查。
 波浪号用以区分该候选本体与检查后所采纳的本体：
 
+<!-- markdownlint-disable MD013 -->
 $$
 O_{t+1} =
 \begin{cases}
@@ -265,6 +280,7 @@ O_t, & \text{否则}
 \end{cases}
 \tag{8}
 $$
+<!-- markdownlint-disable MD013 -->
 
 算子 CheckUpdate 使用修正检查与保持检查评估候选本体。
 当候选本体修正了目标问题，并保持了本应不变的分析行为时，AgentOnto 采纳 $\tilde{O}_{t+1}$；否则保留 $O_t$。
@@ -287,10 +303,12 @@ AgentOnto 使用 $O_{r-1}$ 分析所生成的任务。
 一个独立的模型确认步骤依据企业资源审查分析结果，并针对缺失或错误的本体内容产出已确认反馈 $\text{Feedback}_r$。
 随后 AgentOnto 导出修正检查与保持检查 $\text{Checks}_r$ 并更新本体：
 
+<!-- markdownlint-disable MD013 -->
 $$
 O_r = \text{Update}(O_{r-1}, \text{Feedback}_r, \text{Checks}_r, \text{DB}), \quad r = 1, \dots, R
 \tag{9}
 $$
+<!-- markdownlint-disable MD013 -->
 
 其中 $O_r$ 表示第 $r$ 轮产出的本体。
 该更新在修正已确认问题的同时，检查本应保持不变的分析行为。
@@ -343,20 +361,22 @@ AgentOnto 执行两轮迭代式本体准备，每轮生成四个分析任务。
 
 我们在本体构建与两轮迭代式本体准备之后，在全部 606 个评估请求上评估完整的 AgentOnto 工作流。
 
-**对比方法。** 我们将 AgentOnto 与 DIN-SQL [[19]](#ref19)、ReFoRCE-v8 [[4]](#ref4)、MAC-SQL [[30]](#ref30) 和 Vanna [[29]](#ref29) 进行比较。
+**对比方法。** 我们将 AgentOnto 与 DIN-SQL [[19]](#ref19)、
+ReFoRCE-v8 [[4]](#ref4)、MAC-SQL [[30]](#ref30) 和 Vanna [[29]](#ref29) 进行比较。
 每种对比方法在处理相同请求前各自完成自己的准备工作。
 DIN-SQL、ReFoRCE-v8 与 MAC-SQL 代表多阶段 SQL 生成方法，Vanna 代表数据库 Agent 工具使用方法。
-
+<!-- markdownlint-disable MD013 -->
 **表 1：WDI 与 AQS 上的分析准确率及领域平均。** 粗体与下划线分别表示最优与次优结果。
 
 | 方法 | WDI (N=282) 正确数 | WDI 准确率 (%) | AQS (N=324) 正确数 | AQS 准确率 (%) | 领域平均 (%) |
-|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- |
 | DIN-SQL | 125 | 44.3 | 213 | 65.7 | 55.0 |
 | ReFoRCE-v8 | 122 | 43.3 | 205 | 63.3 | 53.3 |
 | MAC-SQL | 125 | 44.3 | 142 | 43.8 | 44.1 |
 | Vanna | 131 | 46.5 | 131 | 40.4 | 43.4 |
 | **AgentOnto** | **223** | **79.1** | **311** | **96.0** | **87.5** |
 
+<!-- markdownlint-disable MD013 -->
 **指标。** 我们用分析准确率评估完整工作流。
 当分析决策正确，且在需要执行时返回结果也正确，该请求才算正确。
 
@@ -382,7 +402,7 @@ AgentOnto Construction 与 Single-Prompt LLM 构建两部分；OntoEKG 与 Memor
 粗体与下划线分别表示各列的最优与次优结果。
 
 | 能力 | 方法 | WDI 本体 F1 (%) | WDI 数据库连接 (%) | WDI 分析准确率 (%) | AQS 本体 F1 (%) | AQS 数据库连接 (%) | AQS 分析准确率 (%) |
-|---|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | 本体内容 + 映射 | **AgentOnto Construction** | **93.6** | **84.3** | **70.2** | **76.7** | **69.0** | **67.0** |
 | 本体内容 + 映射 | Single-Prompt LLM | 83.0 | 43.1 | 68.1 | 59.1 | 47.6 | 65.1 |
 | 仅本体内容 | OntoEKG | 2.9 | - | 22.0 | 5.3 | - | 16.4 |
@@ -419,7 +439,7 @@ DIN-SQL、ReFoRCE-v8 与 MAC-SQL 代表多阶段 SQL 生成方法，Vanna 代表
 粗体与下划线分别表示分析准确率与静默错误的最优与次优结果。
 
 | 方法 | WDI 分析准确率 ↑ | WDI 静默错误 ↓ | WDI 答案覆盖率 | AQS 分析准确率 ↑ | AQS 静默错误 ↓ | AQS 答案覆盖率 | 领域平均 分析准确率 ↑ | 领域平均 静默错误 ↓ | 领域平均 答案覆盖率 |
-|---|---|---|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Direct Schema | 37.9 | 63.0 | 74.8 | 8.6 | 97.3 | 78.7 | 23.3 | 80.1 | 76.8 |
 | Direct Documents | 45.4 | 60.2 | 83.7 | 34.9 | 74.4 | 84.3 | 40.1 | 67.3 | 84.0 |
 | Direct Ontology | 43.6 | 60.2 | 78.4 | 59.3 | 41.6 | 84.6 | 51.4 | 50.9 | 81.5 |
@@ -456,7 +476,7 @@ AgentOnto Analysis 的领域平均答案覆盖率为 75.7%，接近应被执行�
 破折号表示该方法不产出更新后的本体。
 
 | 方法 | 更新准确率 | 修正 | 行为保持 | 泛化 |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Static | 22.7 | 3.4 | 75.9 | 17.2 |
 | Context-Only | – | 89.7 | 89.3 | 89.7 |
 | Memory/Reflection | – | 89.7 | 86.2 | 89.7 |
@@ -584,13 +604,13 @@ AgentOnto 通过一个企业分析本体把本体构建、本体引导的分析�
 
 <a id="ref27"></a>`[27]` Tania Tudorache, Csongor Nyulas, Natalya F Noy, and Mark A Musen.<br/>2013. WebProtégé: A collaborative ontology editor and knowledge acquisition tool for the web.<br/>Semantic web 4, 1 (2013), 89–99.
 
-<a id="ref28"></a>`[28]` U.S. Environmental Protection Agency.<br/>2026. Air Quality System: Download Daily Data.<br/>https://aqs.epa.gov/aqsweb/airdata/download_files.html.
+<a id="ref28"></a>`[28]` U.S. Environmental Protection Agency.<br/>2026. Air Quality System: Download Daily Data.<br/><https://aqs.epa.gov/aqsweb/airdata/download_files.html>.
 
-<a id="ref29"></a>`[29]` Vanna AI.<br/>2026. Vanna: An Agent Framework for Generating and Executing SQL.<br/>https://github.com/vanna-ai/vanna.
+<a id="ref29"></a>`[29]` Vanna AI.<br/>2026. Vanna: An Agent Framework for Generating and Executing SQL.<br/><https://github.com/vanna-ai/vanna>.
 
 <a id="ref30"></a>`[30]` Bing Wang, Changyu Ren, Jian Yang, Xinnian Liang, Jiaqi Bai, Linzheng Chai, Zhao Yan, Qian-Wen Zhang, Di Yin, Xing Sun, et al.<br/>2025. Mac-sql: A multi-agent collaborative framework for text-to-sql.<br/>In Proceedings of the 31st International Conference on Computational Linguistics.<br/>540–557.
 
-<a id="ref31"></a>`[31]` World Bank.<br/>2026. World Development Indicators.<br/>https://databank.worldbank.org/source/world-development-indicators.
+<a id="ref31"></a>`[31]` World Bank.<br/>2026. World Development Indicators.<br/><https://databank.worldbank.org/source/world-development-indicators>.
 
 <a id="ref32"></a>`[32]` Guohui Xiao, Diego Calvanese, Roman Kontchakov, Domenico Lembo, Antonella Poggi, Riccardo Rosati, and Michael Zakharyaschev.<br/>2018. Ontology-based data access: A survey.<br/>International Joint Conferences on Artificial Intelligence.
 
