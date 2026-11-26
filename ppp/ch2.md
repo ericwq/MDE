@@ -1,6 +1,6 @@
 # 2 极限编程概述
-
-<center><img src="imgs/fig-ch2-0.png" width="40%"/></center><br/>
+<!-- markdownlint-disable MD033 -->
+<center><img src="imgs/fig-ch2-0.png" width="40%" alt=""/></center><br/>
 
 > <p align="right">作为开发人员，我们需要记住，XP 并不是唯一的游戏。</p>
 > <p align="right">——Pete McBreen</p>
@@ -60,7 +60,7 @@ XP 团队的客户是定义和优先级排序功能的人或团体。
 每一个为期两周的迭代都会产出可工作的软件，以满足利益相关者的部分需求。
 在每个迭代结束时，系统会被演示给利益相关者，以获取他们的反馈。
 
-**迭代计划。** 
+**迭代计划。**
 一个迭代通常为期两周。
 它代表一次小规模交付，可能会也可能不会投入生产。
 它是由客户根据开发人员确定的预算所选择的一组用户故事。
@@ -128,7 +128,7 @@ Laurie Williams ² 和 Nosek ³ 的研究表明，结对并不会降低编程人
 
 ### 测试驱动开发
 
-[第 4 章](ch4.md) 关于测试的内容详细讨论了测试驱动开发。
+[第 4 章](./ch4.md) 关于测试的内容详细讨论了测试驱动开发。
 以下段落提供快速概述。
 
 所有生产代码都是为了通过失败的单元测试而编写的。
@@ -137,7 +137,7 @@ Laurie Williams ² 和 Nosek ³ 的研究表明，结对并不会降低编程人
 
 编写测试用例和代码之间的这种迭代非常迅速，大约在一分钟左右。
 测试用例和代码共同演进，测试用例领先代码很小一步。
-（示例参见 [第 6 章](ch6.md) “编程片段”）。
+（示例参见 [第 6 章](./ch6.md) “编程片段”）。
 
 因此，随着代码的增长，会形成一套非常完整的测试用例。
 这些测试使程序员能够检查程序是否正常工作。
@@ -219,11 +219,11 @@ XP 的规则是不允许团队加班。
 事实上，情况并非如此。
 此外，密歇根大学的一项研究表明，在 “作战室” 环境中工作不但不会干扰生产力，反而可能将生产力提高一倍。⁷
 
-⁷ http://www.sciencedaily.com/releases/2000/12/001206144705.htm
+⁷ <http://www.sciencedaily.com/releases/2000/12/001206144705.htm>
 
 ### 规划游戏
 
-<img src="imgs/fig-ch2-1.png" width="30%"/><br/>
+<img src="imgs/fig-ch2-1.png" width="30%" alt=""/><br/>
 
 下一章 “规划” 将详细讨论 XP 规划游戏，我在此简要描述。
 
@@ -248,14 +248,14 @@ XP 团队尽可能使设计简洁而富有表现力。
 
 以下三条 XP 箴言指导着开发人员：
 
-**考虑最简单可行方案。** 
+**考虑最简单可行方案。**
 XP 团队总是尝试为当前批次的故事寻找最简单的设计方案。
 如果当前故事可以用平面文件实现，我们可能就不会使用数据库或 EJB。
 如果当前故事可以用简单的 Socket 连接实现，我们可能就不会使用 ORB 或 RMI。
 如果当前故事可以在不使用多线程的情况下工作，我们可能就不会引入多线程。
 我们尝试考虑实现当前故事的最简单方式，然后选择尽可能接近那种简洁性的解决方案。
 
-**你并不需要它。** 
+**你并不需要它。**
 是的，但我们知道有一天会需要那个数据库，我们知道有一天会需要 ORB，我们知道有一天必须支持多用户。
 所以我们现在就需要为这些事情预留接口，不是吗？
 
@@ -263,7 +263,7 @@ XP 团队会认真考虑如果抵制在严格需要之前添加基础设施的�
 他们从 "并不需要那个基础设施" 的假设出发。
 只有当有证据证明，或者至少有非常有力的证据表明，现在添加基础设施比等待更划算时，团队才会添加。
 
-**一次且仅一次。** 
+**一次且仅一次。**
 XP人员不容忍代码重复。
 无论在哪里发现重复，都会将其消除。
 
@@ -278,11 +278,11 @@ XP人员不容忍代码重复。
 毕竟，如果两件事物相似，一定有某种抽象能够统一它们。
 因此，消除冗余的行为迫使团队创建许多抽象，并进一步降低耦合</ins>。
 
-⁸ 参见 [第 14 章](ch14.md) "模板方法与策略：继承与委托"。
+⁸ 参见 [第 14 章](./ch14.md) "模板方法与策略：继承与委托"。
 
 ### 重构 ⁹
 
-我在 [第 5 章](ch5.md) 中会更详细地讨论这个主题，以下是一个简要概述。
+我在 [第 5 章](./ch5.md) 中会更详细地讨论这个主题，以下是一个简要概述。
 
 代码趋向于腐烂。
 随着我们不断添加功能和修复缺陷，代码的结构会逐渐退化。
@@ -348,10 +348,12 @@ XP 实践者本质上是实用主义者，这种缺乏具体定义的情况让�
 <i>「译注：
 
 核心思想：
+
 - 隐喻是一个 "共同的愿景" 或 "共享的故事"，让所有人（开发人员、客户、业务人员）对系统 "是什么" 有一个统一的理解
 - 它不是一个 UML 图或技术架构文档，而是一个简单、生动、容易记住的比喻
 
 经典例子：
+
 - C3 薪资系统（Kent Beck 最早实践 XP 的项目）：隐喻是 "一个巨大的电子表格"，所有计算像电子表格单元格一样互相关联
 - 电商系统：可以用 "超市" 或 "菜市场" 来比喻 —— 有货架（商品展示）、购物车、收银台（结算）、仓库（库存管理）
 - 搜索引擎：像一个巨大的 "图书馆卡片目录"
@@ -368,15 +370,26 @@ XP 实践者本质上是实用主义者，这种缺乏具体定义的情况让�
 XP 是一种通用的优秀软件开发方法。
 许多项目团队可以直接采用它。
 还有更多团队可以通过增加或修改实践来使其适应自身需求。
+<!-- markdownlint-disable MD033 -->
 
 ## 参考文献
 
 1. Dahl, Dijkstra. *Structured Programming*. New York: Hoare, Academic Press, 1972.
 2. Conner, Daryl R. *Leading at the Edge of Chaos*. Wiley, 1998.
-3. Cockburn, Alistair. *The Methodology Space*. Humans and Technology technical report HaT TR.97.03 (dated 97.10.03), http://members.aol.com/acockburn/papers/methyspace/methyspace.htm.
-4. Beck, Kent. *Extreme Programming Explained: Embracing Change*. Reading, MA: Addison–Wesley, 1999.
-5. Newkirk, James, and Robert C. Martin. *Extreme Programming in Practice*. Upper Saddle River, NJ: Addison–Wesley, 2001.
-6. Williams, Laurie, Robert R. Kessler, Ward Cunningham, Ron Jeffries. *Strengthening the Case for Pair Programming*. IEEE Software, July–Aug. 2000.
-7. Cockburn, Alistair, and Laurie Williams. *The Costs and Benefits of Pair Programming*. XP2000 Conference in Sardinia, reproduced in *Extreme Programming Examined*, Giancarlo Succi, Michele Marchesi. Addison–Wesley, 2001.
-8. Nosek, J. T. *The Case for Collaborative Programming*. Communications of the ACM (1998): 105–108.
-9. Fowler, Martin. *Refactoring: Improving the Design of Existing Code*. Reading, MA: Addison–Wesley, 1999.
+3. Cockburn, Alistair. *The Methodology Space*.
+Humans and Technology technical report HaT TR.97.03 (dated 97.10.03),
+<http://members.aol.com/acockburn/papers/methyspace/methyspace.htm>.
+4. Beck, Kent. *Extreme Programming Explained: Embracing Change*.
+Reading, MA: Addison–Wesley, 1999.
+5. Newkirk, James, and Robert C. Martin. *Extreme Programming in Practice*.
+Upper Saddle River, NJ: Addison–Wesley, 2001.
+6. Williams, Laurie, Robert R. Kessler, Ward Cunningham, Ron Jeffries.
+*Strengthening the Case for Pair Programming*. IEEE Software, July–Aug. 2000.
+7. Cockburn, Alistair, and Laurie Williams. *The Costs and Benefits of Pair Programming*.
+XP2000 Conference in Sardinia, reproduced in
+*Extreme Programming Examined*, Giancarlo Succi, Michele Marchesi.
+Addison–Wesley, 2001.
+8. Nosek, J. T. *The Case for Collaborative Programming*.
+Communications of the ACM (1998): 105–108.
+9. Fowler, Martin. *Refactoring: Improving the Design of Existing Code*.
+Reading, MA: Addison–Wesley, 1999.

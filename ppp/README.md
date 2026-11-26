@@ -37,6 +37,10 @@ Robert C. Martin  · 2014
   - [25 ABSTRACT SERVER、ADAPTER 与 BRIDGE](ch25.md)
   - [26 PROXY 与 STAIRWAY TO HEAVEN：管理第三方 API](ch26.md)
   - [27 案例研究：气象站](ch27.md)
+* [第 6 部分 ETS 案例研究](section6.md)
+  - [28 Visitor](ch28.md)
+  - [29 State](ch29.md)
+  - [30 The ETS Framework](ch30.md)
 * [附录 D 什么是软件设计？](appendix-d.md)
 
 ## 排版约定
@@ -69,9 +73,8 @@ Robert C. Martin  · 2014
 
 ## 待办
 
-- **未译**：第 6 部分（28 Visitor、29 State、30 The ETS Framework）；附录 A（UML I）、附录 B（UML II）、附录 C（A Satire of Two Companies）。
-- **已译、待复核**（按上文「复核清单」逐项对照纸书）：`ch1.md`～`ch6.md`、`ch18.md`、`ch19.md`、`ch22.md`、`section1.md`、`section3.md`、`appendix-d.md`。
+- **未译**：附录 A（UML I）、附录 B（UML II）、附录 C（A Satire of Two Companies）。
+- **已译、待复核**（按上文「复核清单」逐项对照纸书）：`ch1.md`～`ch6.md`、`ch18.md`、`ch19.md`、`ch22.md`、`section1.md`、`section3.md`、`appendix-d.md`，以及第 6 部分：`section6.md`、`ch28.md`、`ch29.md`、`ch30.md`。
   已完成复核：`section2.md`、`ch7.md`～`ch17.md`、`ch20.md`、`ch21.md`、`ch23.md`～`ch27.md`。
-- **悬空链接**：`ch1.md` → `appendix-c.md`（待附录 C 译完）；`ch9.md` → `ch29.md`；`ch19.md` → `ch28.md`。
-- **`ch26.md` “数据库上还能用的其他模式” 小节**：脚注 “Extension Object”（第 408 页）、“Visitor”（第 388 页）、“Decorator”（第 403 页）等处应加链接（第 388/403/408 页均在第 28 章区间，故均指向 `ch28.md`），待第 6 部分译完后统一补加。
-- 注：`ch8.md` 原有的 `#todo` 占位链接已改为指向 `ch6.md`/`ch4.md`。
+- **悬空链接**：`ch1.md` → `appendix-c.md`（待附录 C 译完）；`ch29.md` → `appendix-b.md`（脚注 2、7，待附录 B 译完）；`ch30.md` → `appendix-b.md`（脚注 6，待附录 B 译完）。
+- 注：`ch8.md` 原有的 `#todo` 占位链接已改为指向 `ch6.md`/`ch4.md`；`ch9.md` → `ch29.md`、`ch19.md` → `ch28.md`、`ch26.md` 脚注链接均已随第 6 部分译完而落实。
