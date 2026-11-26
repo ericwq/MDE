@@ -1,0 +1,252 @@
+
+<svg class = 'nodearc' id = '' version = '1.1' viewBox = '0 0 700 350' xmlns = 'http://www.w3.org/2000/svg'>
+<style>@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600,700,800);
+
+svg.nodearc {
+  --default-fill: #F7F8FE;
+  --default-stroke: #0f1872;
+  --legend: #ef5ba1;
+  --dash-stroke: 3,3;
+  path {
+    stroke: var(--default-stroke);
+    fill: none; 
+    stroke-width: 1.5;
+  }
+  .na-node {
+    * {
+      fill: var(--default-fill);
+      stroke: var(--default-stroke);
+      stroke-width: 2;
+    }
+  }
+
+  
+  foreignObject {
+    overflow: visible;
+    line-height: 1.1;
+    font-family: Open Sans, sans-serif;
+    font-size: 8pt;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .na-node .label-center &gt; div {
+    display: table;
+    height: 100%;
+    width: 100%;
+    &amp; &gt; * {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      padding: 2px;
+    }
+  }
+
+  .na-surround {
+    rect {
+      fill: #eeeeee;
+      stroke: grey;
+      stroke-width: 1.5;
+    }
+    div {
+      padding: 3px;
+      font-size: 7pt;
+    }
+  }
+
+
+  .legend {
+    font-style: italic;
+    color: var(--legend);
+  }
+
+  path.legend-line {
+    stroke: var(--legend)
+  }
+}
+svg.nodearc {
+  .bronze {
+    fill: #E8C4A1;
+  }
+  .silver {
+    fill: #C0C0C0;
+  }
+  .gold {
+    fill: #FFD700;
+  }
+  .adaptive {
+    fill: #E5C10C;
+  }
+
+  .na-surround .s-gold {
+    fill: #FFFBEC;
+    stroke:  #E5C10C;
+  }
+
+  .robot *  {
+    stroke-width: 1;
+  }
+
+  .analyst * {
+    stroke-width: 1;
+    fill:  var(--default-fill);
+  }
+
+
+  .commentary {
+    font-style: italic;
+  }
+
+  .return.line{
+    stroke-dasharray: 3 3;
+  }
+
+  .pattern div {
+    margin-top: 5px;
+  }
+
+  .pattern .label-center p {
+    display: table-row;
+  }
+
+  
+  .pattern .title {
+    font-weight: bold;
+  }
+
+
+  .provenance {
+    fill: none;
+    stroke: grey;
+  }
+
+
+}
+
+svg.nodearc{.flow_start {fill: var(--default-stroke)}}
+svg.nodearc{.flow_target path {fill: var(--default-stroke)}}</style>
+
+<g class = 'na-surround' nid = 'context'>
+<rect class = '' height = '124.0' width = '594.0' x = '53.0' y = '138.0'></rect>
+
+<foreignObject class = 'label-tl' height = '124.0' width = '594.0' x = '53.0' y = '138.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p><b>Context Layer</b> the shared vocabulary, made executable</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'dash'>
+<rect class = '' height = '50' width = '100' x = '300' y = '10'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '100' x = '300' y = '10'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Dashboards<br/> and BI</p></div>
+</foreignObject>
+</g>
+
+<g class = 'robot na-node picture-node' nid = 'agents'>
+<g class = 'robot' transform = 'translate(130, 0.0)'>
+<path d = 'M13.5 2C13.5 2.44425 13.3069 2.84339 13 3.11805V5H18C19.6569 5 21 6.34315 21 8V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H11V3.11805C10.6931 2.84339 10.5 2.44425 10.5 2C10.5 1.17157 11.1716 0.5 12 0.5C12.8284 0.5 13.5 1.17157 13.5 2ZM0 10H2V16H0V10ZM24 10H22V16H24V10ZM9 14.5C9.82843 14.5 10.5 13.8284 10.5 13C10.5 12.1716 9.82843 11.5 9 11.5C8.17157 11.5 7.5 12.1716 7.5 13C7.5 13.8284 8.17157 14.5 9 14.5ZM16.5 13C16.5 12.1716 15.8284 11.5 15 11.5C14.1716 11.5 13.5 12.1716 13.5 13C13.5 13.8284 14.1716 14.5 15 14.5C15.8284 14.5 16.5 13.8284 16.5 13Z' transform = 'scale(2.9166666666666665, 2.9166666666666665)'></path>
+</g>
+
+<foreignObject class = 'label-below' height = '20' width = '70' x = '137' y = '70.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>AI agents</p></div>
+</foreignObject>
+</g>
+
+<g class = 'analyst na-node picture-node' nid = 'analysts'>
+<g class = 'analyst' transform = 'translate(500, 0.0)'>
+<path d = 'M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z' transform = 'scale(2.9166666666666665, 2.9166666666666665)'></path>
+</g>
+
+<foreignObject class = 'label-below' height = '20' width = '70' x = '507' y = '70.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Analysts</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'semantic'>
+<rect class = '' height = '50' width = '150' x = '275.0' y = '190'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '150' x = '275.0' y = '190'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p><b>Semantic Model</b><br/>metrics and dimenssions compiled to SQL</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'domain'>
+<rect class = '' height = '50' width = '150' x = '75.0' y = '190.0'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '150' x = '75.0' y = '190.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p><b>Domain Model</b><br/>entities, relationships<br/>(aka ontology)</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-node' nid = 'capability'>
+<rect class = '' height = '50' width = '150' x = '475.0' y = '190.0'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '150' x = '475.0' y = '190.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p><b>Capability Model</b><br/>live reads and actions guarded and audited</p></div>
+</foreignObject>
+</g>
+
+<g class = 'provenance na-node' nid = 'provenance'>
+<rect class = 'provenance' height = '20' width = '550' x = '75.0' y = '160.0'></rect>
+
+<foreignObject class = 'label-center' height = '20' width = '550' x = '75.0' y = '160.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p>Provenance and trust signals: contract, freshness, lineage</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 350.0 60 L 350.0 138.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 350.0, 138.0)translate(350.0 138.0)'></path>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 165.0 85.0 L 165.0 138.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 165.0, 138.0)translate(165.0 138.0)'></path>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 535.0 85.0 L 535.0 138.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 535.0, 138.0)translate(535.0 138.0)'></path>
+</g>
+
+<g class = 'na-node' nid = 'analytic_db'>
+<rect class = '' height = '50' width = '150' x = '275.0' y = '290'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '150' x = '275.0' y = '290'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p><b>Analytical Database</b><br/><br/>certified (Gold+) data</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 350.0 240 L 350.0 290'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 350.0, 290)translate(350.0 290)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '150' x = '353.0' y = '265'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>governed queries</div>
+</foreignObject>
+
+<g class = 'na-node' nid = 'source'>
+<rect class = '' height = '50' width = '150' x = '475.0' y = '290.0'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '150' x = '475.0' y = '290.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p><b>Source Systems</b><br/><br/>CRM, ERP, ticketing</p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 550.0 240.0 L 550.0 290.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(90.0, 550.0, 290.0)translate(550.0 290.0)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '150' x = '553.0' y = '265.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>live reads + actions</div>
+</foreignObject>
+</svg>

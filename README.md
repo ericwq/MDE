@@ -1,43 +1,55 @@
+# 目录
+
 ## 相关论文
+
 - [一种为客户端 Web 应用构建基于 XML 的 DSL 解决方案的方法](xml-dsl-for-web.md)
 - [一种为 Web 应用构建基于 JSON 的 DSL 解决方案的方法](json-dsl-for-web.md)
 - [领域专用语言开发工具的系统性映射研究](sms3.md)
-- [模型驱动工程](mde2006.md)
+- [模型驱动工程](./mde2006.md)
 - [AgentOnto：本体引导的面向企业数据分析的 LLM Agent](ontology/agentonto.md) (KDD '27)
 
 ## 相关书籍
 
-#### MDE
+### MDE
+
 - [模型驱动软件开发（中文版）](mdsd/README.md)
 - [模型驱动软件工程实践：第二版](mdse-in-practice/README.md)
 
-#### DDD
+### DDD
+
 - ❄ [领域驱动设计 —— 处理软件核心复杂性（中文版）](ddd/README.md) (2025/11/18~2026/1/12)
 - [领域驱动设计参考：定义和模式总结（中文版）](ddd-ref/README.md) (2025/12/25~12/31)
 - [实现领域驱动设计（中文版）](impl-ddd/README.md) (2026/1/8~2/11)
 - [领域驱动设计精粹 (中文版)](./distalled/README.md) (2026/7/1~7/6)
 
-#### Clean Architecture / Clean Code
+### Clean Architecture / Clean Code
+
 - ❄ [整洁架构 - 软件结构与设计匠人指南（中文版）](clean/README.md) (2026/6/10~6/26)
 - ❄ [整洁代码：敏捷软件工匠手册（中文版）](./code/README.md) (2026/7/8~7/30)
 
-#### Design Patterns
+### Design Patterns
+
 - [面向模式的软件架构：模式系统](./posa-1/README.md) (2026/3/24~4/7) ∂
 - [敏捷软件开发：原则、模式与实践](ppp/README.md) (2026/7/30~) ∂
 - ❄ [设计模式：可复用面向对象软件的基础](./design-patterns/README.md) (2026/10/8~10/22)
 - ❄ [模式孵化：应用设计模式](./pattern-hatching/README.md) (2026/10/25~11/1)
 
-#### Rest API
+### Rest API
+<!-- markdownlint-disable MD013 -->
 - [RESTful Web Services](./rest/restful-web-services/README.md) (2026/8/28~9/4) ∂
 - ❄ [API 设计模式](./rest/api-design-patterns/README.md) (2026/9/4~9/23)
 
+<!-- markdownlint-disable MD033 -->
 标 * 的书是我推荐的必读书目，需要反复研读，最好熟记于心。<br/>
 标 ∂ 的书暂未翻译完成。
+<!-- markdownlint-disable MD033 -->
 
 ## AI 及智能体相关文章
+
 这是个快速变化的领域，所以相关文章都标出了时间。
 
 下面是 martinfowler.com 上，Martin Fowler 的随笔 和 bliki 。
+
 - [片段：11月10日](tools/fragments/2026-11-10.md) (2026/11/10) Martin Fowler
 - [片段：10月28日](tools/fragments/2026-10-28.md) (2026/10/28) Martin Fowler
 - [片段：10月4日](tools/fragments/2026-10-04.md) (2026/10/04) Martin Fowler
@@ -59,7 +71,7 @@
 
 下面是 martinfowler.com 上，标签为：[generative AI](https://martinfowler.com/tags/generative%20AI.html) 的相关文章：
 
-- [探索生成式 AI ](tools/exploring-gen-ai.md) (系列文章：2023~2026) Birgitta Böckeler 等人
+- [探索生成式 AI](tools/exploring-gen-ai.md) (系列文章：2023~2026) Birgitta Böckeler 等人
 - [构建可靠的智能体 AI 系统](./tools/reliable-llm-bayer.md) (2026/6/16) Sarang Sanjay Kulkarni
 - ❄ [VibeSec 的清算时刻](./tools/vibesec-reckoning.md) (2026/5/27) Gautam Koul, Lucian Moss, Neil Drew-Lopez 和 Daberechi Ruth Edeokoh
 - ❄ [编码智能体的可维护性传感器](tools/sensors-for-coding-agents.md) (2026/5/20) Birgitta Böckeler
@@ -119,7 +131,7 @@
 - [Tell Don't Ask](./auto-test/tell-dont-ask.md) (2013/9/5)
 - [Given When Then](./auto-test/given-wen-then.md) (2013/8/21)
 - [皮下测试（Subcutaneous Test）](./auto-test/subcutaneous-test.md) (2011/2/14)
-- [契约测试（Contract Test）](./auto-test/contract-test.md) (2011/1/12) 
+- [契约测试（Contract Test）](./auto-test/contract-test.md) (2011/1/12)
 - ❄ [Mocks 不是 Stubs](./auto-test/mocks-arent-stubs.md) (2007/1/2)
 - [测试替身（Test Double）](./auto-test/test-double.md) (2006/1/17)
 - [内存测试数据库（In Memory Test Database）](./auto-test/test-database.md) (2005/11/22)
@@ -131,3 +143,7 @@
 - ❄ [HATEOAS 在 2026 年：超媒体 API 设计已死？](./rest/hateoas-hypermedia-api-design-2026.md) (2026/3/8)
 - ❄ [为什么 API 优先是快速开发和可扩展 AI 集成的关键](./rest/what-is-api-first.md) (2025/1/13)
 - ❄ [REST API 设计 - 资源建模](./rest/rest-api-design-resource-modeling.md) (2014/8/14)
+
+## 本体
+
+- [让数据为 Agentic AI 做好准备](./ontology/making-data-ready-for-agentic-ai.md) (2026/8/27) Pramod Sadalage 和 Prem Chandrasekaran

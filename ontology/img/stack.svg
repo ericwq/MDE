@@ -1,0 +1,200 @@
+
+<svg class = 'nodearc' id = '' version = '1.1' viewBox = '-5 -5 500 300' xmlns = 'http://www.w3.org/2000/svg'>
+<style>@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600,700,800);
+
+svg.nodearc {
+  --default-fill: #F7F8FE;
+  --default-stroke: #0f1872;
+  --legend: #ef5ba1;
+  --dash-stroke: 3,3;
+  path {
+    stroke: var(--default-stroke);
+    fill: none; 
+    stroke-width: 1.5;
+  }
+  .na-node {
+    * {
+      fill: var(--default-fill);
+      stroke: var(--default-stroke);
+      stroke-width: 2;
+    }
+  }
+
+  
+  foreignObject {
+    overflow: visible;
+    line-height: 1.1;
+    font-family: Open Sans, sans-serif;
+    font-size: 8pt;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .na-node .label-center &gt; div {
+    display: table;
+    height: 100%;
+    width: 100%;
+    &amp; &gt; * {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      padding: 2px;
+    }
+  }
+
+  .na-surround {
+    rect {
+      fill: #eeeeee;
+      stroke: grey;
+      stroke-width: 1.5;
+    }
+    div {
+      padding: 3px;
+      font-size: 7pt;
+    }
+  }
+
+
+  .legend {
+    font-style: italic;
+    color: var(--legend);
+  }
+
+  path.legend-line {
+    stroke: var(--legend)
+  }
+}
+svg.nodearc {
+  .bronze {
+    fill: #E8C4A1;
+  }
+  .silver {
+    fill: #C0C0C0;
+  }
+  .gold {
+    fill: #FFD700;
+  }
+  .adaptive {
+    fill: #E5C10C;
+  }
+
+  .na-surround .s-gold {
+    fill: #FFFBEC;
+    stroke:  #E5C10C;
+  }
+
+  .robot *  {
+    stroke-width: 1;
+  }
+
+  .analyst * {
+    stroke-width: 1;
+    fill:  var(--default-fill);
+  }
+
+
+  .commentary {
+    font-style: italic;
+  }
+
+  .return.line{
+    stroke-dasharray: 3 3;
+  }
+
+  .pattern div {
+    margin-top: 5px;
+  }
+
+  .pattern .label-center p {
+    display: table-row;
+  }
+
+  
+  .pattern .title {
+    font-weight: bold;
+  }
+
+
+  .provenance {
+    fill: none;
+    stroke: grey;
+  }
+
+
+}
+
+svg.nodearc{.flow_start {fill: var(--default-stroke)}}
+svg.nodearc{.flow_target path {fill: var(--default-stroke)}}</style>
+
+<g class = 'na-surround' nid = 'surround'>
+<rect class = '' height = '294' width = '194' x = '-2' y = '-2'></rect>
+
+<foreignObject class = 'label-tl' height = '294' width = '194' x = '-2' y = '-2'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p></p></div>
+</foreignObject>
+</g>
+
+<g class = 'pattern na-node' nid = 'agent'>
+<rect class = 'pattern' height = '50' width = '150' x = '20' y = '20'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '150' x = '20' y = '20'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p class='title'>Agent Access Layer</p><p class='effect'>makes data <i>Operational</i></p></div>
+</foreignObject>
+</g>
+
+<g class = 'pattern na-node' nid = 'semantic'>
+<rect class = 'pattern' height = '50' width = '150' x = '20.0' y = '120'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '150' x = '20.0' y = '120'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p class='title'>Semantic Context Layer</p><p class='effect'>makes data <i>Contextual</i></p></div>
+</foreignObject>
+</g>
+
+<g class = 'pattern na-node' nid = 'foundation'>
+<rect class = 'pattern' height = '50' width = '150' x = '20.0' y = '220'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '150' x = '20.0' y = '220'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p class='title'>Data Foundation</p><p class='effect'>makes data <i>Trusted</i></p></div>
+</foreignObject>
+</g>
+
+<g class = 'pattern na-node' nid = 'observe'>
+<rect class = 'pattern' height = '50' width = '150' x = '250.0' y = '120.0'></rect>
+
+<foreignObject class = 'label-center' height = '50' width = '150' x = '250.0' y = '120.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'><p class='title'>Observability</p><p class='effect'>makes data <i>Traceable and Governed</i></p></div>
+</foreignObject>
+</g>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 95.0 220 L 95.0 170'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(-90.0, 95.0, 170)translate(95.0 170)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '150' x = '100.0' y = '195'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>enables</div>
+</foreignObject>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 95.0 120 L 95.0 70'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(-90.0, 95.0, 70)translate(95.0 70)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '150' x = '100.0' y = '95'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>enables</div>
+</foreignObject>
+
+<g class = 'na-arc'>
+<path class = 'na-arc line' d = 'M 192 145.0 L 250.0 145.0'></path>
+
+<path class = 'na-arc end-marker' d = 'M 0 0 l -12 -5 m 12 5 l -12 5' transform = 'rotate(0.0, 250.0, 145.0)translate(250.0 145.0)'></path>
+</g>
+
+<foreignObject class = 'na-text' height = '50' width = '150' x = '195.0' y = '125.0'>
+<div xmlns = 'http://www.w3.org/1999/xhtml'>emits to</div>
+</foreignObject>
+</svg>
