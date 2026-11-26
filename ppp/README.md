@@ -73,4 +73,5 @@ Robert C. Martin  · 2014
 - **已译、待复核**（按上文「复核清单」逐项对照纸书）：`ch1.md`～`ch6.md`、`ch18.md`、`ch19.md`、`ch22.md`、`section1.md`、`section3.md`、`appendix-d.md`。
   已完成复核：`section2.md`、`ch7.md`～`ch17.md`、`ch20.md`、`ch21.md`、`ch23.md`～`ch27.md`。
 - **悬空链接**：`ch1.md` → `appendix-c.md`（待附录 C 译完）；`ch9.md` → `ch29.md`；`ch19.md` → `ch28.md`。
+- **`ch26.md` “数据库上还能用的其他模式” 小节**：脚注 “Extension Object”（第 408 页）、“Visitor”（第 388 页）、“Decorator”（第 403 页）等处应加链接（第 388/403/408 页均在第 28 章区间，故均指向 `ch28.md`），待第 6 部分译完后统一补加。
 - 注：`ch8.md` 原有的 `#todo` 占位链接已改为指向 `ch6.md`/`ch4.md`。

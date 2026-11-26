@@ -3,7 +3,7 @@
 <center><img src="imgs/fig-ch1-0.png" width="30%"/></center><br/>
 
 > 教堂尖顶上的风向标，虽然是铁制的，但如果它不懂得向每一阵风转动的崇高艺术，很快就会被暴风折断。
-> <p align="right">——Heinrich Heine
+> <p align="right">——Heinrich Heine</p>
 
 我们中的许多人都经历过一个没有实践指导的项目的噩梦。
 缺乏有效的实践会导致不可预测性、重复错误和浪费精力。
