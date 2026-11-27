@@ -2,7 +2,7 @@
 —— 以扩展 PlantUML 为例的案例研究
 
 <img src="../img/donkey-card.png" width="25%" align="right"/></br>
-本文为 [探索生成式AI](exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
+本文为 [探索生成式AI](../exploring-gen-ai.md) 系列的一部分，该系列记录了 Thoughtworks 技术人员在软件开发中运用生成式 AI 技术的探索实践。
 
 |[Unmesh Joshi](https://twitter.com/unmeshjoshi)| |
 |:---|---:|
