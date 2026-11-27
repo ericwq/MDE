@@ -1,5 +1,6 @@
 # 7 什么是敏捷设计？
-
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD045 -->
 <center><img src="imgs/fig-ch7-0.png" width="40%"/></center><br/>
 
 > “在回顾了我所理解的软件开发生命周期后，我得出的结论是，唯一似乎真正满足工程设计标准的软件文档是源代码清单。”
@@ -114,8 +115,10 @@ Ralph 需要编写一些代码来对 arvadent 进行 fravle 操作。
 他在代码的其他部分寻找他认为可能发生了其他 arvadent fravling 的地方，并找到了一段合适的代码。
 他将那段代码剪切粘贴到他的模块中，并做了适当的修改。
 
-Ralph 不知道的是，他用鼠标刮起来的代码是 Todd 放在那里的，而 Todd 是从 Lilly 编写的一个模块中刮出来的。
-Lilly 是第一个对 arvadent 进行 fravle 操作的人，但她意识到对 arvadent 进行 fravle 操作与对 garnatosh 进行 fravle 操作非常相似。
+Ralph 不知道的是，他用鼠标刮起来的代码是 Todd 放在那里的，
+而 Todd 是从 Lilly 编写的一个模块中刮出来的。
+Lilly 是第一个对 arvadent 进行 fravle 操作的人，
+但她意识到对 arvadent 进行 fravle 操作与对 garnatosh 进行 fravle 操作非常相似。
 她在某个地方找到了一些对 garnatosh 进行 fravle 操作的代码，将其剪切粘贴到她的模块中，并根据需要进行修改。
 
 当相同的代码以稍微不同的形式一遍又一遍地出现时，开发人员就缺少了一个抽象。
@@ -211,7 +214,8 @@ void Copy()
 瞧，它第一次就编译通过了，没有错误！
 这也是一件好事，因为你的老板叫你参加一个关于节约激光打印机碳粉的非预定会议。
 
-周四，在电话上与北卡罗来纳州落基山的一名服务技术人员花了四个小时，引导他完成系统一个更晦涩组件中的远程调试和错误记录命令后，你抓起一个 Ho Ho，然后测试你的 `Copy` 程序。
+周四，在电话上与北卡罗来纳州落基山的一名服务技术人员花了四个小时，
+引导他完成系统一个更晦涩组件中的远程调试和错误记录命令后，你抓起一个 Ho Ho，然后测试你的 `Copy` 程序。
 它第一次就工作了！
 也是一件好事，因为你新来的实习生刚刚从服务器上删除了主源代码目录，你必须去找最新的备份磁带并恢复它。
 当然，最后一次完整备份是在三个月前，你必须在它之上恢复九十四次增量备份。
@@ -225,7 +229,9 @@ void Copy()
 
 **需求在变化**。
 
-> 译注：原文小标题为 “The Requirements They Are a-Changin'.”，戏仿 Bob Dylan 的歌曲《The Times They Are a-Changin'》（时代在变），“变化” 与 “时代” 在中文里难以兼顾，故只取其意。
+> 译注：原文小标题为 “The Requirements They Are a-Changin'.”，
+> 戏仿 Bob Dylan 的歌曲《The Times They Are a-Changin'》（时代在变），
+> “变化” 与 “时代” 在中文里难以兼顾，故只取其意。
 
 几个月后，你的老板来找你，说有时候他们希望 `Copy` 程序能够从纸带读取器读取。
 你咬牙切齿，翻了个白眼。
@@ -286,6 +292,7 @@ void Copy()
 Listing 7-3 显示了你的努力的成果。
 
 Listing 7-3
+
 ```cpp
 bool ptFlag = false;
 bool punchFlag = false;
@@ -358,7 +365,7 @@ void Copy(Reader& reader = GdefaultReader)
 与其试图修补设计以使新需求工作，团队抓住机会改进设计，使其能够抵抗未来那种变化。
 从现在开始，每当老板要求一种新的输入设备时，团队将能够以不会导致 `Copy` 程序退化的方式做出回应。
 
-团队遵循了开闭原则（OCP），我们将在 [第 9 章](ch9.md) 中读到。
+团队遵循了开闭原则（OCP），我们将在 [第 9 章](./ch9.md) 中读到。
 这个原则指导我们设计模块，使它们可以在不修改的情况下被扩展。
 这正是团队所做的。
 老板要求的每一种新输入设备都可以在不需要修改 `Copy` 程序的情况下提供。
@@ -434,7 +441,5 @@ void Copy(Reader& reader = GdefaultReader)
 相反，它们从一次迭代应用到下一次迭代，以保持代码及其所体现的设计整洁。
 
 ## 参考文献
-
-1. Reeves, Jack. *What Is Software Design?* C++ Journal, Vol. 2, No. 2. 1992. Available at http://www.bleading-edge.com/Publications/C++Journal/Cpjour2.htm.
-
-
+<!-- markdownlint-disable MD013 -->
+1. Reeves, Jack. *What Is Software Design?* C++ Journal, Vol. 2, No. 2. 1992. Available at <http://www.bleading-edge.com/Publications/C++Journal/Cpjour2.htm>.

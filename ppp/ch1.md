@@ -1,5 +1,6 @@
 # 1 敏捷实践
-
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD045 -->
 <center><img src="imgs/fig-ch1-0.png" width="30%"/></center><br/>
 
 > 教堂尖顶上的风向标，虽然是铁制的，但如果它不懂得向每一阵风转动的崇高艺术，很快就会被暴风折断。
@@ -27,7 +28,7 @@
 
 失控的过程膨胀是对公元 2000 年左右许多软件公司状况的恰当描述。
 尽管仍然有许多团队在没有过程的情况下运作，但采用非常大、重量级过程的情况正在迅速增长，尤其是在大公司中。
-（见 [附录 C](appendix-c.md)）
+（见 [附录 C](./appendix-c.md)）
 
 ## 敏捷联盟
 
@@ -52,7 +53,7 @@
 >
 > 也就是说，尽管右项有其价值，但我们更重视左项的价值。
 
-```
+```txt
 Kent Beck         Mike Beedle         Arie van Bennekum     Alistair Cockburn
 Ward Cunningham   Martin Fowler       James Grenning        Jim Highsmith
 Andrew Hunt       Ron Jeffries        Jon Kern              Brian Marick
@@ -188,7 +189,7 @@ Dave Thomas
 
 - *我们的最高优先级是通过尽早和持续地交付有价值的软件来满足客户*。
 
-  《MIT 斯隆管理评论》发表了一项关于帮助公司构建高质量产品的软件开发实践的分析。³ 
+  《MIT 斯隆管理评论》发表了一项关于帮助公司构建高质量产品的软件开发实践的分析。³
   该文章发现了一些对最终系统质量有显著影响的实践。
   其中一项实践是质量与早期交付一个部分功能系统之间的强相关性。
   该文章报告说， *初始交付的功能越少，最终交付的质量越高* 。
@@ -301,9 +302,11 @@ Dave Thomas
 敏捷软件开发的原则和价值观是为了帮助团队打破过程膨胀的循环，并专注于实现目标的简单技术而制定的。
 
 在撰写本文时，有许多敏捷过程可供选择。
-这些包括 SCRUM、⁴ Crystal、⁵ 功能驱动开发 (Feature Driven Development)、⁶ 自适应软件开发 (ADP)，⁷ 以及最重要的 极限编程 (Extreme Programming)。⁸
+这些包括 SCRUM、⁴ Crystal、⁵ 功能驱动开发 (Feature Driven Development)、⁶
+自适应软件开发 (ADP)，⁷ 以及最重要的 极限编程 (Extreme Programming)。⁸
 
-⁴ www.controlchaos.com<br/>
+<!-- markdownlint-disable MD013 -->
+⁴ <www.controlchaos.com><br/>
 ⁵ crystalmethodologies.org<br/>
 ⁶ 《Java Modeling In Color With UML: Enterprise Components and Process》，Peter Coad、Eric Lefebvre,and Jeff De Luca，Prentice Hall，1999。<br/>
 ⁷ [Highsmith2000]。<br/>

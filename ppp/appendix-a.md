@@ -1,5 +1,5 @@
 # 附录 A UML 记法 I：CGI 示例
-
+<!-- markdownlint-disable MD033 -->
 软件的分析与设计，是一个亟需某种记法的过程。
 人们曾多次尝试创造这样的记法：流程图、数据流图、实体–关系图，等等。
 
@@ -128,7 +128,7 @@ UML 是一种单一的记法，但它有广泛的适用性。
 该清单包括课程的名称、时间、地点和费用。
 清单还将显示该课程允许的学员人数，以及该课程当前是否已售罄。
 
-<img src="imgs/fig-appA-uc1.png" width="30%"/><br/>
+<img src="imgs/fig-appA-uc1.png" width="30%" alt=""/><br/>
 
 **用例记法。**
 上图展示了一个用例图中参与者和用例的样子。
@@ -147,6 +147,7 @@ UML 是一种单一的记法，但它有广泛的适用性。
 学员和报名专员收到确认报名的电子邮件。
 报名人看到报名的确认信息，并被要求打印该确认、签名，并传真到指定的传真号码。
 
+<!-- markdownlint-disable MD045 -->
 <img src="imgs/fig-appA-uc2.png" width="35%"/><br/>
 
 **扩展与使用用例。**
@@ -398,7 +399,8 @@ Fig A-4 中的所有关联都有名字，尽管这并不是一条规则。
 
 除非出现箭头，否则关联被假定为双向的。
 双向关联允许两个实体彼此知晓。
-例如，`CourseCatalog` 实体显然应当知道它的那些 `Course`，而每个 `Course` 实体知道它被列在哪个 `CourseCatalog` 中，看起来也是合理的。
+例如，`CourseCatalog` 实体显然应当知道它的那些 `Course`，
+而每个 `Course` 实体知道它被列在哪个 `CourseCatalog` 中，看起来也是合理的。
 `SessionSchedule` 与 `Session` 之间同样如此。
 
 箭头的出现把知识限制在所指的方向上。
@@ -454,7 +456,8 @@ Fig A-5 展示了我们可以如何着手规定这一点。
 Fig A-5 是一张**组件图（component diagram）**。
 这些图标描绘物理的软件组件。
 我们用立体类型来规定组件的种类。
-这张图显示：班次菜单（Session Menu）显示为一个 HTML Web 页面，它由一个名为班次菜单生成器（Session Menu Generator）的 CGI 程序生成。
+这张图显示：班次菜单（Session Menu）显示为一个 HTML Web 页面，
+它由一个名为班次菜单生成器（Session Menu Generator）的 CGI 程序生成。
 两个组件之间的虚线箭头是**依赖关系**。
 依赖关系表示哪些组件对哪些其他组件有所知。
 在这个情形中，班次菜单生成器程序创建班次菜单 Web 页面，因此对它有所知。
@@ -493,7 +496,10 @@ CGI 程序生成了大多数 Web 页面。
 这意味着这些 CGI 程序有一个共同点。
 它们都读取模板 HTML 文件，并把各自的那点 HTML 加进去。⁶
 
-⁶ 本章写于 XSLT 出现之前很久。如今，我们很可能会让 CGI 脚本（或 servlet）生成 XML，然后调用一个 XSLT 脚本来把它翻译成 HTML，以此解决这个问题。另一方面，用 XSLT 生成 HTML 仍然不能让我们用一个漂亮的所见即所得编辑器来设计 Web 页面。有时我觉得，本章勾画的模板方案在许多场合会更好。
+⁶ 本章写于 XSLT 出现之前很久。
+如今，我们很可能会让 CGI 脚本（或 servlet）生成 XML，然后调用一个 XSLT 脚本来把它翻译成 HTML，以此解决这个问题。
+另一方面，用 XSLT 生成 HTML 仍然不能让我们用一个漂亮的所见即所得编辑器来设计 Web 页面。
+有时我觉得，本章勾画的模板方案在许多场合会更好。
 
 Fig A-7 展示了由此得到的组件图。
 注意我加了一个 WT 图标。
@@ -540,7 +546,8 @@ myPage.insert(“header”,
 cout << myPage.Generate();
 ```
 
-这将把由模板 `mypage.html` 生成的 HTML 送到 `cout`，其中标签 `<insert header>` 被替换为字符串 `“<h1> this is a header </h1>\n”`。
+这将把由模板 `mypage.html` 生成的 HTML 送到 `cout`，
+其中标签 `<insert header>` 被替换为字符串 `“<h1> this is a header </h1>\n”`。
 
 Fig A-8 展示了我们可以如何设计 `HTMLTemplate` 类。
 这个类把模板文件的名字作为一个属性持有。
@@ -728,7 +735,7 @@ Fig A-9 中各包之间的导入关系，在 Fig A-10 中通过双冒号的使�
 
 **班次菜单生成器。**
 回到 Fig A-7，我们看到第一个 CGI 程序是 `SessionMenuGenerator`。
-这个程序对应[第 469 页](appendix-a.md) 上文中的第一个用例。
+这个程序对应[第 469 页](./appendix-a.md) 上文中的第一个用例。
 这个 CGI 程序的设计长什么样？
 
 显然，它必须构建出班次计划表的 HTML 表示。
@@ -764,7 +771,8 @@ Fig A-11 中除 `HTMLTemplate` 和 `iterator<Session>` 之外的所有对象，�
 这从两处可以看出：一个以 `HTMLTemplate` 终止的箭头（从而创建它），以及底部终止其生命线的 “X”。
 `SessionMenuGenerator` 也销毁了 `Iterator<Session>`；不过，是哪个对象创建它并不清楚。
 创建者大概是 `SessionSchedule` 的一个派生类。
-于是，尽管 Fig A-11 没有显式展示 `Iterator<Session>` 对象的创建，该对象生命线起点的位置暗示它大约是在 `GetSessionIterator` 消息被发送给 `SessionSchedule` 对象的时候创建的。
+于是，尽管 Fig A-11 没有显式展示 `Iterator<Session>` 对象的创建，
+该对象生命线起点的位置暗示它大约是在 `GetSessionIterator` 消息被发送给 `SessionSchedule` 对象的时候创建的。
 
 连接各生命线的箭头是**消息**。
 时间自上而下推进，所以这张图展示了对象之间传递消息的次序。
@@ -787,7 +795,7 @@ Fig A-11 中围住某些消息的粗矩形框定义了一个**循环**。
 这只是一种简写，用以尽量减少箭头的数量。
 这些消息按所述的顺序发送，回返值也按同样的顺序返回。
 
-**序列图中的抽象类与接口**
+### 序列图中的抽象类与接口
 
 敏锐的读者会注意到，Fig A-11 中有些对象是从接口实例化而来的。
 例如，`SessionSchedule` 就是那些数据库接口类之一。
@@ -813,7 +821,7 @@ Fig A-11 所示的动态模型，隐含了 Fig A-12 所示的静态模型。
 
 `SessionMenuGenerator` 与 `SessionSchedule` 之间的关系值得特别一提。
 注意 `SessionSchedule` 带有 `{singleton}` 性质。
-这表示在这个应用中只能存在一个 `SessionSchedule` 对象，并且它在全局作用域可访问。（见[第 178 页](ch16.md) 的 SINGLETON。）
+这表示在这个应用中只能存在一个 `SessionSchedule` 对象，并且它在全局作用域可访问。（见[第 178 页](./ch16.md) 的 SINGLETON。）
 
 `SessionMenuGenerator` 与 `HTMLTemplate` 之间的依赖带有 «creates» 立体类型。
 这简单地表示 `SessionMenuGenerator` 实例化 `HTMLTemplate` 的实例。
@@ -882,12 +890,13 @@ Fig A-13 展示了我们如何用带 «function» 立体类型的组件来表示
 
 ## 参考文献
 
+<!-- markdownlint-disable MD013 -->
 1. Booch, Grady. Object Oriented Analysis and Design with Applications, 2nd ed. Benjamin Cummings: 1994.
 2. Rumbaugh, et al. Object Oriented Modeling and Design. Prentice Hall: 1991.
 3. Wirfs-Brock, Rebecca, et al. Designing Object-Oriented Software. Prentice Hall: 1990.
 4. Coad, Peter, and Ed Yourdon. Object Oriented Analysis. Yourdon Press: 1991.
 5. Jacobson, Ivar. Object Oriented Software Engineering a Use Case Driven Approach. Addison–Wesley, 1992.
-6. Cockburn, Alistair. Structuring Use Cases with Goals. http://members.aol.com/acockburn/papers/usecass.htm.
-7. Kennedy, Edward. Object Practitioner’s Guide. http://www.zoo.co.uk/~z0001039/PracGuides. November 29, 1997.
+6. Cockburn, Alistair. Structuring Use Cases with Goals. <http://members.aol.com/acockburn/papers/usecass.htm>.
+7. Kennedy, Edward. Object Practitioner’s Guide. <http://www.zoo.co.uk/~z0001039/PracGuides>. November 29, 1997.
 8. Booch, Grady. Object Solutions. Addison–Wesley, 1995.
 9. Gamma, et al. Design Patterns. Addison–Wesley, 1995.

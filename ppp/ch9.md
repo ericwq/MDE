@@ -1,5 +1,6 @@
 # 9 OCP：开闭原则
-
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD045 -->
 <center><img src="imgs/fig-ch9-0.png" width="40%"/></center><br/>
 
 > *荷兰门*——（名词）一种在水平方向上一分为二的门，因此任一部分都可以打开或关闭。
@@ -116,6 +117,7 @@ Listing 9-1
 正方形/圆形问题的过程式解决方案
 
 --shape.h---------------------------------------
+
 ```c
 enum ShapeType {circle, square};
 
@@ -126,6 +128,7 @@ struct Shape
 ```
 
 --circle.h---------------------------------------
+
 ```c
 struct Circle
 {
@@ -138,6 +141,7 @@ void DrawCircle(struct Circle*);
 ```
 
 --square.h---------------------------------------
+
 ```c
 struct Square
 {
@@ -150,6 +154,7 @@ void DrawSquare(struct Square*);
 ```
 
 --drawAllShapes.cc-------------------------------
+
 ```c
 typedef struct Shape *ShapePointer;
 
@@ -202,7 +207,8 @@ void DrawAllShapes(ShapePointer list[], int n)
 显然，添加一个新形状的影响非常大。
 
 **糟糕的设计。**
-让我们再次回顾一下。Listing 9-1 中的解决方案是 *僵化的* ，因为添加 `Triangle` 会导致 `Shape`、`Square`、`Circle` 和 `DrawAllShapes` 被重新编译和重新部署。
+让我们再次回顾一下。Listing 9-1 中的解决方案是 *僵化的* ，
+因为添加 `Triangle` 会导致 `Shape`、`Square`、`Circle` 和 `DrawAllShapes` 被重新编译和重新部署。
 它是 *脆弱的* ，因为会有许多其他的 `switch/case` 或 `if/else` 语句，它们既难以找到又难以解读。
 它是 *不可移动的* ，因为任何试图在另一个程序中复用 `DrawAllShapes` 的人都被迫带上 `Square` 和 `Circle`，即使那个新程序不需要它们。
 因此，Listing 9-1 展示了许多糟糕设计的坏味。
@@ -264,7 +270,7 @@ void DrawAllShapes(vector<Shape*>& list)
 实际创建 `Shape` 新派生类实例的模块必须被修改。
 通常，这要么由 `main` 完成，在 `main` 调用的某个函数中完成，要么在 `main` 创建的某个对象的方法中完成。⁵
 
-⁵ 这样的对象被称为工厂，我们将在 [第 21 章](ch21.md) 第 269 页更多地讨论它们。
+⁵ 这样的对象被称为工厂，我们将在 [第 21 章](./ch21.md) 第 269 页更多地讨论它们。
 
 最后，这个解决方案不是 *不可移动的* 。
 `DrawAllShapes` 可以被任何应用程序复用，而不需要带上 `Square` 或 `Circle`。
@@ -282,7 +288,9 @@ void DrawAllShapes(vector<Shape*>& list)
 `DrawAllShapes` 函数对这种变化不是封闭的。
 为了实现这种变化，我们将不得不进入 `DrawAllShapes`，并先扫描列表寻找 `Circle`，然后再扫描一次寻找 `Square`。
 
-> 译注：原文 "blue sky and apple pie" 是作者的戏仿：既取自本章前文的 "motherhood and apple pie"（美式习语，指听起来冠冕堂皇的空话，前文已译作“陈词滥调”），又化自 "pie in the sky"（空中楼阁）。全句意为“美好却不可能实现的理想”。
+> 译注：原文 "blue sky and apple pie" 是作者的戏仿：既取自本章前文的 "motherhood and apple pie"
+> （美式习语，指听起来冠冕堂皇的空话，前文已译作“陈词滥调”），
+> 又化自 "pie in the sky"（空中楼阁）。全句意为“美好却不可能实现的理想”。
 
 ### 预见与 “自然” 结构
 
@@ -350,7 +358,7 @@ void DrawAllShapes(vector<Shape*>& list)
 我们等待发现哪些类型的变化是可能的时间越长，创建适当抽象就越困难。
 
 因此，我们需要 *刺激变化* 。
-我们通过我们在 [第 2 章](ch2.md) 中讨论的几种方法来实现这一点。
+我们通过我们在 [第 2 章](./ch2.md) 中讨论的几种方法来实现这一点。
 
 - 我们首先编写测试。
 测试是系统的一种使用方式。
@@ -403,6 +411,7 @@ public:
 ```
 
 Listing 9-4 带有顺序的 DrawAllShapes
+
 ```cpp
 template <typename P>
 class Lessp // utility for sorting containers of pointers.
@@ -448,9 +457,9 @@ bool Circle::Precedes(const Shape& s) const
 没有办法使它们对新派生类 `Shape` 封闭。
 每次创建一个新的 `Shape` 派生类时，所有 `Precedes()` 函数都将需要被更改。⁶
 
-⁶ 使用 [第 29 章](ch29.md) 中描述的 *ACYCLIC VISITOR* 模式可以解决这个问题。
+⁶ 使用 [第 29 章](./ch29.md) 中描述的 *ACYCLIC VISITOR* 模式可以解决这个问题。
 现在展示那个解决方案有点早了。
-我会在 [第 29 章](ch29.md) 结束时提醒你回到这里。
+我会在 [第 29 章](./ch29.md) 结束时提醒你回到这里。
 
 当然，如果从未创建新的 `Shape` 派生类，这无关紧要。
 另一方面，如果它们被频繁创建，这种设计将导致大量的反复折腾。
@@ -519,7 +528,8 @@ bool Shape::Precedes(const Shape& s) const
 ```
 
 通过采用这种方法，我们成功地将 `DrawAllShapes` 函数对一般的排序问题封闭了，
-并且将每个 `Shape` 派生类对新 `Shape` 派生类的创建或按类型重新排序 `Shape` 对象的策略变化封闭了（例如，更改顺序以使 `Square` 先被绘制）。
+并且将每个 `Shape` 派生类对新 `Shape` 派生类的创建或按类型重新排序 `Shape` 对象的策略变化封闭了
+（例如，更改顺序以使 `Square` 先被绘制）。
 
 唯一没有对各种 `Shape` 的顺序封闭的是表本身。
 那个表可以被放在它自己的模块中，与所有其他模块分开，这样对它的更改不会影响任何其他模块。
@@ -535,6 +545,6 @@ bool Shape::Precedes(const Shape& s) const
 抵制过早的抽象与抽象本身一样重要。
 
 ## 参考文献
-
+<!-- markdownlint-disable MD013 -->
 1. Jacobson, Ivar, et al. *Object-Oriented Software Engineering*. Reading, MA: Addison–Wesley, 1992.
 2. Meyer, Bertrand. *Object-Oriented Software Construction*, 2d ed. Upper Saddle River, NJ: Prentice Hall, 1997.

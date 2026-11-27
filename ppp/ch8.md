@@ -1,5 +1,6 @@
 # 8 SRP：单一职责原则
-
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD045 -->
 <center><img src="imgs/fig-ch8-0.png" width="40%"/></center><br/>
 
 > 唯有佛陀本人，才须承担泄露玄秘之学的秘密之责……
@@ -18,11 +19,11 @@
 
 > 一个类应该只有一个改变的理由。
 
-回顾 [第 6 章](ch6.md) 中的保龄球游戏。
+回顾 [第 6 章](./ch6.md) 中的保龄球游戏。
 在其大部分开发过程中，`Game` 类处理着两个独立的职责。
 它既负责跟踪当前轮次，又负责计算得分。
 最终，RCM 和 RSK 将这两个职责分离到两个类中。
-`Game` 保留了跟踪轮次的职责，而 `Scorer` 获得了计算得分的职责。（见 [第 78 页](ch6.md)）
+`Game` 保留了跟踪轮次的职责，而 `Scorer` 获得了计算得分的职责。（见 [第 78 页](./ch6.md)）
 
 <ins>将这两个职责分离到不同的类中为什么重要？
 因为 *每个职责都是一个变化轴* 。
@@ -136,7 +137,7 @@ Fig 8-4 展示了一个常见的 SRP 违规。
 <img src="imgs/fig-ch8-4.png" width="60%"/><br/>
 *Fig 8-4 耦合的持久化*
 
-幸运的是，正如我们在 [第 4 章](ch4.md) 中所看到的，测试驱动开发的实践通常会在设计开始散发坏味之前，就迫使这两个职责被分离。
+幸运的是，正如我们在 [第 4 章](./ch4.md) 中所看到的，测试驱动开发的实践通常会在设计开始散发坏味之前，就迫使这两个职责被分离。
 然而，在测试没有强制分离，并且 *僵化性* 和 *脆弱性* 的坏味变得浓烈的情况下，应该使用 `FACADE` 或 `PROXY` 模式重构设计，以分离这两个职责。
 
 ## 结论
@@ -147,6 +148,6 @@ Fig 8-4 展示了一个常见的 SRP 违规。
 实际上，我们接下来将要讨论的其余原则，都会以这样或那样的方式回到这个问题上。
 
 ## 参考文献
-
+<!-- markdownlint-disable MD013 -->
 1. DeMarco, Tom. *Structured Analysis and System Specification*. Yourdon Press Computing Series. Englewood Cliff, NJ: 1979.
 2. Page-Jones, Meilir. *The Practical Guide to Structured Systems Design*, 2d ed. Englewood Cliff, NJ: Yourdon Press Computing Series, 1988.

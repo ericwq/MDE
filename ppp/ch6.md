@@ -1,5 +1,6 @@
 # 6 编程片段
-
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD045 -->
 <center><img src="imgs/fig-ch17-0.png" width="60%"/></center><br/>
 
 > 设计和编程是人类的活动；忘记这一点，一切尽失。
@@ -313,7 +314,8 @@ RSK：针对 `Game` 还是另一个针对 `Frame` 的测试？
 
 RCM：我认为我们需要一个针对 `Game` 的，因为 `Game` 会构建 `Frame` 并将它们相互连接起来。
 
-RSK：你是想停止我们在 `Frame` 上的工作，做一个心理上的长跳转到 `Game`，还是只想有一个 `MockGame` 对象，只做我们需要让 `Frame` 工作的事情？
+RSK：你是想停止我们在 `Frame` 上的工作，做一个心理上的长跳转到 `Game`，
+还是只想有一个 `MockGame` 对象，只做我们需要让 `Frame` 工作的事情？
 
 RCM：<ins>不，让我们停止 `Frame` 的工作，开始处理 `Game`。
 `Game` 中的测试用例应该证明我们需要 `Frame` 的链表</ins>。
@@ -499,11 +501,11 @@ RSK：哎呀。
 `scoreForFrame()` 需要重构以更具可读性。
 但在我们考虑重构之前，让我问另一个问题。
 `Game` 是这个方法的最佳位置吗？
-在我看来，`Game` 违反了单一职责原则。¹ 
+在我看来，`Game` 违反了单一职责原则。¹
 它接受投球，并且它知道如何为每格计分。
 你觉得一个 `Scorer` 对象怎么样？
 
-¹ 参见 [第 95 页](ch8.md) 的 “SRP：单一职责原则”。
+¹ 参见 [第 95 页](./ch8.md) 的 “SRP：单一职责原则”。
 
 RCM：（做了一个粗鲁的摇摆手势）我不知道这些函数现在应该住在哪里；
 现在我感兴趣的是让计分功能工作起来。
@@ -1174,7 +1176,8 @@ RSK：嗯，没有失败。我以为既然数组的第 21 个位置是一个 str
 但我猜不会。
 
 RCM：嗯，你还在想着那个计分器对象，是吧。
-无论如何，我明白你想说什么，但既然 `score` 永远不会用大于 10 的数字调用 `scoreForFrame`，最后一个 strike 实际上不会被算作 strike。
+无论如何，我明白你想说什么，但既然 `score` 永远不会用大于 10 的数字调用 `scoreForFrame`，
+最后一个 strike 实际上不会被算作 strike。
 它只是被算作一个 10 来完成最后一个 spare。
 我们永远不会超出数组的末尾。
 
@@ -1381,7 +1384,7 @@ private int handleSecondThrow()
 
 RCM：看看 `scoreForFrame` 的结构！用伪代码表示，它看起来像这样：
 
-```
+```java
 if strike
     score += 10 + nextTwoBalls();
 else
@@ -1390,7 +1393,7 @@ else
 
 RCM： 如果我们改成这样呢：
 
-```
+```java
 if strike
     score += 10 + nextTwoBalls();
 else if spare
@@ -2271,7 +2274,7 @@ RSK：不客气，很有趣。
 在这里，程序根本不需要太多面向对象设计。
 `Scorer` 类实际上是唯一对 OO 的让步，即使那也只是简单的划分，而非真正的面向对象设计。
 
-³ http://www.objectmentor.com
+³ <http://www.objectmentor.com>
 
 其他人认为确实应该有一个 `Frame` 类。
 有一个人甚至创建了一个包含 `Frame` 类的程序版本。
