@@ -1,16 +1,20 @@
 # 让数据为 Agentic AI 做好准备
-
+<!-- markdownlint-disable MD033 -->
 *三十年来，我们为人类分析师构建数据系统；他们自带上下文、判断力与怀疑精神，因此能绕过那些不完整或错误的数据。
 自主 Agent 则完全没有这些能力：它们拿到什么就笃定地照着做什么。
 要让数据达到 AI-ready（AI 就绪），我们需要构建一系列层次：让数据变得可信的数据基础、赋予数据正确含义的上下文层，以及支撑并管控 Agent 如何操作这些数据的访问层。
 在此过程中，我们还要持续关注可观测性，确保数据得到恰当的治理，并为数据在决策中的使用留下可审计的轨迹。*
+<!-- markdownlint-disable MD060 -->
+<!-- markdownlint-disable MD013 -->
+<!-- markdownlint-disable MD045 -->
 
-|[Pramod Sadalage](https://sadalage.com/)| | [Prem Chandrasekaran](https://premonition.dev)| |
-|:---|:---|:---|:---|
+|[Pramod Sadalage](https://sadalage.com/)|               | [Prem Chandrasekaran](https://premonition.dev)|       |
+|:---------------------------|:--------------------------|:--------------------------|:--------------------------|
 |<img src="img/pramod.jpg" width="70%" /> | Pramod 是 Thoughtworks 的杰出工程师（Distinguished Engineer），负责领导北美地区的数据工程与架构服务；他帮助客户应对特别棘手的数据需求，这类需求往往需要新的技术与方法。2000 年代初，他开发了一套技术，使关系型数据库可以基于受版本控制的 Schema 迁移以演进式的方式设计。他参与撰写了五本软件开发著作，包括《Software Architecture: The Hard Parts》与《Refactoring Databases》。| <img src="img/prem.jpg" width="70%" /> | Premanand（Prem）Chandrasekaran 是 Thoughtworks 的市场技术总监（Market Tech Director），负责领导一组客户的技术战略与交付，并引导团队做出复杂、高风险的工程决策。他刻意保持亲手实践，与自己领导的团队一起设计并构建生产级系统。他目前的关注点是 AI 如何增强软件开发生命周期——从架构与设计到编码、测试与运维——让开发者跑得更快，同时不牺牲清晰性、安全性与可维护性。 |
 |[原文](https://martinfowler.com/articles/making-data-ready-for-agentic-ai.html)| | | 2026/8/27 |
 
 内容
+
 - [数据消费者正在改变](#数据消费者正在改变)
 - [在今天，"AI-ready" 必须意味着什么](#在今天ai-ready-必须意味着什么)
 - [数据契约与质量：Agent 无法嗅出坏数据](#数据契约与质量agent-无法嗅出坏数据)
@@ -291,7 +295,7 @@ SLA 违规会自动把置信度分数压到阈值以下，无论模型自己对�
 Agent 应把人类请进来：
 
 > "我不确定这个价格是否为当前价格。转交人工核实。"
-
+>
 > 驱动阈值的应该是数据质量信号，而不只是模型自身的置信度
 
 换言之，驱动阈值的应该是数据质量信号，而不只是模型自身的置信度。
@@ -711,7 +715,8 @@ Thoughtworks 技术雷达把["朴素 API 到 MCP 转换"](https://www.thoughtwor
 
 ### 端到端：PO 支付场景
 
-三级全部就位后，本节开头那个 PO 问题就能端到端跑完：Agent 检索排障指南（只读的 Resource）、核查实时支付状态（会读的 Tool）、提交一张工单（会写的 Tool），全部在一条工作流中完成。
+三级全部就位后，本节开头那个 PO 问题就能端到端跑完：Agent 检索排障指南（只读的 Resource）、
+核查实时支付状态（会读的 Tool）、提交一张工单（会写的 Tool），全部在一条工作流中完成。
 
 ![图 4](img/po-payment.svg)
 
@@ -729,7 +734,8 @@ Thoughtworks 技术雷达把["朴素 API 到 MCP 转换"](https://www.thoughtwor
 
 1. **梳理你的数据访问层级**。拿你最靠前的三个 Agent 用例，给每一个需要的能力分类：检索、实时查询，还是写回。缺口大多在实时查询与写回。
 2. **设计能力，而不是端点**。把现有 API 归并成 5–10 个描述良好的业务能力。描述很重要，LLM 正是靠它决定调用哪个 tool。
-3. **从 MCP Resources 开始**。只读访问是风险最低的切入点。把知识库、配置数据和文档作为 Resources 暴露。只有在治理到位后才升级到 Tools。
+3. **从 MCP Resources 开始**。只读访问是风险最低的切入点。
+把知识库、配置数据和文档作为 Resources 暴露。只有在治理到位后才升级到 Tools。
 4. **从第一天就埋点**。在部署任何具备写访问的 Agent 之前，记录每一次 tool 调用：谁触发、调了什么、何时、以及最关键的一点——代表谁。这正好喂给"可追溯性与治理"那一节所讲的审计轨迹。
 
 ## AI-ready 的数据栈
@@ -761,7 +767,8 @@ Thoughtworks 技术雷达把["朴素 API 到 MCP 转换"](https://www.thoughtwor
 让这一切成立的纪律，是[把数据当作产品（data as a product）](https://martinfowler.com/articles/data-mesh-principles.html#DataAsAProduct)。
 每个数据集、契约与指标都有具名的负责人、已发布的契约与 SLA、以及版本化的生命周期，和 API 一样。
 你不可能永远知道每一个消费者——对公开或广泛共享的数据，你根本做不到——这恰恰是契约重要的原因：它是未知消费者赖以构建的稳定承诺，而弃用政策则是你在不破坏他们的前提下改变它的方式。
-当 `product_pricing` 契约在凌晨两点阻断一次部署时，有人对此负责；当财务与销售在"收入"上争执不下时，有人拥有这个决定；当一个新 Agent 申请访问时，有人拥有这个范围并复核它。
+当 `product_pricing` 契约在凌晨两点阻断一次部署时，有人对此负责；当财务与销售在"收入"上争执不下时，有人拥有这个决定；
+当一个新 Agent 申请访问时，有人拥有这个范围并复核它。
 这些不是基础设施问题，而是归属问题，没有哪个工具能替你回答。
 
 面对一个无人负责、持续漂移的数据集，人类消费者会察觉并绕开它。
@@ -795,13 +802,15 @@ Thoughtworks 技术雷达把["朴素 API 到 MCP 转换"](https://www.thoughtwor
   一开始就在每条工作流里放置 trace 与 span，因为可观测性事后补装的难度远高于内建，而你会需要一条能回答"why"的审计轨迹——今天用于调试，明天用于监管。
 - **把一切都契约化**。新鲜度 SLA、严格的 Schema 强制、坏数据隔离。这是其余一切赖以立足的地板：Agent 嗅不出坏数据，所以必须由数据架构替它们嗅。
 - **上下文优先于模型**。一旦数据可信，上下文层就是你能在其上构建的回报最高的东西。
-  单是其语义模型就已说明了这一点：在 [AtScale 的 text-to-SQL 基准](https://atscale.com/blog/public-leaderboard-text-to-sql-tasks/)中，*同一个模型*的准确率从原始 Schema 上的不足 20%，跃升到使用语义层后的 92.5% 以上。
+  单是其语义模型就已说明了这一点：在 [AtScale 的 text-to-SQL 基准](https://atscale.com/blog/public-leaderboard-text-to-sql-tasks/)中，
+*同一个模型* 的准确率从原始 Schema 上的不足 20%，跃升到使用语义层后的 92.5% 以上。
 - **先读后写**。从 MCP Resources（只读）开始，只有在治理到位后才升级到 Tools（写）。
   分阶段赢得自主性：影子模式，然后受监督，然后带护栏的自主。
 
 当 Agent 成为你数据的主要消费者时，你的数据架构*就*成为了你的 AI 架构。
 
-关于这些内容，以及围绕它的更广泛运营性与分析型数据架构决策，我们在即将由 O'Reilly 出版的《[Data Architecture for Software Architects](https://www.oreilly.com/library/view/data-architecture-for/9781098181185/)》一书中有更深入的讨论。
+关于这些内容，以及围绕它的更广泛运营性与分析型数据架构决策，我们在即将由 O'Reilly 出版的
+《[Data Architecture for Software Architects](https://www.oreilly.com/library/view/data-architecture-for/9781098181185/)》一书中有更深入的讨论。
 
 ---
 
@@ -810,7 +819,8 @@ Thoughtworks 技术雷达把["朴素 API 到 MCP 转换"](https://www.thoughtwor
 ### 致谢
 
 感谢 Martin Fowler 鼓励我们基于在多个会议上所做的一系列演讲写下这个主题；
-也感谢 Rebecca Parsons、Kevin Hartman、Paul Hammant、Arun Srinivasan、Swapnil Phulse、Brian Smith、Ramanathan Santhanam、Cameron Casher 与 Mark Taylor 为我们提供了详尽评审与可执行的改进意见。
+也感谢 Rebecca Parsons、Kevin Hartman、Paul Hammant、Arun Srinivasan、Swapnil Phulse、
+Brian Smith、Ramanathan Santhanam、Cameron Casher 与 Mark Taylor 为我们提供了详尽评审与可执行的改进意见。
 
 与业界大多数事情一样，我们使用 AI 辅助来研究、组织并格式化文章的某些部分。
 
