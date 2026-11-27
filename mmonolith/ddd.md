@@ -243,7 +243,7 @@ API 是我们系统的入口点。
 
 ## 系列更多文章
 
-本是 [模块化单体](../modular-monolith.md) 系列的一部分：
+本是 [模块化单体](modular-monolith.md) 系列的一部分：
 
 1. [模块化单体：入门指南](primer.md)
 2. [模块化单体：架构驱动因素](drivers.md)
