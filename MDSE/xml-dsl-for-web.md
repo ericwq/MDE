@@ -1,18 +1,25 @@
 # 一种为客户端 Web 应用构建基于 XML 的 DSL 解决方案的方法
+
 Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 2017/04 [original english](origin/approach_chavarriaga_computer_languages_systems_structures_2017_ps.pdf)
 
 ----
+
 ## 摘要
+
 特定语言（DSL）凭借其提供的抽象层次，在构建应用时，能够减轻软件工程师与领域专家的工作负担。当领域限定于 Client-Side Applications（CSWA）时，通常会结合基于 XML 的语言、框架和组件，以提供快速、稳健且灵活的解决方案。本文提出一种设计方法，可用于为 CSWA 创建基于 XML 的 DSL 解决方案，包含评估引擎、编程模型及轻量级开发环境。该方法可同时评估（evaluate）多个基于 XML 的 DSL 程序，为 CSWA 领域的特定问题提供解决方案。为充分展示此创新方法的能力与潜力，我们将通过 *Anisha* 和 *FeedPsi* 两个案例进行阐释。 *(译注：关于 CSWA 没有定义，从上下文来看，CSWA 就是仅限于客户端的浏览器应用程序)*
 
 ----
+
 ## 关键词
+
 领域特定语言；XML 解释器；JavaScript；Web 应用；XML 编程语言。
 
 ----
+
 ## 1. 引言
+
 领域特定语言（DSL）通过提供高层次抽象，用于建模解决特定领域问题的规范、结构和功能。DSL 的目标是通过让领域专家在构建高质量可靠系统时更高效地完成任务，从而简化系统的设计、定义和实现，进而提供领域特定解决方案 <sup>[52](#52)</sup>。简而言之，Fowler <sup>[16](#16)</sup> 将 DSL 定义为 “一种表达能力有限、专注于特定领域的计算机编程语言”。
 
 领域特定语言（DSL）的开发需要借助扫描器 (scanner)、解析器和代码生成工具来评估领域特定模型，从而实现相关功能。然而，当基于 XML 标准进行开发时，XML 领域特定语言（XML-DSL）可利用通用解析器，如 XML 简单应用程序接口（SAX）和文档对象模型（DOM）<sup>[53](#53)</sup>。这些 API 已集成于多数编程语言中，使程序员能够访问并修改跨 XML 语言的结构与内容。由此，XML 既能以最契合建模需求的语言存储和交换自动文档化的结构化信息 <sup>[13](#13)</sup>、<sup>[55](#55)</sup>，又能通过标准 API 轻松实现语法规范与功能扩展。因此，XML-DSL 提供了可扩展且易于组合的直观DSL规范，其关联功能可借助目标编程语言现有的 API 快速实现。
@@ -32,14 +39,16 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 本文其余部分结构如下：第 [2](#2-概述与相关工作) 节将重点介绍相关前沿研究；第 [3](#3-为客户端-web-应用构建-xml-dsl-的方法) 节将概述本方法的总体框架及核心特征，并包含 *Anisha* 运行实例；第 [4](#4-feedpsi-web-应用案例研究) 节将阐述 *FeedPsi* 案例研究，总结 *PsiEngine* 的验证细节；第 [5](#5-结果与验证) 节将详细呈现研究成果；最后第 [6](#6-结论) 节将通过总结性评论与未来工作展望结束本文。
 
 ----
+
 ## 2. 概述与相关工作
+
 领域特定语言（DSL）在文献中尚未获得严格定义。如前所述，Fowler <sup>[16](#16)</sup> 将其定义为 “一种表达能力有限、专注于特定领域的计算机编程语言”。在 <sup>[51](#51)</sup> 中，Spinellis 指出 “DSL 是为特定应用领域量身定制的编程语言：它并非通用语言，而是精确捕捉该领域的语义特征”。与此同时，Mernik 等人 <sup>[38](#38)</sup> 指出：“领域特定语言（DSL）是为特定应用领域量身定制的语言。相较于通用编程语言，它们在其应用领域内能显著提升表达能力和易用性。”
 
 文献 <sup>[12](#12)</sup> 研究了语言的构成要素，并在考虑语言扩展、语言限制、语言统一、自我扩展及扩展组合等因素的基础上，协助对 DSL 进行分类。据此，我们的工作重点在于为 Web 客户端构建自我扩展语言及扩展组合方案。
 
 似乎存在一种共识，即 DSL 是一种专为解决特定领域中具体问题而设计的编程语言。因此，其语法和语义的抽象程度由问题领域决定，旨在实现能够解决特定问题的信息系统。根据 <sup>[11](#11)</sup>、<sup>[16](#16)</sup>、<sup>[17](#17)</sup>、<sup>[23](#23)</sup>、<sup>[25](#25)</sup>、<sup>[31](#31)</sup>、<sup>[38](#38)</sup> 所述，DSL 已成为软件工程研究的独特领域及核心方法论基石。其价值已在软件工厂 <sup>[18](#18)</sup>、生成式编程 <sup>[9](#9)</sup> 及 MDE <sup>[10](#10)</sup>、<sup>[49](#49)</sup> 中得到验证。尤其从 MDE 视角看，文献 <sup>[10](#10)</sup> 中关于构建建模语言的软件产品、平台及转换工具的研究具有重要意义。
 
-在 <sup>[32](#32)</sup> 中，我们发现了一项关于 DSL 的系统性映射研究（SMS），旨在识别 2006-2012 年期间的研究趋势。该研究的作者试图找出潜在的未解决问题，并分析了他们所称的文献人口统计。在该系统性映射研究中，作者观察到 DSL 社区似乎更关注支持 DSL 开发各阶段（分析、设计与实现）的新技术与新方法，而非新工具的研发，且仅有少量研究聚焦于验证与维护。此外，作者发现多数研究未说明其实现过程中使用的工具。这一发现意义重大，因为构建 DSL 解决方案需要借助 Lex 和 Yacc <sup>[4](#4)</sup> 或 Flex 和 Bison <sup>[34](#34)</sup> 等解释器与编译器工具进行实现。当前，Eclipse 和 Visual Studio .NET 等主流 IDE 已提供专门用于 DSL 实现的工具与语言。即便是通用编程语言，也能通过其特性实现相关任务。 IDE 工具的实例不胜枚举，其中 Eclipse 环境的插件尤为突出，例如：Stratego/XT <sup>[5](#5)</sup>、LISA <sup>[39](#39)</sup>、Spoofax <sup>[27](#27)</sup>、Antlr <sup>[42](#42)</sup>、 Xtext <sup>[3](#3)</sup> 和 Eclipse Modelling Project <sup>[19](#19)</sup>，以及 .NET 平台的 DSL Modeling <sup>[7](#7)</sup> 和 Boo <sup>[45](#45)</sup>（详见 <sup>[38](#38)</sup> 中多达 20 种开发工具）。在 <sup>[43](#43)</sup> 中，作者开发了 Onto2Gra 工具，通过本体论方法构建 DSL。支持构建 DSL 的通用编程语言工具有：Java <sup>[3](#3)</sup>、C# <sup>[30](#30)</sup>、Ruby <sup>[17](#17)</sup>、<sup>[14](#14)</sup>、Python <sup>[37](#37)</sup>、Clojure <sup>[25](#25)</sup>、Groovy <sup>[17](#17)</sup>、<sup>[11](#11)</sup>、Haskell <sup>[47](#47)</sup> 及面向切面编程 <sup>[29](@29)</sup> 等。
+在 <sup>[32](#32)</sup> 中，我们发现了一项关于 DSL 的系统性映射研究（SMS），旨在识别 2006-2012 年期间的研究趋势。该研究的作者试图找出潜在的未解决问题，并分析了他们所称的文献人口统计。在该系统性映射研究中，作者观察到 DSL 社区似乎更关注支持 DSL 开发各阶段（分析、设计与实现）的新技术与新方法，而非新工具的研发，且仅有少量研究聚焦于验证与维护。此外，作者发现多数研究未说明其实现过程中使用的工具。这一发现意义重大，因为构建 DSL 解决方案需要借助 Lex 和 Yacc <sup>[4](#4)</sup> 或 Flex 和 Bison <sup>[34](#34)</sup> 等解释器与编译器工具进行实现。当前，Eclipse 和 Visual Studio .NET 等主流 IDE 已提供专门用于 DSL 实现的工具与语言。即便是通用编程语言，也能通过其特性实现相关任务。 IDE 工具的实例不胜枚举，其中 Eclipse 环境的插件尤为突出，例如：Stratego/XT <sup>[5](#5)</sup>、LISA <sup>[39](#39)</sup>、Spoofax <sup>[27](#27)</sup>、Antlr <sup>[42](#42)</sup>、 Xtext <sup>[3](#3)</sup> 和 Eclipse Modelling Project <sup>[19](#19)</sup>，以及 .NET 平台的 DSL Modeling <sup>[7](#7)</sup> 和 Boo <sup>[45](#45)</sup>（详见 <sup>[38](#38)</sup> 中多达 20 种开发工具）。在 <sup>[43](#43)</sup> 中，作者开发了 Onto2Gra 工具，通过本体论方法构建 DSL。支持构建 DSL 的通用编程语言工具有：Java <sup>[3](#3)</sup>、C# <sup>[30](#30)</sup>、Ruby <sup>[17](#17)</sup>、<sup>[14](#14)</sup>、Python <sup>[37](#37)</sup>、Clojure <sup>[25](#25)</sup>、Groovy <sup>[17](#17)</sup>、<sup>[11](#11)</sup>、Haskell <sup>[47](#47)</sup> 及面向切面编程 <sup>[29](#29)</sup> 等。
 
 迄今为止，我们可以看到目前存在大量用于实现 DSL 的 IDE 和工具。然而，当我们专注于为 Web 客户端构建 DSL（尤其是 XML-DSL）时，哪种方案更值得推荐？前述的 SMS 并未明确提及为 Web 客户端创建 DSL 解决方案。但在为 Web 客户端构建解决方案的少数工具案例中，值得一提的是 JavaScript 解析器生成器 Jison <sup>[6](#6)</sup> ——它曾被用于实现 CoffeeScript 语言 <sup>[33](#33)</sup>。不过 CoffeeScript 并非 DSL，而是借助 Jison 编译为 JavaScript 的小型编程语言。
 
@@ -48,15 +57,19 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 鉴于上述两项缺陷 -- 即需要为 Web 客户端研究构建新型 DSL 工具，以及 Web 客户端解决方案需支持 DSL，<ins>我们的研究重点在于为 CSWA 实现并执行 XML-DSL 解决方案</ins>。
 
 ----
+
 ## 3 为客户端 Web 应用构建 XML-DSL 的方法
+
 在本节中，我们将详细介绍如何管理可在 CSWA 中直接解释和评估的 XML-DSL 解决方案。据此，本文将阐述与 *PsiEngine* （Programmable Solutions Interpreter Engine）相关的核心理念，以及如何在 Web 客户端中实现、评估该引擎，同时解释和执行代码。通过可运行示例，我们将阐述该方法涉及的若干核心概念：*PsiGrammar* 、*PsiLanguage* 以及 *PsiComponent* 。最后，我们将详细说明该方法所构建的编程模型，命名为 *PsiModel* ，以及为运用和测试该模型而开发的环境。
 
 ### 3.1 PsiEngine
+
 [Fig 1](#fig-1) 展示了我们的方法框架。<ins>核心思路是获取 *PsiCode*，其用最合适的 XML-DSL 编写，连同必要的 *Resources* 一同传入 *PsiEngine* 进行评估与解析。当 *PsiCode* 和 *Resources* 就绪后，*PsiEngine* 将其解析并转换为 JavaScript，这是通过解释其 DOM 并执行和 DOM 元素关联的 JavaScript 完成的</ins>。由此，我们获得解决 CSWA 特定问题的 *PsiObject* ，同时系统会报告相应的错误与警告信息以便后续处理。
 
 <ins>[Fig 1](#fig-1) 展示了该方法的核心组件：*PsiEngine* 。它完全基于 Web 客户端技术开发，融合了 HTML5、CSS3、JavaScript 和 DOM 技术，并结合了 Web 2.0 的技术、服务和工具。由此我们获得了一个完全在 Web 客户端运行的引擎，通过定义特定的 XML-DSL，该引擎能够构建 Web 组件、Web 控件及/或动态网页，为 CSW A 中提出的特定问题提供解决方案。</ins>
 
 #### Fig 1
+
 ![Fig 1](pic/xml-f1.png)
 
 *Fig 1: PsiEngine（Programmable Solutions Interpreter Engine）在 Web 客户端中执行 PsiCode*
@@ -92,6 +105,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 [Fig 2](#fig-2) (a) 中的 *PsiLSD* 展示了与 *PsiGrammer* 相关的语言结构的图形化表示。[Fig 2](#fig-2) (b) 则展示了 *PsiGVA* 及其用于验证标签属性 v<sub>V</sub> 的特定语法。*PsiLSD* 和 *PsiGVA* 极大地简化了 *PsiXML* 语法的设计与开发。
 
 #### Fig 2
+
 ![Fig 2](pic/xml-f2.png)
 
 *Fig 2: (a) PsiLanguage Structure Diagram；(b) PsiGrammar Validator Attributes*
@@ -107,6 +121,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 [Fig 3](#fig-3) 展示了语法 𝔾 中的标签与其在 C 中的相应类的关联。由于 *PsiLanguage* 中的一个标签可能用于定义语法结构的多个部分，因此可关联不同功能。同样地，一个类可以关联到不同标签。在 [Fig 3](#fig-3) (a) 中，我们看到 *PsiLSD* 如何将对应的 JavaScript 类名（ 即 (3) 中的 v<sub>C</sub> ∈ 𝛥<sub>i</sub> ）与其在 XML 语法中的相关标签名关联起来。*(译注：Fig 3 中没有看到 (a)，笔误？)*
 
 #### Fig 3
+
 ![Fig 3](pic/xml-f3.png)
 
 *Fig 3: 定义 PsiLanguage 的标签集与类集之间的关联图*
@@ -114,34 +129,39 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 [Template 1](#template-1) 展示了如何开发 *PsiComponent* 𝕂，其中实现了管理所需功能的类及其在 *PsiGrammar* 中的关联标签。
 
 #### Template 1
+
 ![Template 1](pic/xml-t1.png)
 
 需要注意的是，那些将 C 与 *PsiLanguage* 关联的类都继承自一个抽象类（来自 *PsiLanguage Definitions* 的 *PsiElement* ）。该抽象类实现了每个元素的抽象行为。具体而言，它与 XML 源代码中的每个 DOM 元素（即每个标签）绑定起来，管理语法结构，并执行属性与子元素的验证。此外，该抽象类能通过事件集（调用对应 JavaScript 函数）执行各组件的专属功能。同时，*PsiElement* 抽象类还原生管理两种语言：
+
 1. *PsiLanguage to Link Information（PsiLI）*，负责将 *Context* 或 *PsiData* 中存储的 XML/JSON 格式信息关联至对应类；
 2. *PsiLanguage Code Attribute（PsiCA）*，用于评估标签属性中的 “inline” 代码。此内联 (inline) 代码旨在通过关联信息设置属性值。
 
 由于这些语言已在 *PsiElement* 抽象类中实现，*PsiLI* 和 *PsiCA* 语言的使用可融入 *PsiLanguage* 的每个元素。这种方法能够原生地关联，外部 XML/JSON 信息资源与每个 *PsiLanguage* 的实现。通过将外部资源存储与 *PsiPrograms* 分离，资源可在组件、框架和 Web 应用间复用。一方面，*PsiLI* 允许 *PsiLanguage* 定义其与外部数据资源的关联；另一方面，*PsiCA* 提供了所需的语义，用于访问、使用和修改这些资源。这在创建 XML-DSL 时具有创新性，因为它能为任何 XML-DSL 提供异构的 XML/JSON 信息，而其他方法，如 XLink（XML Linking Language）则通过链接文档、图像和文件之至网络 (through to the web) ，来添加 XML 元素和资源。
 
-有关 *PsiEngine* 的更多细节详见 http://hilas.ii.uam.es/api 。该网站包含 *PsiXML* 的交互式类图、详细的 *PsiLanguages* 定义及其他编程元素。
+有关 *PsiEngine* 的更多细节详见 <http://hilas.ii.uam.es/api> 。该网站包含 *PsiXML* 的交互式类图、详细的 *PsiLanguages* 定义及其他编程元素。
 
 #### 3.1.2 运行示例：Anisha 案例研究
+
 为展示该方法在系统化定义的开发流程中的运作机制，首先我们将定义语法，随后详述相关功能如何与各语法元素关联，最后展示解释器如何执行每种语言的源代码。为此，我们将使用名为 *Anisha* 的运行示例。*Anisha* 融合了两种 *PsiLanguages*：*ShapesPsi* 与 *AnimaPsi*。*ShapesPsi* 支持创建基于 SVG 的圆形与矩形，而 *AnimaPsi* 则能操控 *ShapesPsi* 定义的图形元素进行移动与停止。
 
 ***ShapesPsi 语言***
 
-[Frag 1](#frag-1) 展示了用 *ShapesPsi* 语言编写的示例代码。在此代码中，我们可看到如何创建一个以点 (100, 100) 为圆心、标记为 “Circle”、半径为 30（所有单位均为像素）的红色圆形，以及一个以点 (250, 100) 为中心、标记为 “Rectangle”、宽度为 20、高度为 10 的蓝色矩形。运行效果可访问 http://hilas.ii.uam.es/Anisha/basic 查看。*(译注：下面的例子中，矩形的宽和高分别是 70 和 50，笔误？)*
+[Frag 1](#frag-1) 展示了用 *ShapesPsi* 语言编写的示例代码。在此代码中，我们可看到如何创建一个以点 (100, 100) 为圆心、标记为 “Circle”、半径为 30（所有单位均为像素）的红色圆形，以及一个以点 (250, 100) 为中心、标记为 “Rectangle”、宽度为 20、高度为 10 的蓝色矩形。运行效果可访问 <http://hilas.ii.uam.es/Anisha/basic> 查看。*(译注：下面的例子中，矩形的宽和高分别是 70 和 50，笔误？)*
 
 #### Frag 1
+
 ![Frag 1](pic/xml-frag1.png)
 
 如前所述，*ShapesPsi* 是一种遵循基于 XML 语法的 DSL，用于创建圆形和矩形。[Fig 4](#fig-4) (a) 展示了 *ShapesPsi* 语言的 *PsiLSD* ，其中根标签 *Shapes* 标志着程序的起始点。随后可定义必要的语法元素：圆形（多个 *Circle* 标签）和矩形（多个 *Rectangle* 标签）。
 
 #### Fig 4
+
 ![Fig 4](pic/xml-f4.png)
 
 *Fig 4: (a) ShapesPsi 语言的 PsiLSD (b) Shapes 组件的类图*
 
-[Fig 4](#fig-4) (b) 展示了 **Shapes** 组件的 UML 类图。**Shapes** 类定义了一组圆形和矩形。基类 *Base* 定义了通用图形，而 *Circle* 类在 SVG 画布上绘制带中心文本的圆形，*Rectangle* 类则绘制带中心文本的矩形。所有编码的圆形与矩形均存储于 *PSI Data* 中，以便其他程序和语言使用。建议读者访问 http://hilas.ii.uam.es/Anisha/api 查阅 **Shapes** 组件的详细实现。
+[Fig 4](#fig-4) (b) 展示了 **Shapes** 组件的 UML 类图。**Shapes** 类定义了一组圆形和矩形。基类 *Base* 定义了通用图形，而 *Circle* 类在 SVG 画布上绘制带中心文本的圆形，*Rectangle* 类则绘制带中心文本的矩形。所有编码的圆形与矩形均存储于 *PSI Data* 中，以便其他程序和语言使用。建议读者访问 <http://hilas.ii.uam.es/Anisha/api> 查阅 **Shapes** 组件的详细实现。
 
 因此，我们可以将 *ShapesPsi* 语法定义如下：
 
@@ -153,9 +173,10 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 
 标签根节点为 Shapes, 且 Δ<sub>ShapesPsi</sub> = { t<sub>i</sub> : 𝛥<sub>i</sub> │ t<sub>i</sub> ∈ 𝕋<sub>ShapesPsi</sub> }
 
-其实现遵循 [Frag 2](#frag-2) 中预先定义的模板。Shapes 标签包含一个名为 *name* 的必填属性，并包含 *Circle*和 *Rectangle* 标签。*Circle* 标签通过属性指定 *id*、圆心位置 *center* 、半径 *radius*（默认 10px）、标签 *lable* 及 CSS 样式 *style*。*Rectangle* 标签通过属性指定 *id*、起始点 *point* 、宽 *width* 和高 *height*（默认均为 10px ）、标签 *label* 及 CSS 样式 *style*。 [Frag 2](#frag-2) 展示了 𝕋 ↔ C 关联（如 (4) 所定义），即使用 [Template 1](#template-1)，将 *ShapesPsi* 语法中的标签与 *ShapesPsi* 语言的 *PsiComponent* 类建立关联。完整 JavaScript 代码可访问 http://hilas.ii.uam.es/js/psi/Anisha.js 查看。此外，*Anisha* 案例研究的源代码将请参看 http://github.com/echavarriaga/Anisha 。
+其实现遵循 [Frag 2](#frag-2) 中预先定义的模板。Shapes 标签包含一个名为 *name* 的必填属性，并包含 *Circle*和 *Rectangle* 标签。*Circle* 标签通过属性指定 *id*、圆心位置 *center* 、半径 *radius*（默认 10px）、标签 *lable* 及 CSS 样式 *style*。*Rectangle* 标签通过属性指定 *id*、起始点 *point* 、宽 *width* 和高 *height*（默认均为 10px ）、标签 *label* 及 CSS 样式 *style*。 [Frag 2](#frag-2) 展示了 𝕋 ↔ C 关联（如 (4) 所定义），即使用 [Template 1](#template-1)，将 *ShapesPsi* 语法中的标签与 *ShapesPsi* 语言的 *PsiComponent* 类建立关联。完整 JavaScript 代码可访问 <http://hilas.ii.uam.es/js/psi/Anisha.js> 查看。此外，*Anisha* 案例研究的源代码将请参看 <http://github.com/echavarriaga/Anisha> 。
 
 #### Frag 2
+
 ![Frag 2](pic/xml-frag2.png)
 
 在展示如何为 *Shapes* 组件实现 JavaScript 功能后，我们将演示如何使用 *PsiLI* 和 *PsiCA* 语言。为此，我们将详细说明如何为 *ShapesPsi* 指定两个新的可编程标签（Circle 和 Rectangle）。我们将利用两个信息源：XML 文档和 JavaScript 对象。
@@ -163,9 +184,11 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 以下是一个基于两个角色的简单游戏。首先，[Frag 3](#frag-3) 展示了如何从 XML 文件中提取角色 (character) 信息。其次，[Frag 4](#frag-4) 呈现了角色 (character) 的特征 (feature) 如何定义 *Context* 对象，以及 *PsiData* 如何加载并注册 XML 文件（[Frag 3](#frag-3) ）。
 
 #### Frag 3
+
 ![Frag 3](pic/xml-frag3.png)
 
 #### Frag 4
+
 ![Frag 4](pic/xml-frag4.png)
 
 [Frag 5](#frag-5)  展示了一个基于 *PsiLI* 和 *PsiCA* 语言的 *ShapesPsi* 程序。*Circle* 标签定义了 *data-document* 属性，其值采用 *PsiLI* 语言编写并由 *PsiXML* 解析。因此 *PsiData* 对象会查找 *id* 值等于 **p1** 的角色（jQuery 选择器 **Character[id=p1]** ），并将结果赋值给变量 *info*，该变量被添加至 *Circle* 类的实例中。此外，*data-context* 属性从标识为 **p1** 的 *Context* 对象中获取 *features* 属性值，并将该值赋给类实例的 *qt* 变量。值得注意的是，*data-context*（ *Context* 对象信息）和 *data-document*（*PsiData* 信息）属性均被记录 (recorded)，且在任何 *PsiLanguage* 中所有标签都原生支持这两种属性。
@@ -173,6 +196,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 此外，[Frag 5](#frag-5) 展示了*Circle* 标签的 *label* 属性，如何运用 *PsiCA* 语言从 *info* 获取信息。同理，*center* 和 *style* 属性也通过 *PsiCA* 语言从 *qt* 获取信息。
 
 #### Frag 5
+
 ![Frag 5](pic/xml-frag5.png)
 
 在此，我们再次强调其原生关联异构信息源（XML 或 JSON）与程序元素的能力，包括 *PsiLI* 和 *PsiCA*。绑定至该元素的类接收信息并根据需求进行处理。这丰富了编程体验，因为元素的属性可被转换为 Object 或 DOM 元素。
@@ -184,44 +208,50 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 根据 [Fig 5](#fig-5) (a)，*Animates* 根标签定义了一组图形运动，即多个 *Move* 标签。*Move* 标签定义了对图形的引用（ *key* 属性）、运动路径（ *path* 属性）、*path* 中的步数（ *steps* 属性）、运动时长（ *seconds* 属性）、初始等待时间（ *wait* 属性，默认值为 0 ）以及是否重复运动（ *repeat* 属性，默认值为 “no” ）。
 
 #### Fig 5
+
 ![Fig 5](pic/xml-f5.png)
 
 *Fig 5:  (a) AnimePsi 语言的 PsiLSD。(b) AnimePsi 语言的 PsiGVA。(c) Anime 组件的类图。*
 
-**Anime** 组件实现了与 *AnimePsi* 语言相关的功能，如 [Fig 5](#fig05) (c) 的类图所示。该组件包含两个类：*Animates* 和 *Move*，分别绑定至 *Animates* 和 *Move* 标签。*Animates* 类负责启动动画程序，而 *Move* 类则基于 SVG *path* 标签的定义，实现与 *Move* 标签绑定的运动。建议读者查阅 http://hilas.ii.uam.es/Anisha/api 中 *Shapes* 组件的详细实现方案。
+**Anime** 组件实现了与 *AnimePsi* 语言相关的功能，如 [Fig 5](#fig05) (c) 的类图所示。该组件包含两个类：*Animates* 和 *Move*，分别绑定至 *Animates* 和 *Move* 标签。*Animates* 类负责启动动画程序，而 *Move* 类则基于 SVG *path* 标签的定义，实现与 *Move* 标签绑定的运动。建议读者查阅 <http://hilas.ii.uam.es/Anisha/api> 中 *Shapes* 组件的详细实现方案。
 
-在 [Frag 6](#frag-6) 中，我们可以看到角色的移动，角色在前一个片段中定义。在评估这个 *AnimePsi* 程序时，“Luke” 接近 “Obi-Wan”，后者随即逃离。评估过程可见于 http://hilas.ii.uam.es/Anisha/runs。
+在 [Frag 6](#frag-6) 中，我们可以看到角色的移动，角色在前一个片段中定义。在评估这个 *AnimePsi* 程序时，“Luke” 接近 “Obi-Wan”，后者随即逃离。评估过程可见于 <http://hilas.ii.uam.es/Anisha/runs。>
 
 #### Frag 6
+
 ![Frag 6](pic/xml-frag6.png)
 
-*（译注：截图中第二个 Move 标签中，key 属性有错误，正确内容请考 http://github.com/echavarriaga/Anisha ）*
+*（译注：截图中第二个 Move 标签中，key 属性有错误，正确内容请考 <http://github.com/echavarriaga/Anisha> ）*
 
 *Anisha* 案例研究的主要目标在于展示 *PsiEngine* 的若干特性。首先，该示例验证了异构源信息（XML与JSON）的绑定能力，这一特性赋予 *PsiEngine* 中的 XML-DSL 高度灵活性。其次，*Anisha* 测试了多个 *PsiLanguage* 的共存能力，以及在快速信息交换与跨功能协作情况下，运行多个 *PsiProgram* 的能力。总体而言，*PsiEngine* 支持创建高度抽象化的简洁 XML-DSL，这些语言兼具可扩展性与可组合性。
 
 ### 3.2 Psi 编程模型及其轻量级环境
+
 目前，代码生成已成为软件工程的核心活动，尤其是模型驱动工程（MDE）<sup>[49](#49)</sup> 备受关注。在构建信息系统时，代码生成能显著节省时间、提升效率、提高质量并增强标准化程度 <sup>[44](#44)</sup>、<sup>[49](#49)</sup>。<ins>在此背景下，采用前述方法，为简化 *PsiLanguage* 𝕃 的创建，我们提出 *PsiModel*。*PsiModel* 支持定义 *PsiGrammar* 𝔾 、支持 *PsiComponent* 𝕂 的实现，及其他 JavaScript 组件（的实现）。</ins>
 
 *PsiModel* 通过代码后置 (code-behind) 技术将 *PsiLanguage* 规范与 *PsiComponent* 实现及其关联分离。为此，*PsiModel* 涉及如 [Fig 6](#fig-6) 所示的两种 *PsiLanguage* ，分别称做：
+
 - *MPsi Specification Language*：一种 *PsiLanguage*，用于指定编程元素，即可编程标签。
 - *MIPsi Implementation Language*：一种 *PsiLanguage*，用于实现通过 *MPsi* 语言指定的编程元素。
 
 #### Fig 6
+
 ![Fig 6](pic/xml-f6.png)
 
 *Fig 6: 用于生成 JavaScript 代码和文档的 PsiModel Schema*
 
-通过此方法，*MPsi* 与 *MIPsi* 分别实现了编程元素的定义与实现，包括：*Var*、*Object*、*Enum*、*Script*、*Class*（采用 <sup>[8](#8)</sup>、<sup>[58](#58)</sup> 中给出的类定义）、*Component*（采用 <sup>[8](#8)</sup>、<sup>[58](#58)</sup> 中给出的组件或模块定义）以及 *ComponentPsi*（定义并实现 *PsiGrammar* 与 *PsiComponent* 以生成 *PsiLanguage* ）。有关 *MPsi* 与 *MIPsi* 语言规范及实现的更多细节，请参阅 http://hilas.ii.uam.es/psimodel 。
+通过此方法，*MPsi* 与 *MIPsi* 分别实现了编程元素的定义与实现，包括：*Var*、*Object*、*Enum*、*Script*、*Class*（采用 <sup>[8](#8)</sup>、<sup>[58](#58)</sup> 中给出的类定义）、*Component*（采用 <sup>[8](#8)</sup>、<sup>[58](#58)</sup> 中给出的组件或模块定义）以及 *ComponentPsi*（定义并实现 *PsiGrammar* 与 *PsiComponent* 以生成 *PsiLanguage* ）。有关 *MPsi* 与 *MIPsi* 语言规范及实现的更多细节，请参阅 <http://hilas.ii.uam.es/psimodel> 。
 
 为在构建 *PsiLanguage* 时使用包含 *MPsi* 和 *MIPsi* 的 *PsiModel* ，我们实现了名为 *PsiEnvironment* 的轻量级开发环境。[Fig 7](#fig-7) 展示了通过 URL 访问的 *PsiEnvironment* 快照：
 
-(5) http://hilas.ii.uam.es/PsiXML/viewer.html?psifile=〈name〉
+(5) <http://hilas.ii.uam.es/PsiXML/viewer.html?psifile=〈name〉>
 
-其中 *〈name〉* 代表项目或组件名称。此外，每个项目或组件的源代码均可在 http://github.com/echavarriaga/PsiSource/ 获取。
+其中 *〈name〉* 代表项目或组件名称。此外，每个项目或组件的源代码均可在 <http://github.com/echavarriaga/PsiSource/> 获取。
 
 例如，[Fig 7](#fig-7) 展示了 *Anisha* 案例研究（ psifile=*Anisha* ）。“Specification” 选项卡包含 *MPsi* 定义，而 “Implementation” 选项卡则包含 *MIPsi* 实现。
 
 #### Fig 7
+
 ![Fig 7](pic/xml-f7.png)
 
 *Fig 7: 应用 PsiModel 的轻量级开发环境*
@@ -231,6 +261,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 *PsiEnvironment* 的另一项功能是为生成的 JavaScript 代码以及 *PsiModel* 语言，计算一套所对应的软件度量指标。这些指标包括：代码行数 <sup>[40](#40)</sup>（ SLOC、LLOC 和 CLOC ）、圈复杂度 <sup>[35](#35)</sup>、Halstead 度量 <sup>[20](#20)</sup> 及可维护性指数 <sup>[41](#41)</sup> 。为执行这些计算，我们采用了基于 NodeJS（ nodejs.org ）实现的 Excomplex <sup>[48](#48)</sup> 工具包。
 
 ### 3.3 最后总结
+
 在本节中，我们介绍了使用 *PsiEngine* 创建 XML-DSL 的方法，并将其命名为 *PsiLanguage*。通过 *Anisha* 运行示例，我们演示了 *PsiLanguage* 的创建过程及其与 *PsiEngine* 相关功能的结合。此外，我们还提出了 *PsiModel* ，一种编程模型及其对应的轻量级编程环境，旨在简化语言规范制定与 *PsiComponent* 的实现过程。*PsiComponent* 的设计与实现可概括为以下步骤：
 
 1. 创建 *PsiLSD* 并指定 *PsiGVA*。
@@ -241,11 +272,13 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 以下章节将重点介绍 *FeedPsi*，一款完全采用所提方法开发的 Web 应用程序。最后一节则致力于通过定性案例研究方法对 *PsiEngine* 进行验证。
 
 ## 4 FeedPsi Web 应用案例研究
+
 为验证我们的方法，本案例研究旨在展示如何运用 *PsiEngine* 对名为 *FeedPsi* 的 Web 应用进行规格定义与实现。简而言之，该 Web 应用旨在创建并部署动态网页，通过聚合多个网络源的内容构建一个新闻门户。这些内容源可采用两种最常见的格式：RSS <sup>[57](#57)</sup>、<sup>[22](#22)</sup> 与 Atom <sup>[56](#56)</sup>、<sup>[24](#24)</sup>，二者均基于 XML 编写。
 
 在本节中，我们将完整呈现从问题分析到实现的整个流程，并全程运用 *PsiEngine* 引擎。该流程始于如何构建 *FeedPsi Language* 并将其封装为 *PsiComponent* 组件，接下来评估 *PsiProgram*，最终生成动态网站。
 
 ### 4.1 分析与设计
+
 [Fig 8](#fig-8) 展示了 *FeedPsi* Web 应用程序的设计。该系统管理 RSS 订阅源，支持用户选择、显示、按类别存储及/或处理新闻内容。此外，图中呈现的 *FeedPsi* 语言，通过 *Feed Component* 实现，并在所示的 *PsiXML Interpreter* 上进行评估。*FeedPsi* 需管理：RSS 订阅源列表（含多个 RSS 标签）、分类列表（含多个 Category 标签）以及用户当前选定新闻列表（含单个 *MainNews* 标签）。读取 RSS 订阅源时，新闻标题将显示于悬浮子菜单（见 [Fig 8](#fig-8) ）。经标记后，新闻可显示或存储于任意分类以便后续阅读。*（译注：图中没有展现 PsiXML Interpreter ！）*
 
 所设计的 Web 应用程序无需服务器端编程，使得整个应用程序的部署能够直接在网页客户端完成，从而最大限度地降低服务器端的计算成本。
@@ -253,11 +286,13 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 为更清晰地阐释本方案的应用场景，下文将展示另一个采用该方法的案例研究 *FeedPsi*。该动态 Web 应用程序完全基于本方案开发而成。*(译注：这段文字有些突兀，估计是修改造成的）*
 
 #### Fig 8
+
 ![Fig 8](pic/xml-f8.png)
 
 *Fig 8: 基于 PsiLanguage ，通过 RSS 订阅聚合新闻的 Web 应用程序设计*
 
 ### 4.2 订阅源组件规范
+
 基于我们 DSL 方法实现的，用于管理和显示 RSS 订阅源的 Web 应用程序，首先需按前述说明制定对应的 *Feed Component* 规范。接下来我们将详细说明具体步骤。
 
 [Fig 9](#fig-9) 展示了 *FeedPsi* 语言的 *PsiLSD*，[Fig 9](#fig-9) (b) 则展示了其 *PsiGVA*。*SetOfNews* 标签是 *FeedPsi Program* （评估时）的根元素，包含 RSS 源列表（ *RSS* 标签）、分类列表（ *Category* 标签）以及当前显示的新闻（ *MainNews* 标签）。
@@ -265,34 +300,39 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 *RSS* 标签包含标识符、名称及 RSS 源的 URL。它能通过 AJAX 连接从 RSS 新闻服务获取数据。*Category* 标签按类别存储新闻列表，包含标识符和分类标题。*MainNews* 标签则包含当前呈现给用户的新闻列表。最后，*News* 标签包含从 RSS 源获取的新闻，具有唯一标识符，当其属于 *MainNews* 标签时将被显示。
 
 #### Fig 9
+
 ![Fig 9](pic/xml-f9.png)
 
 *Fig 9: (a) FeedPsi 语言的 PsiLSD 表示。(b) FeedPsi 语言的 PsiGVA 表示。(c) Feed 组件的类图。*
 
-[Fig 9](#fig-9) (c) 展示了 Feed Component 的类图。Feed Component 的详细实现可通过以下网址查看： http://hilas.ii.uam.es/FeedPsi/api ，其中包含类图和文档页签。Feed Component 的完整 JavaScript 代码可通过 http://hilas.ii.uam.es/js/psi/FeedPsi.js 访问。此外，源代码将在 http://github.com/echavarriaga/FeedPsi 中提供。
+[Fig 9](#fig-9) (c) 展示了 Feed Component 的类图。Feed Component 的详细实现可通过以下网址查看： <http://hilas.ii.uam.es/FeedPsi/api> ，其中包含类图和文档页签。Feed Component 的完整 JavaScript 代码可通过 <http://hilas.ii.uam.es/js/psi/FeedPsi.js> 访问。此外，源代码将在 <http://github.com/echavarriaga/FeedPsi> 中提供。
 
 在类图 [Fig 9](#fig-9) (c) 中，我们可以看到与新闻集合（ *SetOfNews* 类）相关联的功能，该集合支持添加和移除 RSS 源及分类。每个 RSS 源（ *RSS* 类）均具备通过关联 URL 发起 AJAX 调用以更新内容的能力，可创建新闻条目，并借助 *SetOfNews* 类生成新闻标题的子分类。
 
 此外，可通过 *PanelNews* 类管理（添加、删除或验证）分类（ *Category* 类）和当前显示的新闻（ *MainNews* 类）。*MainNews* 类已实现用于可视化展示从 RSS 源或不同分类中选取的新闻。同时，*News* 类定义具有唯一 ID 的新闻条目，并负责新闻的显示。*UserInterface* 类负责处理并呈现 *FeedPsi* 应用程序的用户界面。
 
 ### 4.3 运行 FeedPsi Web 应用程序
-为展示 *Feed Component* 如何与 *FeedPsi* 语言协同运行以实现 *FeedPsi* Web 应用程序（ http://hilas.ii.uam.es/FeedPsi ），我们将演示其如何处理以下期刊 (periodicals) 的 RSS 源：*Bild、Mirror、AS、La Gazzeta、L’Equipe y El Tiempo*（ 见 [Fig 10](#fig-10) ）。
+
+为展示 *Feed Component* 如何与 *FeedPsi* 语言协同运行以实现 *FeedPsi* Web 应用程序（ <http://hilas.ii.uam.es/FeedPsi> ），我们将演示其如何处理以下期刊 (periodicals) 的 RSS 源：*Bild、Mirror、AS、La Gazzeta、L’Equipe y El Tiempo*（ 见 [Fig 10](#fig-10) ）。
 
 因此，[Frag 7](#frag-7) 展示了实现 *FeedPsi* Web 应用程序（新闻聚合器）的 *FeedPsi* 源代码。
 
 #### Frag 7
+
 ![Frag 7](pic/xml-frag7.png)
 
-[Fig 10](#fig10) 展示了 *PsiXML* 处理源代码后生成的 Web 应用程序。在 http://hilas.ii.uam.es/FeedPsi/index.html?list=〈name〉 中，可评估其他 *FeedPsi* 程序，其中〈name〉可选取 *science、spain、sport-es、technology* 和 *journal* 等类别。
+[Fig 10](#fig10) 展示了 *PsiXML* 处理源代码后生成的 Web 应用程序。在 <http://hilas.ii.uam.es/FeedPsi/index.html?list=〈name〉> 中，可评估其他 *FeedPsi* 程序，其中〈name〉可选取 *science、spain、sport-es、technology* 和 *journal* 等类别。
 
 最后需说明，本案例研究的目的并非部署完全调试完毕的 Web 应用程序，而是更清晰地展示如何运用 *PsiComponent、PsiLanguage* 及 *PsiXML* 概念构建 Web 应用程序。
 
 #### Fig 10
+
 ![Fig 10](pic/xml-f10.png)
 
 *Fig 10: FeedPsi Web 应用程序*
 
 ## 5 结果与验证
+
 为验证 *PsiEngine*，我们遵循了 <sup>[59](#59)</sup> 中提出的定性案例研究方法论，并适配于软件工程领域 <sup>[2](#2)</sup>。根据该方法论，将一个 Web 客户端的案例研究，转换为一种或多种 *PsiLanguage* ，进而创建采用这些语言编写的程序集，这些语言具备必要的资源去解决特定问题。成果可能包括：新型组件、控件或 Web 应用程序等。
 
 文献 <sup>[59](#59)</sup> 中描述的多案例方法可验证研究目标的相关方面。这些目标被表述为待验证的一组标准，通过覆盖整体标准不同部分的案例研究实现验证。所有案例应涵盖全部标准，且单一标准可通过多个案例研究进行验证。总体而言，多案例方法论产生的证据具有稳健可靠性，但其实施过程可能耗费较大量时间且执行要求极高 <sup>[2](#2)</sup>。本案例旨在验证 *PsiEngine* 与 *PsiModel* ，故验证标准清单如下：
@@ -315,9 +355,11 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 下一节将总结并分析 *PsiEngine* 及其解释器获得的若干软件度量指标。*PsiXML* 结合 *Anisha* 案例研究与 *PsiModel* 将共同验证上述标准体系。由于 *PsiEnvironment* 基于 *PsiLanguages* 构建，故将其作为额外案例进行深入探讨。
 
 ### 5.1 PsiEngine：实现验证
+
 *PsiEngine* 本身及其核心组件，*PsiXML*，同样使用 *PsiEnvironment* 进行定义与实现（具体项目细节请参见使用示例：(5) 中的 “psifile=PsiEngine” ）。[Table 1](#table-1) 汇总了 *PsiEngine* 项目文件。其中包含 7 个用 *PsiModel* 语言编写的文件，*PsiLanguage* 代码最多达 1,498 行，最终在 *PsiEngine.js* 文件中生成总计 2,027 行的 JavaScript 代码。这意味着其简洁度比率 (conciseness ratio) 为 1.4。
 
 #### Table 1
+
 ![Table 1](pic/xml-tab1.png)
 
 *Table 1:  PsiEngine 项目组件汇总*
@@ -325,6 +367,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 [Fig 11](#fig-11) 展示了 *PsiEnvironment* 自动生成的 *PsiEngine* 指标快照。需要补充说明的是：项目中函数/方法的平均圈复杂度 CNN 处于 “简单功能” 区间（ CNN<10，依据 <sup>[35](#35)</sup> 标准 ），可维护性指数 MI 达标（ MI>85，依据 <sup>[41](#41)</sup> 标准 ），注释行数 CLOC 处于中等水平（ 16.1% ）。此外，实现或理解程序所需的时间约为 40 天（ 根据 Halstead 时间 <sup>[20](#20)</sup> 为 319.5 小时 ）。
 
 #### Fig 11
+
 ![Fig 11](pic/xml-f11.png)
 
 *Fig 11: PsiEnvironment 提供的 PsiEngine 指标摘要*
@@ -332,14 +375,17 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 [Fig 12](#fig-12) 展示了使用 *PsiEnvironment* 生成的 *PsiEngine* 部分编程元素的软件度量快照。深入分析结果可知，*PsiXML* 中的抽象类 *PsiElement* 是 *PsiEngine* 编程元素中最复杂的。这一结果在意料之中，因为它是 *PsiLanguages* 的基石，具备同时处理 *PsiLI* 和 *PsiCA* 语言的能力。CNN 的功能性处于平均水平。尽管其 MI 表现良好，但该值却是最低的。*PsiElement* 是实现难度最大的类，其误差估计 (error estimate) 值已超出建议上限，表明需要对该类进行修订。总体而言，*PsiEngine* 在圈复杂度和误差估计方面均呈现平均数值，两项指标均在可接受范围内，这验证了 F1 实现效果的有效性。
 
 #### Fig 12
+
 ![Fig 12](pic/xml-f12.png)
 
 *Fig 12: PsiEnvironment 生成的 PsiEngine 编程元素的软件度量快照*
 
 ### 5.2 案例研究结果
+
 [Table 2](#table-2) 详细列出了 *PsiEnvironment* 针对 *Anisha*、*FeedPsi* 和 *PsiModel* 案例研究，计算的数据。该表可分为两个明显部分：*PsiModel* 及其对应生成的 JavaScript 代码。通过使用 URL（5）并将\<name\>替换为案例研究名称，可查看 *PsiModel* 代码、UML 类图和 *PsiLSD* 图，甚至能生成用于分析对应软件度量指标的 JavaScript 代码。值得强调的是，*PsiModel* 本身即作为案例研究存在，其自动生成是为了在 *PsiEnvironment* 中被使用。
 
 #### Table 2
+
 ![Table 2](pic/xml-tab2.png)
 
 *Table 2: PsiEngine 案例研究列表*
@@ -349,13 +395,15 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 [Fig 13](#fig-13) 总结了针对 *Anisha*、*FeedPsi* 案例研究及 *PsiModel* 组件计算的指标结果。三者平均圈复杂度 CNN 均较低（ CNN<10 ），表明其功能较为简单。由于复杂度和功能性差异，实现或理解 *PsiModel* 所需的 Halstead Time HT 显著高于其他案例。其程序时长（ 11,703 HN ）与词汇量（ 594 Hn）均是 *Anisha* 和 *FeedPsi* 案例研究平均长度合词汇量的六倍。平均估计误差 HB 值低于推荐限值（ <2 ），仅 *PsiModel* 的 *StructureElement* 类超出该限值（ 2.1 HB ）。
 
 #### Fig 13
+
 ![Fig 13](pic/xml-f13.png)
 
 *Fig 13: Anisha 与 FeedPsi 案例研究及 PsiModel 组件的指标汇总*
 
-最后，[Fig 14](#fig-14) 展示了 *Anisha*、*FeedPsi* 和 *PsiModel* 案例研究的可维护性指数 MI，以及这些案例所用组件和框架的 MI 值。可以看出，所有组件和框架均具有良好的可维护性（ >85 ）。基于 *PsiModel* 开发的组件，如 *PsiEngine* 和 *FeedPsi* ，与 CKEditor、Codemirror、Highcharts 等知名框架处于同等水平。不同框架（CKEditor、Codemirror、Highcharts 和 jQuery）的 MI 指标计算均采用 JSComplexity 工具（ http://jscomplexity.org ）完成。
+最后，[Fig 14](#fig-14) 展示了 *Anisha*、*FeedPsi* 和 *PsiModel* 案例研究的可维护性指数 MI，以及这些案例所用组件和框架的 MI 值。可以看出，所有组件和框架均具有良好的可维护性（ >85 ）。基于 *PsiModel* 开发的组件，如 *PsiEngine* 和 *FeedPsi* ，与 CKEditor、Codemirror、Highcharts 等知名框架处于同等水平。不同框架（CKEditor、Codemirror、Highcharts 和 jQuery）的 MI 指标计算均采用 JSComplexity 工具（ <http://jscomplexity.org> ）完成。
 
 #### Fig 14
+
 ![Fig 14](pic/xml-f14.png)
 
 *Fig 14: Anisha、FeedPsi 与 PsiModel 案例研究，以及所用组件与框架的 MI*
@@ -363,11 +411,13 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 综上所述，案例研究与 *PsiModel* 均达到了文献中规定的软件度量指标推荐值。此外，通过这些案例研究和 *PsiModel*，我们验证了功能 F6 和 F7。
 
 ### 5.3 结果分析
-*Anisha* 案例研究从两个维度验证了 *PsiPrograms* 的执行（ F2 ）：(P) 多重-简单（一种 PsiLanguage 编写的多个程序）；(M)多重-多重（使用不同 PsiLanguage 言编写的多个程序）。针对 (P) 场景，我们编写了四个 *ShapesPsi* 程序，每个程序分别绘制圆形或方形（ http://hilas.ii.uam.es/Anisha/ms ）。针对 (M) 场景，我们使用前述四个程序并结合四个新增的 *AnimePsi* 程序。最终在网页客户端呈现图形竞速 (figures race) 效果（ http://hilas.ii.uam.es/Anisha/mm ）。此外，*Anisha* 还通过 *PsiLI* 语言验证了 *异构信息关联* XML 与 JSON（ F3 ），详见第 [3.3](#33-最后总结) 节。由于 *ShapesPsi* 与 *AnimePsi* 程序间实现了对象与信息共享，（ F4 ）亦得到验证。
+
+*Anisha* 案例研究从两个维度验证了 *PsiPrograms* 的执行（ F2 ）：(P) 多重-简单（一种 PsiLanguage 编写的多个程序）；(M)多重-多重（使用不同 PsiLanguage 言编写的多个程序）。针对 (P) 场景，我们编写了四个 *ShapesPsi* 程序，每个程序分别绘制圆形或方形（ <http://hilas.ii.uam.es/Anisha/ms> ）。针对 (M) 场景，我们使用前述四个程序并结合四个新增的 *AnimePsi* 程序。最终在网页客户端呈现图形竞速 (figures race) 效果（ <http://hilas.ii.uam.es/Anisha/mm> ）。此外，*Anisha* 还通过 *PsiLI* 语言验证了 *异构信息关联* XML 与 JSON（ F3 ），详见第 [3.3](#33-最后总结) 节。由于 *ShapesPsi* 与 *AnimePsi* 程序间实现了对象与信息共享，（ F4 ）亦得到验证。
 
 其他方面，通过 *Feeds* 网站，案例研究 *FeedPsi* 验证了：简单-简单（单个 PsiLanguage 程序）*PsiProgram* 的执行（ F2，类型 S ）以及基于 *PsiProgram* 的 Web 应用程序动态生成（ F5 ）。此外，它允许将动态信息与 RSS（ F3，类型 X ）关联，该应用程序完全独立于服务器运行。[Table 3](#table-3) 汇总了 *FeedPsi* 应用所需的代码行数。总计 1,151 行代码包含静态代码（ 66% ）HTML、CSS、XSL、XML及 JS 源代码（不含 *PsiEngine* 和 jQuery 代码行），以及 44% 由 *PsiModel* 生成的代码。需特别强调的是，*FeedPsi* 程序的简洁度比率约为 52。这意味着 FeedPsi 程序更接近配置文件而非传统程序。作为创新案例研究，*FeedPsi* 代表了通过高级 XML-DSL 构建网站应用程序的新范式。
 
 #### Table 3
+
 ![Table 3](pic/xml-tab3.png)
 
 *Table 3: FeedPsi 源代码行数汇总*
@@ -375,6 +425,7 @@ Enrique Chavarriaga, Francisco Jurado, Fernando Díez
 最后，*PsiModel* 组件持续验证 *PsiEngine* 和解释器，（验证）标准集合（ F1、F2、F3、F4 和F5 ）。
 
 ### 5.4 验证总结
+
 [Table 4](#table-4) 总结了 *PsiEngine* 标准集的验证情况。F1 标准已通过三重验证：软件度量指标验证、*Anisha* 验证，以及通过*FeedPsi* 案例研究和 *PsiModel* 组件对其行为验证。
 
 F6 与 F7 验证需借助 *PsiModel* 及其关联的 *PsiEnvironment* 。为此我们开发了 JavaScript 组件（ C=3 ）和 *PsiComponents* 组件（ P=5 ）。
@@ -384,11 +435,13 @@ F6 与 F7 验证需借助 *PsiModel* 及其关联的 *PsiEnvironment* 。为此�
 综上所述，借助文献 <sup>[59](#59)</sup> 提出的定性多案例研究方法（经文献 <sup>[2](#2)</sup>  适配）及 [Table 4](#table-4) 所示的标准验证总结，我们成功验证了 *PsiEngine* 与 *PsiModel* 的核心目标。
 
 #### Table 4
+
 ![Table 4](pic/xml-tab4.png)
 
 *Table 4: PsiEngine 与 PsiModel 标准清单及验证总结*
 
 ## 6 结论
+
 领域特定语言（DSL）通过提供抽象层，能够同时提升软件工程师与领域专家的生产力，从而加速软件应用的开发进程。构建 DSL 解决方案需要借助工具来实现解释器和编译器。然而正如我们所展示的，目前鲜有方法能够构建 Web 客户端 DSL 替代方案。
 
 为解决此问题，除本文外，我们还正式提出并验证了 *Programmable Solutions Interpreter*（Psi），这是我们为 CSWA 开发的基于 XML-DSL 解决方案的方法，包含评估引擎、编程模型及轻量级开发环境。因此，我们详细阐述了 *PsiEngine* 并描述了其核心组件：*PsiXML*。*PsiEngine* 融合了 HTML5、CSS3、JavaScript 与 DOM 语言，结合 Web 2.0技术、服务及工具，并定义了一种名为 *PsiLanguages* 的 XML-DSL 。这种组合使 *PsiEngine* 能够构建 Web 组件、Web 控件和/或动态网页，为 Web 应用中的特定问题提供解决方案。而 *PsiXML* 作为解释器，能够评估用 XML-DSL 编写的程序，为 CSWA 中的特定领域问题提供解决方案。
@@ -404,314 +457,378 @@ F6 与 F7 验证需借助 *PsiModel* 及其关联的 *PsiEnvironment* 。为此�
 未来工作方向包括：构建一套 *PsiLanguages*，用于从 CSWA 序列化的 DSVL 构建图形化模型。该工具集具备以下能力：基于异构 XML/JSON 数据源自动生成图表，并在图表与数据源间实现信息同步。
 
 ----
+
 ## 致谢
-本研究由 B2T-Concept 公司（ http://www.b2tconcept.com/ ）的 DSVL-B2T 研发部门提供部分支持。
+
+本研究由 B2T-Concept 公司（ <http://www.b2tconcept.com/> ）的 DSVL-B2T 研发部门提供部分支持。
 
 ----
+
 ## 参考文献
+
 #### 1
+
 Anderson, P.</br>
 Web 2.0 and Beyond: Principles and Technologies.</br>
 London: Chapman and Hall/CRC, 2012.
 
 #### 2
+
 Baxter P, Jack S.</br>
 Qualitative Case Study Methodology: Study Design and Implementation for Novice Researchers.</br>
 The Qualitative Report;2008:13-4.
 
 #### 3
+
 Betinni L.</br>
 Implementing Domain-Specific Languages with Xtext and Xtend.<br>
 Birmingham: Packt Publishing Ltd; 2013, p. 1-11.
 
 #### 4
+
 Brown D, Levine J, Mason T.</br>
 Lex & Yacc. 2nd ed.</br>
 New York: O'Reilly Media, Inc; 1992.
 
 #### 5
+
 Bravenboer M, Trygve K, Vermaas R, Visser E.</br>
 Stratego/XT: A language and toolset for program transformation.</br>
 Science of Computer Programming. 2008; 72(1–2), p.52-70.</br>
-http://dx.doi.org/10.1016/j.scico.2007.11.003.
+<http://dx.doi.org/10.1016/j.scico.2007.11.003>.
 
 #### 6
+
 Carter Z.</br>
 JS sequence diagrams.</br>
-http://jison.org;</br>
+<http://jison.org>;</br>
 2009 [accessed 30.10.16].
 
 #### 7
+
 Cook S, Jones G, Kent S, James D.</br>
 Domain-Specific Development with Visual Studio DSL Tools.</br>
 Denver: Addison-Wesley Professional; 2007, p. 1-23.
 
 #### 8
+
 Crockford D.</br>
 JavaScript: The Good Parts.</br>
 Sebastopol: O'Reilly Media, Inc; 2008, ch. 5.
 
 #### 9
+
 Czarnecki K, Eisenecker U.</br>
 Generative Programming: Methods, Tools and Applications.</br>
 Denver: Addison-Wesley; 2000.
 
 #### 10
+
 Da Silva AR.</br>
 Model-driven engineering: a survey supported by a unified conceptual model.</br>
 Computer Languages, Systems & Structures.</br>
 2015; 43, p.139-155.
 
 #### 11
+
 Dearle F.</br>
 Groovy for Domain-Specific Languages. Birmingham:</br>
 Packt Publishing Ltd; 2010, ch. 1.
 
 #### 12
+
 Erdweg S, Giarrusso PG, Rendel T.</br>
 Language composition untangled.</br>
 Proceedings of the 12th Workshop on Language Descriptions, Tools, and Applications, LDTA 2012.
 
 #### 13
+
 Fawcett J, Quin L, Ayers D.</br>
 Beginning XML. 5th ed.</br>
 Wrox Press; 2012.
 
 #### 14
+
 Fanagan D, Matsumoto Y.</br>
 The Ruby Programming Language.</br>
 Sebastopol: O’reilly Media, Inc.; 2005, ch. 8.
 
 #### 15
+
 Firmenich S, Rossi G, Winckler M, Palanque P.</br>
 An approach for supporting distributed user interface orchestration.</br>
 International Journal of Human-Computer Studies, 2014;72:1: p. 53- 76.
 
 #### 16
+
 Fowler, M.</br>
 Domain Specific Languages.</br>
 Denver: Addison-Wesley Professional; 2010, p. 21-27.
 
 #### 17
+
 Ghosh, D.</br>
 DSLs in Action.</br>
 Greenwich: Manning Publications, 2010, p. 9-15.
 
 #### 18
+
 Greenfield J, Short K.</br>
 Software Factories: Assembling Applications with Patterns, Models, Frameworks, and Tools.</br>
 New Jersey: Wiley Publishing; 2004.
 
 #### 19
+
 Gronback RC.</br>
 Eclipse Modeling Project: A Domain-Specific Language (DSL) Toolkit.</br>
 Denver: Addison-Wesley Professional; 2009.
 
 #### 20
+
 Halstead M.</br>
 Elements of Software Science.</br>
 New York: The Computer Science Library; 1977.
 
 #### 21
+
 Herzberg D et al.</br>
 Specifying computer-based counseling systems in health care: A new approach to user-interface and interaction design.</br>
 Journal of Biomedical Informatics. 2009; 42:2: p. 347-355.
 
 #### 22
+
 Holzner S.</br>
 Secrets of RSS.</br>
 Berkeley: Peachpit Press.; 2006, ch. 3.
 
 #### 23
+
 Hudak P.</br>
 Building domain-specific embedded languages.</br>
 ACM Comput. 1996;196:4.
 
 #### 24
+
 Johnson D.</br>
 RSS and Atom in Action: Web 2.0 Building Blocks.</br>
 Greenwich: Manning Publications Co.; 2006, p. 70-77.
 
 #### 25
+
 Kelker R.</br>
 Clojure for Domain-specific Languages.</br>
 Birmingham: Packt Publishing Ltd.; 2013, ch. 1.
 
 #### 26
+
 Kern C.</br>
 Securing the tangled web.</br>
 Communication ACM 2014;57:9: p. 38-47.
 
 #### 27
+
 Kats L, Kalleberg K, Visser E.</br>
 Domain-Specific Languages for Composable Editor Plugins.</br>
 Elsevier: Proceedings of the Ninth Workshop on Language Descriptions, Tools, and Applications (LDTA'09),</br>
 Electronic Notes in Theoretical Computer Science 2009;253:7, p. 149-163.
 
 #### 28
+
 Kelly S, Tolvanen J.</br>
 Domain-Specific Modeling: Enabling Full Code Generation.</br>
 Wiley-IEEE Computer Society Press 2008.
 
 #### 29
+
 Kniesel G, Winter V, Siy H, Zand M.</br>
 Making aspect-orientation accessible through syntax-based language composition.</br>
 IEEE: IET Software 2009;3:1, p. 1-13.
 
 #### 30
+
 Kourie, D.G., Fick, D. & Watson, B.W. (2008).</br>
 Virtual machine framework for constructing domain-specific languages.</br>
 IET Software. IEEE, 3, 3, 219-237.
 
 #### 31
+
 Kosar T, et al.</br>
 Comparing general-purpose and domain-specific languages: An empirical study.</br>
 Computer Science and Information Systems 2010;7:2, p. 247–264.
 
 #### 32
+
 Kosar T, Bohra S, Mernik M.</br>
 Domain-Specific Languages: A Systematic Mapping Study.</br>
 Information and Software Technology 2016;71, p. 77-91.
 
 #### 33
+
 Lee P.</br>
 CoffeeScript in Action.</br>
 Greenwich: Manning Publications Co.; 2014, ch. 1.
 
 #### 34
+
 Levine J.</br>
 Flex & Bison.</br>
 Sebastopol: O'Reilly Media, Inc.; 2009.
 
 #### 35
+
 McCabe T.</br>
 A Complexity Measure.</br>
 IEEE Transactions on Software Engineering 1976;SE- 2:4, p.308-320.
 
 #### 36
+
 McDaniel A.</br>
 HTML5: Your visual blueprint<sup>TM</sup> for designing rich web pages and applications.</br>
 Indianapolis: Jhon Wiley & Sons, Inc.; 2011, ch. 3-8.
 
 #### 37
+
 McGuire P.</br>
 Getting Started with Pyparsing.</br>
 Sebastopol: O'Reilly Media, Inc.; 2007.
 
 #### 38
+
 Mernik M, Heering J, Sloane AM.</br>
 When and how to develop domain-specific languages.</br>
 ACM Comput. Surv. 2005;37:4, p. 316–344.
 
 #### 39
+
 Mernik M, Lenic M, Avdičaušević E, Zumer V.</br>
 LISA: An Interactive Environment for Programming Language Development.</br>
 Springer Berlin Heidelberg, Lecture Notes in Computer Science 2002;2304, p. 1-4.
 
 #### 40
+
 Nguyen V, Deeds-Rubin S, Tan T, Boehm B.</br>
 A SLOC Counting Standard.</br>
 University of Southern California, Center for Systems and Software Engineering,</br>
-http://sunset.usc.edu/csse/TECHRPTS/2007/usc-csse-2007-737/usc-csse-2007-737.pdf;</br>
+<http://sunset.usc.edu/csse/TECHRPTS/2007/usc-csse-2007-737/usc-csse-2007-737.pdf>;</br>
 2007 [accessed 13.06.16].
 
 #### 41
+
 Oman PW, Hagemeister J, Ash D.</br>
 A Definition and Taxonomy for Software Maintainability.</br>
 Moscow: Technical Report, University of Idaho, Software Engineering Test Laboratory; 1991.
 
 #### 42
+
 Parr T.</br>
 The Definitive ANTLR 4 Reference. 2nd ed.</br>
 Raleigh: Pragmatic Bookshelf; 2013, part 1.
 
 #### 43
+
 Pereira MJ, Fonseca J, Henriques PR.</br>
 Ontological approach for DSL development.</br>
 Computer Languages, Systems & Structures. 2016; 45:1, p.35-52.
 
 #### 44
+
 Prout A, Atlee JM, Day NA, Shaker P.</br>
 Code generation for a family of executable modelling notations.</br>
 Software and Systems Modeling; 2012;11:2, p. 251-272.
 
 #### 45
+
 Rahien A.</br>
 DSLs in Boo: Domain-Specific Languages in .NET.</br>
 Greenwich: Manning Publications Co.; 2010, ch. 3-4.
 
 #### 46
+
 Sajja PS, Akerkar R.</br>
 Intelligent Technologies for Web Applications.</br>
 Minneapolis: CRC Press; 2012, ch. 1.
 
 #### 47
+
 Serrano, A.</br>
 Beginning Haskell A Project-Based Approach.</br>
 New York: Apress; 2014, part 4.
 
 #### 48
+
 Stilwell J.</br>
 npm: Escomplex, v 1.3.</br>
-https://www.npmjs.com/package/escomplex;</br>
+<https://www.npmjs.com/package/escomplex>;</br>
 2014 [accessed 15.07.16].
 
 #### 49
+
 Schmidt DC.</br>
 Model-driven engineering.</br>
 Computer-IEEE Computer Society 2006;39:2:25.
 
 #### 50
+
 Shim H, Kang B, Kwag K.</br>
 Web2Animation - Automatic Generation of 3D Animation from the Web Text.</br>
 IEEE/WIC/ACM: Proceedings of the 2009 International Joint Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT '09).
 
 #### 51
+
 Spinellis D.</br>
 Notable design patterns for domain-specific languages.</br>
 Journal of Systems and Software 2001;56:1, p. 91-99.
 
 #### 52
+
 Voelter M, et al.</br>
 DSL Engineering: Designing, Implementing and Using Domain-Specific Languages.</br>
 Dslbook.org; 2013, p. 23-38.
 
 #### 53
+
 Document Object Model (DOM) Level 3 Core Specification,</br>
-http://www.w3.org/TR /2004/REC-DOM-Level-3-Core-20040407/;</br>
+<http://www.w3.org/TR> /2004/REC-DOM-Level-3-Core-20040407/;</br>
 2004 [accessed 30.06.16].
 
 #### 54
+
 Web Design and Applications,</br>
-http://www.w3.org/standards/webdesign/;</br>
+<http://www.w3.org/standards/webdesign/>;</br>
 2014 [accessed 28.06.16].
 
 #### 55
+
 XML Technology,</br>
-http://www.w3.org/standards/xml/;</br>
+<http://www.w3.org/standards/xml/>;</br>
 2014 [accessed 27.06.16].
 
 #### 56
+
 Wittenbrink H.</br>
 RSS and Atom.</br>
 Birmingham: Packt Publishing; 2005, ch. 4.
 
 #### 57
+
 Woodman M.</br>
 How to Build an RSS 2.0 Feed.</br>
 Sebastopol: O'Reilly Media, Inc.; 2006.
 
 #### 58
+
 White A.</br>
 JavaScript Programmer’s Reference.</br>
 Indianapolis: Wiley Publishing, Inc.; 2009, ch. 10.
 
 #### 59
+
 Yin RK.</br>
 Case Study Research: Design and Methods. 5st ed.</br>
 London: Sage Publications, Inc.; 2014.
 
 #### 60
+
 Yue C, Wang H.</br>
 A measurement study of insecure javascript practices on the web.</br>
 ACM Transaction Web 2013;7:2, p. 1-39.

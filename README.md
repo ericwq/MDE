@@ -2,10 +2,10 @@
 
 ## 相关论文
 
-- [一种为客户端 Web 应用构建基于 XML 的 DSL 解决方案的方法](xml-dsl-for-web.md)
-- [一种为 Web 应用构建基于 JSON 的 DSL 解决方案的方法](json-dsl-for-web.md)
-- [领域专用语言开发工具的系统性映射研究](sms3.md)
-- [模型驱动工程](./mde2006.md)
+- [一种为客户端 Web 应用构建基于 XML 的 DSL 解决方案的方法](./MDSE/xml-dsl-for-web.md)
+- [一种为 Web 应用构建基于 JSON 的 DSL 解决方案的方法](./MDSE/json-dsl-for-web.md)
+- [领域专用语言开发工具的系统性映射研究](./MDSE/sms3.md)
+- [模型驱动工程](./MDSE/mde2006.md)
 - [AgentOnto：本体引导的面向企业数据分析的 LLM Agent](ontology/agentonto.md) (KDD '27)
 
 ## 相关书籍
@@ -94,7 +94,7 @@
 下面是 来自互联网的关于 AI 及编程智能体的文章：
 
 - [我不喜欢 LLM](./tools/2026-dont-like-llms.md) (2026/9/17) Martin Fowler
-- ❄ [模块化单体](./modular-monolith.md) (系列文章：2019~2020) Kamil Grzybek
+- ❄ [模块化单体](./MDSE/modular-monolith.md) (系列文章：2019~2020) Kamil Grzybek
 - [FastAPI 中的整洁架构与领域驱动设计（DDD）](./tools/clean-architecture-and-ddd-in-fastapi.md) (2026/6/14) Berkay Sonel
 - [开放与封闭：前沿模型的追逐](./tools/open-ai-models.md) (2026/5/15) Stephen O'Grady
 - [我当前的本地智能体开发设置](./tools/my-local-agentic-dev-setup-today.md) (系列文章：2026/4/29)  Willem van den Ende
